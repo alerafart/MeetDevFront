@@ -1,5 +1,5 @@
 import './header.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
@@ -8,11 +8,11 @@ function Header() {
         Meet Dev
       </div>
       <ul className="header_menu">
-        <li className="header_menu-item"><Link to="/">Accueil</Link></li>
-        <li className="header_menu-item"><Link to="/Profil">Profil</Link></li>
-        <li className="header_menu-item"><Link to="/recherche">Recherche</Link></li>
-        <li className="header_menu-item"><Link to="/favoris">Favoris</Link></li>
-        <li className="header_menu-item"><Link to="/inscription">Inscription</Link></li>
+        <li className="header_menu-item"><NavLink to="/">Accueil</NavLink></li>
+        <li className="header_menu-item"><NavLink to="/dashboard">Profil</NavLink></li>
+        <li className="header_menu-item"><NavLink to="/recherche">Recherche</NavLink></li>
+        <li className="header_menu-item"><NavLink to="/favoris">Favoris</NavLink></li>
+        <li className="header_menu-item"><NavLink to="/inscription">Inscription</NavLink></li>
       </ul>
       <button
         type="button"

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import './styles/index.scss';
 import MeetDev from './components/MeetDev';
 import reportWebVitals from './reportWebVitals';
@@ -7,7 +9,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MeetDev />
+    <Router>
+      <MeetDev />
+    </Router>
   </React.StrictMode>,
 );
 

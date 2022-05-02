@@ -5,6 +5,14 @@ import Header from '../Header';
 import Home from '../Home';
 import Footer from '../Footer';
 import Error from '../Error';
+import Inscription from '../Inscription';
+import Connexion from '../Connexion';
+import Search from '../Search';
+import Favoris from '../Favoris';
+import Dashboard from '../Dashboard';
+import Contact from '../Contact';
+import MentionsLegales from '../MentionsLegales';
+import EnSavoirPlus from '../EnSavoirPlus';
 
 function MeetDev() {
   return (
@@ -16,6 +24,54 @@ function MeetDev() {
           element={
             <Home />
           }
+        />
+        <Route
+          path="/inscription"
+          element={(
+            <Inscription />
+          )}
+        />
+        <Route
+          path="/connexion"
+          element={(
+            <Connexion />
+          )}
+        />
+        <Route
+          path="/recherche"
+          element={(
+            <Search />
+          )}
+        />
+        <Route
+          path="/favoris"
+          element={(
+            <Favoris />
+          )}
+        />
+        <Route
+          path="/dashboard"
+          element={(
+            <Dashboard />
+          )}
+        />
+        <Route
+          path="/contact"
+          element={(
+            <Contact />
+          )}
+        />
+        <Route
+          path="/en-savoir-plus"
+          element={(
+            <EnSavoirPlus />
+          )}
+        />
+        <Route
+          path="/mentions-legales"
+          element={(
+            <MentionsLegales />
+          )}
         />
         <Route
           path="*"

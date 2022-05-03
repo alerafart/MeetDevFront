@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header__logo">
-        Meet Devz
+        Meet Dev
       </div>
       <ul className="header__menu">
         <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>

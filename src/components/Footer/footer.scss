@@ -1,0 +1,30 @@
+@use '../../styles/vars';
+
+.footer {
+
+
+  height: 75px;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid vars.$mainColor ;
+  background-color: white;
+  color: vars.$mainFontAnthra;
+
+
+
+  &__logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &--img {
+      display: block;
+      height: 40px;
+      padding: 0 1rem;
+    }
+
+  }
+
+}

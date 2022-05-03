@@ -1,0 +1,82 @@
+@use '../../styles/vars';
+
+.home {
+  background-color: white;
+  margin: 0 auto;
+  padding: 1em 3em;
+  justify-content: center;
+  
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 175px;
+    &--title {
+      font-weight: bolder;
+      font-size: 3rem;
+      color: vars.$mainColor;
+      margin-bottom: 12px;
+    }
+    &--slogan {
+      font-size: 1.5rem;
+      color: vars.$mainColor;
+      font-style: italic;
+    }
+  }
+
+  &__citation {
+    height: 175px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: vars.$mainFontAnthra;
+
+    &--citation {
+      max-width: 400px;
+      text-align: center;
+      line-height: 32px;
+      margin-bottom: 8px;
+    }
+
+    &--author {
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+
+  &__choice {
+    color: vars.$mainFontAnthra;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    height: 175px;
+    flex-wrap: wrap;
+    max-width: 80%;
+
+    &--label { 
+      width: 35%;
+      text-align: center;
+    }
+
+    &--title {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 3rem;   
+    }
+  }
+
+  &__map {
+    padding: 2rem;
+
+    &--img {
+      display: block;
+      margin: 3rem auto;
+      width: 50%;
+    }
+  }
+
+
+}

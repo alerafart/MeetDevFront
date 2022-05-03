@@ -11,8 +11,19 @@
   background-color: white;
 
   &__logo {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--img {
+      width: 35px;
+      transform: rotate(45deg);
+      display: block;
+      padding-right: 0.5rem;
+
+    }
   }
 
   &__menu {

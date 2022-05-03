@@ -1,10 +1,16 @@
-import './header.scss';
 import { NavLink } from 'react-router-dom';
+import './header.scss';
+import rocket from '../../assets/images/rocket.png';
 
 function Header() {
   return (
     <div className="header">
       <div className="header__logo">
+        <img
+          className="header__logo--img"
+          src={rocket}
+          alt="logo fusée"
+        />
         Meet Dev
       </div>
       <ul className="header__menu">

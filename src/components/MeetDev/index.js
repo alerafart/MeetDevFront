@@ -9,7 +9,7 @@ import Inscription from '../Inscription';
 import Connexion from '../Connexion';
 import Search from '../Search';
 import Favoris from '../Favoris';
-import Dashboard from '../Dashboard';
+import Profil from '../Profil';
 import Contact from '../Contact';
 import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
@@ -50,9 +50,9 @@ function MeetDev() {
           )}
         />
         <Route
-          path="/dashboard"
+          path="/profil"
           element={(
-            <Dashboard />
+            <Profil />
           )}
         />
         <Route

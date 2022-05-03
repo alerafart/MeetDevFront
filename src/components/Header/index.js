@@ -9,7 +9,7 @@ function Header() {
       </div>
       <ul className="header__menu">
         <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-        <li className="header__menu--item"><NavLink to="/dashboard">Profil</NavLink></li>
+        <li className="header__menu--item"><NavLink to="/profil">Profil</NavLink></li>
         <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
         <li className="header__menu--item"><NavLink to="/favoris">Favoris</NavLink></li>
         <li className="header__menu--item"><NavLink to="/inscription">Inscription</NavLink></li>

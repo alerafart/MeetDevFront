@@ -1,0 +1,107 @@
+@use '../../styles/vars';
+
+.search {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 2rem;
+
+    &--button {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.2rem;
+      padding: 12px 3rem;
+      width: 18rem;
+      
+    }
+
+    &__champ {
+      display: flex;
+      justify-content: center;
+      height: 45px;
+      width: 500px;
+      align-items: center;
+      margin: 0 auto 16px;
+
+      &--label {
+        display: flex;
+        justify-content: flex-start;
+        width: 100px;
+
+      }
+
+      &--input {
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainFontGrey;
+        padding: 0 1rem;
+        background-color: vars.$mainBackground;
+
+      }
+
+      &--radio {
+        display: flex;
+        align-items: center;
+        width: 60%;
+        justify-content: center;
+
+        &--item {
+          margin-right: 16px;
+        }
+      }
+
+    }
+
+
+
+  }
+
+}
+
+.result {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &__champ {
+    width: 25%;
+    display: flex;
+    align-items: center;
+
+    
+
+    &--img {
+      width: 4rem;
+      margin: 0.6rem;
+    }
+
+
+    &--item {
+      // to change the style of each result
+    }
+  }
+
+}
+

@@ -3,13 +3,15 @@
 .footer {
 
 
-  height: 75px;
+  height: 10vh;
+  min-height: 75px;
+  max-height:100px;
   padding: 0 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 2px solid vars.$mainColor ;
-  background-color: white;
+  background-color: vars.$mainBackground;
   color: vars.$mainFontAnthra;
 
 

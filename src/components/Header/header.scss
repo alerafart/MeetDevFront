@@ -5,10 +5,12 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid vars.$mainColor ;
-  height: 75px;
+  height: 10vh;
+  min-height: 75px;
+  max-height: 100px;
   padding: 0 3rem;
   color: vars.$mainColor;
-  background-color: white;
+  background-color: vars.$mainBackground;
 
   &__logo {
     font-size: 2rem;
@@ -30,6 +32,7 @@
     display: flex;
     justify-content: center;
     color: vars.$mainFontAnthra;
+    // display: none;
     
     &--item {
       padding: 0 0.3rem;
@@ -40,7 +43,7 @@
   &__button {
     border: none;
     background-color: vars.$mainColor;
-    color: white;
+    color: vars.$mainBackground;
     padding: 12px 3rem;
     border-radius: 8px;
     font-size: 1.2rem;

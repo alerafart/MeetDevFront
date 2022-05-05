@@ -8,7 +8,7 @@ import man from '../../../assets/images/men.png';
 import mapPointer from '../../../assets/images/mapPointer.png';
 // import woman from '../../../assets/images/woman.png';
 
-function ModalProfil({ setOpenModal }) {
+function ModalProfil({ setOpenModal, setDetailOpen }) {
   return (
     <div
       className="modalBackground"
@@ -88,6 +88,10 @@ function ModalProfil({ setOpenModal }) {
             <button
               className="modalContainer__footer--button"
               type="button"
+              onClick={() => {
+                setOpenModal(false);
+                setDetailOpen(true);
+              }}
             >
               Voir Profil
             </button>
@@ -122,6 +126,7 @@ function ModalProfil({ setOpenModal }) {
 
 ModalProfil.propTypes = {
   setOpenModal: PropTypes.func.isRequired,
+  setDetailOpen: PropTypes.func.isRequired,
 };
 
 export default ModalProfil;

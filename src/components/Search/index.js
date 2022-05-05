@@ -1,6 +1,9 @@
 import './search.scss';
-import man from '../../assets/images/men.png';
-import woman from '../../assets/images/woman.png';
+// TODO a supprimer et mettre dans le sous composant ModalProfil?
+// import man from '../../assets/images/men.png';
+// import woman from '../../assets/images/woman.png';
+
+import Title from './Title';
 
 function Search() {
   return (
@@ -66,7 +69,16 @@ function Search() {
       </h2>
 
       <div className="result">
-        <div className="result__champ">
+        {/* Boucle avec les resultats
+        afficher le sous composant Title
+        =>  Afficherai sous forme de modale composant Profil (frame Profil Dev)
+       */}
+        <Title
+          avatar="man"
+          lastname="Lafritte"
+          firstname="Jerome"
+        />
+        {/* <div className="result__champ">
           <img
             className="result__champ--img"
             src={man}
@@ -165,7 +177,7 @@ function Search() {
           <div className="result__champ--item">
             Agathe Feeling
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

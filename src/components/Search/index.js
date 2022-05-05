@@ -1,13 +1,16 @@
-import './search.scss';
-// TODO a supprimer et mettre dans le sous composant ModalProfil?
-// import man from '../../assets/images/men.png';
-// import woman from '../../assets/images/woman.png';
+// TODO useState utilisé pour la modale
+// TODO en attendant qu'un store soit crée
+import { useState } from 'react';
 
+import './search.scss';
 import Title from './Title';
+import ModalProfil from './ModalProfil';
 
 function Search() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="search">
+      {modalOpen && <ModalProfil setOpenModal={setModalOpen} />}
       <h2 className="search__title">
         Filtres de recherche
       </h2>
@@ -69,115 +72,70 @@ function Search() {
       </h2>
 
       <div className="result">
-        {/* Boucle avec les resultats
+        {/* //TODO Boucle avec les resultats .map
         afficher le sous composant Title
         =>  Afficherai sous forme de modale composant Profil (frame Profil Dev)
        */}
         <Title
+          setOpenModal={setModalOpen}
           avatar="man"
           lastname="Lafritte"
           firstname="Jerome"
         />
-        {/* <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={man}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Jerome Lafritte
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={woman}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Agathe Feeling
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={man}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Jerome Lafritte
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={woman}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Agathe Feeling
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={man}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Jerome Lafritte
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={woman}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Agathe Feeling
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={man}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Jerome Lafritte
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={woman}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Agathe Feeling
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={man}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Jerome Lafritte
-          </div>
-        </div>
-        <div className="result__champ">
-          <img
-            className="result__champ--img"
-            src={woman}
-            alt="avatar"
-          />
-          <div className="result__champ--item">
-            Agathe Feeling
-          </div>
-        </div> */}
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="woman"
+          lastname="Feeling"
+          firstname="Agathe"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="man"
+          lastname="Lafritte"
+          firstname="Jerome"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="woman"
+          lastname="Feeling"
+          firstname="Agathe"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="man"
+          lastname="Lafritte"
+          firstname="Jerome"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="woman"
+          lastname="Feeling"
+          firstname="Agathe"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="man"
+          lastname="Lafritte"
+          firstname="Jerome"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="woman"
+          lastname="Feeling"
+          firstname="Agathe"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="man"
+          lastname="Lafritte"
+          firstname="Jerome"
+        />
+        <Title
+          setOpenModal={setModalOpen}
+          avatar="woman"
+          lastname="Feeling"
+          firstname="Agathe"
+        />
       </div>
     </div>
   );

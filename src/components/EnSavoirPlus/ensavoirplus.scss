@@ -1,0 +1,102 @@
+@use '../../styles/vars';
+
+.about {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+
+  &__philosophy {
+    padding: 1em 3em;
+
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin-bottom: 0.5em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 1em 3em;
+      font-style: italic;
+    }
+  }
+
+  &__dev {
+    padding: 1em 3em;
+
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin-bottom: 0.5em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 1em 3em;
+      font-style: italic;
+    }
+  }
+
+  &__recruiter {
+    padding: 1em 3em;
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin-bottom: 0.5em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 1em 3em;
+      font-style: italic;
+    }
+  }
+
+  &__us {
+    text-align: center;
+    padding: 1em 3em;
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin-bottom: 0.5em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 1em 3em;
+      font-style: italic;
+    }
+  }
+
+  &__slogan {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: vars.$mainFontAnthra;
+  }
+}

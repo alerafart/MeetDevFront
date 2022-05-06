@@ -1,0 +1,111 @@
+@use '../../../styles/vars';
+
+.profilDevModify {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__header {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    text-align: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 7.5rem;
+    border: 1px solid vars.$mainFontGrey;
+
+    &--avatar {
+      width: 90%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    // to choose the sex of the user with radio button
+    &--picture {
+      width: 50%;
+      display: flex;
+      align-items: center;
+
+
+      &--img {
+        width: 80px;
+        padding-left: 10px;
+      }
+
+      &--left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26%;
+        margin-bottom: 16px;
+
+      }
+
+      &--right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26%;
+        margin-bottom: 16px;
+
+      }
+    }
+
+    &__champ {
+      width: 50%;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      &--radio {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &--item {}
+      }
+
+      &--label {
+        width: 6.25rem;
+
+      }
+
+      &--input {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainFontGrey;
+        padding: 0 1rem vars.$mainFontGrey;
+        background-color: vars.$mainBackground;
+
+      }
+
+      &--img {
+        width: 3.5rem;
+      }
+    }
+
+    &--button {
+      margin-top: 24px;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.2rem;
+      padding: 12px 3rem;
+    }
+
+
+  }
+
+}

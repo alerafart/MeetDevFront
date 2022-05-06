@@ -1,97 +1,103 @@
 @use '../../../styles/vars';
 
 .card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width:22.5%;
-    margin:0.5rem;
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 22.5%;
+  margin: 0.5rem;
 
-    &__avatar{
-      width: 13rem;
-      height: 13rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position:relative;
+  &__avatar {
+    width: 13rem;
+    height: 13rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 
 
-        &--logo{
-            position:absolute;
-            width:5rem;
-            z-index:1;
-            top:2px;
-            left:2px;
-        }
-        &--img {
-          width:19rem;
+    &--logo {
+      position: absolute;
+      width: 2.5rem;
+      z-index: 1;
+      top: 4px;
+      left: 4px;
     }
+
+    &--img {
+      width: 19rem;
+    }
+  }
+
+  &__container {
+    margin: 1rem;
+    padding: 2px 2px;
+    background-color: vars.$mainBackground;
+    text-align: center;
+
+    &--name {
+      padding: 0.2rem;
+    }
+
+    &--localisation {
+      padding: 0.2rem;
+    }
+
+    &--experience {
+      padding: 0.2rem;
+      width: 100%;
+
+      &--year {
+        border: none;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        padding: 1px 1rem;
+        border-radius: 8px;
+        margin: 0rem;
+      }
+    }
+  }
+
+
+
+  &__button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &--profileview {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 8px 1.2rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+
+    }
+
+    &--delete {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 8px 1.2rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+
+      &:hover {
+        background-color: vars.$cancelOption;
+      }
+
+    }
+  }
 }
 
-    &__container {
-        margin:1rem;
-        padding: 2px 2px;
-        background-color: vars.$mainBackground;
-        text-align:center;
-    
-        &--name {
-            padding:0.2rem;
-        }
-        &--localisation {
-            padding:0.2rem;
-        }
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
-        &--experience {
-            padding:0.2rem;
-            width:100%;
-
-            &--year{
-                border: none;
-                background-color: vars.$mainColor;
-                color: vars.$mainBackground;
-                padding: 1px 1rem;
-                border-radius: 8px;
-                margin:0rem;
-            }
-        }
-    }
-        
-      
-
-      &__button{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-      &--profileview {
-    border: none;
-    background-color: vars.$mainColor;
-    color: vars.$mainBackground;
-    padding: 8px 1.2rem;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    margin-top:0.1rem;
-    margin-bottom:0.5rem;
-    
-      }
-
-      &--delete {
-    border: none;
-    background-color: vars.$mainColor;
-    color: vars.$mainBackground;
-    padding: 8px 1.2rem;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    margin-bottom:0.5rem;
-      }
-    }
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  
+/* Add some padding inside the card container */

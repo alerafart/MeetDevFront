@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import man from '../../../assets/images/men.png';
 import react from '../../../assets/images/react.png';
 import symfony from '../../../assets/images/symfony.png';
-import html from '../../../assets/images/html.png';
-import css from '../../../assets/images/css.png';
+import html from '../../../assets/images/archive/html.png';
+import css from '../../../assets/images/archive/css.png';
 import github from '../../../assets/images/github.png';
 import disponible from '../../../assets/images/Disponible.png';
 import indisponible from '../../../assets/images/indisponible.png';
@@ -81,7 +81,7 @@ function DetailProfil({ setOpenModal, setDetailOpen }) {
               alt="disponiblilité"
             />
             <div className="RightProfilContainer__champ__disponibility--txt">
-              Non disponible immédiatement
+              Disponible dans 3 mois
             </div>
           </div>
         </div>

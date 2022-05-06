@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './footer.scss';
 import instagram from '../../assets/images/instagram.png';
 import facebook from '../../assets/images/facebook.png';
@@ -7,10 +8,10 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer__contact">
-        Contact
+        <NavLink to="/contact">Contact</NavLink>
       </div>
       <div className="footer__mentionslegales">
-        Mentions legales
+        <NavLink to="/mentions-legales">Mentions-Légales</NavLink>
       </div>
       <div className="footer__logos">
         <img

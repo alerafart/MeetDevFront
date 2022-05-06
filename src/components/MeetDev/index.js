@@ -13,6 +13,7 @@ import Profil from '../Profil';
 import Contact from '../Contact';
 import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
+import HomeDeveloper from '../Home/HomeDeveloper';
 
 function MeetDev() {
   return (
@@ -71,6 +72,12 @@ function MeetDev() {
           path="/mentions-legales"
           element={(
             <MentionsLegales />
+          )}
+        />
+        <Route
+          path="/home-developer"
+          element={(
+            <HomeDeveloper />
           )}
         />
         <Route

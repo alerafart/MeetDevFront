@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './home.scss';
 import maps from '../../assets/images/google-maps.jpg';
 
@@ -35,7 +36,7 @@ function Home() {
             value="developper"
             id="developper"
           />
-          Développeur
+          <NavLink to="/home-developer">Développeur</NavLink>
         </label>
         <label
           className="home__choice--label"

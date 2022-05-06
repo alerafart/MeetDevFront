@@ -20,6 +20,9 @@ function Profil() {
       {
         !modifyInformation && (
           <div className="profil">
+            <h2 className="profil__title">
+              Votre Profil
+            </h2>
             <div className="profil__leftpart">
               <img
                 className="profil__picture__img"
@@ -87,7 +90,7 @@ function Profil() {
                 type="button"
                 onClick={() => setModifyInformation(true)}
               >
-                Modifier mes informations
+                Modifier
               </button>
 
             </div>

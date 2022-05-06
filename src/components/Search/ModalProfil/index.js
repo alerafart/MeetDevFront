@@ -88,18 +88,18 @@ function ModalProfil({ setOpenModal, setDetailOpen }) {
             <button
               className="modalContainer__footer--button"
               type="button"
+            >
+              Contacter
+            </button>
+            <button
+              className="modalContainer__footer--button"
+              type="button"
               onClick={() => {
                 setOpenModal(false);
                 setDetailOpen(true);
               }}
             >
               Voir Profil
-            </button>
-            <button
-              className="modalContainer__footer--button"
-              type="button"
-            >
-              Contacter
             </button>
             <button
               className="modalContainer__footer--button"

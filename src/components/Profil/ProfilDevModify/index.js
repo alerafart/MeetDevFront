@@ -7,6 +7,9 @@ import github from '../../../assets/images/github.png';
 function ProfilDevModify({ setModifyInformation }) {
   return (
     <div className="profilDevModify">
+      <h2 className="profilDevModify__title">
+        Votre Profil
+      </h2>
       <div className="profilDevModify__header">
         <input
           className="profilDevModify__header--avatar"
@@ -164,7 +167,10 @@ function ProfilDevModify({ setModifyInformation }) {
           </div>
           <input className="profilDevModify__form__champ--input" type="text" value="www.agathe.feeling.fr" />
         </div>
-        <input type="submit" className="profilDevModify__form--button" value="Valider mes informations" onClick={() => setModifyInformation(false)} />
+        <div className="profilDevModify__form__buttons">
+          <input type="submit" className="profilDevModify__form__buttons__button--valid" value="Valider" onClick={() => setModifyInformation(false)} />
+          <input type="submit" className="profilDevModify__form__buttons__button--cancel" value="Annuler" onClick={() => setModifyInformation(false)} />
+        </div>
       </form>
     </div>
   );

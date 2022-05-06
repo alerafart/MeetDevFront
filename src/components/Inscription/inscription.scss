@@ -5,7 +5,17 @@
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
- 
+
+  &__title {
+    width: 100%;
+    height: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+
   &__header {
     height: 10rem;
     display: flex;
@@ -34,7 +44,7 @@
       display: flex;
       align-items: center;
 
-      
+
       &--img {
         width: 80px;
         padding-left: 10px;
@@ -46,7 +56,7 @@
         justify-content: center;
         width: 26%;
         margin-bottom: 16px;
-        
+
       }
 
       &--right {
@@ -55,10 +65,10 @@
         justify-content: center;
         width: 26%;
         margin-bottom: 16px;
-        
+
       }
     }
-    
+
     &__champ {
       width: 50%;
       height: 3rem;
@@ -67,47 +77,83 @@
       justify-content: center;
       margin-bottom: 1rem;
 
-        &--radio {
-          width: 60%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+      &--radio {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-          &--item {
-            
+        &--item {}
+      }
+
+      &--label {
+        width: 6.25rem;
+
+      }
+
+      &--input {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainFontGrey;
+        padding: 0 1rem vars.$mainFontGrey;
+        background-color: vars.$mainBackground;
+
+      }
+
+      &--img {
+        width: 3.5rem;
+      }
+    }
+
+    &__buttons {
+
+
+      &__button {
+
+        &--valid {
+          border: none;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+          padding: 12px 3rem;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+          margin-right: 2rem;
+          margin-bottom: 1rem;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
           }
         }
 
-        &--label {
-          width: 6.25rem;
+        &--cancel {
+          border: none;
+          background-color: vars.$cancelOption;
+          color: vars.$mainBackground;
+          padding: 12px 3rem;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+          margin-right: 2rem;
+          margin-bottom: 1rem;
 
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+          }
         }
 
-        &--input {
-          width: 60%;
-          height: 100%;
-          border: 2px solid vars.$mainFontGrey;
-          padding: 0 1rem vars.$mainFontGrey;
-          background-color: vars.$mainBackground;
 
-        }
 
-        &--img {
-          width: 3.5rem;
-        }
+      }
     }
 
-    &--button {
-      margin-top: 24px;
-      background-color: vars.$mainColor;
-      color: vars.$mainBackground;
-      border-radius: 8px;
-      border: none;
-      font-size: 1.2rem;
-      padding: 12px 3rem;
-    }
 
-    
   }
 
 }

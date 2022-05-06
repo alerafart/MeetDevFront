@@ -15,6 +15,7 @@ import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
 import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
+import RecruiterProfile from '../RecruiterProfil';
 
 function MeetDev() {
   return (
@@ -85,6 +86,12 @@ function MeetDev() {
           path="/home-recruiter"
           element={(
             <HomeRecruiter />
+          )}
+        />
+        <Route
+          path="/recruiter-profile"
+          element={(
+            <RecruiterProfile />
           )}
         />
         <Route

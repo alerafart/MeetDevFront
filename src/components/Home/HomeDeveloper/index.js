@@ -1,5 +1,6 @@
 // styles
 import './homedeveloper.scss';
+import { NavLink } from 'react-router-dom';
 
 function HomeDeveloper() {
   return (
@@ -37,6 +38,12 @@ function HomeDeveloper() {
           className="homedeveloper__button--login"
         >
           Connexion
+        </button>
+        <button
+          type="button"
+          className="homedeveloper__button--back"
+        >
+          <NavLink to="/">Retour</NavLink>
         </button>
       </div>
     </div>

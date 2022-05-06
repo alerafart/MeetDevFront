@@ -5,6 +5,9 @@ function RecruiterProfile() {
   return (
     <div className="profil">
       <div className="profil__leftpart">
+        <h2 className="profil__title">
+          Votre Profil
+        </h2>
         <img
           className="profil__picture__img"
           src={dikkenek}
@@ -26,7 +29,7 @@ function RecruiterProfile() {
           type="button"
           // onClick={() => setModifyInformation(true)}
         >
-          Modifier mes informations
+          Modifier
         </button>
 
       </div>

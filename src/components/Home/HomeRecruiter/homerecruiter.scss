@@ -40,7 +40,16 @@
       padding: 12px 3rem;
       border-radius: 8px;
       font-size: 1.2rem;
+      transition: transform 0.3s;
+      min-width: 13rem;
       width: 30%;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
     }
 
     &--inscription {
@@ -51,7 +60,16 @@
       border-radius: 8px;
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      transition: transform 0.3s;
+      min-width: 13rem;
       width: 30%;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
     }
   }
 }

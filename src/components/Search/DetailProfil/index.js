@@ -15,6 +15,9 @@ import mapPointer from '../../../assets/images/mapPointer.png';
 function DetailProfil({ setOpenModal, setDetailOpen }) {
   return (
     <div className="detailProfil">
+      <h2 className="detailProfil__title">
+        Profil
+      </h2>
       <div className="LeftProfilContainer">
         <div className="LeftProfilContainer__avatar">
           <img
@@ -180,7 +183,7 @@ function DetailProfil({ setOpenModal, setDetailOpen }) {
             className="footerProfilContainer__buttons--button"
             type="button"
           >
-            Ajouter aux favoris
+            Ajouter Favoris
           </button>
           <button
             className="footerProfilContainer__buttons--button"
@@ -190,7 +193,7 @@ function DetailProfil({ setOpenModal, setDetailOpen }) {
               setDetailOpen(false);
             }}
           >
-            Retour Recherche
+            Retour
           </button>
 
         </div>

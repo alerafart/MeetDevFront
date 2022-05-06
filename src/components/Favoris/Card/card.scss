@@ -6,6 +6,7 @@
   transition: 0.3s;
   width: 22.5%;
   margin: 0.5rem;
+  background-color: vars.$mainBackground;
 
   &__avatar {
     width: 13rem;
@@ -33,7 +34,7 @@
   &__container {
     margin: 1rem;
     padding: 2px 2px;
-    background-color: vars.$mainBackground;
+
     text-align: center;
 
     &--name {
@@ -76,6 +77,12 @@
       margin-top: 0.1rem;
       margin-bottom: 0.5rem;
 
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
     }
 
     &--delete {
@@ -86,9 +93,13 @@
       border-radius: 8px;
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      background-color: vars.$cancelOption;
 
       &:hover {
         background-color: vars.$cancelOption;
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
     }

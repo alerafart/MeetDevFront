@@ -3,6 +3,9 @@ import './inscriptionrecruter.scss';
 function InscriptionRecruter() {
   return (
     <div className="inscriptionRecruter">
+      <h2 className="inscriptionRecruter__title">
+        Mes informations
+      </h2>
 
       <form className="inscriptionRecruter__header">
         <input
@@ -86,7 +89,10 @@ function InscriptionRecruter() {
           </div>
           <input className="inscriptionRecruter__form__champ--input" type="password" value="" />
         </div>
-        <input type="submit" className="inscriptionRecruter__form--button" value="Valider mes informations" />
+        <div className="inscriptionRecruter__form__buttons">
+          <input type="submit" className="inscriptionRecruter__form__buttons__button--valid" value="Valider" />
+          <input type="submit" className="inscriptionRecruter__form__buttons__button--cancel" value="Annuler" />
+        </div>
       </form>
     </div>
   );

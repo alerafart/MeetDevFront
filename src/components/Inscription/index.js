@@ -18,6 +18,9 @@ function Inscription() {
       {
         !recruter && (
           <div className="inscription">
+            <h2 className="inscription__title">
+              Mes informations
+            </h2>
             <div className="inscription__header">
               <input
                 className="incription__header--avatar"
@@ -174,7 +177,10 @@ function Inscription() {
                 </div>
                 <input className="inscription__form__champ--input" type="text" value="" />
               </div>
-              <input type="submit" className="inscription__form--button" value="Valider mes informations" />
+              <div className="inscription__form__buttons">
+                <input type="submit" className="inscription__form__buttons__button--valid" value="Valider" />
+                <input type="submit" className="inscription__form__buttons__button--cancel" value="Annuler" />
+              </div>
             </form>
           </div>
         )

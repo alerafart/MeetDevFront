@@ -3,10 +3,6 @@ import './home.scss';
 import maps from '../../assets/images/google-maps.jpg';
 
 function Home() {
-  function handleonclick(e) {
-    console.log(e.currentTarget.value);
-  }
-
   return (
     <div className="home">
       <div className="home__header">
@@ -24,33 +20,12 @@ function Home() {
       </div>
 
       <form className="home__choice">
-        <p className="home__choice--title">Je suis</p>
-        <label
-          className="home__choice--label"
-          htmlFor="developper"
-        >
-          <input
-            className="home__choice--label--input"
-            onChange={handleonclick}
-            type="radio"
-            value="developper"
-            id="developper"
-          />
+        <button className="home__choice--button" type="button">
           <NavLink to="/home-developer">Développeur</NavLink>
-        </label>
-        <label
-          className="home__choice--label"
-          htmlFor="recruter"
-        >
-          <input
-            className="home__choice--label--input"
-            onChange={handleonclick}
-            type="radio"
-            value="recruter"
-            id="recruter"
-          />
+        </button>
+        <button className="home__choice--button" type="button">
           <NavLink to="/home-recruiter">Recruteur</NavLink>
-        </label>
+        </button>
       </form>
       <div className="home__map">
         <img

@@ -16,6 +16,9 @@ function FavorisDetail({ setFavorisDetail }) {
   return (
     <div className="baseFavoris">
       <div className="detailFavoris">
+        <h2 className="detailFavoris__title">
+          Profil
+        </h2>
         <div className="LeftFavorisContainer">
           <div className="LeftFavorisContainer__avatar">
             <img

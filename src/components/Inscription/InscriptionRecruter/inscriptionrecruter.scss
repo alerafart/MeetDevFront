@@ -1,0 +1,102 @@
+@use '../../../styles/vars';
+
+.inscriptionRecruter {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__header {
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto 2rem;
+    text-align: center;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 12rem;
+    border: 1px solid vars.$mainFontGrey;
+    background-color: vars.$mainFontGrey;
+
+    &--avatar {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    &--button {
+      z-index: 0;
+      position: absolute;
+      background-color: vars.$mainColor;
+      width: fit-content;
+      border: none;
+      font-size: 1.4rem;
+      color: vars.$mainBackground;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+    &__champ {
+      width: 50rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      &--radio {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        &--item {
+          & input {
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      &--label {
+        width: 6.25rem;
+
+      }
+
+      &--input {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainFontGrey;
+        padding: 0 1rem vars.$mainFontGrey;
+        background-color: vars.$mainBackground;
+
+      }
+
+      &--img {
+        width: 3.5rem;
+      }
+    }
+
+    &--button {
+      margin-top: 24px;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.2rem;
+      padding: 12px 3rem;
+    }
+
+
+  }
+
+}

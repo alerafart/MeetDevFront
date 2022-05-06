@@ -1,0 +1,203 @@
+@use '../../../styles/vars';
+
+.detailProfil {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  color: vars.$mainFontAnthra;
+
+}
+
+.LeftProfilContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__avatar {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &--img {
+      width: 280px;
+    }
+  }
+
+  &__champ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &--title {
+      margin-top: 0.8rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &__ville {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+
+      &--icon {
+        width: 1.5rem;
+      }
+
+      &--name {
+        font-size: 1.5rem;
+      }
+
+    }
+
+    &--about {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    &--citation {
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    &--email {
+      margin-top: 1.4rem;
+      font-size: 1.2rem;
+    }
+
+    &--phone {
+      font-size: 1.5rem;
+      margin-top: 1.4rem;
+    }
+
+  }
+}
+
+.RightProfilContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__champ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    &__disponibility {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+
+      &--logo {
+        width: 25px;
+        margin: 0 1rem;
+      }
+
+    }
+
+    &--langages {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    &__logos {
+      margin-top: 1rem;
+      width: 100%;
+      display: flex;
+      padding: 0 5rem;
+      justify-content: space-evenly;
+      align-items: center;
+
+
+      &--logo {
+        width: 45px;
+      }
+    }
+
+    &--experience {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    &--experienceResponse {
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    &__langue {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--logo {
+        width: 65px;
+      }
+
+      &--txt {
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    &__github {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--logo {
+        width: 65px;
+      }
+
+      &--link {
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    &--portfolio {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    &--portfolioLink {
+
+      margin-top: 0.3rem;
+      font-size: 1.2rem;
+    }
+
+
+
+  }
+}
+
+.footerProfilContainer {
+  margin-top: 8rem;
+  width: 100%;
+
+  &__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 8rem;
+
+    &--button {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      padding: 8px 30px;
+    }
+  }
+}

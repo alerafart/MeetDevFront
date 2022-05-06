@@ -12,5 +12,20 @@
     font-size: 2rem;
     font-weight: bold;
     color: vars.$mainColor;
+    margin-bottom: 2rem;
   }
+
+  &__subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    color: vars.$mainColor;
+    margin: 1em;
+  }
+}
+
+p {
+  padding: 0 6em;
+  text-align: center;
+  margin-bottom: 0.7rem;
 }

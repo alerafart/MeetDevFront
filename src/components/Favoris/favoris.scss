@@ -1,0 +1,19 @@
+@use '../../styles/vars';
+
+.favoris{
+    background-color: vars.$mainBackground;
+    margin: 0 auto;
+    padding: 1em 3em;
+    min-height: 80vh;
+    
+    &__title{
+        font-size:2rem;
+        text-align:center;
+        margin:2rem;
+    }
+
+    &__card{
+        display:flex;
+        flex-wrap:wrap;    
+    }
+}

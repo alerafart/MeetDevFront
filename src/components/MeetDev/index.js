@@ -14,6 +14,7 @@ import Contact from '../Contact';
 import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
 import HomeDeveloper from '../Home/HomeDeveloper';
+import HomeRecruiter from '../Home/HomeRecruiter';
 
 function MeetDev() {
   return (
@@ -78,6 +79,12 @@ function MeetDev() {
           path="/home-developer"
           element={(
             <HomeDeveloper />
+          )}
+        />
+        <Route
+          path="/home-recruiter"
+          element={(
+            <HomeRecruiter />
           )}
         />
         <Route

@@ -1,0 +1,61 @@
+@use '../../../styles/vars';
+
+.homerecruiter {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+    margin-bottom: 1.5em;
+  }
+
+  &__content {
+    padding: 0em 4.6em;
+  }
+
+  &__slogan {
+    margin-top: 1.8rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: vars.$mainFontAnthra;
+    font-style: italic;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--login {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      width: 30%;
+    }
+
+    &--inscription {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      width: 30%;
+    }
+  }
+}
+
+p {
+  margin-bottom: 1.7rem;
+}

@@ -6,6 +6,9 @@ import symfony from '../../../assets/images/symfony.png';
 import html from '../../../assets/images/html.png';
 import css from '../../../assets/images/css.png';
 import github from '../../../assets/images/github.png';
+import disponible from '../../../assets/images/Disponible.png';
+import indisponible from '../../../assets/images/indisponible.png';
+import englandFlag from '../../../assets/images/flag_england.png';
 // import woman from '../../../assets/images/woman.png';
 import mapPointer from '../../../assets/images/mapPointer.png';
 
@@ -59,6 +62,36 @@ function DetailProfil({ setOpenModal, setDetailOpen }) {
       </div>
       <div className="RightProfilContainer">
         <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ__disponibility">
+            <img
+              className="RightProfilContainer__champ__disponibility--logo"
+              src={disponible}
+              alt="disponiblilité"
+            />
+            <div className="RightProfilContainer__champ__disponibility--txt">
+              Disponible
+            </div>
+          </div>
+        </div>
+        <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ__disponibility">
+            <img
+              className="RightProfilContainer__champ__disponibility--logo"
+              src={indisponible}
+              alt="disponiblilité"
+            />
+            <div className="RightProfilContainer__champ__disponibility--txt">
+              Non disponible immédiatement
+            </div>
+          </div>
+        </div>
+
+        <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ--langages">
+            Langages pratiqués
+          </div>
+        </div>
+        <div className="RightProfilContainer__champ">
           <div className="RightProfilContainer__champ__logos">
             <img
               className="RightProfilContainer__champ__logos--logo"
@@ -88,10 +121,30 @@ function DetailProfil({ setOpenModal, setDetailOpen }) {
           <div className="RightProfilContainer__champ--experience">
             Expérience
           </div>
-          <div className="RightProfilContainer__champ--experience">
+        </div>
+        <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ--experienceResponse">
             1 à 3 ans
           </div>
         </div>
+
+        <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ__langue">
+            <img
+              className="RightProfilContainer__champ__langue--logo"
+              src={englandFlag}
+              alt="disponiblilité"
+            />
+            <div className="RightProfilContainer__champ__langue--txt">
+              Intermediaire
+            </div>
+          </div>
+        </div>
+
+        <div className="RightProfilContainer__champ">
+          <div className="RightProfilContainer__champ__English" />
+        </div>
+
         <div className="RightProfilContainer__champ">
           <div className="RightProfilContainer__champ__github">
             <img

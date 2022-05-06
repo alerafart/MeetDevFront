@@ -49,7 +49,7 @@ function Home() {
             value="recruter"
             id="recruter"
           />
-          Recruteur
+          <NavLink to="/home-recruiter">Recruteur</NavLink>
         </label>
       </form>
       <div className="home__map">

@@ -16,7 +16,7 @@ function Home() {
 
       <div className="home__citation">
         <h2 className="home__citation--citation">
-          shoot for the moon even if you miss you'll land among the stars
+          Shoot for the moon even if you miss you'll land among the stars
         </h2>
         <p className="home__citation--author">
           Oscar Wilde

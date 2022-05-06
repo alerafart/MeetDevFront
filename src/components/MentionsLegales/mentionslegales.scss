@@ -5,6 +5,8 @@
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
 
   &__title {
     margin: 1rem auto;

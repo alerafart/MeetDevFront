@@ -1,5 +1,6 @@
 // styles
 import './homerecruiter.scss';
+import { NavLink } from 'react-router-dom';
 
 function HomeRecruiter() {
   return (
@@ -42,6 +43,12 @@ function HomeRecruiter() {
           className="homerecruiter__button--login"
         >
           Connexion
+        </button>
+        <button
+          type="button"
+          className="homedeveloper__button--back"
+        >
+          <NavLink to="/">Retour</NavLink>
         </button>
       </div>
     </div>

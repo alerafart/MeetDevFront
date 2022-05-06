@@ -1,9 +1,10 @@
 import './profildevmodify.scss';
+import PropTypes from 'prop-types';
 import man from '../../../assets/images/men.png';
 import woman from '../../../assets/images/woman.png';
 import github from '../../../assets/images/github.png';
 
-function ProfilDevModify() {
+function ProfilDevModify({ setModifyInformation }) {
   return (
     <div className="profilDevModify">
       <div className="profilDevModify__header">
@@ -59,9 +60,10 @@ function ProfilDevModify() {
             Anglais
           </div>
           <select className="profilDevModify__form__champ--input">
-            <option value="anglais" selected>Anglais</option>
-            <option value="semianglais">Anglais intermédiare</option>
-            <option value="semianglais">Français</option>
+            <option value="anglais" selected>Courant</option>
+            <option value="semianglais">Intermédiare</option>
+            <option value="semianglais">Ecrit</option>
+            <option value="semianglais">N.C</option>
           </select>
         </div>
         <div className="profilDevModify__form__champ">
@@ -162,10 +164,14 @@ function ProfilDevModify() {
           </div>
           <input className="profilDevModify__form__champ--input" type="text" value="www.agathe.feeling.fr" />
         </div>
-        <input type="submit" className="profilDevModify__form--button" value="Valider mes informations" />
+        <input type="submit" className="profilDevModify__form--button" value="Valider mes informations" onClick={() => setModifyInformation(false)} />
       </form>
     </div>
   );
 }
+
+ProfilDevModify.propTypes = {
+  setModifyInformation: PropTypes.func.isRequired,
+};
 
 export default ProfilDevModify;

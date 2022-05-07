@@ -1,8 +1,11 @@
 // styles
 import './homedeveloper.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-function HomeDeveloper() {
+function HomeDeveloper({
+  setDevelopper, setConnected, developper, recruiter,
+}) {
   return (
     <div className="homedeveloper">
       <h3 className="homedeveloper__title">Développeur</h3>
@@ -31,23 +34,36 @@ function HomeDeveloper() {
           type="button"
           className="homedeveloper__button--inscription"
         >
-          Inscription Gratuite
+          <Link to="/inscription" developper={developper} recruiter={recruiter} setConnected={setConnected}>Inscription Gratuite</Link>
         </button>
         <button
           type="button"
           className="homedeveloper__button--login"
+          onClick={() => setConnected(true)}
         >
           Connexion
         </button>
         <button
           type="button"
           className="homedeveloper__button--back"
+          onClick={() => setDevelopper(false)}
         >
-          <NavLink to="/">Retour</NavLink>
+          <Link to="/">Retour</Link>
         </button>
       </div>
     </div>
   );
 }
+
+HomeDeveloper.propTypes = {
+  // connected: PropTypes.bool.isRequired,
+  setConnected: PropTypes.func.isRequired,
+  developper: PropTypes.bool.isRequired,
+  setDevelopper: PropTypes.func.isRequired,
+  recruiter: PropTypes.bool.isRequired,
+  // setRecruiter: PropTypes.func.isRequired,
+  // role: PropTypes.string.isRequired,
+  // setRole: PropTypes.func.isRequired,
+};
 
 export default HomeDeveloper;

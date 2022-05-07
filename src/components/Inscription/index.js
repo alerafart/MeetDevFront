@@ -1,22 +1,19 @@
 import './inscription.scss';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import InscriptionRecruter from './InscriptionRecruter';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
 
-function Inscription() {
-  // TODO Si false affichage inscription developper
-  // TODO si true affichage inscription recruter
-  const [recruter] = useState(false);
-
+function Inscription({ developper, recruiter, setConnected }) {
   return (
     <>
       {
-        recruter && <InscriptionRecruter />
+        recruiter && <InscriptionRecruter />
       }
       {
-        !recruter && (
+        developper && (
           <div className="inscription">
             <h2 className="inscription__title">
               Mes informations
@@ -178,8 +175,24 @@ function Inscription() {
                 <input className="inscription__form__champ--input" type="text" value="" />
               </div>
               <div className="inscription__form__buttons">
-                <input type="submit" className="inscription__form__buttons__button--valid" value="Valider" />
-                <input type="submit" className="inscription__form__buttons__button--cancel" value="Annuler" />
+                <button
+                  type="submit"
+                  className="inscription__form__buttons__button--valid"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setConnected(true);
+                  }}
+                >
+                  <Link to="/profil">Valider</Link>
+                </button>
+                <button
+                  type="submit"
+                  className="inscription__form__buttons__button--cancel"
+                  onClick={(e) => {
+                    e.preventDefault();
+                  }}
+                ><Link to="/">Annuler</Link>
+                </button>
               </div>
             </form>
           </div>
@@ -189,5 +202,16 @@ function Inscription() {
 
   );
 }
+
+Inscription.propTypes = {
+  // connected: PropTypes.bool.isRequired,
+  setConnected: PropTypes.func.isRequired,
+  developper: PropTypes.bool.isRequired,
+  // setDevelopper: PropTypes.func.isRequired,
+  recruiter: PropTypes.bool.isRequired,
+  // setRecruiter: PropTypes.func.isRequired,
+  // role: PropTypes.string.isRequired,
+  // setRole: PropTypes.func.isRequired,
+};
 
 export default Inscription;

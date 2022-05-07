@@ -41,55 +41,55 @@ function RecruiterProfilModify() {
           <div className="inscriptionRecruter__form__champ--label">
             Prénom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="VERSION RECRUTER" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Nom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Entreprise
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Ville
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Tél
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Site Internet
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Mail
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Mdp
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="password" />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Vérif Mdp
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" value="" />
+          <input className="inscriptionRecruter__form__champ--input" type="password" />
         </div>
         <div className="inscriptionRecruter__form__buttons">
           <button

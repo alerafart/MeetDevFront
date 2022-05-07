@@ -26,7 +26,6 @@ function MeetDev() {
   const [isConnected, setIsConnected] = useState(false);
   const [isDevelopper, setIsDevelopper] = useState(false);
   const [isRecruiter, setIsRecruiter] = useState(false);
-  const [role, setRole] = useState('und');
 
   return (
     <div className="meetdev">
@@ -37,8 +36,6 @@ function MeetDev() {
         setDevelopper={setIsDevelopper}
         recruiter={isRecruiter}
         setRecruiter={setIsRecruiter}
-        role={role}
-        setRole={setRole}
       />
       <Routes>
         <Route
@@ -51,8 +48,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -66,8 +61,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -81,8 +74,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -96,8 +87,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -111,8 +100,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -126,8 +113,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -141,8 +126,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -156,8 +139,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -171,8 +152,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -186,8 +165,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -201,8 +178,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -216,8 +191,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -231,8 +204,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -246,8 +217,6 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
-              role={role}
-              setRole={setRole}
             />
           )}
         />
@@ -259,8 +228,6 @@ function MeetDev() {
         setDevelopper={setIsDevelopper}
         recruiter={isRecruiter}
         setRecruiter={setIsRecruiter}
-        role={role}
-        setRole={setRole}
       />
     </div>
   );

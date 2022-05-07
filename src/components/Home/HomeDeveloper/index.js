@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function HomeDeveloper({
-  setDevelopper, setConnected, developper, recruiter,
+  setDevelopper, setConnected,
 }) {
   return (
     <div className="homedeveloper">
@@ -34,7 +34,7 @@ function HomeDeveloper({
           type="button"
           className="homedeveloper__button--inscription"
         >
-          <Link to="/inscription" developper={developper} recruiter={recruiter} setConnected={setConnected}>Inscription Gratuite</Link>
+          <Link to="/inscription">Inscription Gratuite</Link>
         </button>
         <button
           type="button"
@@ -58,9 +58,9 @@ function HomeDeveloper({
 HomeDeveloper.propTypes = {
   // connected: PropTypes.bool.isRequired,
   setConnected: PropTypes.func.isRequired,
-  developper: PropTypes.bool.isRequired,
+  // developper: PropTypes.bool.isRequired,
   setDevelopper: PropTypes.func.isRequired,
-  recruiter: PropTypes.bool.isRequired,
+  // recruiter: PropTypes.bool.isRequired,
   // setRecruiter: PropTypes.func.isRequired,
   // role: PropTypes.string.isRequired,
   // setRole: PropTypes.func.isRequired,

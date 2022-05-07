@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './home.scss';
 import maps from '../../assets/images/google-maps.jpg';
@@ -22,10 +22,10 @@ function Home({ setDevelopper, setRecruiter }) {
 
       <form className="home__choice">
         <button className="home__choice--button" type="button" onClick={() => setDevelopper(true)}>
-          <NavLink to="/home-developer" setDevelopper={setDevelopper}>Développeur</NavLink>
+          <Link to="/home-developer">Développeur</Link>
         </button>
         <button className="home__choice--button" type="button" onClick={() => setRecruiter(true)}>
-          <NavLink to="/home-recruiter" setRecruiter={setRecruiter}>Recruteur</NavLink>
+          <Link to="/home-recruiter">Recruteur</Link>
         </button>
       </form>
       <div className="home__map">

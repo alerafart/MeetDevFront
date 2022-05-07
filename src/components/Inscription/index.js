@@ -10,7 +10,7 @@ function Inscription({ developper, recruiter, setConnected }) {
   return (
     <>
       {
-        recruiter && <InscriptionRecruter />
+        recruiter && <InscriptionRecruter setConnected={setConnected} />
       }
       {
         developper && (
@@ -30,7 +30,7 @@ function Inscription({ developper, recruiter, setConnected }) {
             </div>
             <form className="inscription__form">
               <div className="inscription__form--picture--left">
-                <input type="radio" value="men" />
+                <input type="radio" />
                 <img
                   className="inscription__form--picture--img"
                   src={man}
@@ -38,7 +38,7 @@ function Inscription({ developper, recruiter, setConnected }) {
                 />
               </div>
               <div className="inscription__form--picture--right">
-                <input type="radio" value="woman" />
+                <input type="radio" />
                 <img
                   className="inscription__form--picture--img"
                   src={woman}
@@ -49,83 +49,83 @@ function Inscription({ developper, recruiter, setConnected }) {
                 <div className="inscription__form__champ--label">
                   Prénom
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Disponibilité
                 </div>
-                <select className="inscription__form__champ--input">
-                  <option value="immediate" selected>Immédiate</option>
-                  <option value="soon">Prochainement</option>
+                <select defaultValue="immediate" className="inscription__form__champ--input">
+                  <option value="immediate">Immédiate</option>
+                  <option value="prochainement">Prochainement</option>
                 </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Nom
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Anglais
                 </div>
                 <select className="inscription__form__champ--input">
-                  <option value="anglais" selected>Anglais</option>
-                  <option value="semianglais">Anglais intermédiare</option>
-                  <option value="semianglais">Français</option>
+                  <option selected>Anglais</option>
+                  <option>Anglais intermédiare</option>
+                  <option>Français</option>
                 </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Âge
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Salaire annuel
                 </div>
                 <select className="inscription__form__champ--input">
-                  <option value={30} selected>30 <span>k€</span></option>
-                  <option value={40} selected>40 <span>k€</span></option>
+                  <option selected>30 <span>k€</span></option>
+                  <option selected>40 <span>k€</span></option>
                 </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Ville
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Langage
                 </div>
                 <select className="inscription__form__champ--input">
-                  <option value="CSS" selected>CSS</option>
-                  <option value="HTML">HTML</option>
+                  <option selected>CSS</option>
+                  <option>HTML</option>
                 </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Tél
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Technologie
                 </div>
                 <select className="inscription__form__champ--input">
-                  <option value="React" selected>React</option>
-                  <option value="Symfony">Symfony</option>
+                  <option selected>React</option>
+                  <option>Symfony</option>
                 </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Mail
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -133,15 +133,15 @@ function Inscription({ developper, recruiter, setConnected }) {
                 </div>
                 <div className="inscription__form__champ--radio">
                   <label className="inscription__form__champ--radio--item" htmlFor="exp1">
-                    <input checked type="radio" value="exp1" name="exp1" />
+                    <input checked type="radio" name="exp1" />
                     - 1 an
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp2">
-                    <input type="radio" value="exp2" name="exp2" />
+                    <input type="radio" name="exp2" />
                     1 à 3 ans
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp3">
-                    <input type="radio" value="exp3" name="exp3" />
+                    <input type="radio" name="exp3" />
                     + 3 ans
                   </label>
                 </div>
@@ -150,7 +150,7 @@ function Inscription({ developper, recruiter, setConnected }) {
                 <div className="inscription__form__champ--label">
                   Mdp
                 </div>
-                <input className="inscription__form__champ--input" type="password" value="" />
+                <input className="inscription__form__champ--input" type="password" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -160,19 +160,19 @@ function Inscription({ developper, recruiter, setConnected }) {
                     alt="logo github"
                   />
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Vérif Mdp
                 </div>
-                <input className="inscription__form__champ--input" type="password" value="" />
+                <input className="inscription__form__champ--input" type="password" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   PortFolio
                 </div>
-                <input className="inscription__form__champ--input" type="text" value="" />
+                <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__buttons">
                 <button

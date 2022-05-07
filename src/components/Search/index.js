@@ -30,7 +30,7 @@ function Search() {
               <div className="search__filter__champ--label">
                 Ville
               </div>
-              <input className="search__filter__champ--input" type="text" value="" />
+              <input className="search__filter__champ--input" type="text" />
             </div>
             <div className="search__filter__champ">
               <div className="search__filter__champ--label">
@@ -70,7 +70,7 @@ function Search() {
                   Immédiate
                 </label>
                 <label className="search__filter__champ--radio--item" htmlFor="soon">
-                  <input type="radio" value="soon" name="soon" />
+                  <input type="radio" name="soon" />
                   3 mois
                 </label>
               </div>

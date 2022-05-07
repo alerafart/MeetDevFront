@@ -77,8 +77,6 @@ Header.propTypes = {
   setDevelopper: PropTypes.func.isRequired,
   recruiter: PropTypes.bool.isRequired,
   setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
 };
 
 export default Header;

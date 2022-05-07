@@ -6,6 +6,18 @@
   padding: 1em 3em;
   min-height: 80vh;
 
+  @media (max-width: 1000px) {
+    padding: 1em 2em;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1em 1em;
+  }
+
+  @media (max-width: 500px) {
+    padding: 1em 0em;
+  }
+
   &__title {
     width: 100%;
     height: 2rem;
@@ -57,14 +69,22 @@
         width: 26%;
         margin-bottom: 16px;
 
+        @media (max-width: 767px) {
+          width: 40%;
+        }
+
       }
 
       &--right {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 26%;
+        width: 30%;
         margin-bottom: 16px;
+
+        @media (max-width: 767px) {
+          width: 30%;
+        }
 
       }
     }
@@ -76,6 +96,11 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+
 
       &--radio {
         width: 60%;
@@ -106,9 +131,16 @@
     }
 
     &__buttons {
+      display: flex;
+      justify-content: center;
 
+      @media (max-width: 375px) {
+        flex-direction: column;
+        align-items: center;
+      }
 
       &__button {
+
 
         &--valid {
           border: none;
@@ -119,6 +151,7 @@
           font-size: 1.2rem;
           transition: transform 0.3s;
           margin-right: 2rem;
+          margin-left: 2rem;
           margin-bottom: 1rem;
 
           &:hover {
@@ -138,6 +171,7 @@
           font-size: 1.2rem;
           transition: transform 0.3s;
           margin-right: 2rem;
+          margin-left: 2rem;
           margin-bottom: 1rem;
 
           &:hover {

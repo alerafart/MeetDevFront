@@ -42,6 +42,7 @@ function Footer({
           className={classDevelopper}
           onClick={() => {
             setDevelopper(!developper);
+            setRecruiter(developper);
           }}
         >
           developper
@@ -51,6 +52,7 @@ function Footer({
           className={classRecruiter}
           onClick={() => {
             setRecruiter(!recruiter);
+            setDevelopper(recruiter);
           }}
         >
           recruiter

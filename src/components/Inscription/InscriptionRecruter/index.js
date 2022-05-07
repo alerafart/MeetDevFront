@@ -1,6 +1,8 @@
 import './inscriptionrecruter.scss';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-function InscriptionRecruter() {
+function InscriptionRecruter({ setConnected }) {
   return (
     <div className="inscriptionRecruter">
       <h2 className="inscriptionRecruter__title">
@@ -90,12 +92,40 @@ function InscriptionRecruter() {
           <input className="inscriptionRecruter__form__champ--input" type="password" value="" />
         </div>
         <div className="inscriptionRecruter__form__buttons">
-          <input type="submit" className="inscriptionRecruter__form__buttons__button--valid" value="Valider" />
-          <input type="submit" className="inscriptionRecruter__form__buttons__button--cancel" value="Annuler" />
+          <button
+            type="submit"
+            className="inscriptionRecruter__form__buttons__button--valid"
+            onClick={(e) => {
+              e.preventDefault();
+              setConnected(true);
+            }}
+          >
+            <Link to="/recruiter-profile">Valider</Link>
+          </button>
+          <button
+            type="submit"
+            className="inscriptionRecruter__form__buttons__button--cancel"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <Link to="/">Annuler</Link>
+          </button>
         </div>
       </form>
     </div>
   );
 }
+
+InscriptionRecruter.propTypes = {
+  // connected: PropTypes.bool.isRequired,
+  setConnected: PropTypes.func.isRequired,
+  // developper: PropTypes.bool.isRequired,
+  // // setDevelopper: PropTypes.func.isRequired,
+  // recruiter: PropTypes.bool.isRequired,
+  // setRecruiter: PropTypes.func.isRequired,
+  // role: PropTypes.string.isRequired,
+  // setRole: PropTypes.func.isRequired,
+};
 
 export default InscriptionRecruter;

@@ -11,6 +11,10 @@
   color: vars.$mainColor;
   background-color: vars.$mainBackground;
 
+  &__enSavoirPlus {
+    font-size: 2rem;
+  }
+
   &__logo {
     font-size: 2rem;
     font-weight: bold;

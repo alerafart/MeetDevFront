@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './home.scss';
 import maps from '../../assets/images/google-maps.jpg';
 
-function Home() {
+function Home({ setDevelopper, setRecruiter }) {
   return (
     <div className="home">
       <div className="home__header">
@@ -20,11 +21,11 @@ function Home() {
       </div>
 
       <form className="home__choice">
-        <button className="home__choice--button" type="button">
-          <NavLink to="/home-developer">Développeur</NavLink>
+        <button className="home__choice--button" type="button" onClick={() => setDevelopper(true)}>
+          <NavLink to="/home-developer" setDevelopper={setDevelopper}>Développeur</NavLink>
         </button>
-        <button className="home__choice--button" type="button">
-          <NavLink to="/home-recruiter">Recruteur</NavLink>
+        <button className="home__choice--button" type="button" onClick={() => setRecruiter(true)}>
+          <NavLink to="/home-recruiter" setRecruiter={setRecruiter}>Recruteur</NavLink>
         </button>
       </form>
       <div className="home__map">
@@ -37,5 +38,16 @@ function Home() {
     </div>
   );
 }
+
+Home.propTypes = {
+  // connected: PropTypes.bool.isRequired,
+  // setConnected: PropTypes.func.isRequired,
+  // developper: PropTypes.bool.isRequired,
+  setDevelopper: PropTypes.func.isRequired,
+  // recruiter: PropTypes.bool.isRequired,
+  setRecruiter: PropTypes.func.isRequired,
+  // role: PropTypes.string.isRequired,
+  // setRole: PropTypes.func.isRequired,
+};
 
 export default Home;

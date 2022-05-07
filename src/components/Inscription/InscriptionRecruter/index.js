@@ -121,7 +121,7 @@ InscriptionRecruter.propTypes = {
   // connected: PropTypes.bool.isRequired,
   setConnected: PropTypes.func.isRequired,
   // developper: PropTypes.bool.isRequired,
-  // // setDevelopper: PropTypes.func.isRequired,
+  // setDevelopper: PropTypes.func.isRequired,
   // recruiter: PropTypes.bool.isRequired,
   // setRecruiter: PropTypes.func.isRequired,
   // role: PropTypes.string.isRequired,

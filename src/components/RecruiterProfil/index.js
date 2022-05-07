@@ -1,4 +1,5 @@
 import './recruiterprofil.scss';
+import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
 
 function RecruiterProfile() {
@@ -27,9 +28,8 @@ function RecruiterProfile() {
         <button
           className="profil__modify__form"
           type="button"
-          // onClick={() => setModifyInformation(true)}
         >
-          Modifier
+          <Link to="/recruiter-modify">Modifier</Link>
         </button>
 
       </div>

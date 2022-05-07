@@ -17,6 +17,7 @@ import EnSavoirPlus from '../EnSavoirPlus';
 import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
 import RecruiterProfile from '../RecruiterProfil';
+import RecruiterProfilModify from '../RecruiterProfil/RecruiterProfilModify';
 
 function MeetDev() {
   //* state fictifs to finish static navigation
@@ -209,6 +210,21 @@ function MeetDev() {
           path="/recruiter-profile"
           element={(
             <RecruiterProfile
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+              role={role}
+              setRole={setRole}
+            />
+          )}
+        />
+        <Route
+          path="/recruiter-modify"
+          element={(
+            <RecruiterProfilModify
               connected={isConnected}
               setConnected={setIsConnected}
               developper={isDevelopper}

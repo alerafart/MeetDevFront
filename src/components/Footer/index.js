@@ -6,10 +6,13 @@ import facebook from '../../assets/images/facebook.png';
 import twitter from '../../assets/images/twitter.png';
 
 // connected, setConnected, developper, setDevelopper, recruiter, setRecruiter, role, setRole,
-function Footer({ setConnected, developper, setDevelopper }) {
+function Footer({
+  setConnected, developper, setDevelopper, recruiter, setRecruiter,
+}) {
   //* temporary: create button to footer to change state for static navigation
   //* for helpng finish the static navigation
   const classDevelopper = (developper ? 'footer__stateNavigation--developperOn' : 'footer__stateNavigation--developperOff');
+  const classRecruiter = (recruiter ? 'footer__stateNavigation--recruiterOn' : 'footer__stateNavigation--recruiterOff');
 
   return (
     <div className="footer">
@@ -29,12 +32,28 @@ function Footer({ setConnected, developper, setDevelopper }) {
           onClick={() => {
             setConnected(false);
             setDevelopper(false);
+            setRecruiter(false);
           }}
         >
           deconnexion
         </button>
-        <button type="button" className={classDevelopper} onClick={() => (setDevelopper(!developper))}>
+        <button
+          type="button"
+          className={classDevelopper}
+          onClick={() => {
+            setDevelopper(!developper);
+          }}
+        >
           developper
+        </button>
+        <button
+          type="button"
+          className={classRecruiter}
+          onClick={() => {
+            setRecruiter(!recruiter);
+          }}
+        >
+          recruiter
         </button>
 
       </div>
@@ -65,8 +84,8 @@ Footer.propTypes = {
   setConnected: PropTypes.func.isRequired,
   developper: PropTypes.bool.isRequired,
   setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
+  recruiter: PropTypes.bool.isRequired,
+  setRecruiter: PropTypes.func.isRequired,
   // role: PropTypes.string.isRequired,
   // setRole: PropTypes.func.isRequired,
 

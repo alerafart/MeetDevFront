@@ -16,7 +16,7 @@
   }
 
   &__content {
-    padding: 0em 3em;
+    // padding: 0em 3em;
   }
 
   &__slogan {
@@ -42,8 +42,8 @@
       font-size: 1.2rem;
       transition: transform 0.3s;
       margin-bottom: 1.5rem;
-      min-width: 13rem;
-      width: 30%;
+      min-width: 17rem;
+      max-width: 17rem;
 
       &:hover {
         transform: scale(1.1);
@@ -63,8 +63,8 @@
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
       transition: transform 0.3s;
-      min-width: 13rem;
-      width: 30%;
+      min-width: 17rem;
+      max-width: 17rem;
 
       &:hover {
         transform: scale(1.1);
@@ -83,8 +83,8 @@
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
       transition: transform 0.3s;
-      min-width: 13rem;
-      width: 30%;
+      min-width: 17rem;
+      max-width: 17rem;
 
       &:hover {
         transform: scale(1.1);
@@ -98,4 +98,15 @@
 
 p {
   margin-bottom: 1.7rem;
+}
+
+.homedeveloper__dev--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homedeveloper__dev--content p {
+  padding: 0;
+  max-width: 50rem;
 }

@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 2px solid vars.$mainColor ;
+  border-top: 2px solid vars.$mainColor;
   background-color: vars.$mainBackground;
   color: vars.$mainFontAnthra;
 
@@ -25,7 +25,59 @@
       height: 40px;
       padding: 0 1rem;
     }
+  }
 
+  &__stateNavigation {
+    display: flex;
+    justify-content: space-around;
+
+    &--connected {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$mainColor;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
+
+    &--deconnected {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$cancelOption;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
+
+    &--developperOn {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$mainColor;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
+
+    &--developperOff {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$cancelOption;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
+
+    &--recruiterOn {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$mainColor;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
+
+    &--recruiterOff {
+      border-radius: 8px;
+      border: none;
+      background-color: vars.$cancelOption;
+      margin: 0 0.5rem;
+      color: vars.$mainBackground;
+    }
   }
 
 }

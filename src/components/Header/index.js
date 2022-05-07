@@ -13,9 +13,9 @@ function Header({
           <div className="header__enSavoirPlus">
             <Link to="/en-savoir-plus">En savoir plus</Link>
           </div>
-          <ul className="header__menu">
+          {/* <ul className="header__menu">
             <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-          </ul>
+          </ul> */}
           <button
             type="button"
             className="header__button"

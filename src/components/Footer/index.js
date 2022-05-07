@@ -6,9 +6,10 @@ import facebook from '../../assets/images/facebook.png';
 import twitter from '../../assets/images/twitter.png';
 
 // connected, setConnected, developper, setDevelopper, recruiter, setRecruiter, role, setRole,
-function Footer({ setConnected }) {
+function Footer({ setConnected, developper, setDevelopper }) {
   //* temporary: create button to footer to change state for static navigation
   //* for helpng finish the static navigation
+  const classDevelopper = (developper ? 'footer__stateNavigation--developperOn' : 'footer__stateNavigation--developperOff');
 
   return (
     <div className="footer">
@@ -22,8 +23,18 @@ function Footer({ setConnected }) {
         <button type="button" className="footer__stateNavigation--connected" onClick={() => (setConnected(true))}>
           connexion
         </button>
-        <button type="button" className="footer__stateNavigation--deconnected" onClick={() => (setConnected(false))}>
+        <button
+          type="button"
+          className="footer__stateNavigation--deconnected"
+          onClick={() => {
+            setConnected(false);
+            setDevelopper(false);
+          }}
+        >
           deconnexion
+        </button>
+        <button type="button" className={classDevelopper} onClick={() => (setDevelopper(!developper))}>
+          developper
         </button>
 
       </div>
@@ -52,8 +63,8 @@ function Footer({ setConnected }) {
 Footer.propTypes = {
   // connected: PropTypes.bool.isRequired,
   setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
+  developper: PropTypes.bool.isRequired,
+  setDevelopper: PropTypes.func.isRequired,
   // recruiter: PropTypes.bool.isRequired,
   // setRecruiter: PropTypes.func.isRequired,
   // role: PropTypes.string.isRequired,

@@ -8,4 +8,6 @@ body {
   max-width: 1024px;
   margin: 0 auto;
   background-color: vars.$mainFontGrey;
+  background: linear-gradient(90deg, rgba(130, 195, 188, 1) 0%, rgba(27, 174, 159, 1) 48%, rgba(130, 195, 188, 1) 100%);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

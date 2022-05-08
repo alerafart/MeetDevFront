@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './search.scss';
 import Card from './Card';
 import ModalProfil from './ModalProfil';
-import DetailProfil from './DetailProfil';
+import ProfilDev from '../ProfilDev';
 
 function Search({ setCloseDevModal }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,7 +15,7 @@ function Search({ setCloseDevModal }) {
   return (
     <div className="search">
       {
-        detailOpen && <DetailProfil setOpenModal={setModalOpen} setDetailOpen={setDetailOpen} />
+        detailOpen && <ProfilDev setOpenModal={setModalOpen} setDetailOpen={setDetailOpen} />
       }
       {
         modalOpen

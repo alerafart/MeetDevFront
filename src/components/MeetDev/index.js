@@ -19,6 +19,7 @@ import HomeRecruiter from '../Home/HomeRecruiter';
 import RecruiterProfile from '../RecruiterProfil';
 import RecruiterProfilModify from '../RecruiterProfil/RecruiterProfilModify';
 import ModalLogin from '../ModalLogin';
+import ModalDevContact from '../ModalDevContact';
 
 function MeetDev() {
   //* state fictifs to finish static navigation
@@ -26,10 +27,12 @@ function MeetDev() {
   //* and: Are you developper or recruiter or undifined? ("dev","rec","und")
   //* new state for modal login on or off. For the moment, activable
   //* with the top button connexion
+  //* new state for modal contactDev on or off.
   const [isConnected, setIsConnected] = useState(false);
   const [isDevelopper, setIsDevelopper] = useState(false);
   const [isRecruiter, setIsRecruiter] = useState(false);
   const [isModalLogin, setIsModalLogin] = useState(false);
+  const [isModalDevContact, setIsModalDevContact] = useState(false);
 
   return (
     <div className="meetdev">
@@ -44,6 +47,9 @@ function MeetDev() {
       />
       {
         isModalLogin && <ModalLogin setCloseModal={setIsModalLogin} />
+      }
+      {
+        isModalDevContact && <ModalDevContact setCloseModal={setIsModalDevContact} />
       }
       <Routes>
         <Route
@@ -95,6 +101,7 @@ function MeetDev() {
               setDevelopper={setIsDevelopper}
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
+              setCloseDevModal={setIsModalDevContact}
             />
           )}
         />

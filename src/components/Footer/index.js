@@ -7,10 +7,13 @@ import twitter from '../../assets/images/twitter.png';
 function Footer() {
   return (
     <div className="footer">
-      <div className="footer__contact">
+      <div className="footer__link">
+        <Link to="/">Meetdev</Link>
+      </div>
+      <div className="footer__link">
         <Link to="/contact">Contact</Link>
       </div>
-      <div className="footer__mentionslegales">
+      <div className="footer__link">
         <Link to="/mentions-legales">Mentions-Légales</Link>
       </div>
       <div className="footer__logos">

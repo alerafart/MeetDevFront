@@ -7,16 +7,38 @@
   min-height: 75px;
   padding: 0 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-top: 2px solid vars.$mainColor;
-  background-color: vars.$mainBackground;
+  background-color: vars.$mainColor;
   color: vars.$mainFontAnthra;
+  color: white;
 
-  @media (max-width: 560px) {
-    flex-direction: column;
+  @media (max-width: 620px) {
     justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
+
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+  }
+
+
+
+
+  &__link {
+    width: 8rem;
+    text-align: center;
+
+    @media (max-width: 620px) {
+      width: 33%;
+      margin-top: 1rem;
+
+    }
+  }
+
+
 
 
 
@@ -25,7 +47,7 @@
     justify-content: space-around;
     align-items: center;
 
-    @media (max-width: 560px) {
+    @media (max-width: 620px) {
       margin-top: 1rem;
     }
 

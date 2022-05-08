@@ -22,6 +22,14 @@
   flex-direction: column;
   padding: 1.5rem 2.5rem;
 
+  @media (max-width: 665px) {
+    padding: 1.5rem 0.5rem;
+    width: 100%;
+  }
+
+
+
+
   &__exit {
     display: flex;
     justify-content: flex-end;
@@ -70,11 +78,30 @@
     color: vars.$mainFontAnthra;
     flex-wrap: wrap;
 
+    @media (max-width: 665px) {
+      position: relative;
+    }
+
 
 
     &--left {
       font-size: 5rem;
       font-weight: bold;
+
+      @media (max-width: 665px) {
+        position: absolute;
+        left: 65px;
+        top: 125px;
+        font-size: 3.5rem;
+      }
+
+      @media (max-width: 510px) {
+        left: 10%;
+      }
+
+      // @media (max-width: 560px) {
+      //   left: 10%;
+      // }
 
       &:hover {
         cursor: pointer;
@@ -84,6 +111,17 @@
     &--right {
       font-size: 5rem;
       font-weight: bold;
+
+      @media (max-width: 665px) {
+        position: absolute;
+        right: 65px;
+        top: 125px;
+        font-size: 3.5rem;
+      }
+
+      @media (max-width: 510px) {
+        right: 10%;
+      }
 
       &:hover {
         cursor: pointer;
@@ -101,6 +139,10 @@
       justify-content: center;
       font-size: 1.5rem;
       line-height: 1.3rem;
+
+      @media (max-width: 665px) {
+        width: 90%;
+      }
 
       &--item {
         margin-bottom: 0.7em;
@@ -130,6 +172,14 @@
         align-items: center;
         width: 100%;
 
+        @media (max-width: 665px) {
+          width: 70%;
+        }
+
+        @media (max-width: 490px) {
+          width: 80%;
+        }
+
         &--logo {
           width: 2.5rem;
           display: block;
@@ -145,6 +195,13 @@
     display: flex;
     justify-content: space-evenly;
 
+    @media (max-width: 767px) {
+
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
     &--button {
       border: none;
       width: 30%;
@@ -154,6 +211,11 @@
       font-size: 1.2rem;
       padding: 8px 30px;
       transition: transform 0.3s;
+
+      @media (max-width: 767px) {
+        width: 14rem;
+        margin-bottom: 1rem;
+      }
 
       &:hover {
         transform: scale(1.1);

@@ -1,13 +1,14 @@
 // TODO useState utilisé pour la modale
 // TODO en attendant qu'un store soit crée
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './search.scss';
 import Card from './Card';
 import ModalProfil from './ModalProfil';
 import DetailProfil from './DetailProfil';
 
-function Search() {
+function Search({ setCloseDevModal }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [detailOpen, setDetailOpen] = useState(false);
 
@@ -17,7 +18,14 @@ function Search() {
         detailOpen && <DetailProfil setOpenModal={setModalOpen} setDetailOpen={setDetailOpen} />
       }
       {
-        modalOpen && <ModalProfil setOpenModal={setModalOpen} setDetailOpen={setDetailOpen} />
+        modalOpen
+        && (
+        <ModalProfil
+          setOpenModal={setModalOpen}
+          setDetailOpen={setDetailOpen}
+          setCloseDevModal={setCloseDevModal}
+        />
+        )
       }
       {
         !detailOpen && (
@@ -157,5 +165,9 @@ function Search() {
     </div>
   );
 }
+
+Search.propTypes = {
+  setCloseDevModal: PropTypes.func.isRequired,
+};
 
 export default Search;

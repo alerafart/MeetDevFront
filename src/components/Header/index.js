@@ -4,7 +4,7 @@ import './header.scss';
 import rocket from '../../assets/images/rocket.png';
 
 function Header({
-  connected, setConnected, setDevelopper, setRecruiter, recruiter, developper,
+  connected, setConnected, setDevelopper, setRecruiter, recruiter, developper, setOpenModal,
 }) {
   return (
     <div className="header">
@@ -19,6 +19,9 @@ function Header({
           <button
             type="button"
             className="header__button"
+            onClick={() => {
+              setOpenModal(true);
+            }}
           >
             Connexion
           </button>
@@ -77,6 +80,7 @@ Header.propTypes = {
   setDevelopper: PropTypes.func.isRequired,
   recruiter: PropTypes.bool.isRequired,
   setRecruiter: PropTypes.func.isRequired,
+  setOpenModal: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -1,0 +1,112 @@
+@use '../../../styles/vars';
+
+.homedeveloper {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+    margin-bottom: 1.5em;
+  }
+
+  &__content {
+    // padding: 0em 3em;
+  }
+
+  &__slogan {
+    margin-top: 1.8rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: vars.$mainFontAnthra;
+    font-style: italic;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--login {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-bottom: 1.5rem;
+      min-width: 17rem;
+      max-width: 17rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+
+    }
+
+    &--inscription {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s;
+      min-width: 17rem;
+      max-width: 17rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+    &--back {
+      border: none;
+      background-color: vars.$cancelOption;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s;
+      min-width: 17rem;
+      max-width: 17rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+  }
+}
+
+p {
+  margin-bottom: 1.7rem;
+}
+
+.homedeveloper__dev--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homedeveloper__dev--content p {
+  padding: 0;
+  max-width: 50rem;
+}

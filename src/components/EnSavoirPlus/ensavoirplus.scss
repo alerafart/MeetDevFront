@@ -1,0 +1,133 @@
+@use '../../styles/vars';
+
+.about {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+
+
+  &__title {
+    margin: 1rem 0 3rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+
+  &__philosophy {
+    padding: 0 2em;
+
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin: 1em 0;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 0 3em;
+      font-style: italic;
+    }
+  }
+
+  &__dev {
+    padding: 0 2em;
+
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin: 2em 0 1em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 0 3em;
+      font-style: italic;
+    }
+  }
+
+  &__recruiter {
+    padding: 0 2em;
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin: 2em 0 1em;
+    }
+
+    &--content {
+      text-align: center;
+      padding: 0 3em;
+      font-style: italic;
+    }
+  }
+
+  &__slogan {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: vars.$mainFontAnthra;
+  }
+
+  &__us {
+    text-align: center;
+    padding: 0 2em;
+
+    &--title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      color: vars.$mainColor;
+      margin: 2em 0 1em;
+    }
+
+    &--content {
+      text-align: center;
+      font-style: italic;
+    }
+
+    &--cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 1rem;
+    }
+
+    &--container {
+      background-color: vars.$mainBackground;
+      text-align: center;
+
+      &--name {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: vars.$mainFontAnthra;
+        margin-bottom: 0.5rem;
+      }
+
+      &--role {
+        padding: 0.5rem;
+      }
+
+      &--photo {
+        padding: 0.5rem;
+
+      }
+    }
+  }
+}

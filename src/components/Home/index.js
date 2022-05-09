@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import './home.scss';
 import { useDispatch } from 'react-redux';
 import maps from '../../assets/images/google-maps.jpg';
-import { isDev, isRecruiter } from '../../actions/settings';
+import { isDev, isRecruiter, setFromAway } from '../../actions/settings';
 
 function Home() {
   const dispatch = useDispatch();
+  dispatch(setFromAway());
   return (
     <div className="home">
       <div className="home__header">

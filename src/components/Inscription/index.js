@@ -5,12 +5,13 @@ import InscriptionRecruter from './InscriptionRecruter';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
-import { login, logout } from '../../actions/settings';
+import { login, logout, setFromInscriptionRoute } from '../../actions/settings';
 
 function Inscription() {
   const dispatch = useDispatch();
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  dispatch(setFromInscriptionRoute());
 
   return (
     <>

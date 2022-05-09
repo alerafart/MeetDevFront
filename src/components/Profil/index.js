@@ -1,26 +1,32 @@
 // styles
 import './profil.scss';
-import { useState } from 'react';
-import ProfilDevModify from './ProfilDevModify';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import ProfilDev from '../ProfilDev';
-// import Agathe from '../../assets/images/agathe-feeling.jpg';
-// import html from '../../assets/images/html.png';
-/* import php from '../../assets/images/php.png';
-import css from '../../assets/images/css.png';
-import js from '../../assets/images/js.png';
-import github from '../../assets/images/github.png';
-import portfolio from '../../assets/images/portfolio.jpg'; */
+import ProfilRecruiter from '../ProfilRecruiter';
 
 function Profil() {
-  const [modifyInformation, setModifyInformation] = useState(false);
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const logged = useSelector((state) => state.settings.log.logged);
   return (
+    // TODO prise en charge si recruiter ou recherche dev ou recruiter mais page
+    // origine = recherche ou favoris = afficher profil dev
+    // et sans modifier sinon afficher profil dev+modifier ou profilrecruiter+modifier
     <>
+      {/* If Dev and Logged display ProfilDev */}
       {
-        modifyInformation && <ProfilDevModify setModifyInformation={setModifyInformation} />
+        (isDev && logged) && <ProfilDev />
       }
+
+      {/* If Recruiter and Logged display ProfilRecruiter */}
       {
-        !modifyInformation && (<ProfilDev />
-        )
+        (isRecruiter && logged) && <ProfilRecruiter />
+      }
+
+      {/* if not isDev and not isCrecruiter or if not logged return to home  */}
+      {
+        ((!isDev && !isRecruiter) || !logged) && <Navigate to="/" />
       }
     </>
 

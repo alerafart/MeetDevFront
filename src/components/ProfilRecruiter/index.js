@@ -29,7 +29,7 @@ function RecruiterProfile() {
           className="profil__modify__form"
           type="button"
         >
-          <Link to="/recruiter-modify">Modifier</Link>
+          <Link to="/modifier">Modifier</Link>
         </button>
 
       </div>

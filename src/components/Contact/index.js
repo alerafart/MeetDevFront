@@ -1,7 +1,11 @@
 // styles
+import { useDispatch } from 'react-redux';
+import { setFromAway } from '../../actions/settings';
 import './contact.scss';
 
 function Contact() {
+  const dispatch = useDispatch();
+  dispatch(setFromAway());
   return (
     <section className="contact-wrap">
       <form action="" className="contact__form">

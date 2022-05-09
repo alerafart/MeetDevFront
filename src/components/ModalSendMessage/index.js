@@ -1,7 +1,9 @@
+import { useDispatch } from 'react-redux';
+import { setToggleModalSendMessage } from '../../actions/settings';
 import './modalDevContact.scss';
-import PropTypes from 'prop-types';
 
-function ModalDevContact({ setCloseModal }) {
+function ModalSendMessage() {
+  const dispatch = useDispatch();
   return (
     <div
       className="modalDevContactBackground"
@@ -15,7 +17,7 @@ function ModalDevContact({ setCloseModal }) {
             className="modalDevContactContainer__header--button"
             type="button"
             onClick={() => {
-              setCloseModal(false);
+              dispatch(setToggleModalSendMessage());
             }}
           >
             X
@@ -31,9 +33,8 @@ function ModalDevContact({ setCloseModal }) {
           <button
             type="submit"
             className="modalDevContactContainer__form--connexion"
-            onClick={(e) => {
-              e.preventDefault();
-              setCloseModal(false);
+            onClick={() => {
+              dispatch(setToggleModalSendMessage());
             }}
           >
             Envoyer
@@ -44,8 +45,4 @@ function ModalDevContact({ setCloseModal }) {
   );
 }
 
-ModalDevContact.propTypes = {
-  setCloseModal: PropTypes.func.isRequired,
-};
-
-export default ModalDevContact;
+export default ModalSendMessage;

@@ -1,11 +1,11 @@
 // styles
 import './homedeveloper.scss';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { login, logout } from '../../../actions/settings';
 
-function HomeDeveloper({
-  setDevelopper, setConnected,
-}) {
+function HomeDeveloper() {
+  const dispatch = useDispatch();
   return (
     <div className="homedeveloper">
       <h3 className="homedeveloper__title">Développeur</h3>
@@ -39,14 +39,14 @@ function HomeDeveloper({
         <button
           type="button"
           className="homedeveloper__button--login"
-          onClick={() => setConnected(true)}
+          onClick={() => dispatch(login())}
         >
           Connexion
         </button>
         <button
           type="button"
           className="homedeveloper__button--back"
-          onClick={() => setDevelopper(false)}
+          onClick={() => dispatch(logout())}
         >
           <Link to="/">Retour</Link>
         </button>
@@ -54,16 +54,5 @@ function HomeDeveloper({
     </div>
   );
 }
-
-HomeDeveloper.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default HomeDeveloper;

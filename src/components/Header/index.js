@@ -1,14 +1,19 @@
 import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './header.scss';
+import { useSelector, useDispatch } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
+import { login, logout } from '../../actions/settings';
 
 function Header({
-  connected, setConnected, setDevelopper, setRecruiter, recruiter, developper, setOpenModal,
+  setDevelopper, setRecruiter, recruiter, developper,
 }) {
+  const logged = useSelector((state) => state.settings.log.logged);
+  const dispatch = useDispatch();
+
   return (
     <div className="header">
-      { !connected && (
+      { !logged && (
         <>
           <div className="header__enSavoirPlus">
             <Link to="/en-savoir-plus">En savoir plus</Link>
@@ -20,7 +25,8 @@ function Header({
             type="button"
             className="header__button"
             onClick={() => {
-              setOpenModal(true);
+              dispatch(login());
+              // setOpenModal(true);
             }}
           >
             Connexion
@@ -28,7 +34,7 @@ function Header({
         </>
       )}
       {
-        connected && (
+        logged && (
           <>
             <div className="header__logo">
               <img
@@ -59,7 +65,7 @@ function Header({
               type="button"
               className="header__button"
               onClick={() => {
-                setConnected(false);
+                dispatch(logout());
                 setRecruiter(false);
                 setDevelopper(false);
               }}
@@ -74,13 +80,11 @@ function Header({
 }
 
 Header.propTypes = {
-  connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
   developper: PropTypes.bool.isRequired,
   setDevelopper: PropTypes.func.isRequired,
   recruiter: PropTypes.bool.isRequired,
   setRecruiter: PropTypes.func.isRequired,
-  setOpenModal: PropTypes.func.isRequired,
+  // setOpenModal: PropTypes.func.isRequired,
 };
 
 export default Header;

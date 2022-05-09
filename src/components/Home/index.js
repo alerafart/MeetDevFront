@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './home.scss';
+import { useDispatch } from 'react-redux';
 import maps from '../../assets/images/google-maps.jpg';
+import { isDev, isRecruiter } from '../../actions/settings';
 
-function Home({ setDevelopper, setRecruiter }) {
+function Home() {
+  const dispatch = useDispatch();
   return (
     <div className="home">
       <div className="home__header">
@@ -21,10 +23,10 @@ function Home({ setDevelopper, setRecruiter }) {
       </div>
 
       <form className="home__choice">
-        <button className="home__choice--button" type="button" onClick={() => setDevelopper(true)}>
+        <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
           <Link to="/home-developer">Développeur</Link>
         </button>
-        <button className="home__choice--button" type="button" onClick={() => setRecruiter(true)}>
+        <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
           <Link to="/home-recruiter">Recruteur</Link>
         </button>
       </form>
@@ -38,16 +40,5 @@ function Home({ setDevelopper, setRecruiter }) {
     </div>
   );
 }
-
-Home.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  // setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default Home;

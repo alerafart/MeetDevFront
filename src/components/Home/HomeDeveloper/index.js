@@ -2,7 +2,7 @@
 import './homedeveloper.scss';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, logout } from '../../../actions/settings';
+import { login, logout, toggleWindowLog } from '../../../actions/settings';
 
 function HomeDeveloper() {
   const dispatch = useDispatch();
@@ -30,26 +30,31 @@ function HomeDeveloper() {
         </div>
       </div>
       <div className="homedeveloper__button">
-        <button
-          type="button"
-          className="homedeveloper__button--inscription"
-        >
-          <Link to="/inscription">Inscription Gratuite</Link>
-        </button>
+        <Link to="/inscription">
+          <button
+            type="button"
+            className="homedeveloper__button--inscription"
+          >
+            Inscription Gratuite
+          </button>
+        </Link>
+
         <button
           type="button"
           className="homedeveloper__button--login"
-          onClick={() => dispatch(login())}
+          onClick={() => dispatch(toggleWindowLog(), login())}
         >
           Connexion
         </button>
-        <button
-          type="button"
-          className="homedeveloper__button--back"
-          onClick={() => dispatch(logout())}
-        >
-          <Link to="/">Retour</Link>
-        </button>
+
+        <Link to="/">
+          <button
+            type="button"
+            className="homedeveloper__button--back"
+            onClick={() => dispatch(logout())}
+          >Retour
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -23,12 +23,16 @@ function Home() {
       </div>
 
       <form className="home__choice">
-        <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
-          <Link to="/home-developer">Développeur</Link>
-        </button>
-        <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
-          <Link to="/home-recruiter">Recruteur</Link>
-        </button>
+        <Link to="/home-developer">
+          <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
+            Développeur
+          </button>
+        </Link>
+        <Link to="/home-recruiter">
+          <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
+            Recruteur
+          </button>
+        </Link>
       </form>
       <div className="home__map">
         <img

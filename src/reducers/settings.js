@@ -1,24 +1,33 @@
 import {
-  IS_DEV, IS_RECRUITER, LOGIN, LOGOUT,
+  IS_DEV, IS_RECRUITER, LOGIN, LOGOUT, TOGGLE_WINDOW_LOG,
 } from '../actions/settings';
 
 export const initialState = {
   log: {
     logged: false,
-    isDevelopper: false,
+    isDev: false,
     isRecruiter: false,
     email: '',
     token: '',
+    windowLog: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_WINDOW_LOG:
+      return {
+        ...state,
+        log: {
+          ...state.log,
+          windowLog: !state.log.windowLog,
+        },
+      };
     case LOGIN:
       return {
         ...state,
         log: {
-          ...state,
+          ...state.log,
           logged: true,
         },
       };
@@ -26,9 +35,9 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
-          ...state,
+          ...state.log,
           logged: false,
-          isDevelopper: false,
+          isDev: false,
           isRecruiter: false,
         },
       };
@@ -36,8 +45,8 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
-          ...state,
-          isDevelopper: true,
+          ...state.log,
+          isDev: true,
           isRecruiter: false,
         },
       };
@@ -46,8 +55,8 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
-          ...state,
-          isDevelopper: false,
+          ...state.log,
+          isDev: false,
           isRecruiter: true,
         },
       };

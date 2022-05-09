@@ -9,7 +9,7 @@ function ModalDevContact({ setCloseModal }) {
       <div className="modalDevContactContainer">
         <header className="modalDevContactContainer__header">
           <h2 className="modalDevContactContainer__header--title">
-            CONTACT
+            Formulaire de Contact
           </h2>
           <button
             className="modalDevContactContainer__header--button"
@@ -36,7 +36,7 @@ function ModalDevContact({ setCloseModal }) {
               setCloseModal(false);
             }}
           >
-            ENVOYER
+            Envoyer
           </button>
         </form>
       </div>

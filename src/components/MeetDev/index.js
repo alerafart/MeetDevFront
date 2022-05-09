@@ -1,6 +1,7 @@
 import './meetdev.scss';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -11,6 +12,7 @@ import Connexion from '../Connexion';
 import Search from '../Search';
 import Favoris from '../Favoris';
 import Profil from '../Profil';
+import ProfilDevModify from '../Profil/ProfilDevModify';
 import Contact from '../Contact';
 import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
@@ -31,22 +33,15 @@ function MeetDev() {
   const [isConnected, setIsConnected] = useState(false);
   const [isDevelopper, setIsDevelopper] = useState(false);
   const [isRecruiter, setIsRecruiter] = useState(false);
-  const [isModalLogin, setIsModalLogin] = useState(false);
   const [isModalDevContact, setIsModalDevContact] = useState(false);
 
+  const windowLog = useSelector((state) => state.settings.log.windowLog);
+  console.log(windowLog);
   return (
     <div className="meetdev">
-      <Header
-        connected={isConnected}
-        setConnected={setIsConnected}
-        developper={isDevelopper}
-        setDevelopper={setIsDevelopper}
-        recruiter={isRecruiter}
-        setRecruiter={setIsRecruiter}
-        setOpenModal={setIsModalLogin}
-      />
+      <Header />
       {
-        isModalLogin && <ModalLogin setCloseModal={setIsModalLogin} />
+        windowLog && <ModalLogin />
       }
       {
         isModalDevContact && <ModalDevContact setCloseModal={setIsModalDevContact} />
@@ -68,14 +63,7 @@ function MeetDev() {
         <Route
           path="/inscription"
           element={(
-            <Inscription
-              connected={isConnected}
-              setConnected={setIsConnected}
-              developper={isDevelopper}
-              setDevelopper={setIsDevelopper}
-              recruiter={isRecruiter}
-              setRecruiter={setIsRecruiter}
-            />
+            <Inscription />
           )}
         />
         <Route
@@ -129,6 +117,12 @@ function MeetDev() {
               recruiter={isRecruiter}
               setRecruiter={setIsRecruiter}
             />
+          )}
+        />
+        <Route
+          path="/developer-modify"
+          element={(
+            <ProfilDevModify />
           )}
         />
         <Route

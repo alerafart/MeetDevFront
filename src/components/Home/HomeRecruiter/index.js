@@ -1,11 +1,11 @@
 // styles
 import './homerecruiter.scss';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { login, logout, toggleWindowLog } from '../../../actions/settings';
 
-function HomeRecruiter({
-  setRecruiter, setConnected,
-}) {
+function HomeRecruiter() {
+  const dispatch = useDispatch();
   return (
     <div className="homerecruiter">
       <h3 className="homerecruiter__title">Recruteur</h3>
@@ -35,40 +35,32 @@ function HomeRecruiter({
         </div>
       </div>
       <div className="homerecruiter__button">
-        <button
-          type="button"
-          className="homerecruiter__button--inscription"
-        >
-          <Link to="/inscription">Inscription Gratuite</Link>
-        </button>
+        <Link to="/inscription">
+          <button
+            type="button"
+            className="homerecruiter__button--inscription"
+          >
+            Inscription Gratuite
+          </button>
+        </Link>
         <button
           type="button"
           className="homerecruiter__button--login"
-          onClick={() => setConnected(true)}
+          onClick={() => dispatch(toggleWindowLog(), login())}
         >
           Connexion
         </button>
-        <button
-          type="button"
-          className="homedeveloper__button--back"
-          onClick={() => setRecruiter(false)}
-        >
-          <Link to="/">Retour</Link>
-        </button>
+        <Link to="/">
+          <button
+            type="button"
+            className="homerecruiter__button--back"
+            onClick={() => dispatch(logout())}
+          >Retour
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
-
-HomeRecruiter.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default HomeRecruiter;

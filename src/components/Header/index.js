@@ -1,15 +1,14 @@
 import { NavLink, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './header.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
-import { login, logout } from '../../actions/settings';
+import { logout, toggleWindowLog } from '../../actions/settings';
 
-function Header({
-  setDevelopper, setRecruiter, recruiter, developper,
-}) {
+function Header() {
   const logged = useSelector((state) => state.settings.log.logged);
   const dispatch = useDispatch();
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
 
   return (
     <div className="header">
@@ -25,7 +24,7 @@ function Header({
             type="button"
             className="header__button"
             onClick={() => {
-              dispatch(login());
+              dispatch(toggleWindowLog());
               // setOpenModal(true);
             }}
           >
@@ -45,14 +44,14 @@ function Header({
               Meet Dev
             </div>
             <ul className="header__menu">
-              {developper && (
+              {isDev && (
               <>
                 <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
                 <li className="header__menu--item"><NavLink to="/profil">Profil</NavLink></li>
                 <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
               </>
               )}
-              {recruiter && (
+              {isRecruiter && (
                 <>
                   <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
                   <li className="header__menu--item"><NavLink to="/recruiter-profile">Profil</NavLink></li>
@@ -61,30 +60,23 @@ function Header({
                 </>
               )}
             </ul>
-            <button
-              type="button"
-              className="header__button"
-              onClick={() => {
-                dispatch(logout());
-                setRecruiter(false);
-                setDevelopper(false);
-              }}
-            >
-              Déconnexion
-            </button>
+
+            <Link to="/">
+              <button
+                type="button"
+                className="header__button"
+                onClick={() => {
+                  dispatch(logout());
+                }}
+              >
+                Déconnexion
+              </button>
+            </Link>
           </>
         )
       }
     </div>
   );
 }
-
-Header.propTypes = {
-  developper: PropTypes.bool.isRequired,
-  setDevelopper: PropTypes.func.isRequired,
-  recruiter: PropTypes.bool.isRequired,
-  setRecruiter: PropTypes.func.isRequired,
-  // setOpenModal: PropTypes.func.isRequired,
-};
 
 export default Header;

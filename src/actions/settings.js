@@ -31,3 +31,11 @@ export const LOGOUT = 'LOGOUT';
 export const logout = () => ({
   type: LOGOUT,
 });
+
+// ACTION TYPE TOGGLE_WINDOW_LOG
+export const TOGGLE_WINDOW_LOG = 'TOGGLE_WINDOW_LOG';
+
+// ACTION CREATOR toggleWindowLog
+export const toggleWindowLog = () => ({
+  type: TOGGLE_WINDOW_LOG,
+});

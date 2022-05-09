@@ -1,8 +1,10 @@
 import './inscriptionrecruter.scss';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login, logout } from '../../../actions/settings';
 
-function InscriptionRecruter({ setConnected }) {
+function InscriptionRecruter() {
+  const dispatch = useDispatch();
   return (
     <div className="inscriptionRecruter">
       <h2 className="inscriptionRecruter__title">
@@ -92,40 +94,33 @@ function InscriptionRecruter({ setConnected }) {
           <input className="inscriptionRecruter__form__champ--input" type="password" />
         </div>
         <div className="inscriptionRecruter__form__buttons">
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--valid"
-            onClick={(e) => {
-              e.preventDefault();
-              setConnected(true);
-            }}
-          >
-            <Link to="/recruiter-profile">Valider</Link>
-          </button>
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--cancel"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <Link to="/">Annuler</Link>
-          </button>
+          <Link to="/recruiter-profile">
+            <button
+              type="submit"
+              className="inscriptionRecruter__form__buttons__button--valid"
+              onClick={() => {
+                dispatch(login());
+              }}
+            >
+              Valider
+            </button>
+          </Link>
+
+          <Link to="/">
+            <button
+              type="button"
+              className="inscriptionRecruter__form__buttons__button--cancel"
+              onClick={() => {
+                dispatch(logout());
+              }}
+            >
+              Annuler
+            </button>
+          </Link>
         </div>
       </form>
     </div>
   );
 }
-
-InscriptionRecruter.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default InscriptionRecruter;

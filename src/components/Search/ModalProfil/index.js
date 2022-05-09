@@ -108,7 +108,7 @@ function ModalProfil({ setOpenModal, setDetailOpen, setCloseDevModal }) {
               className="modalContainer__footer--button"
               type="button"
             >
-              ajouter aux favoris
+              Ajouter aux Favoris
             </button>
             {/* <button
               className="modalContainer__footer--exit"

@@ -21,7 +21,11 @@
   }
 
   &__enSavoirPlus {
-    font-size: 2rem;
+    font-size: 1.6rem;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   &__logo {

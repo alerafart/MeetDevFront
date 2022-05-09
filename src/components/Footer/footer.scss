@@ -5,14 +5,22 @@
 
   height: 10vh;
   min-height: 75px;
-  padding: 0 3rem;
+  padding: 0 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-top: 2px solid vars.$mainColor;
-  background-color: vars.$mainColor;
+  background-color: vars.$mainBackground;
   color: vars.$mainFontAnthra;
-  color: white;
+  color: vars.$mainColor;
+  font-weight: bold;
+
+  &:hover {
+    transition-duration: 1s;
+    font-size: 1.2rem;
+  }
+
+
 
   @media (max-width: 620px) {
     justify-content: center;
@@ -28,7 +36,7 @@
 
 
   &__link {
-    width: 8rem;
+    width: 12rem;
     text-align: center;
 
     @media (max-width: 620px) {
@@ -55,6 +63,13 @@
       display: block;
       height: 40px;
       padding: 0 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
     }
   }
 

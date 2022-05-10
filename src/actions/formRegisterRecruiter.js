@@ -5,3 +5,9 @@ export const registerRecruiter = (value, name) => ({
   value,
   name,
 });
+
+export const REGISTER_RECRUITER_CANCEL = 'REGISTER_RECRUITER_CANCEL';
+
+export const registerRecruiterCancel = () => ({
+  type: REGISTER_RECRUITER_CANCEL,
+});

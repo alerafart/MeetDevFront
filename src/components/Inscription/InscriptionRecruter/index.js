@@ -1,9 +1,8 @@
 import './inscriptionrecruter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { login, logout } from '../../../actions/settings';
-import { registerRecruiter } from '../../../actions/formRegisterRecruiter';
+import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
 
 function InscriptionRecruter() {
   const dispatch = useDispatch();
@@ -36,7 +35,7 @@ function InscriptionRecruter() {
           </div> */}
           <div className="inscriptionRecruter__form__champ--radio">
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp1">
-              <input type="radio" value="sarl" name="status" onChange={handleChangeForm} checked={register.status === 'sas'} />
+              <input type="radio" value="sarl" name="status" onChange={handleChangeForm} checked={register.status === 'sarl'} />
               SARL
             </label>
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp2">
@@ -122,6 +121,7 @@ function InscriptionRecruter() {
               className="inscriptionRecruter__form__buttons__button--cancel"
               onClick={() => {
                 dispatch(logout());
+                dispatch(registerRecruiterCancel());
               }}
             >
               Annuler

@@ -74,6 +74,7 @@ function Inscription() {
                   Disponibilité
                 </div>
                 <select defaultValue={register.availability} className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
                   <option value="immediate">Immédiate</option>
                   <option value="prochainement">Prochainement</option>
                 </select>
@@ -89,6 +90,7 @@ function Inscription() {
                   Anglais
                 </div>
                 <select value={register.english} className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
                   <option value="fluent">Anglais</option>
                   <option value="middle">Anglais intermédiare</option>
                   <option value="french">Français</option>
@@ -105,6 +107,7 @@ function Inscription() {
                   Salaire annuel
                 </div>
                 <select name="salary" className="inscription__form__champ--input" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
                   <option value={30}>30 k€</option>
                   <option value={40}>40 k€</option>
                 </select>
@@ -120,6 +123,7 @@ function Inscription() {
                   Langage
                 </div>
                 <select value={register.languages} name="languages" className="inscription__form__champ--input" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
                   <option value="css">CSS</option>
                   <option value="html">HTML</option>
                 </select>
@@ -135,6 +139,7 @@ function Inscription() {
                   Technologie
                 </div>
                 <select value={register.technology} className="inscription__form__champ--input" name="technology" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
                   <option>React</option>
                   <option>Symfony</option>
                 </select>

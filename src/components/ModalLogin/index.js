@@ -1,10 +1,20 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toggleWindowLog, login } from '../../actions/settings';
+import { logout, toggleWindowLog } from '../../actions/settings';
+import { login, loginCancel } from '../../actions/formLogin';
 import './modalLogin.scss';
 
 function ModalLogin() {
+  const formLogin = useSelector((state) => state.formLogin.login);
   const dispatch = useDispatch();
+
+  function handleChangeForm(e) {
+    const { value } = e.target;
+    const { name } = e.target;
+    console.log(value);
+    dispatch(login(value, name));
+  }
+
   return (
     <div
       className="modalLoginBackground"
@@ -14,20 +24,24 @@ function ModalLogin() {
           <h2 className="modalLoginContainer__header--title">
             Bienvenue
           </h2>
-          <button
-            className="modalLoginContainer__header--button"
-            type="button"
-            onClick={() => {
-              dispatch(toggleWindowLog());
-            }}
-          >
-            X
-          </button>
+          <Link to="/">
+            <button
+              className="modalLoginContainer__header--button"
+              type="button"
+              onClick={() => {
+                dispatch(toggleWindowLog());
+                dispatch(logout());
+                dispatch(loginCancel());
+              }}
+            >
+              X
+            </button>
+          </Link>
         </header>
 
-        <form className="modalLoginContainer__form">
-          <input className="modalLoginContainer__form--login" type="email" placeholder="Email" />
-          <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" />
+        <form className="modalLoginContainer__form" onChange={handleChangeForm}>
+          <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
+          <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
           <p className="modalLoginContainer__form--error">
             L'email et/ou le mot de passe sont incorrects
           </p>
@@ -35,6 +49,8 @@ function ModalLogin() {
             <input
               className="modalLoginContainer__form__remember--checkbox"
               type="checkbox"
+              // checked={formLogin.saveMe === true}
+              name="saveMe"
             />
             Se souvenir de moi
           </div>

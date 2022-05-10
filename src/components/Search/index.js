@@ -5,10 +5,19 @@ import './search.scss';
 import Card from './Card';
 import ModalProfil from '../ModalProfil';
 import { setFromSearchRoute } from '../../actions/settings';
+import { searchDev } from '../../actions/formSearchDev';
 
 function Search() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
+  const search = useSelector((state) => state.formSearchDev.search);
+
   const dispatch = useDispatch();
+
+  function handleChangeForm(e) {
+    const { value } = e.target;
+    const { name } = e.target;
+    dispatch(searchDev(value, name));
+  }
 
   useEffect(() => {
     dispatch(setFromSearchRoute());
@@ -25,18 +34,19 @@ function Search() {
       <h2 className="search__title">
         Filtres de recherche
       </h2>
-      <form className="search__filter">
+      <form className="search__filter" onChange={handleChangeForm}>
         <div className="search__filter__champ">
           <div className="search__filter__champ--label">
             Ville
           </div>
-          <input className="search__filter__champ--input" type="text" />
+          <input className="search__filter__champ--input" type="text" name="city" value={search.city} />
         </div>
         <div className="search__filter__champ">
           <div className="search__filter__champ--label">
-            Language
+            Technologie
           </div>
-          <select className="search__filter__champ--input">
+          <select className="search__filter__champ--input" value={search.technology} name="technology">
+            <option value="">{null}</option>
             <option value="Symfony" selected>Symfony</option>
             <option value="React">React</option>
           </select>
@@ -45,17 +55,17 @@ function Search() {
           <div className="search__filter__champ--label">
             Expérience
           </div>
-          <div className="search__filter__champ--radio">
+          <div className="search__filter__champ--radio" onChange={handleChangeForm}>
             <label className="search__filter__champ--radio--item" htmlFor="exp1">
-              <input checked type="radio" value="exp1" name="exp1" />
+              <input type="radio" value="- 1 an" name="experience" defaultchecked={search.experience === '- 1 an'} />
               - 1 an
             </label>
             <label className="search__filter__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="exp2" name="exp2" />
+              <input type="radio" value="1 à 3 ans" name="experience" checked={search.experience === '1 à 3 ans'} />
               1 à 3 ans
             </label>
             <label className="search__filter__champ--radio--item" htmlFor="exp3">
-              <input type="radio" value="exp3" name="exp3" />
+              <input type="radio" name="experience" value="+ 3ans" checked={search.experience === '+ 3ans'} />
               + 3 ans
             </label>
           </div>
@@ -64,18 +74,18 @@ function Search() {
           <div className="search__filter__champ--label">
             Disponibilité
           </div>
-          <div className="search__filter__champ--radio">
+          <div className="search__filter__champ--radio" onChange={handleChangeForm}>
             <label className="search__filter__champ--radio--item" htmlFor="immediatly">
-              <input checked type="radio" value="immadiatly" name="immediatly" />
+              <input type="radio" value="immediate" name="availability" checked={search.availability === 'immediate'} />
               Immédiate
             </label>
             <label className="search__filter__champ--radio--item" htmlFor="soon">
-              <input type="radio" name="soon" />
+              <input type="radio" value="3 mois" name="availability" checked={search.availability === '3 mois'} />
               3 mois
             </label>
           </div>
         </div>
-        <button type="submit" className="search__filter--button">
+        <button type="submit" className="search__filter--button" onClick={(e) => e.preventDefault()}>
           Filtrer
         </button>
       </form>

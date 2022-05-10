@@ -21,7 +21,6 @@ import ModalLogin from '../ModalLogin';
 
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
-  console.log(windowLog);
   return (
     <div className="meetdev">
       <Header />

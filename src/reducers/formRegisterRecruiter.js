@@ -1,4 +1,4 @@
-import { REGISTER_RECRUITER } from '../actions/formRegisterRecruiter';
+import { REGISTER_RECRUITER, REGISTER_RECRUITER_CANCEL } from '../actions/formRegisterRecruiter';
 
 export const initialState = {
   register: {
@@ -24,6 +24,24 @@ const formRegisterRecruiter = (state = initialState, action = {}) => {
         register: {
           ...state.register,
           [action.name]: action.value,
+        },
+      };
+    }
+    case REGISTER_RECRUITER_CANCEL: {
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          status: '',
+          firstname: '',
+          lastname: '',
+          firms: '',
+          city: '',
+          phone: '',
+          website: '',
+          email: '',
+          password: '',
+          verifypassword: '',
         },
       };
     }

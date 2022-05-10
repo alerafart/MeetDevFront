@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom';
 import './home.scss';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import maps from '../../assets/images/google-maps.jpg';
 import { isDev, isRecruiter, setFromAway } from '../../actions/settings';
 // import { setTestConnexionBack } from '../../actions/middleware';
 
 function Home() {
   const dispatch = useDispatch();
-  dispatch(setFromAway());
+
+  useEffect(() => {
+    dispatch(setFromAway());
+  });
+
   return (
     <div className="home">
       <div className="home__header">

@@ -9,6 +9,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
       axios({
         method: 'get',
         url: 'http://127.0.0.1/api/users:8000',
+        // ou url: 'http://localhost/api/users:8000',
       })
         .then((response) => {
           console.log(response.data);

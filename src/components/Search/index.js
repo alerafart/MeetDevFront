@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import './search.scss';
 import Card from './Card';
@@ -8,7 +9,10 @@ import { setFromSearchRoute } from '../../actions/settings';
 function Search() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
   const dispatch = useDispatch();
-  dispatch(setFromSearchRoute());
+
+  useEffect(() => {
+    dispatch(setFromSearchRoute());
+  });
   return (
     <div className="search">
       {

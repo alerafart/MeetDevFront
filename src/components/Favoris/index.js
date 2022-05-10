@@ -1,5 +1,6 @@
 // styles
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import ModalProfil from '../ModalProfil';
 import './favoris.scss';
 
@@ -9,7 +10,10 @@ import { setFromFavoritesRoute } from '../../actions/settings';
 function Favoris() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
   const dispatch = useDispatch();
-  dispatch(setFromFavoritesRoute());
+
+  useEffect(() => {
+    dispatch(setFromFavoritesRoute());
+  });
   return (
 
     <div className="favoris">

@@ -1,7 +1,6 @@
 import './inscriptionrecruter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { login, logout } from '../../../actions/settings';
 import { registerRecruiter } from '../../../actions/formRegisterRecruiter';
 

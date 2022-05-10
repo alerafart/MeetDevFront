@@ -1,10 +1,7 @@
-import './inscriptionrecruter.scss';
+import './modifyRecruiter.scss';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { login, logout } from '../../../actions/settings';
 
-function InscriptionRecruter() {
-  const dispatch = useDispatch();
+function ModifyRecruiter() {
   return (
     <div className="inscriptionRecruter">
       <h2 className="inscriptionRecruter__title">
@@ -98,29 +95,23 @@ function InscriptionRecruter() {
             <button
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
-              onClick={() => {
-                dispatch(login());
-              }}
             >
-              Valider
+              valider
             </button>
           </Link>
-
-          <Link to="/">
+          <Link to="/profil">
             <button
-              type="button"
+              type="submit"
               className="inscriptionRecruter__form__buttons__button--cancel"
-              onClick={() => {
-                dispatch(logout());
-              }}
             >
               Annuler
             </button>
           </Link>
+
         </div>
       </form>
     </div>
   );
 }
 
-export default InscriptionRecruter;
+export default ModifyRecruiter;

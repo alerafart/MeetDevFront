@@ -1,101 +1,39 @@
 // styles
 import './profil.scss';
-import { useState } from 'react';
-import ProfilDevModify from './ProfilDevModify';
-import Agathe from '../../assets/images/agathe-feeling.jpg';
-import html from '../../assets/images/html.png';
-import php from '../../assets/images/php.png';
-import css from '../../assets/images/css.png';
-import js from '../../assets/images/js.png';
-import github from '../../assets/images/github.png';
-import portfolio from '../../assets/images/portfolio.jpg';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import ProfilDev from '../ProfilDev';
+import ProfilRecruiter from '../ProfilRecruiter';
 
 function Profil() {
-  const [modifyInformation, setModifyInformation] = useState(false);
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const logged = useSelector((state) => state.settings.log.logged);
+  const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
+  const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+
   return (
+    // TODO prise en charge si recruiter ou recherche dev ou recruiter mais page
+    // origine = recherche ou favoris = afficher profil dev
+    // et sans modifier sinon afficher profil dev+modifier ou profilrecruiter+modifier
     <>
+      {/* If Dev and Logged display ProfilDev */}
       {
-        modifyInformation && <ProfilDevModify setModifyInformation={setModifyInformation} />
+        (isDev && logged) && <ProfilDev />
       }
+      {/* If Recruiter and Logged display ProfilRecruiter */}
       {
-        !modifyInformation && (
-          <div className="profil">
-            <h2 className="profil__title">
-              Votre Profil
-            </h2>
-            <div className="profil__leftpart">
-              <img
-                className="profil__picture__img"
-                src={Agathe}
-                alt="profil"
-              />
+        ((isRecruiter && logged && (fromSearch || fromFavorites))) && <ProfilDev />
+      }
 
-              <h3 className="profil__informations--name">Agathe Feeling</h3>
-              <p className="profil__informations--localisation">Lyon</p>
+      {/* If Recruiter and Logged display ProfilRecruiter */}
+      {
+        (isRecruiter && logged && !fromSearch && !fromFavorites) && <ProfilRecruiter />
+      }
 
-              <p className="profil__informations--aboutme">About me</p>
-              <p className="profil__informations--description"> "I gotta feeling WOOHOO"</p>
-              <p className="profil__informations--email">agat.feeling@woohoo.com</p>
-              <p className="profil__informations--phone">0607080910</p>
-            </div>
-
-            <div className="profil__rightpart">
-
-              <div className="profil__informations--checkbox">
-                <label htmlFor="switch" className="switch">
-                  <input type="checkbox" checked />
-                  <span className="slider round" />
-                </label>
-                <p className="profil__informations--visibility">Profil visible</p>
-              </div>
-              <div className="profil__informations--selectedlanguages">
-                <p className="profil__informations--string"> Langages pratiqués </p>
-                <ul className="profil__informations--languages">
-                  <li className="profil__informations--language"><img alt="logo html" src={html} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo php" src={php} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo css" src={css} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo js" src={js} className="profil__informations--language--picture" /></li>
-
-                </ul>
-              </div>
-              <div className="profil__informations--experiences">
-                <p className="profil__informations--experience">Expérience</p>
-                <p className="profil__informations--experience">1 à 3 ans</p>
-              </div>
-              <div className="profil__informations--site">
-                <div className="profil__informations__github">
-                  <img
-                    className="profil__informations__github--img"
-                    src={github}
-                    alt="github logo"
-                  />
-                  <p className="profil__informations__github--link"><a htmlFor="link" target="blank" href="github.com/agathe-feeling/">github.com/agathe-feeling/</a></p>
-                </div>
-                <div className="profil__informations__othersite">
-                  <img
-                    className="profil__informations__othersite--img"
-                    src={portfolio}
-                    alt="portfolio logo"
-                  />
-                  <p className="profil__informations__othersite--link"><a htmlFor="link" target="blank" href="agathe-feeling.fr">agathe-feeling.fr</a></p>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="profil__modify">
-
-              <button
-                className="profil__modify__form"
-                type="button"
-                onClick={() => setModifyInformation(true)}
-              >
-                Modifier
-              </button>
-
-            </div>
-          </div>
-        )
+      {/* if not isDev and not isCrecruiter or if not logged return to home  */}
+      {
+        ((!isDev && !isRecruiter) || !logged) && <Navigate to="/" />
       }
     </>
 

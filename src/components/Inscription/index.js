@@ -1,19 +1,25 @@
 import './inscription.scss';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import InscriptionRecruter from './InscriptionRecruter';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
+import { login, logout, setFromInscriptionRoute } from '../../actions/settings';
 
-function Inscription({ developper, recruiter, setConnected }) {
+function Inscription() {
+  const dispatch = useDispatch();
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  dispatch(setFromInscriptionRoute());
+
   return (
     <>
       {
-        recruiter && <InscriptionRecruter setConnected={setConnected} />
+        isRecruiter && <InscriptionRecruter />
       }
       {
-        developper && (
+        isDev && (
           <div className="inscription">
             <h2 className="inscription__title">
               Mes informations
@@ -175,24 +181,27 @@ function Inscription({ developper, recruiter, setConnected }) {
                 <input className="inscription__form__champ--input" type="text" />
               </div>
               <div className="inscription__form__buttons">
-                <button
-                  type="submit"
-                  className="inscription__form__buttons__button--valid"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setConnected(true);
-                  }}
-                >
-                  <Link to="/profil">Valider</Link>
-                </button>
-                <button
-                  type="submit"
-                  className="inscription__form__buttons__button--cancel"
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
-                ><Link to="/">Annuler</Link>
-                </button>
+                <Link to="/profil">
+                  <button
+                    type="submit"
+                    className="inscription__form__buttons__button--valid"
+                    onClick={() => {
+                      dispatch(login());
+                    }}
+                  >
+                    Valider
+                  </button>
+                </Link>
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="inscription__form__buttons__button--cancel"
+                    onClick={() => {
+                      dispatch(logout());
+                    }}
+                  >Annuler
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
@@ -202,16 +211,4 @@ function Inscription({ developper, recruiter, setConnected }) {
 
   );
 }
-
-Inscription.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
-
 export default Inscription;

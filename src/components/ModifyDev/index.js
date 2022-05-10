@@ -1,10 +1,10 @@
 import './profildevmodify.scss';
-import PropTypes from 'prop-types';
-import man from '../../../assets/images/men.png';
-import woman from '../../../assets/images/woman.png';
-import github from '../../../assets/images/github.png';
+import { Link } from 'react-router-dom';
+import man from '../../assets/images/men.png';
+import woman from '../../assets/images/woman.png';
+import github from '../../assets/images/github.png';
 
-function ProfilDevModify({ setModifyInformation }) {
+function ModifyDev() {
   return (
     <div className="profilDevModify">
       <h2 className="profilDevModify__title">
@@ -168,16 +168,16 @@ function ProfilDevModify({ setModifyInformation }) {
           <input className="profilDevModify__form__champ--input" type="text" value="www.agathe.feeling.fr" />
         </div>
         <div className="profilDevModify__form__buttons">
-          <input type="submit" className="profilDevModify__form__buttons__button--valid" value="Valider" onClick={() => setModifyInformation(false)} />
-          <input type="submit" className="profilDevModify__form__buttons__button--cancel" value="Annuler" onClick={() => setModifyInformation(false)} />
+          <Link to="/profil">
+            <button type="submit" className="profilDevModify__form__buttons__button--valid">Valider </button>
+          </Link>
+          <Link to="/profil">
+            <button type="submit" className="profilDevModify__form__buttons__button--cancel">Annuler</button>
+          </Link>
         </div>
       </form>
     </div>
   );
 }
 
-ProfilDevModify.propTypes = {
-  setModifyInformation: PropTypes.func.isRequired,
-};
-
-export default ProfilDevModify;
+export default ModifyDev;

@@ -1,5 +1,6 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './profilDev.scss';
-import PropTypes from 'prop-types';
 import man from '../../assets/images/men.png';
 import mapPointer from '../../assets/images/mapPointer.png';
 import mail from '../../assets/images/mail.png';
@@ -10,10 +11,25 @@ import react from '../../assets/images/react.png';
 import symfony from '../../assets/images/symfony.png';
 import html from '../../assets/images/archive/html.png';
 import css from '../../assets/images/archive/css.png';
+import ModalSendMessage from '../ModalSendMessage';
+import { setToggleModalSendMessage } from '../../actions/settings';
 
-function ProfilDev({ setOpenModal, setDetailOpen }) {
+function ProfilDev() {
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const logged = useSelector((state) => state.settings.log.logged);
+  const sendMessage = useSelector((state) => state.settings.navigation.windowSendMessage);
+  const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
+  const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+
+  const dispatch = useDispatch();
   return (
+    logged && (
+
+    // <div className="search">
     <div className="profilDev">
+      {sendMessage && (
+        <ModalSendMessage />
+      )}
       <h2 className="profilDev__title">
         Fiche développeur
       </h2>
@@ -35,10 +51,18 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
           </div>
           <p className="profilDev__header__about--citation">I got the Feeling Woohoo</p>
           <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work.</p>
-          <p className="profilDev__header__about__mail">
+          <div className="profilDev__header__about__mail">
             <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
-            <p className="profilDev__header__about__mail--txt">Envoyer un message</p>
-          </p>
+            <p
+              type="button"
+              className="profilDev__header__about__mail--txt"
+              onClick={() => {
+                console.log('essai');
+                dispatch(setToggleModalSendMessage());
+              }}
+            >Envoyer un message
+            </p>
+          </div>
 
         </div>
 
@@ -136,27 +160,64 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
         </div>
       </div>
 
-      <div className="profilDev__buttons">
-        <button
-          className="profilDev__buttons--button"
-          type="button"
-          onClick={() => {
-            setOpenModal(true);
-            setDetailOpen(false);
-          }}
-        >
-          Retour
-        </button>
+      {
+        (fromSearch || fromFavorites) && (
+          <div className="profilDev__buttons">
 
+            {
+              fromSearch && (
+                <Link to="/recherche">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+            {
+              fromFavorites && (
+                <Link to="/favoris">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+
+          </div>
+
+        )
+      }
+      { (isDev && !fromSearch) && (
+      <div className="profilDev__buttons">
+        <Link to="/modifier">
+          <button
+            className="profilDev__buttons--button"
+            type="button"
+            onClick={() => {
+            }}
+          >
+            Modifier
+          </button>
+        </Link>
       </div>
+      )}
+
     </div>
+    // </div>
+
+    )
 
   );
 }
-
-ProfilDev.propTypes = {
-  setOpenModal: PropTypes.func.isRequired,
-  setDetailOpen: PropTypes.func.isRequired,
-};
 
 export default ProfilDev;

@@ -1,9 +1,19 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactDev, contactDevRaz } from '../../actions/formDevContact';
 import { setToggleModalSendMessage } from '../../actions/settings';
 import './modalDevContact.scss';
 
 function ModalSendMessage() {
+  const formContact = useSelector((state) => state.formDevContact.formContact);
   const dispatch = useDispatch();
+
+  function handleChangeForm(e) {
+    const { value } = e.target;
+    const { name } = e.target;
+    console.log(`name: ${name}    value:${value}`);
+    dispatch(contactDev(value, name));
+  }
+
   return (
     <div
       className="modalDevContactBackground"
@@ -18,6 +28,7 @@ function ModalSendMessage() {
             type="button"
             onClick={() => {
               dispatch(setToggleModalSendMessage());
+              dispatch(contactDevRaz());
             }}
           >
             X
@@ -26,9 +37,9 @@ function ModalSendMessage() {
 
         <form className="modalDevContactContainer__form">
           <p className="modalDevContactContainer__form--label">Titre</p>
-          <input className="modalDevContactContainer__form--titre" type="txt" />
+          <input className="modalDevContactContainer__form--titre" type="txt" name="title" onChange={handleChangeForm} value={formContact.title} />
           <p className="modalDevContactContainer__form--label">Message</p>
-          <textarea className="modalDevContactContainer__form--message" value="" />
+          <textarea className="modalDevContactContainer__form--message" name="message" value={formContact.message} onChange={handleChangeForm} />
 
           <button
             type="submit"

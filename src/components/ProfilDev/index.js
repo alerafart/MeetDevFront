@@ -18,8 +18,9 @@ function ProfilDev() {
   const isDev = useSelector((state) => state.settings.log.isDev);
   const logged = useSelector((state) => state.settings.log.logged);
   const sendMessage = useSelector((state) => state.settings.navigation.windowSendMessage);
-  console.log(sendMessage);
-  console.log(logged);
+  const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
+  const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+
   const dispatch = useDispatch();
   return (
     logged && (
@@ -158,19 +159,45 @@ function ProfilDev() {
 
         </div>
       </div>
-      <div className="profilDev__buttons">
-        <button
-          className="profilDev__buttons--button"
-          type="button"
-          onClick={() => {
-          }}
-        >
-          Retour
-        </button>
 
-      </div>
+      {
+        (fromSearch || fromFavorites) && (
+          <div className="profilDev__buttons">
 
-      { isDev && (
+            {
+              fromSearch && (
+                <Link to="/recherche">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+            {
+              fromFavorites && (
+                <Link to="/favoris">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+
+          </div>
+
+        )
+      }
+      { (isDev && !fromSearch) && (
       <div className="profilDev__buttons">
         <Link to="/modifier">
           <button
@@ -183,8 +210,8 @@ function ProfilDev() {
           </button>
         </Link>
       </div>
-
       )}
+
     </div>
     // </div>
 

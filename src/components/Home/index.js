@@ -3,6 +3,7 @@ import './home.scss';
 import { useDispatch } from 'react-redux';
 import maps from '../../assets/images/google-maps.jpg';
 import { isDev, isRecruiter, setFromAway } from '../../actions/settings';
+import { setTestConnexionBack } from '../../actions/middleware';
 
 function Home() {
   const dispatch = useDispatch();

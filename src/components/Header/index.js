@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import './header.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
-import { logout, toggleWindowLog } from '../../actions/settings';
+import { logout, toggleWindowLog, setFromAway } from '../../actions/settings';
 
 function Header() {
   const logged = useSelector((state) => state.settings.log.logged);
@@ -47,14 +47,14 @@ function Header() {
               {isDev && (
               <>
                 <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-                <li className="header__menu--item"><NavLink to="/profil">Profil</NavLink></li>
+                <li className="header__menu--item" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
                 <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
               </>
               )}
               {isRecruiter && (
                 <>
                   <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-                  <li className="header__menu--item"><NavLink to="/profil">Profil</NavLink></li>
+                  <li className="header__menu--item" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
                   <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
                   <li className="header__menu--item"><NavLink to="/favoris">Favoris</NavLink></li>
                 </>

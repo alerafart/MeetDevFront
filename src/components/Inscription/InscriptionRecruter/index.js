@@ -94,7 +94,7 @@ function InscriptionRecruter() {
           <input className="inscriptionRecruter__form__champ--input" type="password" />
         </div>
         <div className="inscriptionRecruter__form__buttons">
-          <Link to="/recruiter-profile">
+          <Link to="/profil">
             <button
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"

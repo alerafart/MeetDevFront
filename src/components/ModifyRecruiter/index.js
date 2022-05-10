@@ -91,24 +91,23 @@ function ModifyRecruiter() {
           <input className="inscriptionRecruter__form__champ--input" type="password" />
         </div>
         <div className="inscriptionRecruter__form__buttons">
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--valid"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <Link to="/recruiter-profile">Valider</Link>
-          </button>
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--cancel"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <Link to="/recruiter-profile">Annuler</Link>
-          </button>
+          <Link to="/profil">
+            <button
+              type="submit"
+              className="inscriptionRecruter__form__buttons__button--valid"
+            >
+              valider
+            </button>
+          </Link>
+          <Link to="/profil">
+            <button
+              type="submit"
+              className="inscriptionRecruter__form__buttons__button--cancel"
+            >
+              Annuler
+            </button>
+          </Link>
+
         </div>
       </form>
     </div>

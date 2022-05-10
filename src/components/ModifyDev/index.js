@@ -1,4 +1,5 @@
 import './profildevmodify.scss';
+import { Link } from 'react-router-dom';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
@@ -167,8 +168,12 @@ function ModifyDev() {
           <input className="profilDevModify__form__champ--input" type="text" value="www.agathe.feeling.fr" />
         </div>
         <div className="profilDevModify__form__buttons">
-          <input type="submit" className="profilDevModify__form__buttons__button--valid" value="Valider" />
-          <input type="submit" className="profilDevModify__form__buttons__button--cancel" value="Annuler" />
+          <Link to="/profil">
+            <button type="submit" className="profilDevModify__form__buttons__button--valid">Valider </button>
+          </Link>
+          <Link to="/profil">
+            <button type="submit" className="profilDevModify__form__buttons__button--cancel">Annuler</button>
+          </Link>
         </div>
       </form>
     </div>

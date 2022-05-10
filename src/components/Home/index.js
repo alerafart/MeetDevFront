@@ -35,6 +35,9 @@ function Home() {
             Recruteur
           </button>
         </Link>
+        <button className="home__choice--button" type="button" onClick={() => dispatch(setTestConnexionBack())}>
+          Test Back
+        </button>
       </form>
       <div className="home__map">
         <img

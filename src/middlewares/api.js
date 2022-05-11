@@ -9,15 +9,24 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       console.log(email, password);
-
+      const essai = {
+        email_address: 'mcbernard@mc.cz',
+        password: 'fifi',
+      };
+      const json = JSON.stringify(essai);
+      console.log(json);
+      // axios.post('http://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login', { json });
       axios({
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
         method: 'post',
-        url: 'http://localhost:8000/api/users/login',
-        // ou url: 'http://localhost/api/users:8000',
-        json: {
-          email_address: email,
-          password: password,
-        },
+        url: 'http://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+        data: JSON.stringify({
+          email_address: 'mcbernard@mc.cz',
+          password: 'fifi',
+        }),
+
       })
         .then((response) => {
           console.log(response.data);
@@ -31,8 +40,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
     case TEST_CONNEXION_BACK: {
       axios({
         method: 'get',
-        url: 'http://localhost:8000/api/users',
-        // ou url: 'http://localhost/api/users:8000',
+        url: 'http://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
+        // url: 'http://localhost:8000/api/users',
       })
         .then((response) => {
           console.log(response.data);

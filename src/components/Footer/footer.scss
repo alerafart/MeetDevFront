@@ -15,16 +15,10 @@
   color: vars.$mainColor;
   font-weight: bold;
 
-  &:hover {
-    transition-duration: 1s;
-    font-size: 1.2rem;
-  }
-
 
 
   @media (max-width: 620px) {
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 
@@ -36,10 +30,39 @@
 
 
   &__link {
+    display: flex;
+
     width: 12rem;
     text-align: center;
 
+    &--home {
+
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.2rem;
+      }
+
+    }
+
+    &--contact {
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.2rem;
+      }
+
+    }
+
+    &--mention {
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.2rem;
+      }
+
+    }
+
+
     @media (max-width: 620px) {
+      justify-content: space-around;
       width: 33%;
       margin-top: 1rem;
 
@@ -56,7 +79,7 @@
     align-items: center;
 
     @media (max-width: 620px) {
-      margin-top: 1rem;
+      justify-content: center;
     }
 
     &--img {

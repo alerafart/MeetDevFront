@@ -31,7 +31,6 @@
 
   &__link {
     display: flex;
-
     width: 12rem;
     text-align: center;
 
@@ -39,7 +38,7 @@
 
       &:hover {
         transition-duration: 0.3s;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
     }
@@ -47,7 +46,7 @@
     &--contact {
       &:hover {
         transition-duration: 0.3s;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
     }
@@ -55,7 +54,7 @@
     &--mention {
       &:hover {
         transition-duration: 0.3s;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
 
     }

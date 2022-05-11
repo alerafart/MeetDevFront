@@ -1,8 +1,10 @@
 @use '../../styles/vars';
 
 .error {
-  background-color: vars.$mainBackground;
+  background-color: vars.$mainColor;
   min-height: 100vh;
+
+
 
   @media (max-width: 425px) {
     min-height: 40vh;
@@ -22,6 +24,11 @@
       @media (max-width: 425px) {
         height: 100%;
         ;
+      }
+
+      &:hover {
+        transform: translate(15px, -15px);
+        transition: .5s cubic-bezier(.5, .03, .41, 1);
       }
 
 

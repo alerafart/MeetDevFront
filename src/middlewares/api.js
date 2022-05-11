@@ -21,11 +21,12 @@ const apiMiddleWare = (store) => (next) => (action) => {
         //   'Content-Type': 'application/json',
         // },
         method: 'post',
-        url: 'http://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
-        data: JSON.stringify({
-          email_address: 'mcbernard@mc.cz',
-          password: 'fifi',
-        }),
+        // url: 'http://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+        url: 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+        data: {
+          email_address: 'aaaaa@aaa.com',
+          password: 'aaaa',
+        },
 
       })
         .then((response) => {

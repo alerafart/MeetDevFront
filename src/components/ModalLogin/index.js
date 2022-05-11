@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
+import { loginTest } from '../../actions/middleware';
 import './modalLogin.scss';
 
 function ModalLogin() {
@@ -11,9 +12,18 @@ function ModalLogin() {
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
-    console.log(value);
     dispatch(login(value, name));
   }
+
+  function handleSubmit() {
+    // event.preventDefault();
+    console.log('click');
+    dispatch(loginTest());
+  }
+
+  // function test() {
+  //   dispatch(loginTest());
+  // }
 
   return (
     <div
@@ -39,7 +49,7 @@ function ModalLogin() {
           </Link>
         </header>
 
-        <form className="modalLoginContainer__form" onChange={handleChangeForm}>
+        <form className="modalLoginContainer__form" onChange={handleChangeForm} onSubmit={handleSubmit}>
           <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
           <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
           <p className="modalLoginContainer__form--error">
@@ -56,11 +66,12 @@ function ModalLogin() {
           </div>
           <Link to="/profil">
             <button
-              type="button"
+              type="submit"
               className="modalLoginContainer__form--connexion"
               onClick={() => {
-                dispatch(toggleWindowLog());
-                dispatch(login());
+                // dispatch(toggleWindowLog());
+                handleSubmit();
+                // dispatch(login());
               }}
             >
               Se connecter

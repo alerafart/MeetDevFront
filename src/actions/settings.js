@@ -1,10 +1,10 @@
 // ACTION TYPE LOGIN
 
-export const LOGIN = 'LOGIN';
+export const LOGGED = 'LOGGED';
 
 // ACTION CREATOR LOGIN
-export const login = () => ({
-  type: LOGIN,
+export const logged = () => ({
+  type: LOGGED,
 });
 
 // ACTION TYPE IS_DEV

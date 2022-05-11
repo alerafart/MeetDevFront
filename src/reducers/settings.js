@@ -5,7 +5,7 @@ import {
   FROM_SEARCH_ROUTE,
   IS_DEV,
   IS_RECRUITER,
-  LOGIN,
+  LOGGED,
   LOGOUT,
   TOGGLE_MODAL_PROFIL,
   TOGGLE_MODAL_SEND_MESSAGE,
@@ -40,7 +40,7 @@ const settings = (state = initialState, action = {}) => {
           windowLog: !state.log.windowLog,
         },
       };
-    case LOGIN:
+    case LOGGED:
       return {
         ...state,
         log: {

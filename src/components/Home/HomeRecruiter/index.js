@@ -2,7 +2,7 @@
 import './homerecruiter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login, logout, toggleWindowLog } from '../../../actions/settings';
+import { logged, logout, toggleWindowLog } from '../../../actions/settings';
 
 function HomeRecruiter() {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function HomeRecruiter() {
         <button
           type="button"
           className="homerecruiter__button--login"
-          onClick={() => dispatch(toggleWindowLog(), login())}
+          onClick={() => dispatch(toggleWindowLog(), logged())}
         >
           Connexion
         </button>

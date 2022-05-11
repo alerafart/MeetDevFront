@@ -2,7 +2,7 @@
 import './homedeveloper.scss';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, logout, toggleWindowLog } from '../../../actions/settings';
+import { logout, toggleWindowLog } from '../../../actions/settings';
 
 function HomeDeveloper() {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ function HomeDeveloper() {
         <button
           type="button"
           className="homedeveloper__button--login"
-          onClick={() => dispatch(toggleWindowLog(), login())}
+          onClick={() => dispatch(toggleWindowLog())}
         >
           Connexion
         </button>

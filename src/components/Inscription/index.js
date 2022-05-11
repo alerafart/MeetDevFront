@@ -6,7 +6,7 @@ import InscriptionRecruter from './InscriptionRecruter';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
-import { login, logout, setFromInscriptionRoute } from '../../actions/settings';
+import { logged, logout, setFromInscriptionRoute } from '../../actions/settings';
 import { registerDev } from '../../actions/formRegisterDev';
 
 function Inscription() {
@@ -203,7 +203,7 @@ function Inscription() {
                     type="submit"
                     className="inscription__form__buttons__button--valid"
                     onClick={() => {
-                      dispatch(login());
+                      dispatch(logged());
                     }}
                   >
                     Valider

@@ -1,7 +1,7 @@
 import './inscriptionrecruter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../../actions/settings';
+import { logged, logout } from '../../../actions/settings';
 import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
 
 function InscriptionRecruter() {
@@ -108,7 +108,7 @@ function InscriptionRecruter() {
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
               onClick={() => {
-                dispatch(login());
+                dispatch(logged());
               }}
             >
               Valider

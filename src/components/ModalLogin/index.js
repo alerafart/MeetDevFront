@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout, toggleWindowLog } from '../../actions/settings';
+import { logged, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
 import './modalLogin.scss';
@@ -69,9 +69,9 @@ function ModalLogin() {
               type="submit"
               className="modalLoginContainer__form--connexion"
               onClick={() => {
-                // dispatch(toggleWindowLog());
+                dispatch(toggleWindowLog());
                 handleSubmit();
-                // dispatch(logged());
+                dispatch(logged());
               }}
             >
               Se connecter

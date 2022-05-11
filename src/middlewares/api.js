@@ -10,19 +10,18 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const { email, password } = state.formLogin.login;
       console.log(email, password);
 
-      axios({
-        method: 'post',
-        url: 'https://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+      axios.post(
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
         // ou url: 'http://localhost/api/users:8000',
-        json: {
-          email_address: email,
-          password: password,
+        {
+          email_address: state.formLogin.login.email,
+          password: state.formLogin.login.password,
         },
-      })
+      )
         .then((response) => {
           console.log(response.data);
         }).catch((error) => {
-          console.log(error);
+          console.log(error.response.data);
         });
       next(action);
       break;
@@ -31,7 +30,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
     case TEST_CONNEXION_BACK: {
       axios({
         method: 'get',
-        url: 'https://alerafart-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
+        url: 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
         // ou url: 'http://localhost/api/users:8000',
       })
         .then((response) => {

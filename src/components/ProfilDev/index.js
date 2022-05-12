@@ -21,11 +21,15 @@ function ProfilDev() {
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
 
+  // const dataProfilDev = useSelector((state) => state.profilDev.register);
+  // console.log('profilDEv fiche perso');
+  // console.log(dataProfilDev);
+  const data = useSelector((state) => state.profilDev.register);
+
   const dispatch = useDispatch();
   return (
     logged && (
-
-    // <div className="search">
+    // open/close sendMessage Modal
     <div className="profilDev">
       {sendMessage && (
         <ModalSendMessage />
@@ -39,30 +43,46 @@ function ProfilDev() {
           <img className="profilDev__header__cadre--img" src={man} alt="profil" />
         </div>
         <div className="profilDev__header__about">
-          <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
+          {
+            // Display 'add to favorites' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+            <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
+
+            )
+          }
           <h3 className="profilDev__header__about--label">
             A Propos
           </h3>
           <h4 className="profilDev__header__about--name">
-            Agathe Feeling <span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />Lyon</span>
+            {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
           </h4>
           <div className="profilDev__header__about--profession">
-            Developpeur Front-End React
+            {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+            }
+            Developpeur Front-End React   TODO
           </div>
-          <p className="profilDev__header__about--citation">I got the Feeling Woohoo</p>
-          <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work.</p>
-          <div className="profilDev__header__about__mail">
-            <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
-            <p
-              type="button"
-              className="profilDev__header__about__mail--txt"
-              onClick={() => {
-                console.log('essai');
-                dispatch(setToggleModalSendMessage());
-              }}
-            >Envoyer un message
-            </p>
-          </div>
+          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+          }
+          <p className="profilDev__header__about--citation">I got the Feeling Woohoo   TODO</p>
+          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+          }
+          <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work. TODO  </p>
+          {
+            // Display button 'send message' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+              <div className="profilDev__header__about__mail">
+                <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
+                <p
+                  type="button"
+                  className="profilDev__header__about__mail--txt"
+                  onClick={() => {
+                    dispatch(setToggleModalSendMessage());
+                  }}
+                >Envoyer un message
+                </p>
+              </div>
+            )
+          }
 
         </div>
 
@@ -76,36 +96,40 @@ function ProfilDev() {
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> Tél:
             </div>
-            <div className="profilDev__informations__item--color">06 07 08 09
+            <div className="profilDev__informations__item--color">0{data.phone}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> Adresse:
             </div>
-            <div className="profilDev__informations__item--black">19 rue des Lumières 69000 Lyon
+            <div className="profilDev__informations__item--black">{data.zip_code} {data.city}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> E-mail:
             </div>
-            <div className="profilDev__informations__item--color">agathe.feeling@woohoo.com
+            <div className="profilDev__informations__item--color">{data.mail}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> PortFolio:
             </div>
-            <div className="profilDev__informations__item--color">www.agathe-feeling.fr
+            <div className="profilDev__informations__item--color">{data.portfolio_link}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> GitHub:
             </div>
-            <div className="profilDev__informations__item--color">github.com/agathe-feeling/
+            <div className="profilDev__informations__item--color">{data.github}
             </div>
           </div>
+
+          {
+            // TODO availability not ready in back
+          }
           <div className="profilDev__informations__disponibility">
             <div className="profilDev__informations__disponibility--txt">
-              Disponible:
+              Disponible: TODO
             </div>
             <img
               className="profilDev__informations__disponibility--logo"
@@ -116,7 +140,7 @@ function ProfilDev() {
           </div>
           <div className="profilDev__informations__disponibility">
             <div className="profilDev__informations__disponibility--txt">
-              Disponible dans 3 mois:
+              Disponible dans 3 mois: TODO
             </div>
 
             <img
@@ -133,20 +157,26 @@ function ProfilDev() {
             Skills
           </h3>
           <div className="profilDev__skills__item">
-            <div className="profilDev__skills__item--label"> Experience:
+            <div className="profilDev__skills__item--label"> Experience: TODO
             </div>
-            <div className="profilDev__skills__item--color">1 à 3 ans
+            <div className="profilDev__skills__item--color">1{data.experience} ans
             </div>
           </div>
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--label">Anglais:
             </div>
-            <div className="profilDev__skills__item--color">Intermédiaire
+            {
+              // TODO GESTION ENGLISH LEVEL
+            }
+            <div className="profilDev__skills__item--color">Intermédiaire TODO
             </div>
           </div>
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--container">
-              <div className="profilDev__skills__item--label">Stack:
+
+              { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
+              }
+              <div className="profilDev__skills__item--label">Stack: TODO
               </div>
               <div className="profilDev__skills__item__logos">
                 <img src={react} alt="logo react" className="profilDev__skills__item__logos--logo" />
@@ -213,8 +243,6 @@ function ProfilDev() {
       )}
 
     </div>
-    // </div>
-
     )
 
   );

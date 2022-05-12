@@ -1,8 +1,11 @@
 import './recruiterprofil.scss';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
 
 function RecruiterProfile() {
+  const data = useSelector((state) => state.profilRecruiter.register);
+
   return (
     <div className="profil">
       <div className="profil__leftpart">
@@ -15,13 +18,13 @@ function RecruiterProfile() {
           alt="logo de l'entreprise"
         />
 
-        <h3 className="profil__informations--name">Claudie FOCAN</h3>
-        <p className="profil__informations--localisation">Bruxelles</p>
+        <h3 className="profil__informations--name">{data.firstname} {data.lastname}</h3>
+        <p className="profil__informations--localisation">{data.city}</p>
 
-        <p className="profil__informations--aboutme">About us</p>
-        <p className="profil__informations--description"> Je suis directeur et sales marketing manager des abattoirs d'anderlecht</p>
-        <p className="profil__informations--email">claudie.focan@lesabattoirsanderlecht.be</p>
-        <p className="profil__informations--phone">0607080910</p>
+        <p className="profil__informations--aboutme">About us TODO</p>
+        <p className="profil__informations--description"> Je suis directeur et sales marketing manager des abattoirs d'anderlecht TODO</p>
+        <p className="profil__informations--email">{data.email}</p>
+        <p className="profil__informations--phone">{data.phone}</p>
       </div>
       <div className="profil__modify">
 

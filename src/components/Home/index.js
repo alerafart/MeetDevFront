@@ -4,16 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import maps from '../../assets/images/google-maps.jpg';
 import { isDev, isRecruiter, setFromAway } from '../../actions/settings';
-import { testConnexionBack } from '../../actions/middleware';
 
 function Home() {
   const dispatch = useDispatch();
 
   const isLogged = useSelector((state) => state.settings.log.logged);
-
-  function test() {
-    dispatch(testConnexionBack());
-  }
 
   useEffect(() => {
     dispatch(setFromAway());
@@ -52,13 +47,6 @@ function Home() {
                 Recruteur
               </button>
             </Link>
-            <button
-              className="home__choice--button"
-              type="button"
-              onClick={() => test()}
-            >
-              Test Back
-            </button>
           </form>
           <div className="home__map">
             <img

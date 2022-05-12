@@ -74,7 +74,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
               store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
               store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));
               store.dispatch(dataProfilRecruiterFromApi(userData.web_site_link, 'website'));
-              store.dispatch(dataProfilRecruiterFromApi(user.email_adress, 'email'));
+              store.dispatch(dataProfilRecruiterFromApi(user.email_address, 'email'));
               store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
             }
             else {

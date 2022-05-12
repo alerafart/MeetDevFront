@@ -10,8 +10,24 @@ function Header() {
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
 
+  const titleDev = useSelector((state) => state.profilDev.register);
+  const titleRec = useSelector((state) => state.profilRecruiter.register);
+
   return (
     <div className="header">
+      {
+        (logged && isDev) && (
+
+          <div className="header__login">{titleDev.firstname} {titleDev.lastname}</div>
+        )
+      }
+      {
+        (logged && isRecruiter) && (
+
+          <div className="header__login">{titleRec.firstname} {titleRec.lastname}</div>
+        )
+      }
+
       { !logged && (
         <>
           <div className="header__enSavoirPlus">
@@ -69,7 +85,7 @@ function Header() {
                   dispatch(logout());
                 }}
               >
-                Déconnexion
+                Deconnexion
               </button>
             </Link>
           </>

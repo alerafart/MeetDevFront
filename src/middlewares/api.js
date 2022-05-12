@@ -3,13 +3,9 @@ import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
-    // on traite l'action de type FETCH_RECIPES
-    // dispatchée depuis le composant principal
     case LOGIN_TEST: {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
-      console.log(email, password);
-
       axios.post(
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
         // ou url: 'http://localhost/api/users:8000',

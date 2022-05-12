@@ -15,24 +15,26 @@ function Favoris() {
     dispatch(setFromFavoritesRoute());
   });
   return (
+    <div className="wrapper">
+      <h2 className="banniere"> Mes profils favoris </h2>
+      <div className="favoris">
+        {
+          modalDev
+          && (
+          <ModalProfil />
+          )
+        }
 
-    <div className="favoris">
-      {
-        modalDev
-        && (
-        <ModalProfil />
-        )
-      }
+        <div className="favoris__card">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
 
-      <h1 className="favoris__title"> Mes profils favoris </h1>
-      <div className="favoris__card">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-
+        </div>
       </div>
+
     </div>
 
   );

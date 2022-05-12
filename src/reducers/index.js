@@ -5,6 +5,8 @@ import formRegisterDev from './formRegisterDev';
 import formRegisterRecruiter from './formRegisterRecruiter';
 import formSearchDev from './formSearchDev';
 import formLogin from './formLogin';
+import profilDev from './profilDev';
+import profilRecruiter from './profilRecruiter';
 
 import formDevContact from './formDevContact';
 
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   formContact: formContact,
   formSearchDev: formSearchDev,
   formLogin: formLogin,
+  profilDev: profilDev,
+  profilRecruiter: profilRecruiter,
 
 });
 

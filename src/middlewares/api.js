@@ -1,8 +1,13 @@
 import axios from 'axios';
 import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
+import { dataProfilDevFromApi } from '../actions/profilDev';
+import { dataProfilRecruiterFromApi } from '../actions/profilRecruiter';
+import { logged, isDev as actionIsDev, isRecruiter as actionIsRecruiter } from '../actions/settings';
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
+    // TODO changer le nom de cette action.
+    // Login rentrait en conflit avec une autre action d'un autre reducer
     case LOGIN_TEST: {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
@@ -15,9 +20,67 @@ const apiMiddleWare = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          // Récupération des données reçus de notre demande de login
           console.log(response.data);
+          const { status } = response.data;
+          // récupération du message lié au statut de la réponse
+          const statusMessage = response.data.message;
+          const { isDev } = response.data;
+          const { isRecruiter } = response.data;
+          // les datas de l'utilisateurs
+          const user = response.data.general;
+          // les datas de la table pivot dev ou recruiter
+          const userData = response.data.spec[0];
+
+          // Changement du state settings: logged:true + save email utilisateur)
+          store.dispatch(logged(user.email_address));
+
+          // TEST SI SUCCESS
+          if (status === 'success' && statusMessage === 'Login successfull') {
+            if (isDev) {
+              // changement du state settings: isDev: true
+              store.dispatch(actionIsDev());
+              // save des données reçus dans notre state (formRegisterDev)
+              store.dispatch(dataProfilDevFromApi(user.firstname, 'firstname'));
+              store.dispatch(dataProfilDevFromApi(user.lastname, 'lastname'));
+              store.dispatch(dataProfilDevFromApi(userData.age, 'age'));
+              store.dispatch(dataProfilDevFromApi(user.email_address, 'mail'));
+              store.dispatch(dataProfilDevFromApi(user.city, 'city'));
+
+              store.dispatch(dataProfilDevFromApi(user.phone, 'phone'));
+              store.dispatch(dataProfilDevFromApi(user.password, 'password'));
+              store.dispatch(dataProfilDevFromApi('', 'technology'));
+              store.dispatch(dataProfilDevFromApi(userData.years_of_experience, 'experience'));
+              store.dispatch(dataProfilDevFromApi(userData.portfolio, 'portfolio'));
+
+              store.dispatch(dataProfilDevFromApi(userData.github_link, 'github'));
+              store.dispatch(dataProfilDevFromApi('', 'languages'));
+              store.dispatch(dataProfilDevFromApi('', 'english'));
+              store.dispatch(dataProfilDevFromApi(userData.minimum_salary_requested, 'salary'));
+              store.dispatch(dataProfilDevFromApi(userData.availability_for_recruiters, 'availability'));
+              store.dispatch(dataProfilDevFromApi('', 'gender'));
+              // redirection vers page profil
+            }
+            else if (isRecruiter) {
+              // changement du state settings: isDev: true
+              store.dispatch(actionIsRecruiter());
+              // save des données reçus dans notre state (formRegisterRecruiter)
+              store.dispatch(dataProfilRecruiterFromApi('', 'status'));
+              store.dispatch(dataProfilRecruiterFromApi(user.firstname, 'firstname'));
+              store.dispatch(dataProfilRecruiterFromApi(user.city, 'lastname'));
+              store.dispatch(dataProfilRecruiterFromApi(userData.company_name, 'firms'));
+              store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
+              store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));
+              store.dispatch(dataProfilRecruiterFromApi(userData.web_site_link, 'website'));
+              store.dispatch(dataProfilRecruiterFromApi(user.email_adress, 'email'));
+              store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
+            }
+            else {
+              console.log('probleme de connexion');
+            }
+          }
         }).catch((error) => {
-          console.log(error.response.data);
+          console.log(error.response);
         });
       next(action);
       break;

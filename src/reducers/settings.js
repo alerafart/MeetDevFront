@@ -46,6 +46,8 @@ const settings = (state = initialState, action = {}) => {
         log: {
           ...state.log,
           logged: true,
+          email: action.email,
+
         },
       };
     case LOGOUT:

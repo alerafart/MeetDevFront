@@ -6,8 +6,11 @@ import InscriptionRecruter from './InscriptionRecruter';
 import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
-import { logged, logout, setFromInscriptionRoute } from '../../actions/settings';
+import {
+  logout, setFromInscriptionRoute, toggleWindowLog,
+} from '../../actions/settings';
 import { registerDev } from '../../actions/formRegisterDev';
+import { inscriptionDev } from '../../actions/middleware';
 
 function Inscription() {
   const register = useSelector((state) => state.formRegisterDev.register);
@@ -148,7 +151,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Mail
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="mail" value={register.mail} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="text" name="email" value={register.mail} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -156,15 +159,15 @@ function Inscription() {
                 </div>
                 <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp1">
-                    <input type="radio" value="- 1 an" name="experience" checked={register.experience === '- 1 an'} />
+                    <input type="radio" value="1" name="experience" checked={register.experience === '1'} />
                     - 1 an
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp2">
-                    <input type="radio" value="1 à 3 ans" name="experience" checked={register.experience === '1 à 3 ans'} />
+                    <input type="radio" value="2" name="experience" checked={register.experience === '2'} />
                     1 à 3 ans
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp3">
-                    <input type="radio" name="experience" value="+ 3ans" checked={register.experience === '+ 3ans'} />
+                    <input type="radio" name="experience" value="3" checked={register.experience === '3'} />
                     + 3 ans
                   </label>
                 </div>
@@ -198,12 +201,13 @@ function Inscription() {
                 <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__buttons">
-                <Link to="/profil">
+                <Link to="/">
                   <button
                     type="submit"
                     className="inscription__form__buttons__button--valid"
                     onClick={() => {
-                      dispatch(logged());
+                      dispatch(inscriptionDev());
+                      dispatch(toggleWindowLog());
                     }}
                   >
                     Valider

@@ -7,3 +7,11 @@ export const LOGIN_TEST = 'LOGIN_TEST';
 export const loginTest = () => ({
   type: LOGIN_TEST,
 });
+
+// ACTION TYPE INSCRIPTION
+export const INSCRIPTION_DEV = 'INSCRIPTION_DEV';
+
+// ACTION CREATOR inscription
+export const inscriptionDev = () => ({
+  type: INSCRIPTION_DEV,
+});

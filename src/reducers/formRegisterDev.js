@@ -5,7 +5,7 @@ export const initialState = {
     firstname: '',
     lastname: '',
     age: '',
-    mail: '',
+    email: '',
     city: '',
     phone: '',
     technology: '',

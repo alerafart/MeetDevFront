@@ -14,8 +14,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
         // ou url: 'http://localhost/api/users:8000',
         {
-          email_address: state.formLogin.login.email,
-          password: state.formLogin.login.password,
+          email_address: email,
+          password: password,
         },
       )
         .then((response) => {

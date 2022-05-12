@@ -12,28 +12,33 @@ function Profil() {
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
 
+  //* infos to transmit if first case:
+  // const dataProfilDev = useSelector((state) => state.profilDev.register);
+  // console.log('profilDEv fiche perso');
+
   return (
-    // TODO prise en charge si recruiter ou recherche dev ou recruiter mais page
-    // origine = recherche ou favoris = afficher profil dev
-    // et sans modifier sinon afficher profil dev+modifier ou profilrecruiter+modifier
     <>
-      {/* If Dev and Logged display ProfilDev */}
+      {/* [1] If i'm Dev and Logged display ProfilDev
+        in this case i pass the infos to complete the profil from state profilDev
+      */}
       {
         (isDev && logged) && <ProfilDev />
       }
-      {/* If Recruiter and Logged display ProfilRecruiter */}
+      {/* [2] If i'm Recruiter and Logged and come from search or favorites Route display ProfilDev
+       //TODO in this case i pass the infos to complete the profil from state profilSelect?
+      */}
       {
         ((isRecruiter && logged && (fromSearch || fromFavorites))) && <ProfilDev />
       }
 
-      {/* If Recruiter and Logged display ProfilRecruiter */}
+      {/*  If i'm Recruiter and Logged display ProfilRecruiter */}
       {
         (isRecruiter && logged && !fromSearch && !fromFavorites) && <ProfilRecruiter />
       }
 
-      {/* if not isDev and not isCrecruiter or if not logged return to home  */}
+      {/* if i'm not logged and dev or recruiter return to home  */}
       {
-        ((!isDev && !isRecruiter) || !logged) && <Navigate to="/" />
+        !((isDev || isRecruiter) && logged) && <Navigate to="/" />
       }
     </>
 

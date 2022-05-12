@@ -46,18 +46,20 @@ const apiMiddleWare = (store) => (next) => (action) => {
               store.dispatch(dataProfilDevFromApi(userData.age, 'age'));
               store.dispatch(dataProfilDevFromApi(user.email_address, 'mail'));
               store.dispatch(dataProfilDevFromApi(user.city, 'city'));
+              store.dispatch(dataProfilDevFromApi(user.zip_code, 'zip_code'));
+              store.dispatch(dataProfilDevFromApi(userData.available_for_developers, 'available_for_developers'));
+              store.dispatch(dataProfilDevFromApi(userData.available_for_recruiters, 'available_for_recruiters'));
 
               store.dispatch(dataProfilDevFromApi(user.phone, 'phone'));
               store.dispatch(dataProfilDevFromApi(user.password, 'password'));
               store.dispatch(dataProfilDevFromApi('', 'technology'));
               store.dispatch(dataProfilDevFromApi(userData.years_of_experience, 'experience'));
-              store.dispatch(dataProfilDevFromApi(userData.portfolio, 'portfolio'));
+              store.dispatch(dataProfilDevFromApi(userData.portfolio_link, 'portfolio_link'));
 
               store.dispatch(dataProfilDevFromApi(userData.github_link, 'github'));
               store.dispatch(dataProfilDevFromApi('', 'languages'));
               store.dispatch(dataProfilDevFromApi('', 'english'));
               store.dispatch(dataProfilDevFromApi(userData.minimum_salary_requested, 'salary'));
-              store.dispatch(dataProfilDevFromApi(userData.availability_for_recruiters, 'availability'));
               store.dispatch(dataProfilDevFromApi('', 'gender'));
               // redirection vers page profil
             }
@@ -67,7 +69,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
               // save des données reçus dans notre state (formRegisterRecruiter)
               store.dispatch(dataProfilRecruiterFromApi('', 'status'));
               store.dispatch(dataProfilRecruiterFromApi(user.firstname, 'firstname'));
-              store.dispatch(dataProfilRecruiterFromApi(user.city, 'lastname'));
+              store.dispatch(dataProfilRecruiterFromApi(user.lastname, 'lastname'));
               store.dispatch(dataProfilRecruiterFromApi(userData.company_name, 'firms'));
               store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
               store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));

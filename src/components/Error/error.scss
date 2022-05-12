@@ -2,7 +2,7 @@
 
 .error {
   background-color: vars.$mainColor;
-  min-height: 100vh;
+  min-height: 80vh;
 
 
 
@@ -19,7 +19,7 @@
 
     &--img {
       width: 100%;
-      height: 100vh;
+      // height: 100vh;
 
       @media (max-width: 425px) {
         height: 100%;

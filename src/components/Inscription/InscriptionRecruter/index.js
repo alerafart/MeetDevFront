@@ -1,8 +1,9 @@
 import './inscriptionrecruter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logged, logout } from '../../../actions/settings';
+import { logout, toggleWindowLog } from '../../../actions/settings';
 import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
+import { inscriptionRecruiter } from '../../../actions/middleware';
 
 function InscriptionRecruter() {
   const dispatch = useDispatch();
@@ -108,7 +109,8 @@ function InscriptionRecruter() {
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
               onClick={() => {
-                dispatch(logged());
+                dispatch(inscriptionRecruiter());
+                dispatch(toggleWindowLog());
               }}
             >
               Valider

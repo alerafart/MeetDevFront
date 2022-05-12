@@ -15,3 +15,11 @@ export const INSCRIPTION_DEV = 'INSCRIPTION_DEV';
 export const inscriptionDev = () => ({
   type: INSCRIPTION_DEV,
 });
+
+// ACTION TYPE INSCRIPTION
+export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
+
+// ACTION CREATOR inscription
+export const inscriptionRecruiter = () => ({
+  type: INSCRIPTION_RECRUITER,
+});

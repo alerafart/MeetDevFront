@@ -1,10 +1,29 @@
 @use '../../styles/vars';
 
+.wrapper {
+  background-color: vars.$mainBackground;
+  min-height: 80vh;
+  margin: 0 auto;
+}
+
+.banniere {
+  color: vars.$mainBackground;
+  // color: vars.$mainFontAnthra;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  border-bottom: 1px solid vars.$mainFontGrey;
+  background-color: vars.$mainColor;
+  margin-bottom: 2rem;
+}
+
 .search {
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
-  min-height: 80vh;
+  // min-height: 80vh;
 
   @media (max-width: 768px) {
     padding: 1em 1em;
@@ -88,6 +107,7 @@
         border: 2px solid vars.$mainFontGrey;
         padding: 0 1rem;
         background-color: vars.$mainBackground;
+        border-radius: 8px;
 
       }
 

@@ -1,11 +1,11 @@
 // styles
 import './homedeveloper.scss';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { logout, toggleWindowLog } from '../../../actions/settings';
 
-function HomeDeveloper({
-  setDevelopper, setConnected,
-}) {
+function HomeDeveloper() {
+  const dispatch = useDispatch();
   return (
     <div className="homedeveloper">
       <h3 className="homedeveloper__title">Développeur</h3>
@@ -30,40 +30,34 @@ function HomeDeveloper({
         </div>
       </div>
       <div className="homedeveloper__button">
-        <button
-          type="button"
-          className="homedeveloper__button--inscription"
-        >
-          <Link to="/inscription">Inscription Gratuite</Link>
-        </button>
+        <Link to="/inscription">
+          <button
+            type="button"
+            className="homedeveloper__button--inscription"
+          >
+            Inscription Gratuite
+          </button>
+        </Link>
+
         <button
           type="button"
           className="homedeveloper__button--login"
-          onClick={() => setConnected(true)}
+          onClick={() => dispatch(toggleWindowLog())}
         >
           Connexion
         </button>
-        <button
-          type="button"
-          className="homedeveloper__button--back"
-          onClick={() => setDevelopper(false)}
-        >
-          <Link to="/">Retour</Link>
-        </button>
+
+        <Link to="/">
+          <button
+            type="button"
+            className="homedeveloper__button--back"
+            onClick={() => dispatch(logout())}
+          >Retour
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
-
-HomeDeveloper.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default HomeDeveloper;

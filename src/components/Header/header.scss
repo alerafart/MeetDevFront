@@ -1,6 +1,19 @@
 @use '../../styles/vars';
 
+.test {
+  position: absolute;
+  right: 5rem;
+  font-size: 1rem;
+  bottom: -2.1rem;
+  padding: 8px 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: rgb(0, 0, 0, 0.3);
+  color: vars.$mainBackground;
+}
+
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,8 +33,24 @@
     justify-content: center;
   }
 
+  &__login {
+    position: absolute;
+    right: 5rem;
+    font-size: 1rem;
+    bottom: -2.1rem;
+    padding: 8px 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: rgb(0, 0, 0, 0.3);
+    color: vars.$mainBackground;
+  }
+
   &__enSavoirPlus {
-    font-size: 2rem;
+    font-size: 1.6rem;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   &__logo {
@@ -52,6 +81,7 @@
   &__menu {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: vars.$mainFontAnthra;
     // display: none;
 
@@ -60,6 +90,8 @@
       padding: 0 0.3rem;
       font-size: 1.2rem;
     }
+
+
   }
 
   &__button {
@@ -73,7 +105,7 @@
     min-width: 12rem;
 
     @media (max-width: 550px) {
-      margin-top: 1rem;
+      margin-bottom: 0.1rem;
     }
 
     &:hover {

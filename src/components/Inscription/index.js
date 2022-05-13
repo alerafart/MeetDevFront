@@ -7,16 +7,20 @@ import man from '../../assets/images/men.png';
 import woman from '../../assets/images/woman.png';
 import github from '../../assets/images/github.png';
 import {
-  logout, setFromInscriptionRoute, toggleWindowLog,
+  logout, setFromInscriptionRoute, searchCityDisplay, toggleWindowLog,
 } from '../../actions/settings';
 import { registerDev } from '../../actions/formRegisterDev';
-import { inscriptionDev } from '../../actions/middleware';
+import { inscriptionDev, searchCity } from '../../actions/middleware';
 
 function Inscription() {
   const register = useSelector((state) => state.formRegisterDev.register);
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
+  const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
   const dispatch = useDispatch();
+
+  // console.log(resultSearchCity);
 
   useEffect(() => {
     dispatch(setFromInscriptionRoute());
@@ -119,7 +123,37 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Ville
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="city" value={register.city} onChange={handleChangeForm} />
+
+                <input
+                  className="inscription__form__champ--input"
+                  type="text"
+                  name="city"
+                  value={register.city}
+                  onChange={(e) => {
+                    handleChangeForm(e);
+                    dispatch(searchCity());
+                    dispatch(searchCityDisplay());
+                  }}
+                />
+                {
+                  displaySearchCity && (
+                    <ul className="inscription__form__champ__searchCity">
+                      {
+                        resultSearchCity.map(
+                          (e) => (
+                            <li className="inscription__form__champ__searchCity--item">
+                              {e.properties.postcode}, {e.properties.city}
+                            </li>
+                          ),
+                        )
+
+                        //* console.log(e.properties.postcode, e.properties.city)) */
+                      }
+
+                    </ul>
+                  )
+                }
+
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">

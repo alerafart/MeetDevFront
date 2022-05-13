@@ -5,6 +5,11 @@
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
+  overflow: hidden;
+  background-image: url('../../../assets/images/backgroundMain.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
 
   @media (max-width: 768px) {
     padding: 1em 1em;

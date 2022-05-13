@@ -56,11 +56,13 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
-          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
           id: '',
+          email: '',
+          token: '',
+          windowLog: false,
         },
       };
     case IS_DEV:

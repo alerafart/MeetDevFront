@@ -1,4 +1,5 @@
 import { DATA_PROFIL_DEV_FROM_API } from '../actions/profilDev';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   register: {
@@ -37,6 +38,30 @@ const profilDev = (state = initialState, action = {}) => {
         },
       };
     }
+
+    case LOGOUT:
+      return {
+        ...state,
+        register: {
+          firstname: '',
+          lastname: '',
+          age: '',
+          mail: '',
+          city: '',
+          phone: '',
+          technology: '',
+          experience: '',
+          password: '',
+          verifypassword: '',
+          portfolio: '',
+          github: '',
+          languages: '',
+          salary: '',
+          english: '',
+          availability: '',
+          gender: '',
+        },
+      };
 
     default:
       return state;

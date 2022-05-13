@@ -1,4 +1,5 @@
 import { REGISTER_DEV } from '../actions/formRegisterDev';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   register: {
@@ -34,6 +35,30 @@ const formRegisterDev = (state = initialState, action = {}) => {
         },
       };
     }
+
+    case LOGOUT:
+      return {
+        ...state,
+        register: {
+          firstname: '',
+          lastname: '',
+          age: '',
+          email: '',
+          city: '',
+          phone: '',
+          technology: '',
+          experience: '',
+          password: '',
+          verifypassword: '',
+          portfolio: '',
+          github: '',
+          languages: '',
+          salary: '',
+          english: '',
+          availability: '',
+          gender: '',
+        },
+      };
 
     default:
       return state;

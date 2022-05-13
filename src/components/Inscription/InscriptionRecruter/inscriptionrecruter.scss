@@ -36,8 +36,8 @@
     width: 12rem;
     height: 12rem;
     border-radius: 12rem;
-    border: 1px solid vars.$mainColor;
-
+    border: 1px solid vars.$mainFontGrey;
+    background-color: vars.$mainFontGrey;
 
     &--avatar {
       opacity: 0;
@@ -98,7 +98,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: vars.$mainColor;
 
 
         &--item {
@@ -116,10 +115,9 @@
       &--input {
         width: 60%;
         height: 100%;
-        border: 2px solid vars.$mainColor;
+        border: 2px solid vars.$mainFontGrey;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
-        border-radius: 8px;
 
         @media (max-width: 768px) {
           width: 40%;

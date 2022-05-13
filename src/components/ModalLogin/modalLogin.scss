@@ -113,23 +113,14 @@
     }
 
     &--connexion {
-        background-color: vars.$mainColor;
-        border: none;
-        margin-top: 2rem;
-        padding: 1rem 0;
-        border-radius: 4px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        color: vars.$mainBackground;
-        font-size: 1.2rem;
-
-        &:hover {
-          transform: scale(1.1);
-          transition: transform 0.3s;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    
-        }
+      background-color: vars.$mainColor;
+      border: none;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
+
 
   }
 

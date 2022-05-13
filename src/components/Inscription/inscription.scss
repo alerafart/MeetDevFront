@@ -38,7 +38,7 @@
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 7.5rem;
-    border: 1px solid vars.$mainColor;
+    border: 1px solid vars.$mainFontGrey;
 
     &--avatar {
       width: 90%;
@@ -119,10 +119,10 @@
       &--input {
         width: 60%;
         height: 100%;
-        border: 2px solid vars.$mainColor;
+        border: 2px solid vars.$mainFontGrey;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
-        border-radius: 8px;
+
       }
 
       &--img {

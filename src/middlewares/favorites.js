@@ -17,10 +17,13 @@ const favorisFromApi = (store) => (next) => (action) => {
 
       axios
         .get(
-          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters/fav',
+          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
           // ou url: 'http://localhost/api/users:8000',
           {
-            id: 2,
+            params: {
+              recrutId: 2,
+              devId: 5,
+            },
           },
         )
         .then((response) => {

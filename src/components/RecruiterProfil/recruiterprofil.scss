@@ -1,34 +1,17 @@
 @use '../../styles/vars';
 
-.wrapper {
-    min-height: 80vh;
-}
-
-.banniere {
-    color: vars.$mainBackground;
-    // color: vars.$mainFontAnthra;
-    font-size: 1.5rem;
-    display: flex;
-    // align-items: center;
-    // justify-content: center;
-    height: 4rem;
-    border-bottom: 1px solid vars.$mainFontGrey;
-    background-color: vars.$mainColor;
-}
-
 .profil {
     background-color: vars.$mainBackground;
     margin: 0 auto;
-    padding: 1em 0em;
-    // min-height: 80vh;
+    padding: 1em 3em;
+    min-height: 80vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
     font-size: 1.2rem;
 
     @media (max-width: 768px) {
-        padding: 1em 0em;
+        padding: 1em 1em;
         width: auto;
 
     }
@@ -45,15 +28,14 @@
         font-size: 1.5rem;
         font-weight: bold;
         color: vars.$mainColor;
-        margin-bottom: 2rem;
     }
 
     &__leftpart {
-        width: 70%;
+        width: 50%;
         display: flex;
         flex-Direction: column;
-        // justify-Content: flex-start;
-        // align-Items: center;
+        justify-Content: space-evenly;
+        align-Items: center;
 
         @media (max-width: 768px) {
             width: 70%;
@@ -63,53 +45,42 @@
     }
 
     &__picture__img {
-        width: 14rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
+        width: 10rem;
     }
 
     &__informations {
 
         &--name {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 1rem;
         }
 
         &--localisation {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-style: italic;
             margin-bottom: 1rem;
         }
 
         &--aboutme {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
         &--description {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-style: italic;
             margin-bottom: 1rem;
         }
 
         &--email {
-            margin-bottom: 2rem;
             padding: 0;
-        }
-
-        &--phone {
-            margin-bottom: 0;
-            margin-top: 0;
-            padding-top: 0;
         }
 
     }
 
     &__modify {
         display: flex;
-        // align-items: center;
-        // width: 100%;
-
+        align-items: center;
+        width: 100%;
         justify-content: center;
 
         &__form {
@@ -120,7 +91,6 @@
             border-radius: 8px;
             font-size: 1.2rem;
             transition: transform 0.3s;
-            margin-bottom: 0;
 
             &:hover {
                 transform: scale(1.1);

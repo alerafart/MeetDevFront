@@ -24,10 +24,9 @@ export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
 });
 
-// ACTION TYPE SEARCH_PROFILE
-export const SEARCH_PROFILE = 'SEARCH_PROFILE';
+export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
 
-// ACTION CREATOR searchProfile
-export const searchProfile = () => ({
-  type: SEARCH_PROFILE,
+// ACTION CREATOR inscription
+export const recruiterFavorites = () => ({
+  type: RECRUITER_FAVORITES,
 });

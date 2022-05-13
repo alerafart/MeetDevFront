@@ -3,20 +3,14 @@
 //* pour le moment car .search englobe tout dans la partie search
 //* pour le moment ce composant est affiché dans search
 //* ce qui ne devrait plus être le cas prochainement
-// .search {
-//   margin: 0 auto;
-//   //* modifié par rapport à l'orignial
-//   padding: 0em 0em;
-//   min-height: 80vh;
-//   background: white;
-// }
-
-.profilDev {
+.search {
   margin: 0 auto;
   //* modifié par rapport à l'orignial
   padding: 0em 0em;
   min-height: 80vh;
-  background: white;
+}
+
+.profilDev {
 
   &__title {
     color: vars.$mainBackground;

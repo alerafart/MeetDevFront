@@ -1,34 +1,14 @@
 import { NavLink, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './header.scss';
-import { useSelector, useDispatch } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
-import { logout, toggleWindowLog, setFromAway } from '../../actions/settings';
 
-function Header() {
-  const logged = useSelector((state) => state.settings.log.logged);
-  const dispatch = useDispatch();
-  const isDev = useSelector((state) => state.settings.log.isDev);
-  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
-
-  const titleDev = useSelector((state) => state.profilDev.register);
-  const titleRec = useSelector((state) => state.profilRecruiter.register);
-
+function Header({
+  connected, setConnected, setDevelopper, setRecruiter, recruiter, developper, setOpenModal,
+}) {
   return (
     <div className="header">
-      {
-        (logged && isDev) && (
-
-          <div className="header__login">{titleDev.firstname} {titleDev.lastname}</div>
-        )
-      }
-      {
-        (logged && isRecruiter) && (
-
-          <div className="header__login">{titleRec.firstname} {titleRec.lastname}</div>
-        )
-      }
-
-      { !logged && (
+      { !connected && (
         <>
           <div className="header__enSavoirPlus">
             <Link to="/en-savoir-plus">En savoir plus</Link>
@@ -40,8 +20,7 @@ function Header() {
             type="button"
             className="header__button"
             onClick={() => {
-              dispatch(toggleWindowLog());
-              // setOpenModal(true);
+              setOpenModal(true);
             }}
           >
             Connexion
@@ -49,7 +28,7 @@ function Header() {
         </>
       )}
       {
-        logged && (
+        connected && (
           <>
             <div className="header__logo">
               <img
@@ -60,39 +39,48 @@ function Header() {
               Meet Dev
             </div>
             <ul className="header__menu">
-              {isDev && (
+              {developper && (
               <>
                 <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-                <li className="header__menu--item" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
+                <li className="header__menu--item"><NavLink to="/profil">Profil</NavLink></li>
                 <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
               </>
               )}
-              {isRecruiter && (
+              {recruiter && (
                 <>
                   <li className="header__menu--item"><NavLink to="/">Accueil</NavLink></li>
-                  <li className="header__menu--item" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
+                  <li className="header__menu--item"><NavLink to="/recruiter-profile">Profil</NavLink></li>
                   <li className="header__menu--item"><NavLink to="/recherche">Recherche</NavLink></li>
                   <li className="header__menu--item"><NavLink to="/favoris">Favoris</NavLink></li>
                 </>
               )}
             </ul>
-
-            <Link to="/">
-              <button
-                type="button"
-                className="header__button"
-                onClick={() => {
-                  dispatch(logout());
-                }}
-              >
-                Deconnexion
-              </button>
-            </Link>
+            <button
+              type="button"
+              className="header__button"
+              onClick={() => {
+                setConnected(false);
+                setRecruiter(false);
+                setDevelopper(false);
+              }}
+            >
+              Déconnexion
+            </button>
           </>
         )
       }
     </div>
   );
 }
+
+Header.propTypes = {
+  connected: PropTypes.bool.isRequired,
+  setConnected: PropTypes.func.isRequired,
+  developper: PropTypes.bool.isRequired,
+  setDevelopper: PropTypes.func.isRequired,
+  recruiter: PropTypes.bool.isRequired,
+  setRecruiter: PropTypes.func.isRequired,
+  setOpenModal: PropTypes.func.isRequired,
+};
 
 export default Header;

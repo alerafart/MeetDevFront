@@ -1,6 +1,6 @@
 import './meetdev.scss';
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -11,103 +11,239 @@ import Connexion from '../Connexion';
 import Search from '../Search';
 import Favoris from '../Favoris';
 import Profil from '../Profil';
-import Modifier from '../Modify';
 import Contact from '../Contact';
 import MentionsLegales from '../MentionsLegales';
 import EnSavoirPlus from '../EnSavoirPlus';
 import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
+import RecruiterProfile from '../RecruiterProfil';
+import RecruiterProfilModify from '../RecruiterProfil/RecruiterProfilModify';
 import ModalLogin from '../ModalLogin';
+import ModalDevContact from '../ModalDevContact';
 
 function MeetDev() {
-  const windowLog = useSelector((state) => state.settings.log.windowLog);
+  //* state fictifs to finish static navigation
+  //* in this state there are: Are you connected? (true/false)
+  //* and: Are you developper or recruiter or undifined? ("dev","rec","und")
+  //* new state for modal login on or off. For the moment, activable
+  //* with the top button connexion
+  //* new state for modal contactDev on or off.
+  const [isConnected, setIsConnected] = useState(false);
+  const [isDevelopper, setIsDevelopper] = useState(false);
+  const [isRecruiter, setIsRecruiter] = useState(false);
+  const [isModalLogin, setIsModalLogin] = useState(false);
+  const [isModalDevContact, setIsModalDevContact] = useState(false);
+
   return (
     <div className="meetdev">
-      <Header />
+      <Header
+        connected={isConnected}
+        setConnected={setIsConnected}
+        developper={isDevelopper}
+        setDevelopper={setIsDevelopper}
+        recruiter={isRecruiter}
+        setRecruiter={setIsRecruiter}
+        setOpenModal={setIsModalLogin}
+      />
       {
-        windowLog && <ModalLogin />
+        isModalLogin && <ModalLogin setCloseModal={setIsModalLogin} />
+      }
+      {
+        isModalDevContact && <ModalDevContact setCloseModal={setIsModalDevContact} />
       }
       <Routes>
         <Route
           path="/"
           element={(
-            <Home />
+            <Home
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/inscription"
           element={(
-            <Inscription />
+            <Inscription
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/connexion"
           element={(
-            <Connexion />
+            <Connexion
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/recherche"
           element={(
-            <Search />
+            <Search
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+              setCloseDevModal={setIsModalDevContact}
+            />
           )}
         />
         <Route
           path="/favoris"
           element={(
-            <Favoris />
+            <Favoris
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/profil"
           element={(
-            <Profil />
-          )}
-        />
-        <Route
-          path="/modifier"
-          element={(
-            <Modifier />
+            <Profil
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/contact"
           element={(
-            <Contact />
+            <Contact
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/en-savoir-plus"
           element={(
-            <EnSavoirPlus />
+            <EnSavoirPlus
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/mentions-legales"
           element={(
-            <MentionsLegales />
+            <MentionsLegales
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/home-developer"
           element={(
-            <HomeDeveloper />
+            <HomeDeveloper
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="/home-recruiter"
           element={(
-            <HomeRecruiter />
+            <HomeRecruiter
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
+          )}
+        />
+        <Route
+          path="/recruiter-profile"
+          element={(
+            <RecruiterProfile
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
+          )}
+        />
+        <Route
+          path="/recruiter-modify"
+          element={(
+            <RecruiterProfilModify
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
         <Route
           path="*"
           element={(
-            <Error />
+            <Error
+              connected={isConnected}
+              setConnected={setIsConnected}
+              developper={isDevelopper}
+              setDevelopper={setIsDevelopper}
+              recruiter={isRecruiter}
+              setRecruiter={setIsRecruiter}
+            />
           )}
         />
       </Routes>
-      <Footer />
+      <Footer
+        connected={isConnected}
+        setConnected={setIsConnected}
+        developper={isDevelopper}
+        setDevelopper={setIsDevelopper}
+        recruiter={isRecruiter}
+        setRecruiter={setIsRecruiter}
+      />
     </div>
   );
 }

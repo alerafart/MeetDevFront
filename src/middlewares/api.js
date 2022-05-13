@@ -33,7 +33,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
           const userData = response.data.spec[0];
 
           // Changement du state settings: logged:true + save email utilisateur)
-          store.dispatch(logged(user.email_address));
+          store.dispatch(logged(user.email_address, user.id));
 
           // TEST SI SUCCESS
           if (status === 'success' && statusMessage === 'Login successfull') {

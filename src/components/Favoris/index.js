@@ -6,6 +6,7 @@ import './favoris.scss';
 
 import Card from './Card';
 import { setFromFavoritesRoute } from '../../actions/settings';
+import { recruiterFavorites } from '../../actions/middleware';
 
 function Favoris() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
@@ -13,7 +14,9 @@ function Favoris() {
 
   useEffect(() => {
     dispatch(setFromFavoritesRoute());
+    dispatch(recruiterFavorites());
   });
+
   return (
     <div className="wrapper">
       <h2 className="banniere"> Mes profils favoris </h2>

@@ -22,6 +22,7 @@ export const initialState = {
     email: '',
     token: '',
     windowLog: false,
+    id: '',
   },
   navigation: {
     windowSendMessage: false,
@@ -67,6 +68,7 @@ const settings = (state = initialState, action = {}) => {
           ...state.log,
           logged: true,
           email: action.email,
+          id: action.id,
 
         },
       };
@@ -74,10 +76,13 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
-          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
+          id: '',
+          email: '',
+          token: '',
+          windowLog: false,
         },
       };
     case IS_DEV:

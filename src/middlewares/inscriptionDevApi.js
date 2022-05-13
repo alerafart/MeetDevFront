@@ -7,17 +7,33 @@ const inscriptionDevApi = (store) => (next) => (action) => {
     case INSCRIPTION_DEV: {
       const state = store.getState();
 
-      const { lastname } = state.formRegisterDev.register;
-      const { firstname } = state.formRegisterDev.register;
-      const { city } = state.formRegisterDev.register;
-      const { email } = state.formRegisterDev.register;
-      const { phone } = state.formRegisterDev.register;
-      const { password } = state.formRegisterDev.register;
-      const { salary } = state.formRegisterDev.register;
-      const { age } = state.formRegisterDev.register;
-      const { experience } = state.formRegisterDev.register;
-      const { github } = state.formRegisterDev.register;
-      const { portfolio } = state.formRegisterDev.register;
+      const {
+        lastname, firstname, city, email,
+        phone, password, salary, age, experience, github, portfolio,
+      } = state.formRegisterDev.register;
+      // const { firstname } = state.formRegisterDev.register;
+      // const { city } = state.formRegisterDev.register;
+      // const { email } = state.formRegisterDev.register;
+      // const { phone } = state.formRegisterDev.register;
+      // const { password } = state.formRegisterDev.register;
+      // const { salary } = state.formRegisterDev.register;
+      // const { age } = state.formRegisterDev.register;
+      // const { experience } = state.formRegisterDev.register;
+      // const { github } = state.formRegisterDev.register;
+      // const { portfolio } = state.formRegisterDev.register;
+      // console.log(
+      //   lastname,
+      //   firstname,
+      //   city,
+      //   email,
+      //   phone,
+      //   password,
+      //   salary,
+      //   age,
+      //   experience,
+      //   github,
+      //   portfolio,
+      // );
 
       axios.post(
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/developer',

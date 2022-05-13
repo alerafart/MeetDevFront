@@ -3,59 +3,94 @@
 .home {
   background-color: vars.$mainBackground;
   margin: 0 auto;
-  padding: 1em 3em;
+  padding: 1em 0em;
   min-height: 80vh;
+  overflow: hidden;
+  background-image: url('../../assets/images/backgroundMain.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
+
+  &__background {
 
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 12rem;
+    &--img {
 
-    &--title {
-      font-weight: bolder;
-      font-size: 3rem;
-      color: vars.$mainColor;
-      margin-bottom: 12px;
-    }
+      position: absolute;
+      left: -16%;
+      bottom: 1rem;
 
-    &--slogan {
-      font-size: 1.5rem;
-      color: vars.$mainColor;
-      font-style: italic;
+      width: 130%;
 
-      @media (max-width: 700px) {
-        padding: 0 1rem;
-      }
 
 
     }
   }
 
+  &__header {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    &--title {
+      font-weight: bolder;
+      font-size: 5.5rem;
+      color: vars.$mainColor;
+    }
+
+    &--img {
+      width: 2.8rem;
+      transform: rotate(45deg);
+      margin-right: 1.5rem;
+    }
+
+
+  }
+
+  &__slogan {
+    font-size: 1.3rem;
+    color: vars.$mainColor;
+    font-style: italic;
+    margin-bottom: 4rem;
+
+    @media (max-width: 700px) {
+      padding: 0 1rem;
+    }
+  }
+
   &__citation {
-    height: 25%;
+    // height: 25%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-size: 1.3rem;
-    height: 10rem;
+    font-size: 1.8rem;
     color: vars.$mainFontAnthra;
+    margin-bottom: 1.5rem;
 
     &--citation {
-      max-width: 400px;
+      max-width: 500px;
       text-align: center;
       line-height: 32px;
-      margin-bottom: 8px;
+      margin-bottom: 1.5rem;
       font-style: italic;
     }
 
     &--author {
       font-size: 1rem;
       font-style: italic;
+      margin-bottom: 5rem;
+    }
+
+    &--iam {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
   }
+
+
 
   &__choice {
     color: vars.$mainFontAnthra;
@@ -64,6 +99,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     max-width: 90%;
+    z-index: 999;
 
     @media (max-width: 720px) {
       flex-direction: column;
@@ -80,6 +116,7 @@
       transition: transform 0.3s;
       min-width: 13rem;
       max-width: 13rem;
+      z-index: 999;
 
       @media (max-width: 720px) {
         margin-bottom: 2rem;

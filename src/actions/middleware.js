@@ -40,3 +40,12 @@ export const searchProfile = () => ({
   type: SEARCH_PROFILE,
 
 });
+
+// ACTION TYPE SEARCH_PROFILE
+export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
+
+// ACTION CREATOR searchProfile
+export const recruiterFavorites = () => ({
+  type: RECRUITER_FAVORITES,
+
+});

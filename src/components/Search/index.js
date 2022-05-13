@@ -6,6 +6,7 @@ import Card from './Card';
 import ModalProfil from '../ModalProfil';
 import { setFromSearchRoute } from '../../actions/settings';
 import { searchDev } from '../../actions/formSearchDev';
+import { searchProfile } from '../../actions/middleware';
 
 function Search() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
@@ -89,7 +90,14 @@ function Search() {
               </label>
             </div>
           </div>
-          <button type="submit" className="search__filter--button" onClick={(e) => e.preventDefault()}>
+          <button
+            type="submit"
+            className="search__filter--button"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(searchProfile());
+            }}
+          >
             Filtrer
           </button>
         </form>

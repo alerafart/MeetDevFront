@@ -1,17 +1,20 @@
 import './title.scss';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import man from '../../../assets/images/men.png';
 import woman from '../../../assets/images/woman.png';
+import { setToggleModalProfil } from '../../../actions/settings';
 
 function Title({
-  avatar, firstname, lastname, setOpenModal,
+  avatar, firstname, lastname,
 }) {
+  const dispatch = useDispatch();
   return (
     <div
       className="result__champ"
       onClick={() => {
-        setOpenModal(true);
+        dispatch(setToggleModalProfil());
       }}
     >
       <img
@@ -30,7 +33,6 @@ Title.propTypes = {
   avatar: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
-  setOpenModal: PropTypes.func.isRequired,
 };
 
 export default Title;

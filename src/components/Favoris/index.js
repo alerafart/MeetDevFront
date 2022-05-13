@@ -1,13 +1,10 @@
 // styles
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import ModalProfil from '../ModalProfil';
 import './favoris.scss';
-import { useState } from 'react';
-import FavorisDetail from './FavorisDetail';
-import Card from './Card';
-<<<<<<< HEAD
 
-function Favoris() {
-  const [favorisDetail, setFavorisDetail] = useState(false);
-=======
+import Card from './Card';
 import { setFromFavoritesRoute } from '../../actions/settings';
 import { recruiterFavorites } from '../../actions/middleware';
 
@@ -20,28 +17,29 @@ function Favoris() {
     dispatch(recruiterFavorites());
   });
 
->>>>>>> redux-store
   return (
-    <>
-      {
-        favorisDetail && <FavorisDetail setFavorisDetail={setFavorisDetail} />
-      }
-      {
-        !favorisDetail && (
-          <div className="favoris">
-            <h1 className="favoris__title"> Mes profils favoris </h1>
-            <div className="favoris__card">
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
+    <div className="wrapper">
+      <h2 className="banniere"> Mes profils favoris </h2>
+      <div className="favoris">
+        {
+          modalDev
+          && (
+          <ModalProfil />
+          )
+        }
 
-            </div>
-          </div>
-        )
-      }
-    </>
+        <div className="favoris__card">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+
+        </div>
+      </div>
+
+    </div>
+
   );
 }
 

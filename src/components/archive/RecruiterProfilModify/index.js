@@ -1,5 +1,4 @@
 import './recruiterProfilModify.scss';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function RecruiterProfilModify() {
@@ -115,16 +114,5 @@ function RecruiterProfilModify() {
     </div>
   );
 }
-
-RecruiterProfilModify.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  // setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default RecruiterProfilModify;

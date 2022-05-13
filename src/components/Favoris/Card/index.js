@@ -1,11 +1,12 @@
 import './card.scss';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import men from '../../../assets/images/men.png';
 import javascript from '../../../assets/images/js.png';
+import { setToggleModalProfil } from '../../../actions/settings';
 
-function Card({ setFavorisDetail }) {
+function Card() {
+  const dispatch = useDispatch();
   return (
-
     <div className="card">
       <div className="card__avatar">
         <img src={javascript} alt="Avatar" className="card__avatar--logo" />
@@ -20,7 +21,7 @@ function Card({ setFavorisDetail }) {
         <button
           type="button"
           onClick={() => {
-            setFavorisDetail(true);
+            dispatch(setToggleModalProfil());
           }}
           className="card__button--profileview"
         >Voir le profil
@@ -34,9 +35,5 @@ function Card({ setFavorisDetail }) {
     </div>
   );
 }
-
-Card.propTypes = {
-  setFavorisDetail: PropTypes.func.isRequired,
-};
 
 export default Card;

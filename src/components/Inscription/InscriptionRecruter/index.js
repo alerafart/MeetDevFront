@@ -1,8 +1,20 @@
 import './inscriptionrecruter.scss';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, toggleWindowLog } from '../../../actions/settings';
+import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
+import { inscriptionRecruiter } from '../../../actions/middleware';
 
-function InscriptionRecruter({ setConnected }) {
+function InscriptionRecruter() {
+  const dispatch = useDispatch();
+
+  function handleChangeForm(e) {
+    const { value } = e.target;
+    const { name } = e.target;
+    dispatch(registerRecruiter(value, name));
+  }
+
+  const register = useSelector((state) => state.formRegisterRecruiter.register);
   return (
     <div className="inscriptionRecruter">
       <h2 className="inscriptionRecruter__title">
@@ -24,15 +36,15 @@ function InscriptionRecruter({ setConnected }) {
           </div> */}
           <div className="inscriptionRecruter__form__champ--radio">
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp1">
-              <input checked type="radio" value="sarl" name="sarl" />
+              <input type="radio" value="sarl" name="status" onChange={handleChangeForm} checked={register.status === 'sarl'} />
               SARL
             </label>
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="sas" name="sas" />
+              <input type="radio" value="sas" name="status" onChange={handleChangeForm} checked={register.status === 'sas'} />
               SAS
             </label>
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp3">
-              <input type="radio" value="eurl" name="eurl" />
+              <input type="radio" value="eurl" name="status" onChange={handleChangeForm} checked={register.status === 'eurl'} />
               EURL
             </label>
           </div>
@@ -41,91 +53,86 @@ function InscriptionRecruter({ setConnected }) {
           <div className="inscriptionRecruter__form__champ--label">
             Prénom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.firstname} name="firstname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Nom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.lastname} name="lastname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Entreprise
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.firms} name="firms" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Ville
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.city} name="city" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Tél
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.phone} name="phone" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Site Internet
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.website} name="website" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Mail
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.email} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Mdp
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" />
+          <input className="inscriptionRecruter__form__champ--input" type="password" value={register.password} name="password" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Vérif Mdp
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" />
+          <input className="inscriptionRecruter__form__champ--input" type="password" value={register.verifypassword} name="verifypassword" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__buttons">
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--valid"
-            onClick={(e) => {
-              e.preventDefault();
-              setConnected(true);
-            }}
-          >
-            <Link to="/recruiter-profile">Valider</Link>
-          </button>
-          <button
-            type="submit"
-            className="inscriptionRecruter__form__buttons__button--cancel"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <Link to="/">Annuler</Link>
-          </button>
+          <Link to="/profil">
+            <button
+              type="submit"
+              className="inscriptionRecruter__form__buttons__button--valid"
+              onClick={() => {
+                dispatch(inscriptionRecruiter());
+                dispatch(toggleWindowLog());
+              }}
+            >
+              Valider
+            </button>
+          </Link>
+
+          <Link to="/">
+            <button
+              type="button"
+              className="inscriptionRecruter__form__buttons__button--cancel"
+              onClick={() => {
+                dispatch(logout());
+                dispatch(registerRecruiterCancel());
+              }}
+            >
+              Annuler
+            </button>
+          </Link>
         </div>
       </form>
     </div>
   );
 }
-
-InscriptionRecruter.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  // setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default InscriptionRecruter;

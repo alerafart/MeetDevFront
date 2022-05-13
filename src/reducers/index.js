@@ -22,7 +22,6 @@ const rootReducer = combineReducers({
   formLogin: formLogin,
   profilDev: profilDev,
   profilRecruiter: profilRecruiter,
-
 });
 
 export default rootReducer;

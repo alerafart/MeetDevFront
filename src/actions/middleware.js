@@ -23,3 +23,10 @@ export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
 export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
 });
+
+export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
+
+// ACTION CREATOR inscription
+export const recruiterFavorites = () => ({
+  type: RECRUITER_FAVORITES,
+});

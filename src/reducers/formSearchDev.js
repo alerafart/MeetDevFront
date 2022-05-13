@@ -1,4 +1,5 @@
 import { SEARCH_DEV } from '../actions/formSearchDev';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   search: {
@@ -21,6 +22,16 @@ const formSearchDev = (state = initialState, action = {}) => {
         },
       };
     }
+    case LOGOUT:
+      return {
+        ...state,
+        search: {
+          city: '',
+          technology: '',
+          experience: '',
+          availability: '',
+        },
+      };
 
     default:
       return state;

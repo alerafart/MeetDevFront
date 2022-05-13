@@ -1,4 +1,5 @@
 import { CONTACT_DEV, CONTACT_DEV_RAZ } from '../actions/formDevContact';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   formContact: {
@@ -28,6 +29,14 @@ const formDevContact = (state = initialState, action = {}) => {
         },
       };
     }
+    case LOGOUT:
+      return {
+        ...state,
+        formContact: {
+          title: '',
+          message: '',
+        },
+      };
 
     default:
       return state;

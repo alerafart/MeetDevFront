@@ -1,4 +1,5 @@
 import { SEND_MESSAGE } from '../actions/formContact';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   message: {
@@ -23,6 +24,17 @@ const formContact = (state = initialState, action = {}) => {
       };
     }
 
+    case LOGOUT:
+      return {
+        ...state,
+        message: {
+          firstname: '',
+          lastname: '',
+          mail: '',
+          subject: '',
+          content: '',
+        },
+      };
     default:
       return state;
   }

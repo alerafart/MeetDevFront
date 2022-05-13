@@ -1,5 +1,6 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './profilDev.scss';
-import PropTypes from 'prop-types';
 import man from '../../assets/images/men.png';
 import mapPointer from '../../assets/images/mapPointer.png';
 import mail from '../../assets/images/mail.png';
@@ -10,10 +11,29 @@ import react from '../../assets/images/react.png';
 import symfony from '../../assets/images/symfony.png';
 import html from '../../assets/images/archive/html.png';
 import css from '../../assets/images/archive/css.png';
+import ModalSendMessage from '../ModalSendMessage';
+import { setToggleModalSendMessage } from '../../actions/settings';
 
-function ProfilDev({ setOpenModal, setDetailOpen }) {
+function ProfilDev() {
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const logged = useSelector((state) => state.settings.log.logged);
+  const sendMessage = useSelector((state) => state.settings.navigation.windowSendMessage);
+  const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
+  const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+
+  // const dataProfilDev = useSelector((state) => state.profilDev.register);
+  // console.log('profilDEv fiche perso');
+  // console.log(dataProfilDev);
+  const data = useSelector((state) => state.profilDev.register);
+
+  const dispatch = useDispatch();
   return (
+    logged && (
+    // open/close sendMessage Modal
     <div className="profilDev">
+      {sendMessage && (
+        <ModalSendMessage />
+      )}
       <h2 className="profilDev__title">
         Fiche développeur
       </h2>
@@ -23,22 +43,46 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
           <img className="profilDev__header__cadre--img" src={man} alt="profil" />
         </div>
         <div className="profilDev__header__about">
-          <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
+          {
+            // Display 'add to favorites' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+            <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
+
+            )
+          }
           <h3 className="profilDev__header__about--label">
             A Propos
           </h3>
           <h4 className="profilDev__header__about--name">
-            Agathe Feeling <span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />Lyon</span>
+            {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
           </h4>
           <div className="profilDev__header__about--profession">
-            Developpeur Front-End React
+            {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+            }
+            Developpeur Front-End React   TODO
           </div>
-          <p className="profilDev__header__about--citation">I got the Feeling Woohoo</p>
-          <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work.</p>
-          <p className="profilDev__header__about__mail">
-            <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
-            <p className="profilDev__header__about__mail--txt">Envoyer un message</p>
-          </p>
+          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+          }
+          <p className="profilDev__header__about--citation">I got the Feeling Woohoo   TODO</p>
+          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
+          }
+          <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work. TODO  </p>
+          {
+            // Display button 'send message' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+              <div className="profilDev__header__about__mail">
+                <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
+                <p
+                  type="button"
+                  className="profilDev__header__about__mail--txt"
+                  onClick={() => {
+                    dispatch(setToggleModalSendMessage());
+                  }}
+                >Envoyer un message
+                </p>
+              </div>
+            )
+          }
 
         </div>
 
@@ -52,36 +96,40 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> Tél:
             </div>
-            <div className="profilDev__informations__item--color">06 07 08 09
+            <div className="profilDev__informations__item--color">0{data.phone}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> Adresse:
             </div>
-            <div className="profilDev__informations__item--black">19 rue des Lumières 69000 Lyon
+            <div className="profilDev__informations__item--black">{data.zip_code} {data.city}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> E-mail:
             </div>
-            <div className="profilDev__informations__item--color">agathe.feeling@woohoo.com
+            <div className="profilDev__informations__item--color">{data.mail}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> PortFolio:
             </div>
-            <div className="profilDev__informations__item--color">www.agathe-feeling.fr
+            <div className="profilDev__informations__item--color">{data.portfolio_link}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> GitHub:
             </div>
-            <div className="profilDev__informations__item--color">github.com/agathe-feeling/
+            <div className="profilDev__informations__item--color">{data.github}
             </div>
           </div>
+
+          {
+            // TODO availability not ready in back
+          }
           <div className="profilDev__informations__disponibility">
             <div className="profilDev__informations__disponibility--txt">
-              Disponible:
+              Disponible: TODO
             </div>
             <img
               className="profilDev__informations__disponibility--logo"
@@ -92,7 +140,7 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
           </div>
           <div className="profilDev__informations__disponibility">
             <div className="profilDev__informations__disponibility--txt">
-              Disponible dans 3 mois:
+              Disponible dans 3 mois: TODO
             </div>
 
             <img
@@ -109,20 +157,26 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
             Skills
           </h3>
           <div className="profilDev__skills__item">
-            <div className="profilDev__skills__item--label"> Experience:
+            <div className="profilDev__skills__item--label"> Experience: TODO
             </div>
-            <div className="profilDev__skills__item--color">1 à 3 ans
+            <div className="profilDev__skills__item--color">1{data.experience} ans
             </div>
           </div>
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--label">Anglais:
             </div>
-            <div className="profilDev__skills__item--color">Intermédiaire
+            {
+              // TODO GESTION ENGLISH LEVEL
+            }
+            <div className="profilDev__skills__item--color">Intermédiaire TODO
             </div>
           </div>
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--container">
-              <div className="profilDev__skills__item--label">Stack:
+
+              { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
+              }
+              <div className="profilDev__skills__item--label">Stack: TODO
               </div>
               <div className="profilDev__skills__item__logos">
                 <img src={react} alt="logo react" className="profilDev__skills__item__logos--logo" />
@@ -136,27 +190,62 @@ function ProfilDev({ setOpenModal, setDetailOpen }) {
         </div>
       </div>
 
-      <div className="profilDev__buttons">
-        <button
-          className="profilDev__buttons--button"
-          type="button"
-          onClick={() => {
-            setOpenModal(true);
-            setDetailOpen(false);
-          }}
-        >
-          Retour
-        </button>
+      {
+        (fromSearch || fromFavorites) && (
+          <div className="profilDev__buttons">
 
+            {
+              fromSearch && (
+                <Link to="/recherche">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+            {
+              fromFavorites && (
+                <Link to="/favoris">
+                  <button
+                    className="profilDev__buttons--button"
+                    type="button"
+                    onClick={() => {
+                    }}
+                  >
+                    Retour
+                  </button>
+                </Link>
+              )
+            }
+
+          </div>
+
+        )
+      }
+      { (isDev && !fromSearch) && (
+      <div className="profilDev__buttons">
+        <Link to="/modifier">
+          <button
+            className="profilDev__buttons--button"
+            type="button"
+            onClick={() => {
+            }}
+          >
+            Modifier
+          </button>
+        </Link>
       </div>
+      )}
+
     </div>
+    )
 
   );
 }
-
-ProfilDev.propTypes = {
-  setOpenModal: PropTypes.func.isRequired,
-  setDetailOpen: PropTypes.func.isRequired,
-};
 
 export default ProfilDev;

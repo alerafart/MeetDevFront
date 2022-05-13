@@ -5,18 +5,20 @@
 
   height: 10vh;
   min-height: 75px;
-  padding: 0 3rem;
+  padding: 0 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-top: 2px solid vars.$mainColor;
-  background-color: vars.$mainColor;
+  background-color: vars.$mainBackground;
   color: vars.$mainFontAnthra;
-  color: white;
+  color: vars.$mainColor;
+  font-weight: bold;
+
+
 
   @media (max-width: 620px) {
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 
@@ -28,10 +30,38 @@
 
 
   &__link {
-    width: 8rem;
+    display: flex;
+    width: 12rem;
     text-align: center;
 
+    &--home {
+
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.3rem;
+      }
+
+    }
+
+    &--contact {
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.3rem;
+      }
+
+    }
+
+    &--mention {
+      &:hover {
+        transition-duration: 0.3s;
+        font-size: 1.3rem;
+      }
+
+    }
+
+
     @media (max-width: 620px) {
+      justify-content: space-around;
       width: 33%;
       margin-top: 1rem;
 
@@ -48,13 +78,20 @@
     align-items: center;
 
     @media (max-width: 620px) {
-      margin-top: 1rem;
+      justify-content: center;
     }
 
     &--img {
       display: block;
       height: 40px;
       padding: 0 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
     }
   }
 

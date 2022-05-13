@@ -1,21 +1,10 @@
 import './profildevmodify.scss';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import man from '../../assets/images/men.png';
-import woman from '../../assets/images/woman.png';
-import github from '../../assets/images/github.png';
-import { registerDev } from '../../actions/formRegisterDev';
+import PropTypes from 'prop-types';
+import man from '../../../assets/images/men.png';
+import woman from '../../../assets/images/woman.png';
+import github from '../../../assets/images/github.png';
 
-function ModifyDev() {
-  const register = useSelector((state) => state.formRegisterDev.register);
-  const dispatch = useDispatch();
-
-  function handleChangeForm(e) {
-    const { value } = e.target;
-    const { name } = e.target;
-    dispatch(registerDev(value, name));
-  }
-
+function ProfilDevModify({ setModifyInformation }) {
   return (
     <div className="profilDevModify">
       <h2 className="profilDevModify__title">
@@ -31,9 +20,9 @@ function ModifyDev() {
           capture
         />
       </div>
-      <form className="profilDevModify__form" onChange={handleChangeForm}>
+      <form className="profilDevModify__form">
         <div className="profilDevModify__form--picture--left">
-          <input type="radio" name="gender" value="man" checked={register.gender === 'man'} />
+          <input type="radio" value="men" checked />
           <img
             className="profilDevModify__form--picture--img"
             src={man}
@@ -41,7 +30,7 @@ function ModifyDev() {
           />
         </div>
         <div className="profilDevModify__form--picture--right">
-          <input type="radio" name="gender" value="woman" checked={register.gender === 'woman'} />
+          <input type="radio" value="woman" />
           <img
             className="profilDevModify__form--picture--img"
             src={woman}
@@ -49,18 +38,17 @@ function ModifyDev() {
           />
         </div>
         <div className="profilDevModify__form__champ">
-          <div className="profilDevModify__form__champ--label" type="text" name="firstname" value={register.firstname}>
+          <div className="profilDevModify__form__champ--label">
             Prénom
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="firstname" value={register.firstname} />
+          <input className="profilDevModify__form__champ--input" type="text" value="Agathe" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Disponibilité
           </div>
-          <select Value={register.availability} className="profilDevModify__form__champ--input" name="availability" onChange={handleChangeForm}>
-            <option value="">{null}</option>
-            <option value="immediate">Immédiate</option>
+          <select className="profilDevModify__form__champ--input">
+            <option value="immediate" selected>Immédiate</option>
             <option value="soon">Prochainement</option>
           </select>
         </div>
@@ -68,72 +56,69 @@ function ModifyDev() {
           <div className="profilDevModify__form__champ--label">
             Nom
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="lastname" value={register.lastname} />
+          <input className="profilDevModify__form__champ--input" type="text" value="Feeling" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Anglais
           </div>
-          <select className="profilDevModify__form__champ--input" value={register.english} name="english">
-            <option value="">{null}</option>
-            <option value="fluent">Anglais</option>
-            <option value="middle">Anglais intermédiare</option>
-            <option value="french">Français</option>
+          <select className="profilDevModify__form__champ--input">
+            <option value="anglais" selected>Courant</option>
+            <option value="semianglais">Intermédiare</option>
+            <option value="semianglais">Ecrit</option>
+            <option value="semianglais">N.C</option>
           </select>
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Âge
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="age" value={register.age} />
+          <input className="profilDevModify__form__champ--input" type="text" value={29} />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Salaire annuel
           </div>
-          <select className="profilDevModify__form__champ--input" name="salary">
-            <option value="">{null}</option>
-            <option value={30}>30 k€</option>
-            <option value={40}>40 k€</option>
+          <select className="profilDevModify__form__champ--input">
+            <option value={30} selected>30 <span>k€</span></option>
+            <option value={40} selected>40 <span>k€</span></option>
           </select>
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Ville
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="city" value={register.city} />
+          <input className="profilDevModify__form__champ--input" type="text" value="Lyon" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Langage
           </div>
-          <select className="profilDevModify__form__champ--input" value={register.languages} name="languages">
-            <option value="">{null}</option>
-            <option value="css">CSS</option>
-            <option value="html">HTML</option>
+          <select className="profilDevModify__form__champ--input">
+            <option value="CSS" selected>CSS</option>
+            <option value="HTML">HTML</option>
           </select>
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Tél
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="phone" value={register.phone} />
+          <input className="profilDevModify__form__champ--input" type="text" value="" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Technologie
           </div>
-          <select className="profilDevModify__form__champ--input" value={register.technology} name="technology">
-            <option value="">{null}</option>
-            <option>React</option>
-            <option>Symfony</option>
+          <select className="profilDevModify__form__champ--input">
+            <option value="React" selected>React</option>
+            <option value="Symfony">Symfony</option>
           </select>
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Mail
           </div>
-          <input className="profilDevModify__form__champ--input" type="text" name="mail" value={register.mail} />
+          <input className="profilDevModify__form__champ--input" type="text" value="agathe.feeling@gmail.com" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
@@ -141,15 +126,15 @@ function ModifyDev() {
           </div>
           <div className="profilDevModify__form__champ--radio">
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp1">
-              <input type="radio" value="- 1 an" name="experience" defaultchecked={register.experience === '- 1 an'} />
+              <input checked type="radio" value="exp1" name="exp1" />
               - 1 an
             </label>
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="- 1 an" name="experience" checked={register.experience === '1 à 3 ans'} />
+              <input type="radio" value="exp2" name="exp2" />
               1 à 3 ans
             </label>
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp3">
-              <input type="radio" name="experience" value="+ 3ans" checked={register.experience === '+ 3ans'} />
+              <input type="radio" value="exp3" name="exp3" />
               + 3 ans
             </label>
           </div>
@@ -158,7 +143,7 @@ function ModifyDev() {
           <div className="profilDevModify__form__champ--label">
             Mdp
           </div>
-          <input className="profilDevModify__form__champ--input" type="password" name="password" value={register.password} />
+          <input className="profilDevModify__form__champ--input" type="password" value="" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
@@ -168,31 +153,31 @@ function ModifyDev() {
               alt="logo github"
             />
           </div>
-          <input className="profilDevModify__form__champ--input" name="github" value={register.github} type="text" />
+          <input className="profilDevModify__form__champ--input" type="text" value="agathe.feeling.github.fr" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             Vérif Mdp
           </div>
-          <input className="profilDevModify__form__champ--input" type="password" name="verifypassword" value={register.verifpassword} />
+          <input className="profilDevModify__form__champ--input" type="password" value="" />
         </div>
         <div className="profilDevModify__form__champ">
           <div className="profilDevModify__form__champ--label">
             PortFolio
           </div>
-          <input className="profilDevModify__form__champ--input" name="portfolio" type="text" value={register.portfolio} />
+          <input className="profilDevModify__form__champ--input" type="text" value="www.agathe.feeling.fr" />
         </div>
         <div className="profilDevModify__form__buttons">
-          <Link to="/profil">
-            <button type="submit" className="profilDevModify__form__buttons__button--valid">Valider </button>
-          </Link>
-          <Link to="/profil">
-            <button type="submit" className="profilDevModify__form__buttons__button--cancel">Annuler</button>
-          </Link>
+          <input type="submit" className="profilDevModify__form__buttons__button--valid" value="Valider" onClick={() => setModifyInformation(false)} />
+          <input type="submit" className="profilDevModify__form__buttons__button--cancel" value="Annuler" onClick={() => setModifyInformation(false)} />
         </div>
       </form>
     </div>
   );
 }
 
-export default ModifyDev;
+ProfilDevModify.propTypes = {
+  setModifyInformation: PropTypes.func.isRequired,
+};
+
+export default ProfilDevModify;

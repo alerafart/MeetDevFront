@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import './styles/index.scss';
-import store from './store';
 import MeetDev from './components/MeetDev';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <MeetDev />
-      </Router>
-    </Provider>
+    <Router>
+      <MeetDev />
+    </Router>
   </React.StrictMode>,
 );
 

@@ -1,17 +1,14 @@
 import './modalprofil.scss';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import react from '../../assets/images/react.png';
-import symfony from '../../assets/images/symfony.png';
-import html from '../../assets/images/archive/html.png';
-import css from '../../assets/images/archive/css.png';
-import man from '../../assets/images/men.png';
-import mapPointer from '../../assets/images/mapPointer.png';
-import { setToggleModalProfil } from '../../actions/settings';
+import PropTypes from 'prop-types';
+import react from '../../../assets/images/react.png';
+import symfony from '../../../assets/images/symfony.png';
+import html from '../../../assets/images/archive/html.png';
+import css from '../../../assets/images/archive/css.png';
+import man from '../../../assets/images/men.png';
+import mapPointer from '../../../assets/images/mapPointer.png';
 // import woman from '../../../assets/images/woman.png';
 
-function ModalProfil() {
-  const dispatch = useDispatch();
+function ModalProfil({ setOpenModal, setDetailOpen, setCloseDevModal }) {
   return (
     <div
       className="modalBackground"
@@ -22,7 +19,7 @@ function ModalProfil() {
             className="modalContainer__exit--button"
             type="button"
             onClick={() => {
-              dispatch(setToggleModalProfil());
+              setOpenModal(false);
             }}
           >
             X
@@ -88,7 +85,7 @@ function ModalProfil() {
           </div>
           <div className="modalContainer__main--right">&gt;</div>
           <div className="modalContainer__footer">
-            {/* <button
+            <button
               className="modalContainer__footer--button"
               type="button"
               onClick={() => {
@@ -96,24 +93,23 @@ function ModalProfil() {
               }}
             >
               Contacter
-            </button> */}
-            <Link to="/profil">
-              <button
-                className="modalContainer__footer--button"
-                type="button"
-                onClick={() => {
-                  dispatch(setToggleModalProfil());
-                }}
-              >
-                Voir Profil
-              </button>
-            </Link>
-            {/* <button
+            </button>
+            <button
+              className="modalContainer__footer--button"
+              type="button"
+              onClick={() => {
+                setOpenModal(false);
+                setDetailOpen(true);
+              }}
+            >
+              Voir Profil
+            </button>
+            <button
               className="modalContainer__footer--button"
               type="button"
             >
-              Ajouter aux Favoris
-            </button> */}
+              ajouter aux favoris
+            </button>
             {/* <button
               className="modalContainer__footer--exit"
               onClick={() => {
@@ -130,5 +126,11 @@ function ModalProfil() {
     </div>
   );
 }
+
+ModalProfil.propTypes = {
+  setOpenModal: PropTypes.func.isRequired,
+  setDetailOpen: PropTypes.func.isRequired,
+  setCloseDevModal: PropTypes.func.isRequired,
+};
 
 export default ModalProfil;

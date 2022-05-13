@@ -31,16 +31,18 @@ const profilRecruiter = (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
-        status: '',
-        firstname: '',
-        lastname: '',
-        firms: '',
-        city: '',
-        phone: '',
-        website: '',
-        email: '',
-        password: '',
-        verifypassword: '',
+        register: {
+          status: '',
+          firstname: '',
+          lastname: '',
+          firms: '',
+          city: '',
+          phone: '',
+          website: '',
+          email: '',
+          password: '',
+          verifypassword: '',
+        },
       };
 
     default:

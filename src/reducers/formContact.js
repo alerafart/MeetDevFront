@@ -28,7 +28,6 @@ const formContact = (state = initialState, action = {}) => {
       return {
         ...state,
         message: {
-          ...state,
           firstname: '',
           lastname: '',
           mail: '',

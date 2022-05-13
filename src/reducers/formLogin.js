@@ -1,4 +1,5 @@
 import { LOGIN, LOGIN_CANCEL } from '../actions/formLogin';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   login: {
@@ -38,6 +39,16 @@ const formLogin = (state = initialState, action = {}) => {
         },
       };
     }
+
+    case LOGOUT:
+      return {
+        ...state,
+        login: {
+          email: '',
+          password: '',
+          saveMe: false,
+        },
+      };
 
     default:
       return state;

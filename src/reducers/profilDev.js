@@ -40,7 +40,6 @@ const profilDev = (state = initialState, action = {}) => {
       return {
         ...state,
         register: {
-          ...state,
           firstname: '',
           lastname: '',
           age: '',

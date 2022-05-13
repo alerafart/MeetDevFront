@@ -88,3 +88,20 @@ export const FROM_AWAY = 'FROM_AWAY';
 export const setFromAway = () => ({
   type: FROM_AWAY,
 });
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const SEARCH_CITY_DISPLAY = 'SEARCH_CITY_DISPLAY';
+
+// ACTION CREATOR toggleWindowLog
+export const searchCityDisplay = () => ({
+  type: SEARCH_CITY_DISPLAY,
+});
+
+// ACTION TYPE ADD_RESULT_SEARCH_CITY
+export const ADD_RESULT_SEARCH_CITY = 'ADD_RESULT_SEARCH_CITY';
+
+// ACTION CREATOR toggleWindowLog
+export const addResultSearchCity = (result) => ({
+  type: ADD_RESULT_SEARCH_CITY,
+  result,
+});

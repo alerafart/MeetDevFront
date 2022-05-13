@@ -9,7 +9,9 @@ import {
   LOGOUT,
   TOGGLE_MODAL_PROFIL,
   TOGGLE_MODAL_SEND_MESSAGE,
+  SEARCH_CITY_DISPLAY,
   TOGGLE_WINDOW_LOG,
+  ADD_RESULT_SEARCH_CITY,
 } from '../actions/settings';
 
 export const initialState = {
@@ -27,11 +29,29 @@ export const initialState = {
     fromSearchRoute: false,
     fromFavoritesRoute: false,
     frominscriptionRoute: false,
+    displaySearchCity: false,
+    resultSearchCity: [],
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SEARCH_CITY_DISPLAY:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          displaySearchCity: true,
+        },
+      };
+    case ADD_RESULT_SEARCH_CITY:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          resultSearchCity: action.result,
+        },
+      };
     case TOGGLE_WINDOW_LOG:
       return {
         ...state,

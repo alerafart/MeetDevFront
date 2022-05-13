@@ -23,3 +23,11 @@ export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
 export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
 });
+
+// ACTION TYPE INSCRIPTION
+export const SEARCH_CITY = 'SEARCH_CITY';
+
+// ACTION CREATOR inscription
+export const searchCity = () => ({
+  type: SEARCH_CITY,
+});

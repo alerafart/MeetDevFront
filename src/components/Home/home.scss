@@ -16,11 +16,11 @@
 
     &--img {
 
-      position: absolute;
-      left: -16%;
-      bottom: 1rem;
 
-      width: 130%;
+      // left: -16%;
+      // bottom: 1rem;
+
+      // width: 130%;
 
 
 
@@ -99,7 +99,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     max-width: 90%;
-    z-index: 999;
+
 
     @media (max-width: 720px) {
       flex-direction: column;
@@ -116,7 +116,7 @@
       transition: transform 0.3s;
       min-width: 13rem;
       max-width: 13rem;
-      z-index: 999;
+
 
       @media (max-width: 720px) {
         margin-bottom: 2rem;

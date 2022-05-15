@@ -106,3 +106,11 @@ export const addResultSearchCity = (result) => ({
   type: ADD_RESULT_SEARCH_CITY,
   result,
 });
+
+// ACTION TYPE ADD_RESULT_SEARCH_CITY
+export const BURGER_MENU_OPEN = 'BURGER_MENU_OPEN';
+
+// ACTION CREATOR toggleWindowLog
+export const burgerMenuOpen = () => ({
+  type: BURGER_MENU_OPEN,
+});

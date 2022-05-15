@@ -34,16 +34,31 @@
     align-items: center;
     margin-top: 1.5rem;
 
+    @media (max-width: 720px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+
     &--title {
       font-weight: bolder;
       font-size: 5.5rem;
       color: vars.$mainColor;
+
+      @media (max-width: 400px) {
+        font-size: 4rem;
+      }
     }
 
     &--img {
       width: 2.8rem;
       transform: rotate(45deg);
       margin-right: 1.5rem;
+
+      @media (max-width: 720px) {
+        display: none;
+      }
+
     }
 
 
@@ -75,6 +90,10 @@
       line-height: 32px;
       margin-bottom: 1.5rem;
       font-style: italic;
+
+      @media (max-width: 500px) {
+        margin: 0 1rem;
+      }
     }
 
     &--author {

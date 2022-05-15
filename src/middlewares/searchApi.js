@@ -11,10 +11,13 @@ const searchApi = (store) => (next) => (action) => {
       axios.get(
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/search-results',
         {
-          city: city,
-          languages: technology,
-          exp: experience,
-          availabilty: availability,
+          params:
+          {
+            city: city,
+            languages: technology,
+            exp: experience,
+            availabilty: availability,
+          },
         },
       )
         .then((response) => {

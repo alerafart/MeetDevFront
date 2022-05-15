@@ -5,13 +5,20 @@ import reducer from '../reducers';
 import apiMiddleWare from '../middlewares/api';
 import inscriptionDevApi from '../middlewares/inscriptionDevApi';
 import inscriptionRecruiterApi from '../middlewares/inscriptionRecruiterApi';
+import favorisFromApi from '../middlewares/favorites';
 import searchApi from '../middlewares/searchApi';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
   // we connect it on  the store
-  applyMiddleware(apiMiddleWare, inscriptionDevApi, inscriptionRecruiterApi, searchApi),
+  applyMiddleware(
+    apiMiddleWare,
+    inscriptionDevApi,
+    inscriptionRecruiterApi,
+    favorisFromApi,
+    searchApi,
+  ),
 );
 
 const store = createStore(reducer, enhancers);

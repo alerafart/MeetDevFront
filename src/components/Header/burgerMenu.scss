@@ -2,20 +2,44 @@
 
 .burgerMenu {
   position: absolute;
+  font-display: flex;
   width: 100%;
+  display: flex;
+  z-index: 1000;
+  background-color: rgb(0, 0, 0, 0.7);
 
+  &__exit {
+    position: absolute;
+    left: 15rem;
+    top: 1rem;
+    z-index: 1001;
+    color: vars.$mainColor;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__opacity {
+    height: 100vh;
+    // background-color: rgb(0, 0, 0, 0.7);
+    // background-color: red;
+    // color: red;
+    // width: 12rem;
+    flex-grow: 2;
+  }
 
   &__items {
+    // height: 100vh;
+    background-color: vars.$mainBackground;
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0, 0.7);
+
     ;
-    width: 100%;
+    width: 14rem;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
     &--item {
-      color: vars.$mainBackground;
+      color: vars.$mainFontAnthra;
       width: 12rem;
       font-size: 1.2rem;
       padding: 0.5rem 1.5rem;
@@ -28,6 +52,7 @@
     }
 
     &--log {
+      background-color: vars.$mainBackground;
       color: vars.$mainColor;
       width: 12rem;
       padding: 0.5rem 0;

@@ -24,12 +24,30 @@ export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
 });
 
+// ACTION TYPE INSCRIPTION
+export const SEARCH_CITY = 'SEARCH_CITY';
+
+// ACTION CREATOR inscription
+export const searchCity = () => ({
+  type: SEARCH_CITY,
+});
+
 // ACTION TYPE SEARCH_PROFILE
 export const SEARCH_PROFILE = 'SEARCH_PROFILE';
 
 // ACTION CREATOR searchProfile
 export const searchProfile = () => ({
   type: SEARCH_PROFILE,
+
+});
+
+// ACTION TYPE SEARCH_PROFILE
+export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
+
+// ACTION CREATOR searchProfile
+export const recruiterFavorites = () => ({
+  type: RECRUITER_FAVORITES,
+
 });
 
 export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';

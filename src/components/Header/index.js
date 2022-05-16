@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import './header.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import rocket from '../../assets/images/rocket.png';
+import rocket from '../../assets/images/rocket1.png';
 import { logout, toggleWindowLog, setFromAway } from '../../actions/settings';
 
 function Header() {

@@ -5,3 +5,12 @@ export const searchDev = (value, name) => ({
   value,
   name,
 });
+
+// ACTION TYPE SAVE_PROFILE
+export const SAVE_PROFILE = 'SAVE_PROFILE';
+
+// ACTION CREATOR saveProfile
+export const saveProfile = (results) => ({
+  type: SAVE_PROFILE,
+  results,
+});

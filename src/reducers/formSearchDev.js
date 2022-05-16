@@ -22,6 +22,7 @@ const formSearchDev = (state = initialState, action = {}) => {
         },
       };
     }
+
     case LOGOUT:
       return {
         ...state,

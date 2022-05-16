@@ -1,28 +1,43 @@
 import axios from 'axios';
-import { SEARCH_PROFILE } from '../actions/middleware';
+import { saveProfile } from '../actions/formSearchDev';
+import { FETCH_PROFILE } from '../actions/middleware';
 
 const searchApi = (store) => (next) => (action) => {
   switch (action.type) {
-    case SEARCH_PROFILE: {
+    case FETCH_PROFILE: {
       const state = store.getState();
       const {
         city, technology, experience, availability,
       } = state.formSearchDev.search;
       axios.get(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/search-results',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search',
         {
           params:
           {
             city: city,
-            languages: technology,
+            language: technology,
             exp: experience,
             availabilty: availability,
           },
         },
       )
         .then((response) => {
-          // Récupération des données reçus de notre demande de search
-          console.log(response.data);
+          // All of search datas
+          console.log(response.data.res);
+          // answer status
+          const { status } = response.data;
+          // status message
+          const statusMessage = response.data.message;
+
+          // condition if the status and message is ok
+          if (status === 'success' && statusMessage === 'Profile loaded successfuly') {
+            // save data in the state (formSearchDev)
+            store.dispatch(saveProfile(response.data.res));
+          }
+          // condition if the status and message is bad
+          else {
+            console.log('probleme de connexion');
+          }
           console.log('profils trouvés');
         }).catch((error) => {
           console.log(error.response);

@@ -7,10 +7,10 @@ import mail from '../../assets/images/mail.png';
 import addfavorites from '../../assets/images/addfavorites.png';
 import disponible from '../../assets/images/Disponible.png';
 import indisponible from '../../assets/images/indisponible.png';
-import react from '../../assets/images/react.png';
-import symfony from '../../assets/images/symfony.png';
-import html from '../../assets/images/archive/html.png';
-import css from '../../assets/images/archive/css.png';
+// import react from '../../assets/images/react.png';
+// import symfony from '../../assets/images/symfony.png';
+// import html from '../../assets/images/archive/html.png';
+// import css from '../../assets/images/archive/css.png';
 import ModalSendMessage from '../ModalSendMessage';
 import { setToggleModalSendMessage } from '../../actions/settings';
 
@@ -57,16 +57,11 @@ function ProfilDev() {
             {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
           </h4>
           <div className="profilDev__header__about--profession">
-            {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
-            }
-            Developpeur Front-End React   TODO
+            {data.label}
           </div>
-          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
-          }
-          <p className="profilDev__header__about--citation">I got the Feeling Woohoo   TODO</p>
-          {// TODO VOIR AVEC LE BACK POUR RECPERER CETTE INFO + FRONT INSCRIPTION/MODIFIER PROFIL
-          }
-          <p className="profilDev__header__about--presentation">This is a little presentation of Agathe Feeling. I'm a curious developper but my memory is like a red fish. I search full remote work. TODO  </p>
+          <p className="profilDev__header__about--presentation">
+            {data.description}
+          </p>
           {
             // Display button 'send message' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
@@ -102,19 +97,19 @@ function ProfilDev() {
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> Adresse:
             </div>
-            <div className="profilDev__informations__item--black">{data.zip_code} {data.city}
+            <div className="profilDev__informations__item--black">{data.zipCode} {data.city}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> E-mail:
             </div>
-            <div className="profilDev__informations__item--color">{data.mail}
+            <div className="profilDev__informations__item--color">{data.email}
             </div>
           </div>
           <div className="profilDev__informations__item">
             <div className="profilDev__informations__item--label"> PortFolio:
             </div>
-            <div className="profilDev__informations__item--color">{data.portfolio_link}
+            <div className="profilDev__informations__item--color">{data.portfolio}
             </div>
           </div>
           <div className="profilDev__informations__item">
@@ -123,33 +118,37 @@ function ProfilDev() {
             <div className="profilDev__informations__item--color">{data.github}
             </div>
           </div>
-
           {
-            // TODO availability not ready in back
+            data.availability && (
+              <div className="profilDev__informations__disponibility">
+                <div className="profilDev__informations__disponibility--txt">
+                  Disponible:
+                </div>
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={disponible}
+                  alt="disponiblilité"
+                />
+
+              </div>
+
+            )
           }
-          <div className="profilDev__informations__disponibility">
-            <div className="profilDev__informations__disponibility--txt">
-              Disponible: TODO
-            </div>
-            <img
-              className="profilDev__informations__disponibility--logo"
-              src={disponible}
-              alt="disponiblilité"
-            />
+          {
+            !data.availability && (
+              <div className="profilDev__informations__disponibility">
+                <div className="profilDev__informations__disponibility--txt">
+                  Disponible dans 3 mois:
+                </div>
 
-          </div>
-          <div className="profilDev__informations__disponibility">
-            <div className="profilDev__informations__disponibility--txt">
-              Disponible dans 3 mois: TODO
-            </div>
-
-            <img
-              className="profilDev__informations__disponibility--logo"
-              src={indisponible}
-              alt="disponiblilité"
-            />
-
-          </div>
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={indisponible}
+                  alt="disponiblilité"
+                />
+              </div>
+            )
+          }
         </div>
 
         <div className="profilDev__skills">
@@ -157,7 +156,7 @@ function ProfilDev() {
             Skills
           </h3>
           <div className="profilDev__skills__item">
-            <div className="profilDev__skills__item--label"> Experience: TODO
+            <div className="profilDev__skills__item--label"> Experience:
             </div>
             <div className="profilDev__skills__item--color">1{data.experience} ans
             </div>
@@ -165,10 +164,7 @@ function ProfilDev() {
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--label">Anglais:
             </div>
-            {
-              // TODO GESTION ENGLISH LEVEL
-            }
-            <div className="profilDev__skills__item--color">Intermédiaire TODO
+            <div className="profilDev__skills__item--color">{data.english}
             </div>
           </div>
           <div className="profilDev__skills__item">
@@ -176,14 +172,17 @@ function ProfilDev() {
 
               { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
               }
-              <div className="profilDev__skills__item--label">Stack: TODO
+              <div className="profilDev__skills__item--label">Stack:
               </div>
               <div className="profilDev__skills__item__logos">
+                {data.technology}
+              </div>
+              {/* <div className="profilDev__skills__item__logos">
                 <img src={react} alt="logo react" className="profilDev__skills__item__logos--logo" />
                 <img src={symfony} alt="logo symfony" className="profilDev__skills__item__logos--logo" />
                 <img src={html} alt="logo html" className="profilDev__skills__item__logos--logo" />
                 <img src={css} alt="logo css" className="profilDev__skills__item__logos--logo" />
-              </div>
+              </div> */}
             </div>
           </div>
 

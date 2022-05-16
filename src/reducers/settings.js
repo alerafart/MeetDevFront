@@ -12,13 +12,19 @@ import {
   SEARCH_CITY_DISPLAY,
   TOGGLE_WINDOW_LOG,
   ADD_RESULT_SEARCH_CITY,
+
   BURGER_MENU_OPEN,
+
+  SEARCH_CITY_CLOSE,
+  CHOOSE_AVATAR_MODAL,
+  TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
+
 } from '../actions/settings';
 
 export const initialState = {
   log: {
     logged: false,
-    isDev: false,
+    isDev: true,
     isRecruiter: false,
     email: '',
     token: '',
@@ -31,6 +37,8 @@ export const initialState = {
     fromSearchRoute: false,
     fromFavoritesRoute: false,
     frominscriptionRoute: false,
+    chooseAvatarModal: false,
+    chooseTechnologieModal: false,
     displaySearchCity: false,
     resultSearchCity: [],
     burgerMenuOpen: false,
@@ -48,12 +56,37 @@ const settings = (state = initialState, action = {}) => {
           burgerMenuOpen: !state.navigation.burgerMenuOpen,
         },
       };
+
+    case TOGGLE_MODAL_CHOOSE_TECHNOLOGIE:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          chooseTechnologieModal: !state.navigation.chooseTechnologieModal,
+        },
+      };
+    case CHOOSE_AVATAR_MODAL:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          chooseAvatarModal: !state.navigation.chooseAvatarModal,
+        },
+      };
     case SEARCH_CITY_DISPLAY:
       return {
         ...state,
         navigation: {
           ...state.navigation,
           displaySearchCity: true,
+        },
+      };
+    case SEARCH_CITY_CLOSE:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          displaySearchCity: false,
         },
       };
     case ADD_RESULT_SEARCH_CITY:

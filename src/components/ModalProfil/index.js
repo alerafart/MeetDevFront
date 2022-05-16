@@ -12,6 +12,7 @@ import { setToggleModalProfil } from '../../actions/settings';
 
 function ModalProfil() {
   const dispatch = useDispatch();
+
   return (
     <div
       className="modalBackground"

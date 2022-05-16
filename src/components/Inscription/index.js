@@ -1,31 +1,56 @@
-import './inscription.scss';
+/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import './inscription.scss';
+
+// Composants
 import InscriptionRecruter from './InscriptionRecruter';
-import man from '../../assets/images/men.png';
-import woman from '../../assets/images/woman.png';
+import ModalChooseAvatar from './ModalChooseAvatar';
+import ModalChooseStack from './ModalChooseStack';
+
+// data
 import github from '../../assets/images/github.png';
+
+// actions & actions creators
 import {
-  logout, setFromInscriptionRoute, searchCityDisplay, toggleWindowLog,
+  logout, setFromInscriptionRoute, searchCityDisplay, toggleWindowLog, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
 } from '../../actions/settings';
 import { registerDev } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
 
+// import all avatars
+import menAvatar from '../../assets/avatars/men.png';
+import womanAvatar from '../../assets/avatars/woman.png';
+
 function Inscription() {
+  // State for controlled champs of formulaire
   const register = useSelector((state) => state.formRegisterDev.register);
+  // State to know if i'm Dev or Recruiter. To Display Inscription page Dev or Recruiter
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  // TODO State search from form + result from api + not done
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
   const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
+  const displayChooseAvatarModal = useSelector((state) => state.settings.navigation.chooseAvatarModal);
+  const displayChooseStackModal = useSelector((state) => state.settings.navigation.chooseTechnologieModal);
   const dispatch = useDispatch();
 
-  // console.log(resultSearchCity);
+  // select how avatar to display
+  let avatar;
+  if (register.profilePicture === 'menAvatar') {
+    avatar = menAvatar;
+  }
+  if (register.profilePicture === 'womanAvatar') {
+    avatar = womanAvatar;
+  }
 
+  // save in state which route we come from for other display.
   useEffect(() => {
     dispatch(setFromInscriptionRoute());
   });
 
+  // function to pass to state (via action creators) the value and name of the current form field
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -39,36 +64,25 @@ function Inscription() {
       }
       {
         isDev && (
+
           <div className="inscription">
+            {
+              displayChooseStackModal && <ModalChooseStack />
+            }
             <h2 className="inscription__title">
               Mes informations
             </h2>
-            <div className="inscription__header">
-              <input
-                className="incription__header--avatar"
-                type="file"
-                name="profile__photo"
-                placeholder="Photo"
-                required=""
-                capture
-              />
-            </div>
             <form className="inscription__form">
-              <div className="inscription__form--picture--left">
-                <input type="radio" name="gender" value="man" onChange={handleChangeForm} checked={register.gender === 'man'} />
-                <img
-                  className="inscription__form--picture--img"
-                  src={man}
-                  alt="logo homme"
-                />
-              </div>
-              <div className="inscription__form--picture--right">
-                <input type="radio" name="gender" value="woman" onChange={handleChangeForm} checked={register.gender === 'woman'} />
-                <img
-                  className="inscription__form--picture--img"
-                  src={woman}
-                  alt="logo femme"
-                />
+              <div className="inscription__form__avatarContainer">
+                {
+                  avatar && (
+                    <img src={avatar} alt="" />
+                  )
+                }
+                <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Choisir son avatar</button>
+                {
+                  displayChooseAvatarModal && <ModalChooseAvatar />
+                }
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -78,60 +92,25 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Disponibilité
-                </div>
-                <select defaultValue={register.availability} className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option value="immediate">Immédiate</option>
-                  <option value="prochainement">Prochainement</option>
-                </select>
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
                   Nom
                 </div>
                 <input className="inscription__form__champ--input" type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Anglais
-                </div>
-                <select value={register.english} className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option value="fluent">Anglais</option>
-                  <option value="middle">Anglais intermédiare</option>
-                  <option value="french">Français</option>
-                </select>
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
-                  Âge
-                </div>
-                <input className="inscription__form__champ--input" type="text" name="age" value={register.age} onChange={handleChangeForm} />
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
-                  Salaire annuel
-                </div>
-                <select name="salary" className="inscription__form__champ--input" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option value={30}>30 k€</option>
-                  <option value={40}>40 k€</option>
-                </select>
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
                   Ville
                 </div>
-
                 <input
                   className="inscription__form__champ--input"
                   type="text"
                   name="city"
                   value={register.city}
                   onChange={(e) => {
+                    // controlled form field
                     handleChangeForm(e);
+                    // send request to API with controlled form fiel value
                     dispatch(searchCity());
+                    // display the result of API request under the field input
                     dispatch(searchCityDisplay());
                   }}
                 />
@@ -141,7 +120,22 @@ function Inscription() {
                       {
                         resultSearchCity.map(
                           (e) => (
-                            <li className="inscription__form__champ__searchCity--item">
+                            <li
+                              className="inscription__form__champ__searchCity--item"
+                              onClick={() => {
+                                // save postcode and city name in state
+                                // console.log(Math.ceil(e.properties.postCode / 1000));
+                                console.log(e.properties.postcode);
+                                console.log(Math.floor((e.properties.postcode) / 1000));
+
+                                dispatch(registerDev(e.properties.city, 'city'));
+                                dispatch(registerDev(e.properties.postcode, 'zipCode'));
+                                dispatch(registerDev((Math.floor((e.properties.postcode) / 1000)), 'departement'));
+
+                                // close the result display:
+                                dispatch(searchCityClose());
+                              }}
+                            >
                               {e.properties.postcode}, {e.properties.city}
                             </li>
                           ),
@@ -157,29 +151,21 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Langage
-                </div>
-                <select value={register.languages} name="languages" className="inscription__form__champ--input" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option value="css">CSS</option>
-                  <option value="html">HTML</option>
-                </select>
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
                   Tél
                 </div>
                 <input className="inscription__form__champ--input" type="text" name="phone" value={register.phone} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Technologie
+                  Label
                 </div>
-                <select value={register.technology} className="inscription__form__champ--input" name="technology" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option>React</option>
-                  <option>Symfony</option>
-                </select>
+                <input className="inscription__form__champ--input" type="text" name="label" value={register.label} onChange={handleChangeForm} placeholder="Exemple: Developper Front-end React" />
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Description
+                </div>
+                <textarea className="inscription__form__champ--input" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -189,10 +175,80 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
+                  Vérif Mail
+                </div>
+                <input className="inscription__form__champ--input" type="text" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Mdp
+                </div>
+                <input className="inscription__form__champ--input" type="password" name="password" value={register.password} onChange={handleChangeForm} />
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Vérif Mdp
+                </div>
+                <input className="inscription__form__champ--input" type="password" name="verifypassword" value={register.verifpassword} onChange={handleChangeForm} />
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Anglais
+                </div>
+                <select value={register.english} className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
+                  <option value="fluent">Bilingue</option>
+                  <option value="middle">Intermédiare</option>
+                  <option value="write">Ecrit</option>
+                </select>
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Salaire annuel
+                </div>
+                <select name="salary" className="inscription__form__champ--input" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
+                  <option value={30}>30 k€</option>
+                  <option value={40}>40 k€</option>
+                  <option value={50}>50 k€</option>
+                </select>
+              </div>
+              {/* <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Langage
+                </div>
+                // eslint-disable-next-line max-len
+                // eslint-disable-next-line max-len
+                <select value={register.languages} name="languages" className="inscription__form__champ--input" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
+                  <option value="css">CSS</option>
+                  <option value="html">HTML</option>
+                </select>
+              </div> */}
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
+                  Stack
+                </div>
+                <button
+                  type="button"
+                  className="inscription__form__champ--stack"
+                  onClick={() => dispatch(toggleModalChooseTechnologie())}
+                >
+                  Choisir ma Stack
+                </button>
+
+                {/* <select value={register.technology} className="inscription__form__champ--input" name="technology" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
+                  <option>React</option>
+                  <option>Symfony</option>
+                </select> */}
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
                   Expérience
                 </div>
                 <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
-                  <label className="inscription__form__champ--radio--item" htmlFor="exp1">
+                  <label className="inscription__form__champ--radio--item" htmlFor="experience">
                     <input type="radio" value="1" name="experience" checked={register.experience === '1'} />
                     - 1 an
                   </label>
@@ -208,9 +264,13 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Mdp
+                  Disponibilité
                 </div>
-                <input className="inscription__form__champ--input" type="password" name="password" value={register.password} onChange={handleChangeForm} />
+                <select defaultValue={register.availability} className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
+                  <option value="">{null}</option>
+                  <option value>Immédiate</option>
+                  <option value={false}>Prochainement</option>
+                </select>
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -224,15 +284,15 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  Vérif Mdp
-                </div>
-                <input className="inscription__form__champ--input" type="password" name="verifypassword" value={register.verifpassword} onChange={handleChangeForm} />
-              </div>
-              <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
                   PortFolio
                 </div>
                 <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} />
+              </div>
+              <div className="inscription__form__champ">
+                {/* <div className="inscription__form__champ--label">
+                  PortFolio
+                </div>
+                <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
               </div>
               <div className="inscription__form__buttons">
                 <Link to="/">

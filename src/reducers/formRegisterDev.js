@@ -1,32 +1,66 @@
-import { REGISTER_DEV } from '../actions/formRegisterDev';
+import { REGISTER_DEV, SELECT_AVATAR, TOGGLE_STACK } from '../actions/formRegisterDev';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   register: {
     firstname: '',
     lastname: '',
-    age: '',
     email: '',
+    emailTest: '',
     city: '',
+    zipCode: '',
+    departement: '',
     phone: '',
-    technology: '',
+    technology: [],
     experience: '',
     password: '',
     verifypassword: '',
     portfolio: '',
     github: '',
-    languages: '',
     salary: '',
     english: '',
+    // label is for exemple: Developper Front-end React
+    label: '',
+    // description is a little description of the developper (or citation)
+    description: '',
     availability: '',
-    gender: '',
+    profilePicture: '',
   },
 
 };
 
 const formRegisterDev = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_STACK: {
+      // si le name n'est pas dans le tableau des technologies on l'ajoute sinon on le retire
+      if (!state.register.technology.includes(action.name)) {
+        state.register.technology.push(action.name);
+      }
+      else if (state.register.technology.includes(action.name)) {
+        const index = state.register.technology.indexOf(action.name);
+        state.register.technology.splice(index, 1);
+      }
+
+      return {
+        ...state,
+        register: {
+          ...state.register,
+        },
+      };
+    }
+
+    case SELECT_AVATAR: {
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          profilePicture: action.profilePicture,
+        },
+      };
+    }
+    // update this state for controlled field from inscription form
     case REGISTER_DEV: {
+      console.log(action.name, action.value);
       return {
         ...state,
         register: {
@@ -35,15 +69,15 @@ const formRegisterDev = (state = initialState, action = {}) => {
         },
       };
     }
-
+    // raz state when logout
     case LOGOUT:
       return {
         ...state,
         register: {
           firstname: '',
           lastname: '',
-          age: '',
           email: '',
+          emailTest: '',
           city: '',
           phone: '',
           technology: '',
@@ -52,11 +86,9 @@ const formRegisterDev = (state = initialState, action = {}) => {
           verifypassword: '',
           portfolio: '',
           github: '',
-          languages: '',
           salary: '',
           english: '',
           availability: '',
-          gender: '',
         },
       };
 

@@ -13,7 +13,8 @@ const searchCity = (store) => (next) => (action) => {
         // ou url: 'http://localhost/api/users:8000',
       )
         .then((response) => {
-          // response.data.features.map((e) => console.log(e.properties.postcode, e.properties.city));
+          // response.data.features.map((e)
+          // => console.log(e.properties.postcode, e.properties.city));
           store.dispatch(addResultSearchCity(response.data.features));
         }).catch((error) => {
           console.log(error.response);

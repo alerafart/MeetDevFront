@@ -18,6 +18,7 @@ export const initialState = {
     portfolio: '',
     github: '',
     salary: '',
+    age: '',
     english: '',
     // label is for exemple: Developper Front-end React
     label: '',
@@ -79,16 +80,24 @@ const formRegisterDev = (state = initialState, action = {}) => {
           email: '',
           emailTest: '',
           city: '',
+          zipCode: '',
+          departement: '',
           phone: '',
-          technology: '',
+          technology: [],
           experience: '',
           password: '',
           verifypassword: '',
           portfolio: '',
           github: '',
           salary: '',
+          age: '',
           english: '',
+          // label is for exemple: Developper Front-end React
+          label: '',
+          // description is a little description of the developper (or citation)
+          description: '',
           availability: '',
+          profilePicture: '',
         },
       };
 

@@ -3,17 +3,18 @@
 .chooseStackBackground {
   z-index: 3;
   background-color: rgb(0, 0, 0, 0.7);
-  height: 100vh;
+  height: 200vh;
   width: 100vw;
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .chooseStackContainer {
+  margin-top: 15rem;
   z-index: 3;
   background-color: vars.$mainBackground;
   border-radius: 0.8rem;

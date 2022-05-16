@@ -54,6 +54,7 @@
       width: 2.8rem;
       transform: rotate(45deg);
       margin-right: 1.5rem;
+      z-index: 0;
 
       @media (max-width: 720px) {
         display: none;

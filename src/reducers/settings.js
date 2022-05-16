@@ -12,9 +12,13 @@ import {
   SEARCH_CITY_DISPLAY,
   TOGGLE_WINDOW_LOG,
   ADD_RESULT_SEARCH_CITY,
+
+  BURGER_MENU_OPEN,
+
   SEARCH_CITY_CLOSE,
   CHOOSE_AVATAR_MODAL,
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
+
 } from '../actions/settings';
 
 export const initialState = {
@@ -28,7 +32,7 @@ export const initialState = {
     id: '',
   },
   navigation: {
-    windowSendMessage: false,
+    windowSendMessage: false, // open Modal Send Message
     windowProfil: false,
     fromSearchRoute: false,
     fromFavoritesRoute: false,
@@ -37,11 +41,22 @@ export const initialState = {
     chooseTechnologieModal: false,
     displaySearchCity: false,
     resultSearchCity: [],
+    burgerMenuOpen: false,
+
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case BURGER_MENU_OPEN:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          burgerMenuOpen: !state.navigation.burgerMenuOpen,
+        },
+      };
+
     case TOGGLE_MODAL_CHOOSE_TECHNOLOGIE:
       return {
         ...state,
@@ -105,6 +120,7 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
+          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
@@ -112,6 +128,10 @@ const settings = (state = initialState, action = {}) => {
           email: '',
           token: '',
           windowLog: false,
+        },
+        navigation: {
+          ...state.navigation,
+          burgerMenuOpen: false,
         },
       };
     case IS_DEV:

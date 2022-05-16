@@ -1,0 +1,45 @@
+@use '../../styles/vars';
+
+.navigationMobile {
+  height: 10vh;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: vars.$mainBackground;
+  padding: 1rem 3rem;
+  border-bottom: 2px solid vars.$mainColor;
+
+  &__burger {
+    color: vars.$mainColor;
+    font-size: 3rem;
+    cursor: pointer;
+
+  }
+
+  &__header {
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+
+    &--img {
+      width: 35px;
+      transform: rotate(45deg);
+      display: block;
+      padding-right: 0.5rem;
+    }
+
+    &--title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: vars.$mainColor;
+
+    }
+  }
+
+  @media (min-width: 721px) {
+    display: none;
+  }
+}

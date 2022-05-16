@@ -115,6 +115,14 @@ export const addResultSearchCity = (result) => ({
   result,
 });
 
+
+// ACTION TYPE ADD_RESULT_SEARCH_CITY
+export const BURGER_MENU_OPEN = 'BURGER_MENU_OPEN';
+
+// ACTION CREATOR toggleWindowLog
+export const burgerMenuOpen = () => ({
+  type: BURGER_MENU_OPEN,
+
 // ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
 export const CHOOSE_AVATAR_MODAL = 'CHOOSE_AVATAR_MODAL';
 
@@ -129,4 +137,5 @@ export const TOGGLE_MODAL_CHOOSE_TECHNOLOGIE = 'TOGGLE_MODAL_CHOOSE_TECHNOLOGIE'
 // ACTION CREATOR toggleWindowLog
 export const toggleModalChooseTechnologie = () => ({
   type: TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
+
 });

@@ -1,11 +1,14 @@
 import './card.scss';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import men from '../../../assets/images/men.png';
 import javascript from '../../../assets/images/js.png';
 import { setToggleModalProfil } from '../../../actions/settings';
 
-function Card() {
+function Card({ favorite }) {
   const dispatch = useDispatch();
+
+  console.log(favorite[0].id);
   return (
     <div className="card">
       <div className="card__avatar">
@@ -13,9 +16,9 @@ function Card() {
         <img src={men} alt="Avatar" className="card__avatar--img" />
       </div>
       <div className="card__container">
-        <h4 className="card__container--name">Jean Aimarre</h4>
-        <p className="card__container--localisation">Lyon</p>
-        <p className="card__container--experience">Experience <span className="card__container--experience--year"> -1 an</span></p>
+        <h4 className="card__container--name">{favorite[0].firstname} {favorite[0].lastname}</h4>
+        <p className="card__container--localisation">{favorite[0].city}</p>
+        <p className="card__container--experience">Experience <span className="card__container--experience--year"> -{favorite[0].years_of_experience} an</span></p>
       </div>
       <div className="card__button">
         <button
@@ -35,5 +38,17 @@ function Card() {
     </div>
   );
 }
+
+Card.propTypes = {
+  favorite: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstname: PropTypes.string.isRequired,
+      lastname: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      years_of_experience: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Card;

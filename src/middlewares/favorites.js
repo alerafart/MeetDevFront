@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { favoritesList } from '../actions/favorites';
 
 import { RECRUITER_FAVORITES } from '../actions/middleware';
 // import { registerDev } from '../actions/formRegisterDev';
@@ -17,18 +18,24 @@ const favorisFromApi = (store) => (next) => (action) => {
 
       axios
         .get(
-          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
+
+          `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
             params: {
-              recrutId: 2,
-              devId: 5,
-            },
+              id: 2,
+
+         // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
+          // ou url: 'http://localhost/api/users:8000',
+       //   {
+          //  params: {
+          //    recrutId: 2,
+           //   devId: 5,
+        //    },
           },
         )
         .then((response) => {
-          console.log(response.data);
-          // store.dispatch(recruiterFavorites(response.data));
+          store.dispatch(favoritesList(response.data));
           console.log('favori récupéré');
         }).catch((error) => {
           console.log(error.response.data);

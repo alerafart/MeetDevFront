@@ -12,6 +12,7 @@ import resultSearch from './resultSearch';
 import formDevContact from './formDevContact';
 
 import formContact from './formContact';
+import favorites from './recruiterFavorites';
 
 const rootReducer = combineReducers({
   settings: settingsReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   profilDev: profilDev,
   profilRecruiter: profilRecruiter,
   resultSearch: resultSearch,
+  favorites: favorites,
 });
 
 export default rootReducer;

@@ -153,7 +153,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Tél
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="phone" value={register.phone} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="number" name="phone" value={register.phone} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -165,19 +165,19 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Description
                 </div>
-                <textarea className="inscription__form__champ--input" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
+                <textarea className="inscription__form__champ--input" type="text" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Mail
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="email" value={register.mail} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="mail" name="email" value={register.email} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Vérif Mail
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="mail" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -195,7 +195,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Anglais
                 </div>
-                <select value={register.english} className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
+                <select value={register.english} type="text" className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
                   <option value="">{null}</option>
                   <option value="fluent">Bilingue</option>
                   <option value="middle">Intermédiare</option>
@@ -206,25 +206,13 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Salaire annuel
                 </div>
-                <select name="salary" className="inscription__form__champ--input" onChange={handleChangeForm}>
+                <select name="salary" type="number" defaultValue={register.salary} className="inscription__form__champ--input" onChange={handleChangeForm}>
                   <option value="">{null}</option>
                   <option value={30}>30 k€</option>
                   <option value={40}>40 k€</option>
                   <option value={50}>50 k€</option>
                 </select>
               </div>
-              {/* <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
-                  Langage
-                </div>
-                // eslint-disable-next-line max-len
-                // eslint-disable-next-line max-len
-                <select value={register.languages} name="languages" className="inscription__form__champ--input" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option value="css">CSS</option>
-                  <option value="html">HTML</option>
-                </select>
-              </div> */}
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Stack
@@ -264,12 +252,18 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
+                  Age
+                </div>
+                <input className="inscription__form__champ--input" type="number" name="age" value={register.age} onChange={handleChangeForm} />
+              </div>
+              <div className="inscription__form__champ">
+                <div className="inscription__form__champ--label">
                   Disponibilité
                 </div>
-                <select defaultValue={register.availability} className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
+                <select defaultValue={register.availability} type="boolean" className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
                   <option value="">{null}</option>
-                  <option value>Immédiate</option>
-                  <option value={false}>Prochainement</option>
+                  <option value={1}>Immédiate</option>
+                  <option value={0}>Prochainement</option>
                 </select>
               </div>
               <div className="inscription__form__champ">

@@ -7,49 +7,59 @@ const inscriptionDevApi = (store) => (next) => (action) => {
     case INSCRIPTION_DEV: {
       const state = store.getState();
 
-      // TODO mise à jour des champs
       const {
-        lastname, firstname, city, email,
-        phone, password, salary, age, experience, github, portfolio,
+        lastname,
+        firstname,
+        city,
+        email,
+        zipCode,
+        departement,
+        technology,
+        phone,
+        password,
+        salary,
+        experience,
+        github,
+        portfolio,
+        english,
+        label,
+        description,
+        availability,
+        profilePicture,
+        age,
       } = state.formRegisterDev.register;
-      // console.log(
-      //   lastname,
-      //   firstname,
-      //   city,
-      //   email,
-      //   phone,
-      //   password,
-      //   salary,
-      //   age,
-      //   experience,
-      //   github,
-      //   portfolio,
-      // );
 
-      // TODO mise à jour des champs
+      // Transformation du tableau de technology reçu en string:
+      const technologyInString = technology.toString();
+
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/developer',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/developers',
         // ou url: 'http://localhost/api/users:8000',
         {
           lastname: lastname,
           firstname: firstname,
           city: city,
-          zip_code: 14000,
+          zip_code: zipCode,
+          department: departement,
           email_address: email,
           phone: phone,
           password: password,
-          subscribe_to_push_notif: 0,
-          profile_picture: 'pic.formRegister.register.png',
-          description: 'hello',
-          available_for_recruiters: 1,
-          available_for_developers: 0,
+          subscribe_to_push_notif: 0, // TODO pas pris en compte pour le moment
+          profile_picture: profilePicture,
+          label: label,
+          description: description,
+          available_for_recruiters: availability,
+          available_for_developers: availability, // pour le moment dispo pas différencié
           minimum_salary_requested: salary,
-          maximum_salary_requested: 0,
-          age: age,
+          // maximum_salary_requested: 0,
+          age: age, // non pris en comtpe
+          languages: technologyInString,
           years_of_experience: experience,
+          english_spoken: english,
           github_link: github,
           portfolio_link: portfolio,
-          other_link: '',
+          other_link: '', // non pris en compte
+          language: '', // non pris en compte: Obligatoire?
         },
       )
         .then((response) => {

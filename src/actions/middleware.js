@@ -32,13 +32,12 @@ export const searchCity = () => ({
   type: SEARCH_CITY,
 });
 
-// ACTION TYPE SEARCH_PROFILE
-export const SEARCH_PROFILE = 'SEARCH_PROFILE';
+// ACTION TYPE FETCH_PROFILE
+export const FETCH_PROFILE = 'FETCH_PROFILE';
 
-// ACTION CREATOR searchProfile
-export const searchProfile = () => ({
-  type: SEARCH_PROFILE,
-
+// ACTION CREATOR FETCHProfile
+export const fetchProfile = () => ({
+  type: FETCH_PROFILE,
 });
 
 // ACTION TYPE SEARCH_PROFILE

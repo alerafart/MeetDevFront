@@ -6,11 +6,13 @@ import Card from './Card';
 import ModalProfil from '../ModalProfil';
 import { setFromSearchRoute } from '../../actions/settings';
 import { searchDev } from '../../actions/formSearchDev';
-import { searchProfile } from '../../actions/middleware';
+import { fetchProfile } from '../../actions/middleware';
 
 function Search() {
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
   const search = useSelector((state) => state.formSearchDev.search);
+  const results = useSelector((state) => state.resultSearch.results);
+  const count = results.length;
 
   const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ function Search() {
 
   useEffect(() => {
     dispatch(setFromSearchRoute());
-  });
+  }, []);
   return (
     <div className="wrapper">
       <h2 className="banniere">
@@ -54,6 +56,7 @@ function Search() {
               <option value="">{null}</option>
               <option value="Symfony" selected>Symfony</option>
               <option value="React">React</option>
+              <option value="PHP">PHP</option>
             </select>
           </div>
           <div className="search__filter__champ">
@@ -95,7 +98,7 @@ function Search() {
             className="search__filter--button"
             onClick={(e) => {
               e.preventDefault();
-              dispatch(searchProfile());
+              dispatch(fetchProfile());
             }}
           >
             Filtrer
@@ -103,7 +106,7 @@ function Search() {
         </form>
 
         <h2 className="search__title">
-          {10} développeurs proches de vous
+          {count} développeurs proches de vous
         </h2>
 
         <div className="result">
@@ -111,56 +114,14 @@ function Search() {
               afficher le sous composant Title
               =>  Afficherai sous forme de modale composant Profil (frame Profil Dev)
             */}
-          <Card
-            avatar="man"
-            lastname="Lafritte"
-            firstname="Jerome"
-          />
-          <Card
-            avatar="woman"
-            lastname="Feeling"
-            firstname="Agathe"
-          />
-          <Card
-            avatar="man"
-            lastname="Lafritte"
-            firstname="Jerome"
-          />
-          <Card
-            avatar="woman"
-            lastname="Feeling"
-            firstname="Agathe"
-          />
-          <Card
-            avatar="man"
-            lastname="Lafritte"
-            firstname="Jerome"
-          />
-          <Card
-            avatar="woman"
-            lastname="Feeling"
-            firstname="Agathe"
-          />
-          <Card
-            avatar="man"
-            lastname="Lafritte"
-            firstname="Jerome"
-          />
-          <Card
-            avatar="woman"
-            lastname="Feeling"
-            firstname="Agathe"
-          />
-          <Card
-            avatar="man"
-            lastname="Lafritte"
-            firstname="Jerome"
-          />
-          <Card
-            avatar="woman"
-            lastname="Feeling"
-            firstname="Agathe"
-          />
+          {results?.map((user) => (
+            <Card
+              key={user.dev_id}
+              avatar={user.picture_profile}
+              lastname={user.lastname}
+              firstname={user.firstname}
+            />
+          ))}
         </div>
 
       </div>

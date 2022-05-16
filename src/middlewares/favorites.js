@@ -25,13 +25,14 @@ const favorisFromApi = (store) => (next) => (action) => {
             params: {
               id: 2,
 
-         // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
-          // ou url: 'http://localhost/api/users:8000',
-       //   {
-          //  params: {
-          //    recrutId: 2,
-           //   devId: 5,
-        //    },
+              // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
+              // ou url: 'http://localhost/api/users:8000',
+              //   {
+              //  params: {
+              //    recrutId: 2,
+              //   devId: 5,
+              //    },
+            },
           },
         )
         .then((response) => {

@@ -16,7 +16,14 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(
   // we connect it on  the store
 
-  applyMiddleware(apiMiddleWare, inscriptionDevApi, inscriptionRecruiterApi, searchApi, searchCity, favorites),
+  applyMiddleware(
+    apiMiddleWare,
+    inscriptionDevApi,
+    inscriptionRecruiterApi,
+    searchApi,
+    searchCity,
+    favorites,
+  ),
 
 );
 

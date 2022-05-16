@@ -49,11 +49,3 @@ export const recruiterFavorites = () => ({
   type: RECRUITER_FAVORITES,
 
 });
-
-// ACTION TYPE RECRUITER_FAVORITES
-export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
-
-// ACTION CREATOR recruiterFavorites
-export const recruiterFavorites = () => ({
-  type: RECRUITER_FAVORITES,
-});

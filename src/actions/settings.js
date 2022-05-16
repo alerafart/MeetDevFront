@@ -98,6 +98,14 @@ export const searchCityDisplay = () => ({
   type: SEARCH_CITY_DISPLAY,
 });
 
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const SEARCH_CITY_CLOSE = 'SEARCH_CITY_CLOSE';
+
+// ACTION CREATOR toggleWindowLog
+export const searchCityClose = () => ({
+  type: SEARCH_CITY_CLOSE,
+});
+
 // ACTION TYPE ADD_RESULT_SEARCH_CITY
 export const ADD_RESULT_SEARCH_CITY = 'ADD_RESULT_SEARCH_CITY';
 
@@ -105,4 +113,20 @@ export const ADD_RESULT_SEARCH_CITY = 'ADD_RESULT_SEARCH_CITY';
 export const addResultSearchCity = (result) => ({
   type: ADD_RESULT_SEARCH_CITY,
   result,
+});
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const CHOOSE_AVATAR_MODAL = 'CHOOSE_AVATAR_MODAL';
+
+// ACTION CREATOR toggleWindowLog
+export const chooseAvatarModal = () => ({
+  type: CHOOSE_AVATAR_MODAL,
+});
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const TOGGLE_MODAL_CHOOSE_TECHNOLOGIE = 'TOGGLE_MODAL_CHOOSE_TECHNOLOGIE';
+
+// ACTION CREATOR toggleWindowLog
+export const toggleModalChooseTechnologie = () => ({
+  type: TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
 });

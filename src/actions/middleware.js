@@ -31,3 +31,10 @@ export const SEARCH_PROFILE = 'SEARCH_PROFILE';
 export const searchProfile = () => ({
   type: SEARCH_PROFILE,
 });
+
+export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
+
+// ACTION CREATOR searchProfile
+export const recruiterFavorites = () => ({
+  type: RECRUITER_FAVORITES,
+});

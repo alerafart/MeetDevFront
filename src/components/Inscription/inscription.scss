@@ -5,11 +5,8 @@
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
-  overflow: hidden;
-  background-image: url('../../assets/images/backgroundMain.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 150%;
+  // overflow: hidden;
+
 
   @media (max-width: 1000px) {
     padding: 1em 2em;
@@ -55,43 +52,74 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    // to choose the sex of the user with radio button
-    &--picture {
-      width: 50%;
+    &__avatarContainer {
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 15rem;
 
-
-      &--img {
-        width: 80px;
-        padding-left: 10px;
+      & img {
+        width: 7rem;
+        margin-bottom: 1rem;
       }
 
-      &--left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 26%;
-        margin-bottom: 16px;
+      & button {
+        border: none;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        padding: 8px 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s;
+        margin-bottom: 1rem;
 
-        @media (max-width: 767px) {
-          width: 40%;
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
       }
 
-      &--right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30%;
-        margin-bottom: 16px;
+    }
 
-        @media (max-width: 767px) {
-          width: 30%;
-        }
+    // TODO to delete
+    &--picture {
+      // width: 50%;
+      // display: flex;
+      // align-items: center;
 
-      }
+
+      // &--img {
+      //   width: 80px;
+      //   padding-left: 10px;
+      // }
+
+      // &--left {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 26%;
+      //   margin-bottom: 16px;
+
+      //   @media (max-width: 767px) {
+      //     width: 40%;
+      //   }
+
+      // }
+
+      // &--right {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 30%;
+      //   margin-bottom: 16px;
+
+      //   @media (max-width: 767px) {
+      //     width: 30%;
+      //   }
+
+      // }
     }
 
     &__champ {
@@ -106,6 +134,8 @@
       @media (max-width: 767px) {
         width: 100%;
       }
+
+
 
       &__searchCity {
         position: absolute;
@@ -164,6 +194,23 @@
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
         border-radius: 8px;
+      }
+
+      &--stack {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainColor;
+        padding: 0 1rem;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        border-radius: 8px;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
       }
 
       &--img {

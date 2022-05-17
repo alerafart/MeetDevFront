@@ -17,7 +17,7 @@ function Favoris() {
   let favoritesArray = [];
 
   favoritesArray = useSelector(
-    (state) => state.favorites.favorites.listFavorites.favoriteUsersData,
+    (state) => state.favorites.favorites.listFavorites,
   );
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function Favoris() {
           {favoritesArray?.map(
 
             (favorite) => (
-              <Card favorite={favorite} key={favorite[0].id} />
+              <Card favorite={favorite} key={favorite.data.id} />
 
             ),
           )}

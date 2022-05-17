@@ -12,3 +12,21 @@ export const tempModifDevProfil = (value, name) => ({
   value,
   name,
 });
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const TOGGLE_STACK_TEMP = 'TOGGLE_STACK_TEMP';
+
+// ACTION CREATOR toggleWindowLog
+export const toggleStackTemp = (name) => ({
+  type: TOGGLE_STACK_TEMP,
+  name,
+});
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const SELECT_AVATAR_TEMP = 'SELECT_AVATAR_TEMP';
+
+// ACTION CREATOR toggleWindowLog
+export const selectAvatarTemp = (profilePicture) => ({
+  type: SELECT_AVATAR_TEMP,
+  profilePicture,
+});

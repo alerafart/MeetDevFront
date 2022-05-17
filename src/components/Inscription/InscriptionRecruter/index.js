@@ -69,6 +69,12 @@ function InscriptionRecruter() {
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
+            Description
+          </div>
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.description} name="description" onChange={handleChangeForm} />
+        </div>
+        <div className="inscriptionRecruter__form__champ">
+          <div className="inscriptionRecruter__form__champ--label">
             Ville
           </div>
           <input className="inscriptionRecruter__form__champ--input" type="text" value={register.city} name="city" onChange={handleChangeForm} />
@@ -90,6 +96,12 @@ function InscriptionRecruter() {
             Mail
           </div>
           <input className="inscriptionRecruter__form__champ--input" type="text" value={register.email} name="email" onChange={handleChangeForm} />
+        </div>
+        <div className="inscriptionRecruter__form__champ">
+          <div className="inscriptionRecruter__form__champ--label">
+            Mail Vérification
+          </div>
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.verifyemail} name="verifyemail" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">

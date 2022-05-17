@@ -8,11 +8,17 @@ export const initialState = {
     lastname: '',
     firms: '',
     city: '',
+    department: '',
+    zipCode: '',
     phone: '',
     website: '',
     email: '',
+    verifyemail: '',
     password: '',
     verifypassword: '',
+    profilePicture: '',
+    description: '',
+    availability: '',
   },
 
 };

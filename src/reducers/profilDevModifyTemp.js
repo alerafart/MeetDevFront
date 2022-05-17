@@ -1,4 +1,6 @@
-import { COPY_PROFIL_DEV_TO_TEMP, TEMP_MODIF_DEV_PROFIL } from '../actions/profilDevModifyTemp';
+import {
+  COPY_PROFIL_DEV_TO_TEMP, SELECT_AVATAR_TEMP, TEMP_MODIF_DEV_PROFIL, TOGGLE_STACK_TEMP,
+} from '../actions/profilDevModifyTemp';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -32,6 +34,32 @@ export const initialState = {
 
 const profilDev = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_STACK_TEMP: {
+      // si le name n'est pas dans le tableau des technologies on l'ajoute sinon on le retire
+      if (!state.register.technology.includes(action.name)) {
+        state.register.technology.push(action.name);
+      }
+      else if (state.register.technology.includes(action.name)) {
+        const index = state.register.technology.indexOf(action.name);
+        state.register.technology.splice(index, 1);
+      }
+
+      return {
+        ...state,
+        register: {
+          ...state.register,
+        },
+      };
+    }
+    case SELECT_AVATAR_TEMP: {
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          profilePicture: action.profilePicture,
+        },
+      };
+    }
     case COPY_PROFIL_DEV_TO_TEMP: {
       console.log(action.profilDev);
       return {
@@ -51,6 +79,15 @@ const profilDev = (state = initialState, action = {}) => {
         },
       };
     }
+    // case DATA_PROFIL_DEV_FROM_API: {
+    //   return {
+    //     ...state,
+    //     register: {
+    //       ...state.register,
+    //       [action.name]: action.value,
+    //     },
+    //   };
+    // }
 
     case LOGOUT:
       return {

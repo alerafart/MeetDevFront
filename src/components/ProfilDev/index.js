@@ -13,6 +13,7 @@ import indisponible from '../../assets/images/indisponible.png';
 // import css from '../../assets/images/archive/css.png';
 import ModalSendMessage from '../ModalSendMessage';
 import { setToggleModalSendMessage } from '../../actions/settings';
+import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
 
 function ProfilDev() {
   const isDev = useSelector((state) => state.settings.log.isDev);
@@ -21,16 +22,26 @@ function ProfilDev() {
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
 
+  const profilDev = useSelector((state) => state.profilDev);
+
   // const dataProfilDev = useSelector((state) => state.profilDev.register);
   // console.log('profilDEv fiche perso');
   // console.log(dataProfilDev);
 
-  // TODO: selon d'ou je viens je n'irais pas chercher les infos au même endroit:
+  // TODO: selon d'ou je viens je n'irais
+  // pas chercher les infos au même endroit:
   // TODO Développer to modify: state.profilDev.register
-  // TODO Developpeur or Recruter from search or recruter from favorites: state.profilDevVisit (ou un autre nom)
-  // TODO dans le state profilDevVisit il faudrait reprendre exactement les mêmes noms de données que pour le state profilDev.register
-  // TODO cela permettra de l'utiliser pour stocker les données du profildev selectionné via le search ou les favorites de façon indifférente.
-  // TODO de plus ayant la même constructions que profilDev on pourrait plus facilement réutiliser les données pour l'affichage du rendu ci dessous.
+  // TODO Developpeur or Recruter from
+  // search or recruter from favorites: state.profilDevVisit (ou un autre nom)
+  // TODO dans le state profilDevVisit il
+  // faudrait reprendre exactement les mêmes
+  // noms de données que pour le state profilDev.register
+  // TODO cela permettra de l'utiliser
+  // pour stocker les données du profildev
+  // selectionné via le search ou les favorites de façon indifférente.
+  // TODO de plus ayant la même constructions
+  // que profilDev on pourrait plus
+  // facilement réutiliser les données pour l'affichage du rendu ci dessous.
   const data = useSelector((state) => state.profilDev.register);
 
   const dispatch = useDispatch();
@@ -185,8 +196,14 @@ function ProfilDev() {
                 {data.technology}
               </div>
               {/* <div className="profilDev__skills__item__logos">
-                <img src={react} alt="logo react" className="profilDev__skills__item__logos--logo" />
-                <img src={symfony} alt="logo symfony" className="profilDev__skills__item__logos--logo" />
+
+                <img src={react} alt="logo react"
+
+                className="profilDev__skills__item__logos--logo" />
+
+                <img src={symfony} alt="logo symfony"
+
+                className="profilDev__skills__item__logos--logo" />
                 <img src={html} alt="logo html" className="profilDev__skills__item__logos--logo" />
                 <img src={css} alt="logo css" className="profilDev__skills__item__logos--logo" />
               </div> */}
@@ -240,6 +257,7 @@ function ProfilDev() {
             className="profilDev__buttons--button"
             type="button"
             onClick={() => {
+              dispatch(copyProfilDevToTemp(profilDev));
             }}
           >
             Modifier

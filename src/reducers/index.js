@@ -8,6 +8,7 @@ import formLogin from './formLogin';
 import profilDev from './profilDev';
 import profilRecruiter from './profilRecruiter';
 import resultSearch from './resultSearch';
+import profilDevModifyTemp from './profilDevModifyTemp';
 
 import formDevContact from './formDevContact';
 
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   profilRecruiter: profilRecruiter,
   resultSearch: resultSearch,
   favorites: favorites,
+  profilDevModifyTemp: profilDevModifyTemp,
 });
 
 export default rootReducer;

@@ -32,12 +32,13 @@ function Title({
 }
 
 Title.propTypes = {
-/*   user : PropTypes.arrayOf{
-  profile_picture: PropTypes.string.isRequired;
-  firstname: PropTypes.string.isRequired;
-  lastname: PropTypes.string.isRequired;
-  } */
-
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      profile_picture: PropTypes.string.isRequired,
+      firstname: PropTypes.string.isRequired,
+      lastname: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Title;

@@ -30,25 +30,25 @@ function InscriptionRecruter() {
         <button type="button" className="inscriptionRecruter__header--button">Logo entreprise</button>
       </form>
       <form className="inscriptionRecruter__form">
-        <div className="inscriptionRecruter__form__champ">
-          {/* <div className="inscriptionRecruter__form__champ--label">
-            Expérience
-          </div> */}
+        {/* <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--radio">
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp1">
-              <input type="radio" value="sarl" name="status" onChange={handleChangeForm} checked={register.status === 'sarl'} />
+              <input type="radio" value="sarl" name="status"
+              onChange={handleChangeForm} checked={register.status === 'sarl'} />
               SARL
             </label>
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="sas" name="status" onChange={handleChangeForm} checked={register.status === 'sas'} />
+              <input type="radio" value="sas" name="status"
+              onChange={handleChangeForm} checked={register.status === 'sas'} />
               SAS
             </label>
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp3">
-              <input type="radio" value="eurl" name="status" onChange={handleChangeForm} checked={register.status === 'eurl'} />
+              <input type="radio" value="eurl" name="status"
+              onChange={handleChangeForm} checked={register.status === 'eurl'} />
               EURL
             </label>
           </div>
-        </div>
+        </div> */}
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Prénom

@@ -62,7 +62,9 @@ function ModalProfil() {
               Expérience
             </div>
             <div className="modalContainer__main__profil--item">
-              {experience === 1 ? '- de 1 an' : '1 à 3 ans'}
+              {experience === 1 ? '- de 1 an' : ''}
+              {experience === 2 ? '1 à 3 ans' : ''}
+              {experience === 3 ? '+ de 3 ans' : ''}
             </div>
             <div className="modalContainer__main__profil--item">
               Langages

@@ -22,8 +22,9 @@ function RecruiterProfile() {
           <h3 className="profil__informations--name">{data.firstname} {data.lastname}</h3>
           <p className="profil__informations--localisation">{data.city}</p>
 
-          <p className="profil__informations--aboutme">About us TODO</p>
-          <p className="profil__informations--description"> Je suis directeur et sales marketing manager des abattoirs d'anderlecht TODO</p>
+          {/* <p className="profil__informations--aboutme">About us TODO</p>
+          <p className="profil__informations--description">
+          Je suis directeur et sales marketing manager des abattoirs d'anderlecht TODO</p> */}
           <p className="profil__informations--email">{data.email}</p>
           <p className="profil__informations--phone">{data.phone}</p>
         </div>

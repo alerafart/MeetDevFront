@@ -8,7 +8,6 @@ import { setToggleModalProfil } from '../../../actions/settings';
 function Card({ favorite }) {
   const dispatch = useDispatch();
 
-  console.log(favorite[0].id);
   return (
     <div className="card">
       <div className="card__avatar">

@@ -20,10 +20,16 @@ function Favoris() {
     (state) => state.favorites.favorites.listFavorites.favoriteUsersData,
   );
 
+  console.log(favoritesArray);
+  /* let favoritesId = [];
+
+  const allFavoritesArray = favoritesArray.concat(favoritesId);
+
+  console.log(allFavoritesArray); */
+
   useEffect(() => {
     dispatch(setFromFavoritesRoute());
     dispatch(recruiterFavorites());
-    console.log(favoritesArray);
   }, []);
 
   return (
@@ -41,10 +47,12 @@ function Favoris() {
           {favoritesArray?.map(
 
             (favorite) => (
-              <Card favorite={favorite} key={favorite[0].id} />
+              <Card favorite={favorite} />
 
             ),
+
           )}
+
         </div>
       </div>
 

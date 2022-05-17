@@ -22,11 +22,12 @@ const favorisFromApi = (store) => (next) => (action) => {
           // ou url: 'http://localhost/api/users:8000',
           {
             params: {
-              id: 2,
+              id: id,
             },
           },
         )
         .then((response) => {
+          console.log(response.data);
           store.dispatch(favoritesList(response.data));
           console.log('favori récupéré');
         }).catch((error) => {

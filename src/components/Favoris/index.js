@@ -47,7 +47,7 @@ function Favoris() {
           {favoritesArray?.map(
 
             (favorite) => (
-              <Card favorite={favorite} />
+              <Card favorite={favorite} key={favorite[0].id} />
 
             ),
 

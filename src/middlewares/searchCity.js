@@ -6,7 +6,11 @@ const searchCity = (store) => (next) => (action) => {
   switch (action.type) {
     case SEARCH_CITY: {
       const state = store.getState();
-      const adress = state.formRegisterDev.register.city;
+      let adress = state.formRegisterDev.register.city;
+      if (!adress) {
+        console.log('recupadressdans temp modify');
+        adress = state.profilDevModifyTemp.register.city;
+      }
       console.log(adress);
       axios.get(
         `https://api-adresse.data.gouv.fr/search/?q=${adress}&type=municipality&autocomplete=1`,

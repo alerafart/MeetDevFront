@@ -48,3 +48,10 @@ export const recruiterFavorites = () => ({
   type: RECRUITER_FAVORITES,
 
 });
+
+export const GET_ONE_FAVORITE_FROM_API = 'GET_ONE_FAVORITE_FROM_API';
+
+export const getOneFavoriteFromApi = () => ({
+  type: GET_ONE_FAVORITE_FROM_API,
+
+});

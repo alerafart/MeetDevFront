@@ -49,9 +49,9 @@ export const recruiterFavorites = () => ({
 
 });
 
-export const GET_ONE_FAVORITE_FROM_API = 'GET_ONE_FAVORITE_FROM_API';
+/* export const GET_ONE_FAVORITE_FROM_API = 'GET_ONE_FAVORITE_FROM_API';
 
 export const getOneFavoriteFromApi = () => ({
   type: GET_ONE_FAVORITE_FROM_API,
 
-});
+}); */

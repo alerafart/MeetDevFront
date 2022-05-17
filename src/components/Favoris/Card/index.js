@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import men from '../../../assets/images/men.png';
 import javascript from '../../../assets/images/js.png';
 import { setToggleModalProfil } from '../../../actions/settings';
+import { getOneFavoriteFromApi } from '../../../actions/middleware';
 
 function Card({ favorite }) {
   const dispatch = useDispatch();
 
-  console.log(favorite[0].id);
   return (
     <div className="card">
       <div className="card__avatar">
@@ -16,15 +16,16 @@ function Card({ favorite }) {
         <img src={men} alt="Avatar" className="card__avatar--img" />
       </div>
       <div className="card__container">
-        <h4 className="card__container--name">{favorite[0].firstname} {favorite[0].lastname}</h4>
-        <p className="card__container--localisation">{favorite[0].city}</p>
-        <p className="card__container--experience">Experience <span className="card__container--experience--year"> -{favorite[0].years_of_experience} an</span></p>
+        <h4 className="card__container--name">{favorite.data.firstname} {favorite.data.lastname}</h4>
+        <p className="card__container--localisation">{favorite.data.city}</p>
+        <p className="card__container--experience">Experience <span className="card__container--experience--year"> -{favorite.data.years_of_experience} an</span></p>
       </div>
       <div className="card__button">
         <button
           type="button"
           onClick={() => {
             dispatch(setToggleModalProfil());
+            dispatch(getOneFavoriteFromApi());
           }}
           className="card__button--profileview"
         >Voir le profil

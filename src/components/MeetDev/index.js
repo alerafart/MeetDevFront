@@ -18,6 +18,7 @@ import EnSavoirPlus from '../EnSavoirPlus';
 import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
 import ModalLogin from '../ModalLogin';
+import Cookies from '../Cookies';
 
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
@@ -104,6 +105,12 @@ function MeetDev() {
           path="*"
           element={(
             <Error />
+          )}
+        />
+        <Route
+          path="/cookies"
+          element={(
+            <Cookies />
           )}
         />
       </Routes>

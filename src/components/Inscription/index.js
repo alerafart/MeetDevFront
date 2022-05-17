@@ -20,8 +20,14 @@ import { registerDev } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
 
 // import all avatars
-import menAvatar from '../../assets/avatars/men.png';
-import womanAvatar from '../../assets/avatars/woman.png';
+import manAvatar1 from '../../assets/avatars/avatar_man1.png';
+import manAvatar2 from '../../assets/avatars/avatar_man2.png';
+import manAvatar3 from '../../assets/avatars/avatar_man3.png';
+import manAvatar4 from '../../assets/avatars/avatar_man4.png';
+import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
+import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
+import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
+import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 
 function Inscription() {
   // State for controlled champs of formulaire
@@ -38,11 +44,29 @@ function Inscription() {
 
   // select how avatar to display
   let avatar;
-  if (register.profilePicture === 'menAvatar') {
-    avatar = menAvatar;
+  if (register.profilePicture === 'menAvatar1') {
+    avatar = manAvatar1;
   }
-  if (register.profilePicture === 'womanAvatar') {
-    avatar = womanAvatar;
+  if (register.profilePicture === 'menAvatar2') {
+    avatar = manAvatar2;
+  }
+  if (register.profilePicture === 'menAvatar3') {
+    avatar = manAvatar3;
+  }
+  if (register.profilePicture === 'menAvatar4') {
+    avatar = manAvatar4;
+  }
+  if (register.profilePicture === 'womanAvatar1') {
+    avatar = womanAvatar1;
+  }
+  if (register.profilePicture === 'womanAvatar2') {
+    avatar = womanAvatar2;
+  }
+  if (register.profilePicture === 'womanAvatar3') {
+    avatar = womanAvatar3;
+  }
+  if (register.profilePicture === 'womanAvatar4') {
+    avatar = womanAvatar4;
   }
 
   // save in state which route we come from for other display.

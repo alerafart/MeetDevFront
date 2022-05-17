@@ -1,6 +1,6 @@
 import './card.scss';
 import { useDispatch } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import men from '../../../assets/images/men.png';
 import javascript from '../../../assets/images/js.png';
 import { setToggleModalProfil } from '../../../actions/settings';
@@ -40,16 +40,16 @@ function Card({ favorite }) {
   );
 }
 
-// Card.propTypes = {
-//   favorite: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       firstname: PropTypes.string.isRequired,
-//       lastname: PropTypes.string.isRequired,
-//       city: PropTypes.string.isRequired,
-//       years_of_experience: PropTypes.number.isRequired,
-//     }),
-//   ).isRequired,
-// };
+Card.propTypes = {
+  favorite: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      firstname: PropTypes.string.isRequired,
+      lastname: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      years_of_experience: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Card;

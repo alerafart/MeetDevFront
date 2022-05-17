@@ -1,0 +1,234 @@
+@use '../../styles/vars';
+$cookieDot: rgb(24, 7, 7) 6px,
+transparent 6px;
+$bg:vars.$mainBackground;
+
+.cookies {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+    margin-bottom: 1em;
+  }
+
+  &__content {}
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &--agree {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+    &--disagree {
+      border: none;
+      background-color: vars.$cancelOption;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+    &--privacy {
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+  }
+}
+
+#all {
+  top: 21rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #FF8800;
+  background-image:
+    radial-gradient(circle at 50px 50px, $cookieDot),
+    radial-gradient(circle at 90px 60px, $cookieDot),
+    radial-gradient(circle at 100px 150px, $cookieDot),
+    radial-gradient(circle at 50px 100px, $cookieDot),
+    radial-gradient(circle at 150px 50px, $cookieDot),
+    radial-gradient(circle at 120px 90px, $cookieDot),
+    radial-gradient(circle at 85px 110px, $cookieDot),
+    radial-gradient(circle at 150px 130px, $cookieDot);
+
+  &:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: $bg;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    animation: bit 3s linear infinite;
+    opacity: 0;
+  }
+}
+
+@keyframes bit {
+  3% {
+    opacity: 1;
+  }
+
+  7% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg;
+  }
+
+  14% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg;
+  }
+
+  21% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg, 20px 20px 0 2px $bg,
+      -5px 30px 0 2px $bg;
+  }
+
+  28% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg, 20px 20px 0 2px $bg,
+      -5px 30px 0 2px $bg, 50px -5px 0 2px $bg, 10px 50px 0 5px $bg, 25px 40px 0 5px $bg;
+  }
+
+  35% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg, 20px 20px 0 2px $bg,
+      -5px 30px 0 2px $bg, 50px -5px 0 2px $bg, 10px 50px 0 5px $bg, 25px 40px 0 5px $bg,
+      -5px 65px 0 5px $bg, 30px 60px 0 1px $bg, 40px 40px 0 5px $bg, 40px 35px 0 3px $bg;
+  }
+
+  40% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg, 20px 20px 0 2px $bg,
+      -5px 30px 0 2px $bg, 50px -5px 0 2px $bg, 10px 50px 0 5px $bg, 25px 40px 0 5px $bg,
+      -5px 65px 0 5px $bg, 30px 60px 0 1px $bg, 40px 40px 0 5px $bg, 40px 35px 0 3px $bg,
+      65px 60px 0 5px $bg, 55px 20px 0 4px $bg, 60px -5px 0 2px $bg;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 2px $bg, 5px 20px 0 1px $bg, 20px 20px 0 2px $bg,
+      -5px 30px 0 2px $bg, 50px -5px 0 2px $bg, 10px 50px 0 5px $bg, 25px 40px 0 5px $bg,
+      -5px 65px 0 5px $bg, 30px 60px 0 1px $bg, 40px 40px 0 5px $bg, 40px 35px 0 3px $bg,
+      65px 60px 0 5px $bg, 55px 20px 0 4px $bg, 60px -5px 0 2px $bg, 100px 50px 0 2px $bg,
+      90px -2px 0 6px $bg, 20px 100px 0 2px $bg, -5px 100px 0 2px $bg, 60px 100px 0 6px $bg,
+      100px 20px 0 10px $bg, 80px -10px 0 6px $bg;
+  }
+
+  60% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 6px $bg, 5px 20px 0 6px $bg, 20px 20px 0 6px $bg,
+      -5px 30px 0 6px $bg, 50px -5px 0 6px $bg, 10px 50px 0 6px $bg, 25px 40px 0 6px $bg,
+      -5px 65px 5px 0 $bg, 30px 60px 0 6px $bg, 40px 40px 5px 0 $bg, 40px 35px 0 6px $bg,
+      65px 60px 5px 0 $bg, 55px 20px 0 6px $bg, 60px -5px 2px 0 $bg, 100px 50px 2px 0 $bg,
+      90px -2px 6px 0 $bg, 20px 100px 0 6px $bg, -5px 100px 0 6px $bg, 60px 100px 0 6px $bg,
+      100px 20px 0 6px $bg, 80px -10px 0 6px $bg, 130px -10px 0 6px $bg, 150px 5px 0 6px $bg,
+      145px 20px 0 6px $bg, 130px 40px 0 6px $bg, 100px 90px 0 6px $bg, -5px 150px 0 6px $bg,
+      30px 140px 0 6px $bg;
+  }
+
+  70% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 6px $bg, 5px 20px 0 6px $bg, 20px 20px 0 6px $bg, -5px 30px 0 6px $bg,
+      50px -5px 0 6px $bg, 10px 50px 0 6px $bg, 25px 40px 0 6px $bg, -5px 65px 5px 0 $bg, 30px 60px 0 6px $bg,
+      40px 40px 5px 0 $bg, 40px 35px 0 6px $bg, 65px 60px 5px 0 $bg, 55px 20px 0 6px $bg, 60px -5px 2px 0 $bg,
+      100px 50px 2px 0 $bg, 90px -2px 6px 0 $bg, 20px 100px 0 6px $bg, -5px 100px 0 6px $bg, 60px 100px 0 6px $bg,
+      100px 20px 0 6px $bg, 80px -10px 0 6px $bg, 130px -10px 0 6px $bg, 150px 5px 0 6px $bg, 145px 20px 0 6px $bg,
+      130px 40px 0 6px $bg, 100px 90px 0 6px $bg, -5px 150px 0 6px $bg, 30px 140px 0 6px $bg;
+  }
+
+  80% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 6px $bg, 5px 20px 0 6px $bg, 20px 20px 0 6px $bg, -5px 30px 0 6px $bg,
+      50px -5px 0 6px $bg, 10px 50px 0 6px $bg, 25px 40px 0 6px $bg, -5px 65px 5px 0 $bg, 30px 60px 0 6px $bg,
+      40px 40px 5px 0 $bg, 40px 35px 0 6px $bg, 65px 60px 5px 0 $bg, 55px 20px 0 6px $bg, 60px -5px 2px 0 $bg,
+      100px 50px 2px 0 $bg, 90px -2px 6px 0 $bg, 20px 100px 0 10px $bg, -5px 100px 0 60px $bg, 60px 100px 0 60px $bg,
+      100px 20px 0 60px $bg, 80px -10px 0 60px $bg, 130px -10px 0 60px $bg, 150px 5px 0 60px $bg, 145px 20px 0 60px $bg,
+      130px 40px 0 60px $bg, 100px 90px 0 60px $bg, -5px 150px 0 60px $bg, 30px 140px 0 60px $bg;
+  }
+
+  90% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 6px $bg, 5px 20px 0 6px $bg, 20px 20px 0 6px $bg, -5px 30px 0 6px $bg,
+      50px -5px 0 6px $bg, 10px 50px 0 6px $bg, 25px 40px 0 6px $bg, -5px 65px 5px 0 $bg, 30px 60px 0 6px $bg,
+      40px 40px 5px 0 $bg, 40px 35px 0 6px $bg, 65px 60px 5px 0 $bg, 55px 20px 0 6px $bg, 60px -5px 2px 0 $bg,
+      100px 50px 2px 0 $bg, 90px -2px 6px 0 $bg, 20px 100px 0 10px $bg, -5px 100px 0 60px $bg, 60px 100px 0 60px $bg,
+      100px 20px 0 60px $bg, 80px -10px 0 60px $bg, 130px -10px 0 60px $bg, 150px 5px 0 60px $bg, 145px 20px 0 60px $bg,
+      130px 40px 0 60px $bg, 100px 90px 0 60px $bg, -5px 150px 0 60px $bg, 30px 140px 0 60px $bg;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 20px 3px 0 6px $bg, 5px 20px 0 6px $bg, 20px 20px 0 6px $bg, -5px 30px 0 6px $bg, 50px -5px 0 6px $bg,
+      10px 50px 0 6px $bg, 25px 40px 0 6px $bg, -5px 65px 5px 0 $bg, 30px 60px 0 6px $bg, 40px 40px 5px 0 $bg,
+      40px 35px 0 6px $bg, 65px 60px 5px 0 $bg, 55px 20px 0 6px $bg, 60px -5px 2px 0 $bg, 100px 50px 2px 0 $bg,
+      90px -2px 6px 0 $bg, 20px 100px 0 10px $bg, -5px 100px 0 60px $bg, 60px 100px 0 60px $bg, 100px 20px 0 60px $bg,
+      80px -10px 0 60px $bg, 130px -10px 0 60px $bg, 150px 5px 0 60px $bg, 145px 20px 0 60px $bg, 130px 40px 0 60px $bg,
+      100px 90px 0 60px $bg, -5px 150px 0 60px $bg, 30px 140px 0 60px $bg;
+  }
+}

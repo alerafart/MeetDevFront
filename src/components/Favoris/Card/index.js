@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import men from '../../../assets/images/men.png';
 import javascript from '../../../assets/images/js.png';
 import { setToggleModalProfil } from '../../../actions/settings';
-import { getOneFavoriteFromApi } from '../../../actions/middleware';
+import { getOneFavorite } from '../../../actions/favorites';
 
 function Card({ favorite }) {
   const dispatch = useDispatch();
@@ -24,8 +24,8 @@ function Card({ favorite }) {
         <button
           type="button"
           onClick={() => {
+            dispatch(getOneFavorite(favorite.data));
             dispatch(setToggleModalProfil());
-            dispatch(getOneFavoriteFromApi());
           }}
           className="card__button--profileview"
         >Voir le profil

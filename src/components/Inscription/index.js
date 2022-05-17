@@ -44,16 +44,16 @@ function Inscription() {
 
   // select how avatar to display
   let avatar;
-  if (register.profilePicture === 'menAvatar1') {
+  if (register.profilePicture === 'manAvatar1') {
     avatar = manAvatar1;
   }
-  if (register.profilePicture === 'menAvatar2') {
+  if (register.profilePicture === 'manAvatar2') {
     avatar = manAvatar2;
   }
-  if (register.profilePicture === 'menAvatar3') {
+  if (register.profilePicture === 'manAvatar3') {
     avatar = manAvatar3;
   }
-  if (register.profilePicture === 'menAvatar4') {
+  if (register.profilePicture === 'manAvatar4') {
     avatar = manAvatar4;
   }
   if (register.profilePicture === 'womanAvatar1') {

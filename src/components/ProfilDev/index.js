@@ -42,7 +42,13 @@ function ProfilDev() {
   // TODO de plus ayant la même constructions
   // que profilDev on pourrait plus
   // facilement réutiliser les données pour l'affichage du rendu ci dessous.
-  const data = useSelector((state) => state.profilDev.register);
+  let data;
+  if (fromSearch || fromFavorites) {
+    data = useSelector((state) => state.modalProfil.result);
+  }
+  else {
+    data = useSelector((state) => state.profilDev.register);
+  }
 
   const dispatch = useDispatch();
   return (
@@ -176,7 +182,7 @@ function ProfilDev() {
           <div className="profilDev__skills__item">
             <div className="profilDev__skills__item--label"> Experience:
             </div>
-            <div className="profilDev__skills__item--color">1{data.experience} ans
+            <div className="profilDev__skills__item--color">{data.experience} ans
             </div>
           </div>
           <div className="profilDev__skills__item">

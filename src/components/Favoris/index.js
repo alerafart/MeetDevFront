@@ -1,7 +1,7 @@
 // styles
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ModalProfil from '../ModalProfil';
 import './favoris.scss';
 
@@ -19,11 +19,11 @@ function Favoris() {
   favoritesArray = useSelector(
     (state) => state.favorites.favorites.listFavorites,
   );
+  console.log(favoritesArray);
 
   useEffect(() => {
     dispatch(setFromFavoritesRoute());
     dispatch(recruiterFavorites());
-    console.log(favoritesArray);
   }, []);
 
   return (
@@ -39,8 +39,8 @@ function Favoris() {
 
         <div className="favoris__card">
           {favoritesArray?.map(
-
             (favorite) => (
+
               <Card favorite={favorite} key={favorite.data.id} />
 
             ),
@@ -53,12 +53,12 @@ function Favoris() {
   );
 }
 
-Card.propTypes = {
-  favorite: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+// Card.propTypes = {
+//   favorite: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 
 export default Favoris;

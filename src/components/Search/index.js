@@ -113,10 +113,7 @@ function Search() {
           {results?.map((user) => (
             <Card
               key={user.dev_id}
-              avatar={user.picture_profile}
-              lastname={user.lastname}
-              firstname={user.firstname}
-              {...results}
+              user={user}
             />
           ))}
         </div>

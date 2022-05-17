@@ -8,33 +8,36 @@ import { setToggleModalProfil } from '../../../actions/settings';
 import { fetchProfileModale } from '../../../actions/formSearchDev';
 
 function Title({
-  avatar, firstname, lastname,
+  user,
 }) {
   const dispatch = useDispatch();
   return (
     <div
       className="result__champ"
       onClick={() => {
+        dispatch(fetchProfileModale(user));
         dispatch(setToggleModalProfil());
-        dispatch(fetchProfileModale());
       }}
     >
       <img
         className="result__champ--img"
-        src={avatar === 'man' ? man : woman}
+        src={user.profile_picture === 'man' ? man : woman}
         alt="avatar"
       />
       <div className="result__champ--item">
-        {firstname} {lastname}
+        {user.firstname} {user.lastname}
       </div>
     </div>
   );
 }
 
 Title.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
+/*   user : PropTypes.arrayOf{
+  profile_picture: PropTypes.string.isRequired;
+  firstname: PropTypes.string.isRequired;
+  lastname: PropTypes.string.isRequired;
+  } */
+
 };
 
 export default Title;

@@ -88,18 +88,6 @@ function ModifyRecruiter() {
           </div>
           <input className="inscriptionRecruter__form__champ--input" type="text" value={register.email} name="email" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
-            Mdp
-          </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" value={register.password} name="password" onChange={handleChangeForm} />
-        </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
-            Vérif Mdp
-          </div>
-          <input className="inscriptionRecruter__form__champ--input" type="password" value={register.verifypassword} name="verifypassword" onChange={handleChangeForm} />
-        </div>
         <div className="inscriptionRecruter__form__buttons">
           <Link to="/profil">
             <button

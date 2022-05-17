@@ -24,12 +24,14 @@ import {
 export const initialState = {
   log: {
     logged: false,
-    isDev: true,
+    isDev: false,
     isRecruiter: false,
     email: '',
     token: '',
     windowLog: false,
-    id: '',
+    user_id: '',
+    dev_id: '',
+    recruit_id: '',
   },
   navigation: {
     windowSendMessage: false, // open Modal Send Message
@@ -42,7 +44,6 @@ export const initialState = {
     displaySearchCity: false,
     resultSearchCity: [],
     burgerMenuOpen: false,
-
   },
 };
 
@@ -112,25 +113,35 @@ const settings = (state = initialState, action = {}) => {
           ...state.log,
           logged: true,
           email: action.email,
-          id: action.id,
-
+          user_id: action.userId,
+          dev_id: action.devId,
+          recruit_id: action.recruitId,
         },
       };
     case LOGOUT:
       return {
         ...state,
         log: {
-          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
-          id: '',
           email: '',
           token: '',
           windowLog: false,
+          user_id: '',
+          dev_id: '',
+          recruit_id: '',
         },
         navigation: {
-          ...state.navigation,
+          windowSendMessage: false, // open Modal Send Message
+          windowProfil: false,
+          fromSearchRoute: false,
+          fromFavoritesRoute: false,
+          frominscriptionRoute: false,
+          chooseAvatarModal: false,
+          chooseTechnologieModal: false,
+          displaySearchCity: false,
+          resultSearchCity: [],
           burgerMenuOpen: false,
         },
       };

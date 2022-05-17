@@ -7,11 +7,11 @@ import womanAvatar from '../../assets/avatars/woman.png';
 import github from '../../assets/images/github.png';
 // import { registerDev } from '../../actions/formRegisterDev';
 
-import ModalChooseAvatar from '../Inscription/ModalChooseAvatar';
-import ModalChooseStack from '../Inscription/ModalChooseStack';
+import ModalChooseAvatar from './ModalChooseAvatar';
+import ModalChooseStack from './ModalChooseStack';
 
 import { searchCity } from '../../actions/middleware';
-import { dataProfilDevFromApi } from '../../actions/profilDev';
+// import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
   toggleWindowLog,
@@ -110,12 +110,12 @@ function ModifyDev() {
                               onClick={() => {
                                 // save postcode and city name in state
                                 // console.log(Math.ceil(e.properties.postCode / 1000));
-                                console.log(e.properties.postcode);
-                                console.log(Math.floor((e.properties.postcode) / 1000));
+                                // console.log(e.properties.postcode);
+                                // console.log(Math.floor((e.properties.postcode) / 1000));
 
-                                dispatch(dataProfilDevFromApi(e.properties.city, 'city'));
-                                dispatch(dataProfilDevFromApi(e.properties.postcode, 'zipCode'));
-                                dispatch(dataProfilDevFromApi((Math.floor((e.properties.postcode) / 1000)), 'departement'));
+                                dispatch(tempModifDevProfil(e.properties.city, 'city'));
+                                dispatch(tempModifDevProfil(e.properties.postcode, 'zipCode'));
+                                dispatch(tempModifDevProfil((Math.floor((e.properties.postcode) / 1000)), 'departement'));
 
                                 // close the result display:
                                 dispatch(searchCityClose());
@@ -222,15 +222,15 @@ function ModifyDev() {
           </div>
           <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
             <label className="inscription__form__champ--radio--item" htmlFor="experience">
-              <input type="radio" value="1" name="experience" checked={data.experience === '1'} />
+              <input type="radio" value="1" name="experience" checked={data.experience === 1} />
               - 1 an
             </label>
             <label className="inscription__form__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="2" name="experience" checked={data.experience === '2'} />
+              <input type="radio" value="2" name="experience" checked={data.experience === 2} />
               1 à 3 ans
             </label>
             <label className="inscription__form__champ--radio--item" htmlFor="exp3">
-              <input type="radio" name="experience" value="3" checked={data.experience === '3'} />
+              <input type="radio" name="experience" value="3" checked={data.experience === 3} />
               + 3 ans
             </label>
           </div>

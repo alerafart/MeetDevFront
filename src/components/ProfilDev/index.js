@@ -49,6 +49,8 @@ function ProfilDev() {
   else {
     data = useSelector((state) => state.profilDev.register);
   }
+  console.log(data);
+  console.log(data.available_for_recruiters);
 
   const dispatch = useDispatch();
   return (
@@ -143,7 +145,7 @@ function ProfilDev() {
             </div>
           </div>
           {
-            data.availability && (
+            data.available_for_recruiters && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible:
@@ -159,7 +161,7 @@ function ProfilDev() {
             )
           }
           {
-            !data.availability && (
+            !data.available_for_recruiters && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible dans 3 mois:

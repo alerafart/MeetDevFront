@@ -33,7 +33,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
           const userData = response.data.spec[0];
 
           // Changement du state settings: logged:true + save email utilisateur)
-          store.dispatch(logged(user.email_address, user.id));
+          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id));
 
           // TEST SI SUCCESS
           if (status === 'success' && statusMessage === 'Login successfull') {
@@ -74,15 +74,20 @@ const apiMiddleWare = (store) => (next) => (action) => {
               // changement du state settings: isDev: true
               store.dispatch(actionIsRecruiter());
               // save des données reçus dans notre state (formRegisterRecruiter)
-              store.dispatch(dataProfilRecruiterFromApi('', 'status'));
+              store.dispatch(dataProfilRecruiterFromApi(response.data.status, 'status'));
+              store.dispatch(dataProfilRecruiterFromApi(response.data.message, 'message'));
               store.dispatch(dataProfilRecruiterFromApi(user.firstname, 'firstname'));
               store.dispatch(dataProfilRecruiterFromApi(user.lastname, 'lastname'));
               store.dispatch(dataProfilRecruiterFromApi(userData.company_name, 'firms'));
               store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
+              store.dispatch(dataProfilRecruiterFromApi(user.department, 'department'));
+              store.dispatch(dataProfilRecruiterFromApi(user.zip_code, 'zipCode'));
               store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));
               store.dispatch(dataProfilRecruiterFromApi(userData.web_site_link, 'website'));
               store.dispatch(dataProfilRecruiterFromApi(user.email_address, 'email'));
               store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
+              store.dispatch(dataProfilRecruiterFromApi(user.profile_picture, 'profilePicture'));
+              store.dispatch(dataProfilRecruiterFromApi(userData.needs_description, 'description'));
             }
             else {
               console.log('probleme de connexion');

@@ -107,7 +107,7 @@ function ModifyDev() {
           <div className="profilDevModify__form__champ--label">
             Langage
           </div>
-          <select className="profilDevModify__form__champ--input" value={register.languages} name="languages">
+          <select multiple className="profilDevModify__form__champ--input" value={register.languages} name="languages">
             <option value="">{null}</option>
             <option value="css">CSS</option>
             <option value="html">HTML</option>
@@ -141,15 +141,15 @@ function ModifyDev() {
           </div>
           <div className="profilDevModify__form__champ--radio">
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp1">
-              <input type="radio" value="- 1 an" name="experience" defaultchecked={register.experience === '- 1 an'} />
+              <input type="radio" value="1" name="experience" defaultchecked={register.experience === '- 1 an'} />
               - 1 an
             </label>
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp2">
-              <input type="radio" value="- 1 an" name="experience" checked={register.experience === '1 à 3 ans'} />
+              <input type="radio" value="2" name="experience" checked={register.experience === '1 à 3 ans'} />
               1 à 3 ans
             </label>
             <label className="profilDevModify__form__champ--radio--item" htmlFor="exp3">
-              <input type="radio" name="experience" value="+ 3ans" checked={register.experience === '+ 3ans'} />
+              <input type="radio" name="experience" value="3" checked={register.experience === '+ 3ans'} />
               + 3 ans
             </label>
           </div>

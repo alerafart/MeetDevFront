@@ -104,22 +104,19 @@ function Search() {
             Filtrer
           </button>
         </form>
-
         <h2 className="search__title">
           {count} développeurs proches de vous
         </h2>
 
         <div className="result">
-          {/* //TODO Boucle avec les resultats .map
-              afficher le sous composant Title
-              =>  Afficherai sous forme de modale composant Profil (frame Profil Dev)
-            */}
+          {/* use map to add results */}
           {results?.map((user) => (
             <Card
               key={user.dev_id}
               avatar={user.picture_profile}
               lastname={user.lastname}
               firstname={user.firstname}
+              {...results}
             />
           ))}
         </div>

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import man from '../../../assets/images/men.png';
 import woman from '../../../assets/images/woman.png';
 import { setToggleModalProfil } from '../../../actions/settings';
+import { fetchProfileModale } from '../../../actions/formSearchDev';
 
 function Title({
   avatar, firstname, lastname,
@@ -15,6 +16,7 @@ function Title({
       className="result__champ"
       onClick={() => {
         dispatch(setToggleModalProfil());
+        dispatch(fetchProfileModale());
       }}
     >
       <img

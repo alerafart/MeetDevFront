@@ -1,29 +1,17 @@
-import { SAVE_PROFILE } from '../actions/formSearchDev';
+import { FETCH_PROFILE_MODALE, SAVE_PROFILE } from '../actions/formSearchDev';
 
 export const initialState = {
   results: [],
-  /* {
-    age: '',
+  modale: {
     city: '',
-    department: '',
-    description: '',
     dev_id: '',
-    email_address: '',
-    english_spoken: '',
     firstname: '',
-    github_link: '',
     languages: '',
     lastname: '',
-    minimum_salary_requested: '',
-    other_link: '',
-    phone: '',
-    portfolio_link: '',
     profile_picture: '',
     recrut_id: '',
     years_of_experience: '',
-    zip_code: '',
-  } */
-
+  },
 };
 
 const resultSearch = (state = initialState, action = {}) => {
@@ -32,6 +20,14 @@ const resultSearch = (state = initialState, action = {}) => {
       return {
         ...state,
         results: action.results,
+      };
+    }
+    case FETCH_PROFILE_MODALE: {
+      return {
+        ...state,
+        modale: {
+          [action.name]: action.value,
+        },
       };
     }
     default:

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { saveProfile } from '../actions/formSearchDev';
+import { fetchProfileModale, saveProfile } from '../actions/formSearchDev';
 import { FETCH_PROFILE } from '../actions/middleware';
 
 const searchApi = (store) => (next) => (action) => {
@@ -29,10 +29,19 @@ const searchApi = (store) => (next) => (action) => {
           // status message
           const statusMessage = response.data.message;
 
+          const userData = response.data.res;
+
           // condition if the status and message is ok
           if (status === 'success' && statusMessage === 'Profile loaded successfuly') {
             // save data in the state (formSearchDev)
             store.dispatch(saveProfile(response.data.res));
+
+            store.dispatch(fetchProfileModale(userData[0].lastname, 'lastname'));
+            store.dispatch(fetchProfileModale(userData[0].firstname, 'firstname'));
+            store.dispatch(fetchProfileModale(userData[0].city, 'city'));
+            store.dispatch(fetchProfileModale(userData[0].profile_picture, 'profile_picture'));
+            store.dispatch(fetchProfileModale(userData[0].years_of_experience, 'years_of_experience'));
+            store.dispatch(fetchProfileModale(userData[0].languages, 'languages'));
           }
           // condition if the status and message is bad
           else {

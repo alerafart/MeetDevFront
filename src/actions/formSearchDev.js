@@ -14,3 +14,13 @@ export const saveProfile = (results) => ({
   type: SAVE_PROFILE,
   results,
 });
+
+// ACTION TYPE FETCH_PROFILE_MODALE
+export const FETCH_PROFILE_MODALE = 'FETCH_PROFILE_MODALE';
+
+// ACTION CREATOR fetchProfileModale
+export const fetchProfileModale = (value, name) => ({
+  type: FETCH_PROFILE_MODALE,
+  value,
+  name,
+});

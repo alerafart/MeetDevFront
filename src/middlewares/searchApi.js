@@ -7,7 +7,7 @@ const searchApi = (store) => (next) => (action) => {
     case FETCH_PROFILE: {
       const state = store.getState();
       const {
-        city, technology, experience, availability,
+        city, technology, experience,
       } = state.formSearchDev.search;
       axios.get(
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search',
@@ -17,7 +17,6 @@ const searchApi = (store) => (next) => (action) => {
             city: city,
             language: technology,
             exp: experience,
-            availabilty: availability,
           },
         },
       )

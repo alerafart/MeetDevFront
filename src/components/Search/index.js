@@ -104,7 +104,6 @@ function Search() {
             Filtrer
           </button>
         </form>
-
         <h2 className="search__title">
           {count} développeurs proches de vous
         </h2>

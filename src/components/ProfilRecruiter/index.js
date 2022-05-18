@@ -1,10 +1,17 @@
 import './recruiterprofil.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
+import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 
 function RecruiterProfile() {
+  const profilRec = useSelector((state) => state.profilRecruiter);
   const data = useSelector((state) => state.profilRecruiter.register);
+  const dispatch = useDispatch();
+
+  function handlecopy() {
+    dispatch(copyProfilRecToTemp(profilRec));
+  }
 
   return (
     <div className="wrapper">
@@ -29,14 +36,18 @@ function RecruiterProfile() {
           <p className="profil__informations--phone">{data.phone}</p>
         </div>
         <div className="profil__modify">
-
-          <button
-            className="profil__modify__form"
-            type="button"
-          >
-            <Link to="/modifier">Modifier</Link>
-          </button>
-
+          <Link to="/modifier">
+            <button
+              className="profil__modify__form"
+              type="button"
+              onClick={() => {
+                console.log(profilRec);
+                dispatch(handlecopy());
+              }}
+            >
+              Modifier
+            </button>
+          </Link>
         </div>
       </div>
 

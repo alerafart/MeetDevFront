@@ -1,16 +1,17 @@
 import './modifyRecruiter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerRecruiter } from '../../actions/formRegisterRecruiter';
+import { tempModifRecProfil } from '../../actions/profilRecModifyTemp';
 
 function ModifyRecruiter() {
   const dispatch = useDispatch();
-  const register = useSelector((state) => state.formRegisterRecruiter.register);
+  const data = useSelector((state) => state.profilRecruiterModifyTemp.register);
+  console.log(data);
 
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
-    dispatch(registerRecruiter(value, name));
+    dispatch(tempModifRecProfil(value, name));
   }
   return (
     <div className="inscriptionRecruter">
@@ -50,43 +51,43 @@ function ModifyRecruiter() {
           <div className="inscriptionRecruter__form__champ--label">
             Prénom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.firstname} name="firstname" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.firstname} name="firstname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Nom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.lastname} name="lastname" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.lastname} name="lastname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Entreprise
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.firms} name="firms" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.firms} name="firms" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Ville
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.city} name="city" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.city} name="city" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Tél
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.phone} name="phone" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.phone} name="phone" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Site Internet
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.website} name="website" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.website} name="website" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
             Mail
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={register.email} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.email} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__buttons">
           <Link to="/profil">

@@ -7,41 +7,75 @@ function RecruiterProfile() {
   const data = useSelector((state) => state.profilRecruiter.register);
 
   return (
-    <div className="wrapper">
-      <h2 className="banniere">
-        Votre Profil
+
+    <div className="profilrecruiter">
+      <h2 className="profilrecruiter__title">
+        fiche recruteur
       </h2>
-      <div className="profil">
-        <div className="profil__leftpart">
+      <header className="profilrecruiter__header">
+        <div className="profilrecruiter__header__cadre">
           <img
-            className="profil__picture__img"
+            className="profilrecruiter__header__cadre--img"
             src={dikkenek}
             alt="logo de l'entreprise"
           />
-
-          <h3 className="profil__informations--name">{data.firstname} {data.lastname}</h3>
-          <p className="profil__informations--localisation">{data.city}</p>
-
-          {/* <p className="profil__informations--aboutme">About us TODO</p>
+        </div>
+        <div className="profilrecruiter__header__about">
+          <h3 className="profilrecruiter__header__about--label">
+            A Propos
+          </h3>
+          <h4 className="profilrecruiter__header__about--firms"> {data.firms} </h4>
+          <h4 className="profilrecruiter__header__about--name">{data.firstname} {data.lastname}</h4>
+          <h4 className="profilrecruiter__header__about--city">{data.city}</h4>
+          <p className="profilrecruiter__header__about--description">{data.description} test description</p>
+        </div>
+        {/* <p className="profil__informations--aboutme">About us TODO</p>
           <p className="profil__informations--description">
           Je suis directeur et sales marketing manager des abattoirs d'anderlecht TODO</p> */}
-          <p className="profil__informations--email">{data.email}</p>
-          <p className="profil__informations--phone">{data.phone}</p>
-        </div>
-        <div className="profil__modify">
+      </header>
 
-          <button
-            className="profil__modify__form"
-            type="button"
-          >
-            <Link to="/modifier">Modifier</Link>
-          </button>
-
+      <div className="profilrecruiter__container">
+        <div className="profilrecruiter__informations">
+          <h3 className="profilrecruiter__informations--label">
+            Informations
+          </h3>
+          <div className="profilrecruiter__informations__item">
+            <div className="profilrecruiter__informations__item--label"> Tél:
+            </div>
+            <div className="profilrecruiter__informations__item--color">0{data.phone}
+            </div>
+          </div>
+          <div className="profilrecruiter__informations__item">
+            <div className="profilrecruiter__informations__item--label"> Adresse:
+            </div>
+            <div className="profilrecruiter__informations__item--black">{data.zipCode} {data.city}
+            </div>
+          </div>
+          <div className="profilrecruiter__informations__item">
+            <div className="profilrecruiter__informations__item--label"> E-mail:
+            </div>
+            <div className="profilrecruiter__informations__item--color">{data.email}
+            </div>
+          </div>
+          <div className="profilrecruiter__informations__item">
+            <div className="profilrecruiter__informations__item--label"> website:
+            </div>
+            <div className="profilrecruiter__informations__item--color">{data.website} website en dur
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
+      <div className="profilrecruiter__modify">
 
+        <button
+          className="profilrecruiter__modify--form"
+          type="button"
+        >
+          <Link to="/modifier">Modifier</Link>
+        </button>
+      </div>
+    </div>
   );
 }
 

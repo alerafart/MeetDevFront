@@ -285,7 +285,7 @@ function ModifyDev() {
               type="submit"
               className="inscription__form__buttons__button--valid"
               onClick={() => {
-                dispatch(inscriptionDev());
+                // dispatch(inscriptionDev());
                 dispatch(toggleWindowLog());
               }}
             >

@@ -49,6 +49,15 @@ export const recruiterFavorites = () => ({
 
 });
 
+// ACTION TYPE SEARCH_PROFILE
+export const DELETE_ONE_FAVORITE = 'DELETE_ONE_FAVORITE';
+
+// ACTION CREATOR searchProfile
+export const deleteOneFavorite = () => ({
+  type: DELETE_ONE_FAVORITE,
+
+});
+
 /* export const GET_ONE_FAVORITE_FROM_API = 'GET_ONE_FAVORITE_FROM_API';
 
 export const getOneFavoriteFromApi = () => ({

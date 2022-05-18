@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { favoritesList } from '../actions/favorites';
 
-import { RECRUITER_FAVORITES } from '../actions/middleware';
+import { DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
 // import { registerDev } from '../actions/formRegisterDev';
 
 /* export const initialState = {
@@ -12,10 +12,9 @@ const favorisFromApi = (store) => (next) => (action) => {
   switch (action.type) {
     case RECRUITER_FAVORITES: {
       const state = store.getState();
-      const { id } = state.settings.log;
+      const id = state.settings.log.user_id;
 
       console.log(id);
-
       axios
         .get(
 
@@ -44,12 +43,11 @@ const favorisFromApi = (store) => (next) => (action) => {
           const favorites = response.data.favoriteUsersData.map((character, index) => ({
             // index: index,
             // character: character[index],
-            data: response.data.favoriteUsersData[index][0],
+            data: response.data.favoriteUsersData[index],
             // lastname: response.data.favoriteUsersData[index][index].lastname,
             // firstname: response.data.favoriteUsersData[index][index].firstname,
             // favorite: response.data.favoritesDetails[index],
-            developer_user_id: response.data.favoritesDetails[index].developer_user_id,
-            recruiter_user_id: response.data.favoritesDetails[index].recruiter_user_id,
+            detailId: response.data.favoritesDetails[index].id,
           }));
 
           // store.dispatch(favoritesList(response.data));
@@ -69,38 +67,33 @@ const favorisFromApi = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    /*
-    case GET_ONE_FAVORITE_FROM_API: {
+    case DELETE_ONE_FAVORITE: {
       const state = store.getState();
-      const recruiterUserId = state.favorites.favorites.listFavorites[0].recruiter_user_id;
-      const developerUserId = state.favorites.favorites.listFavorites[0].developer_user_id;
+      const id = state.modalProfil.result.detailId;
 
-      console.log(recruiterUserId);
-      console.log(developerUserId);
-
+      console.log(id);
       axios
-        .get(
+        .delete(
 
-          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
+          `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
             params: {
-              devId: developerUserId,
-              recrutId: recruiterUserId,
+              id: id,
             },
           },
         )
         .then((response) => {
           console.log(response.data);
-        })
+          console.log('favori bien supprimé de la liste');
 
-        .catch((error) => {
+          // store.dispatch(favoritesList(response.data));
+        }).catch((error) => {
           console.log(error.response.data);
         });
       next(action);
       break;
-    } */
-
+    }
     default:
       next(action);
   }

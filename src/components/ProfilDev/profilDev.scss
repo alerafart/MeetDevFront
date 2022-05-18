@@ -263,6 +263,13 @@
         min-width: 6rem;
       }
 
+      &--result {
+
+        &__title {
+          margin-bottom: 1rem;
+        }
+      }
+
       &--black {}
 
       &--color {
@@ -276,21 +283,21 @@
       }
 
       &__logos {
+        margin-left: 6rem;
         width: 100%;
         max-width: 15rem;
         display: flex;
-
         justify-content: space-between;
         align-items: center;
 
-
         &--logo {
-          width: 45px;
+          display: flex;
+          flex-wrap: wrap;
+          width: 4rem;
+          height: 3rem;
         }
       }
     }
-
-
 
 
   }

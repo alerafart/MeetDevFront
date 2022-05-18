@@ -13,6 +13,8 @@ function Search() {
   const search = useSelector((state) => state.formSearchDev.search);
   const results = useSelector((state) => state.resultSearch.results);
   const count = results.length;
+  /*   console.log(results);
+  console.log(typeof results); */
 
   const dispatch = useDispatch();
 
@@ -114,12 +116,19 @@ function Search() {
 
         <div className="result">
           {/* use map to add results */}
-          {results?.map((user) => (
+          {results.map((user) => (
             <Card
-              key={user.dev_id}
+              key={user.userId}
               user={user}
             />
           ))}
+          {/* {favoritesArray?.map(
+            (favorite) => (
+
+              <Card favorite={favorite} key={favorite.data.id} />
+
+            ),
+          )} */}
         </div>
 
       </div>

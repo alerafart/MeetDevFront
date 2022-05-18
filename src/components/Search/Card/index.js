@@ -2,8 +2,14 @@ import './title.scss';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import man from '../../../assets/images/men.png';
-import woman from '../../../assets/images/woman.png';
+import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
+import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
+import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
+import manAvatar4 from '../../../assets/avatars/avatar_man4.png';
+import womanAvatar1 from '../../../assets/avatars/avatar_woman1.png';
+import womanAvatar2 from '../../../assets/avatars/avatar_woman2.png';
+import womanAvatar3 from '../../../assets/avatars/avatar_woman3.png';
+import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
 import { setToggleModalProfil } from '../../../actions/settings';
 import { fetchProfileModale } from '../../../actions/formSearchDev';
 
@@ -11,6 +17,35 @@ function Title({
   user,
 }) {
   const dispatch = useDispatch();
+  console.log(user);
+  console.log(user.data.profile_picture);
+
+  // select how avatar to display
+  let avatar;
+  if (user.data.profile_picture === 'manAvatar1') {
+    avatar = manAvatar1;
+  }
+  if (user.data.profile_picture === 'manAvatar2') {
+    avatar = manAvatar2;
+  }
+  if (user.data.profile_picture === 'manAvatar3') {
+    avatar = manAvatar3;
+  }
+  if (user.data.profile_picture === 'manAvatar4') {
+    avatar = manAvatar4;
+  }
+  if (user.data.profile_picture === 'womanAvatar1') {
+    avatar = womanAvatar1;
+  }
+  if (user.data.profile_picture === 'womanAvatar2') {
+    avatar = womanAvatar2;
+  }
+  if (user.data.profile_picture === 'womanAvatar3') {
+    avatar = womanAvatar3;
+  }
+  if (user.data.profile_picture === 'womanAvatar4') {
+    avatar = womanAvatar4;
+  }
   return (
     <div
       className="result__champ"
@@ -21,11 +56,11 @@ function Title({
     >
       <img
         className="result__champ--img"
-        src={user.profile_picture === 'man' ? man : woman}
+        src={avatar}
         alt="avatar"
       />
       <div className="result__champ--item">
-        {user.firstname} {user.lastname}
+        {user.data.firstname} {user.data.lastname}
       </div>
     </div>
   );

@@ -153,7 +153,7 @@ function ModalChooseStack() {
               checked={stacks.includes('Swift')}
               onClick={(e) => handleChangeCheckbox(e)}
             />
-            TypeScript
+            Swift
           </div>
           <div className="chooseStackContainer__stack">
             <input

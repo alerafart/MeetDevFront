@@ -22,7 +22,9 @@ const searchApi = (store) => (next) => (action) => {
       )
         .then((response) => {
           // All of search datas
+          console.log(response.data.res[0].userDetails);
           console.log(response.data.res);
+          console.log(response.data.message);
           // answer status
           const { status } = response.data;
           // status message
@@ -31,8 +33,12 @@ const searchApi = (store) => (next) => (action) => {
           // condition if the status and message is ok
           if (status === 'success' && statusMessage === 'Profile loaded successfuly') {
             // save data in the state (formSearchDev)
-
-            store.dispatch(saveProfile(response.data.res));
+            const searchDev = response.data.res.map((character, index) => ({
+              data: response.data.res[index].userDetails[0],
+              userId: response.data.res[index].userId,
+            }));
+            console.log(searchDev);
+            store.dispatch(saveProfile(searchDev));
           }
           // condition if the status and message is bad
           else {

@@ -13,7 +13,6 @@ function Cookies() {
       <div className="cookies__button">
         <button type="button" className="cookies__button--agree">J'accepte</button>
         <button type="button" className="cookies__button--disagree">Je refuse</button>
-        <button type="button" className="cookies__button--privacy"> Voir les mentions légales</button>
       </div>
 
       <div id="all" />

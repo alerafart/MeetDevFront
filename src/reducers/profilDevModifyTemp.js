@@ -32,7 +32,7 @@ export const initialState = {
 
 };
 
-const profilDev = (state = initialState, action = {}) => {
+const profilDevModifyTemp = (state = initialState, action = {}) => {
   switch (action.type) {
     case TOGGLE_STACK_TEMP: {
       // si le name n'est pas dans le tableau des technologies on l'ajoute sinon on le retire
@@ -79,15 +79,6 @@ const profilDev = (state = initialState, action = {}) => {
         },
       };
     }
-    // case DATA_PROFIL_DEV_FROM_API: {
-    //   return {
-    //     ...state,
-    //     register: {
-    //       ...state.register,
-    //       [action.name]: action.value,
-    //     },
-    //   };
-    // }
 
     case LOGOUT:
       return {
@@ -101,4 +92,4 @@ const profilDev = (state = initialState, action = {}) => {
   }
 };
 
-export default profilDev;
+export default profilDevModifyTemp;

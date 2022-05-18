@@ -1,10 +1,17 @@
 import './recruiterprofil.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
+import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 
 function RecruiterProfile() {
+  const profilRec = useSelector((state) => state.profilRecruiter);
   const data = useSelector((state) => state.profilRecruiter.register);
+  const dispatch = useDispatch();
+
+  function handlecopy() {
+    dispatch(copyProfilRecToTemp(profilRec));
+  }
 
   return (
 
@@ -32,6 +39,7 @@ function RecruiterProfile() {
         {/* <p className="profil__informations--aboutme">About us TODO</p>
           <p className="profil__informations--description">
           Je suis directeur et sales marketing manager des abattoirs d'anderlecht TODO</p> */}
+
       </header>
 
       <div className="profilrecruiter__container">
@@ -63,17 +71,23 @@ function RecruiterProfile() {
             <div className="profilrecruiter__informations__item--color">{data.website} website en dur
             </div>
           </div>
+
         </div>
       </div>
 
       <div className="profilrecruiter__modify">
-
+        <Link to="/modifier">
         <button
           className="profilrecruiter__modify--form"
           type="button"
+          onClick={() => {
+                console.log(profilRec);
+                dispatch(handlecopy());
+              }}
         >
-          <Link to="/modifier">Modifier</Link>
+          
         </button>
+        </Link>
       </div>
     </div>
   );

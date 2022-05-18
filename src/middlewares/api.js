@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
 import axios from 'axios';
 import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
 import { dataProfilDevFromApi } from '../actions/profilDev';
@@ -11,93 +13,103 @@ const apiMiddleWare = (store) => (next) => (action) => {
     case LOGIN_TEST: {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
-      axios.post(
+      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hbGljaWFtdi1zZXJ2ZXIuZWRkaS5jbG91ZFwvcHJvamV0LTEwLW1lZXQtZGV2LWJhY2tcL3B1YmxpY1wvYXBpXC9sb2dpbiIsImlhdCI6MTY1Mjg4ODA4MCwiZXhwIjoxNjUyODkxNjgwLCJuYmYiOjE2NTI4ODgwODAsImp0aSI6IjIzbW5vV0xCbkt4NWo1djYiLCJzdWIiOjQ1LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.mSi449SDR0EwTCF6HyEir65VcQmwQHgQ69SBjuP-jJE';
+      axios.get(
         // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login', // route generale
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login', // route bearer test
+        // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login', // route bearer test
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/me',
         // ou url: 'http://localhost/api/users:8000',
         {
-          email_address: email,
-          password: password,
+          // params: {
+          // email_address: email,
+          // password: password,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          // },
         },
+
       )
         .then((response) => {
           // Récupération des données reçus de notre demande de login
           console.log(response.data);
-          const { status } = response.data;
-          // récupération du message lié au statut de la réponse
-          const statusMessage = response.data.message;
-          const { isDev } = response.data;
-          const { isRecruiter } = response.data;
-          // les datas de l'utilisateurs
-          const user = response.data.general;
+          // TODO A REMETTRE LIGNE 27 a 35 quand test ok;
+          // const { status } = response.data;
+          // // récupération du message lié au statut de la réponse
+          // const statusMessage = response.data.message;
+          store.dispatch(actionIsDev());
+          const { isDev } = true;
+          const { isRecruiter } = false;
+          // // les datas de l'utilisateurs
+          const user = response.data;
           // les datas de la table pivot dev ou recruiter
-          const userData = response.data.spec[0];
+          // const userData = response.data.spec[0];
 
           // Changement du state settings: logged:true + save email utilisateur)
           // TODO A REMETTRE QUAND TEST BEARE FINI
-          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id, response.data.token));
+          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id, token));
           // TODO TEST BEARER CONNEXION
           // store.dispatch(logged('essai@gmail.com', 15, 20, 18, response.data.token));
-
+          console.log(response.data);
           // TEST SI SUCCESS
-          // TODO TEST BEARER remettre ligne de 44 à 100 quand fini test
-          if (status === 'success' && statusMessage === 'Login successfull') {
-            if (isDev) {
-              // changement du state settings: isDev: true
-              store.dispatch(actionIsDev());
-              // save des données reçus dans notre state (formRegisterDev)
-              store.dispatch(dataProfilDevFromApi(user.firstname, 'firstname'));
-              store.dispatch(dataProfilDevFromApi(user.lastname, 'lastname'));
-              store.dispatch(dataProfilDevFromApi(userData.age, 'age'));
-              store.dispatch(dataProfilDevFromApi(user.email_address, 'email'));
-              store.dispatch(dataProfilDevFromApi(user.city, 'city'));
-              store.dispatch(dataProfilDevFromApi(user.zip_code, 'zipCode'));
-              store.dispatch(dataProfilDevFromApi(user.department, 'departement'));
-              store.dispatch(dataProfilDevFromApi(userData.description, 'description'));
-              store.dispatch(dataProfilDevFromApi(userData.label, 'label'));
-              store.dispatch(dataProfilDevFromApi(user.profile_picture, 'profilePicture'));
-              store.dispatch(dataProfilDevFromApi(userData.available_for_developers, 'available_for_developers'));
-              store.dispatch(dataProfilDevFromApi(userData.available_for_recruiters, 'available_for_recruiters'));
-              store.dispatch(dataProfilDevFromApi(userData.available_for_recruiters, 'availability'));
+          // TODO TEST BEARER remettre ligne de 45 à 101 quand fini test
+          // if (status === 'success' && statusMessage === 'Login successfull') {
+          //   if (isDev) {
+          //     // changement du state settings: isDev: true
+          //     store.dispatch(actionIsDev());
+          //     // save des données reçus dans notre state (formRegisterDev)
+          //     store.dispatch(dataProfilDevFromApi(user.firstname, 'firstname'));
+          //     store.dispatch(dataProfilDevFromApi(user.lastname, 'lastname'));
+          //     store.dispatch(dataProfilDevFromApi(userData.age, 'age'));
+          //     store.dispatch(dataProfilDevFromApi(user.email_address, 'email'));
+          //     store.dispatch(dataProfilDevFromApi(user.city, 'city'));
+          //     store.dispatch(dataProfilDevFromApi(user.zip_code, 'zipCode'));
+          //     store.dispatch(dataProfilDevFromApi(user.department, 'departement'));
+          //     store.dispatch(dataProfilDevFromApi(userData.description, 'description'));
+          //     store.dispatch(dataProfilDevFromApi(userData.label, 'label'));
+          //     store.dispatch(dataProfilDevFromApi(user.profile_picture, 'profilePicture'));
+          //     store.dispatch(dataProfilDevFromApi(userData.available_for_developers, 'available_for_developers'));
+          //     store.dispatch(dataProfilDevFromApi(userData.available_for_recruiters, 'available_for_recruiters'));
+          //     store.dispatch(dataProfilDevFromApi(userData.available_for_recruiters, 'availability'));
 
-              store.dispatch(dataProfilDevFromApi(user.phone, 'phone'));
-              store.dispatch(dataProfilDevFromApi(user.password, 'password'));
-              //* transform languages string to array technologies
-              const technologies = userData.languages.split(',');
-              store.dispatch(dataProfilDevFromApi(technologies, 'technology'));
-              store.dispatch(dataProfilDevFromApi(userData.years_of_experience, 'experience'));
-              store.dispatch(dataProfilDevFromApi(userData.portfolio_link, 'portfolio'));
+          //     store.dispatch(dataProfilDevFromApi(user.phone, 'phone'));
+          //     store.dispatch(dataProfilDevFromApi(user.password, 'password'));
+          //     //* transform languages string to array technologies
+          //     const technologies = userData.languages.split(',');
+          //     store.dispatch(dataProfilDevFromApi(technologies, 'technology'));
+          //     store.dispatch(dataProfilDevFromApi(userData.years_of_experience, 'experience'));
+          //     store.dispatch(dataProfilDevFromApi(userData.portfolio_link, 'portfolio'));
 
-              store.dispatch(dataProfilDevFromApi(userData.github_link, 'github'));
-              // store.dispatch(dataProfilDevFromApi('', 'languages'));
-              store.dispatch(dataProfilDevFromApi(userData.english_spoken, 'english'));
-              store.dispatch(dataProfilDevFromApi(userData.minimum_salary_requested, 'salary'));
-              // store.dispatch(dataProfilDevFromApi('', 'gender'));
-              // redirection vers page profil
-            }
-            else if (isRecruiter) {
-              // changement du state settings: isDev: true
-              store.dispatch(actionIsRecruiter());
-              // save des données reçus dans notre state (formRegisterRecruiter)
-              store.dispatch(dataProfilRecruiterFromApi(response.data.status, 'status'));
-              store.dispatch(dataProfilRecruiterFromApi(response.data.message, 'message'));
-              store.dispatch(dataProfilRecruiterFromApi(user.firstname, 'firstname'));
-              store.dispatch(dataProfilRecruiterFromApi(user.lastname, 'lastname'));
-              store.dispatch(dataProfilRecruiterFromApi(userData.company_name, 'firms'));
-              store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
-              store.dispatch(dataProfilRecruiterFromApi(user.department, 'department'));
-              store.dispatch(dataProfilRecruiterFromApi(user.zip_code, 'zipCode'));
-              store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));
-              store.dispatch(dataProfilRecruiterFromApi(userData.web_site_link, 'website'));
-              store.dispatch(dataProfilRecruiterFromApi(user.email_address, 'email'));
-              store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
-              store.dispatch(dataProfilRecruiterFromApi(user.profile_picture, 'profilePicture'));
-              store.dispatch(dataProfilRecruiterFromApi(userData.needs_description, 'description'));
-            }
-            else {
-              console.log('probleme de connexion');
-            }
-          }
+          //     store.dispatch(dataProfilDevFromApi(userData.github_link, 'github'));
+          //     // store.dispatch(dataProfilDevFromApi('', 'languages'));
+          //     store.dispatch(dataProfilDevFromApi(userData.english_spoken, 'english'));
+          //     store.dispatch(dataProfilDevFromApi(userData.minimum_salary_requested, 'salary'));
+          //     // store.dispatch(dataProfilDevFromApi('', 'gender'));
+          //     // redirection vers page profil
+          //   }
+          //   else if (isRecruiter) {
+          //     // changement du state settings: isDev: true
+          //     store.dispatch(actionIsRecruiter());
+          //     // save des données reçus dans notre state (formRegisterRecruiter)
+          //     store.dispatch(dataProfilRecruiterFromApi(response.data.status, 'status'));
+          //     store.dispatch(dataProfilRecruiterFromApi(response.data.message, 'message'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.firstname, 'firstname'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.lastname, 'lastname'));
+          //     store.dispatch(dataProfilRecruiterFromApi(userData.company_name, 'firms'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.city, 'city'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.department, 'department'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.zip_code, 'zipCode'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.phone, 'phone'));
+          //     store.dispatch(dataProfilRecruiterFromApi(userData.web_site_link, 'website'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.email_address, 'email'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
+          //     store.dispatch(dataProfilRecruiterFromApi(user.profile_picture, 'profilePicture'));
+          //     store.dispatch(dataProfilRecruiterFromApi(userData.needs_description, 'description'));
+          //   }
+          //   else {
+          //     console.log('probleme de connexion');
+          //   }
+          // }
         }).catch((error) => {
           console.log(error.response);
           console.log('dans le catch');

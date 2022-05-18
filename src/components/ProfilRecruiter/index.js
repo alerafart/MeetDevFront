@@ -77,16 +77,16 @@ function RecruiterProfile() {
 
       <div className="profilrecruiter__modify">
         <Link to="/modifier">
-        <button
-          className="profilrecruiter__modify--form"
-          type="button"
-          onClick={() => {
-                console.log(profilRec);
-                dispatch(handlecopy());
-              }}
-        >
-          
-        </button>
+          <button
+            className="profilrecruiter__modify--form"
+            type="button"
+            onClick={() => {
+              console.log(profilRec);
+              dispatch(handlecopy());
+            }}
+          >
+            Modifier
+          </button>
         </Link>
       </div>
     </div>

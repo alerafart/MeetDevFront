@@ -1,4 +1,5 @@
 import { SAVE_PROFILE } from '../actions/formSearchDev';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   results: [],
@@ -10,6 +11,12 @@ const resultSearch = (state = initialState, action = {}) => {
       return {
         ...state,
         results: action.results,
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        results: [],
       };
     }
     default:

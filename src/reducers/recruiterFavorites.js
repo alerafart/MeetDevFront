@@ -1,7 +1,7 @@
 // import { DATA_PROFIL_RECRUITER_FROM_API } from '../actions/profilRecruiter';
-// import { LOGOUT } from '../actions/settings';
 
 import { FAVORITES_LIST } from '../actions/favorites';
+import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
   favorites: {
@@ -17,6 +17,14 @@ const favorites = (state = initialState, action = {}) => {
         favorites: {
           ...state.favorites,
           listFavorites: action.data,
+        },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        favorites: {
+          listFavorites: [],
         },
       };
     }

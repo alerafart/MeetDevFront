@@ -10,7 +10,7 @@ import github from '../../assets/images/github.png';
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
 
-import { searchCity } from '../../actions/middleware';
+import { inscriptionDev, searchCity } from '../../actions/middleware';
 // import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
@@ -162,19 +162,23 @@ function ModifyDev() {
           <div className="inscription__form__champ--label">
             Vérif Mail
           </div>
-          <input className="inscription__form__champ--input" type="mail" name="emailTest" value={data.emailTest} onChange={handleChangeForm} />
+          <input className="inscription__form__champ--input"
+          type="mail" name="emailTest" value={data.emailTest} onChange={handleChangeForm} />
         </div> */}
         {/* <div className="inscription__form__champ">
           <div className="inscription__form__champ--label">
             Mdp
           </div>
-          <input className="inscription__form__champ--input" type="password" name="password" value={data.password} o />
+          <input className="inscription__form__champ--input"
+          type="password" name="password" value={data.password} o />
         </div> */}
         {/* <div className="inscription__form__champ">
           <div className="inscription__form__champ--label">
             Vérif Mdp
           </div>
-          <input className="inscription__form__champ--input" type="password" name="verifypassword" value={data.verifpassword} onChange={handleChangeForm} />
+          <input className="inscription__form__champ--input"
+          type="password" name="verifypassword"
+          value={data.verifpassword} onChange={handleChangeForm} />
         </div> */}
         <div className="inscription__form__champ">
           <div className="inscription__form__champ--label">
@@ -210,7 +214,8 @@ function ModifyDev() {
             Choisir ma Stack
           </button>
 
-          {/* <select value={data.technology} className="inscription__form__champ--input" name="technology" onChange={handleChangeForm}>
+          {/* <select value={data.technology} className="inscription__form__champ--input"
+          name="technology" onChange={handleChangeForm}>
                   <option value="">{null}</option>
                   <option>React</option>
                   <option>Symfony</option>
@@ -271,7 +276,8 @@ function ModifyDev() {
           {/* <div className="inscription__form__champ--label">
                   PortFolio
                 </div>
-                <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
+                <input name="portfolio" className="inscription__form__champ--input"
+                type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
         </div>
         <div className="inscription__form__buttons">
           <Link to="/">

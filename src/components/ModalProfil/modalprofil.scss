@@ -146,11 +146,24 @@
       }
 
       &--item {
-        margin-bottom: 0.7em;
+        margin-bottom: 0.8em;
+
+        &--name {
+          color: vars.$mainColor;
+          margin-bottom: 0.8em;
+          font-weight: bold;
+        }
+
+        &--experience {
+          color: vars.$mainColor;
+          margin-bottom: 0.8em;
+        }
 
         &--adress {
           display: flex;
           align-items: center;
+          font-style: italic;
+          color: vars.$mainColor;
 
           &--icon {
             width: 1.5rem;

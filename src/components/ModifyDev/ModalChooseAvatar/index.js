@@ -3,10 +3,15 @@ import { useDispatch } from 'react-redux';
 
 // import all avatars
 
-import menAvatar from '../../../assets/avatars/men.png';
-import womanAvatar from '../../../assets/avatars/woman.png';
+import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
+import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
+import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
+import manAvatar4 from '../../../assets/avatars/avatar_man4.png';
+import womanAvatar1 from '../../../assets/avatars/avatar_woman1.png';
+import womanAvatar2 from '../../../assets/avatars/avatar_woman2.png';
+import womanAvatar3 from '../../../assets/avatars/avatar_woman3.png';
+import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
 import { chooseAvatarModal } from '../../../actions/settings';
-import { selectAvatar } from '../../../actions/formRegisterDev';
 import { selectAvatarTemp } from '../../../actions/profilDevModifyTemp';
 
 function ModalChooseAvatar() {
@@ -23,73 +28,73 @@ function ModalChooseAvatar() {
         <div className="chooseAvatarContainer__imgs">
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={menAvatar}
+            src={womanAvatar1}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('menAvatar'));
+              dispatch(selectAvatarTemp('womanAvatar1'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar}
+            src={womanAvatar2}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar'));
+              dispatch(selectAvatarTemp('womanAvatar2'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={menAvatar}
+            src={womanAvatar3}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('menAvatar'));
+              dispatch(selectAvatarTemp('womanAvatar3'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar}
+            src={womanAvatar4}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar'));
+              dispatch(selectAvatarTemp('womanAvatar4'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={menAvatar}
+            src={manAvatar1}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('menAvatar'));
+              dispatch(selectAvatarTemp('manAvatar1'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar}
+            src={manAvatar2}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar'));
+              dispatch(selectAvatarTemp('manAvatar2'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={menAvatar}
+            src={manAvatar3}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('menAvatar'));
+              dispatch(selectAvatarTemp('manAvatar3'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar}
+            src={manAvatar4}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar'));
+              dispatch(selectAvatarTemp('manAvatar4'));
               dispatch(chooseAvatarModal());
             }}
           />

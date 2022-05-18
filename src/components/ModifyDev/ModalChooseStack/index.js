@@ -154,7 +154,7 @@ function ModalChooseStack() {
               checked={stacks.includes('Swift')}
               onClick={(e) => handleChangeCheckbox(e)}
             />
-            TypeScript
+            Swift
           </div>
           <div className="chooseStackContainer__stack">
             <input
@@ -358,7 +358,7 @@ function ModalChooseStack() {
 
         <div className="chooseStackContainer__cancel">
           <button className="chooseStackContainer__cancel--button" type="button" onClick={() => dispatch(toggleModalChooseTechnologie())}>
-            Fermeture
+            Valider
           </button>
         </div>
 

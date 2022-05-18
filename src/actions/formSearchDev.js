@@ -19,7 +19,8 @@ export const saveProfile = (results) => ({
 export const FETCH_PROFILE_MODALE = 'FETCH_PROFILE_MODALE';
 
 // ACTION CREATOR fetchProfileModale
-export const fetchProfileModale = (user) => ({
+export const fetchProfileModale = (user, userId) => ({
   type: FETCH_PROFILE_MODALE,
   user,
+  userId,
 });

@@ -12,7 +12,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+        // 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login', // route generale
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login', // route bearer test
         // ou url: 'http://localhost/api/users:8000',
         {
           email_address: email,
@@ -33,9 +34,13 @@ const apiMiddleWare = (store) => (next) => (action) => {
           const userData = response.data.spec[0];
 
           // Changement du state settings: logged:true + save email utilisateur)
-          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id));
+          // TODO A REMETTRE QUAND TEST BEARE FINI
+          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id, response.data.token));
+          // TODO TEST BEARER CONNEXION
+          // store.dispatch(logged('essai@gmail.com', 15, 20, 18, response.data.token));
 
           // TEST SI SUCCESS
+          // TODO TEST BEARER remettre ligne de 44 à 100 quand fini test
           if (status === 'success' && statusMessage === 'Login successfull') {
             if (isDev) {
               // changement du state settings: isDev: true
@@ -95,6 +100,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
           }
         }).catch((error) => {
           console.log(error.response);
+          console.log('dans le catch');
         });
       next(action);
       break;

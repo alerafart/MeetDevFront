@@ -3,12 +3,13 @@
 export const LOGGED = 'LOGGED';
 
 // ACTION CREATOR LOGIN
-export const logged = (email, userId, devId, recruitId) => ({
+export const logged = (email, userId, devId, recruitId, token) => ({
   type: LOGGED,
   email,
   userId,
   devId,
   recruitId,
+  token,
 });
 
 // ACTION TYPE IS_DEV

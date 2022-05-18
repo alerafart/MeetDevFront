@@ -2,8 +2,15 @@ import './profildevmodify.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // import all avatars
-import menAvatar from '../../assets/avatars/men.png';
-import womanAvatar from '../../assets/avatars/woman.png';
+// import all avatars
+import manAvatar1 from '../../assets/avatars/avatar_man1.png';
+import manAvatar2 from '../../assets/avatars/avatar_man2.png';
+import manAvatar3 from '../../assets/avatars/avatar_man3.png';
+import manAvatar4 from '../../assets/avatars/avatar_man4.png';
+import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
+import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
+import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
+import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 import github from '../../assets/images/github.png';
 // import { registerDev } from '../../actions/formRegisterDev';
 
@@ -27,11 +34,29 @@ function ModifyDev() {
 
   // select how avatar to display
   let avatar;
-  if (data.profilePicture === 'menAvatar') {
-    avatar = menAvatar;
+  if (data.profilePicture === 'manAvatar1') {
+    avatar = manAvatar1;
   }
-  if (data.profilePicture === 'womanAvatar') {
-    avatar = womanAvatar;
+  if (data.profilePicture === 'manAvatar2') {
+    avatar = manAvatar2;
+  }
+  if (data.profilePicture === 'manAvatar3') {
+    avatar = manAvatar3;
+  }
+  if (data.profilePicture === 'manAvatar4') {
+    avatar = manAvatar4;
+  }
+  if (data.profilePicture === 'womanAvatar1') {
+    avatar = womanAvatar1;
+  }
+  if (data.profilePicture === 'womanAvatar2') {
+    avatar = womanAvatar2;
+  }
+  if (data.profilePicture === 'womanAvatar3') {
+    avatar = womanAvatar3;
+  }
+  if (data.profilePicture === 'womanAvatar4') {
+    avatar = womanAvatar4;
   }
 
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);

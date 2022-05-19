@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { favoritesList } from '../actions/favorites';
 
-import { DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
+import { ADD_ONE_FAVORITE, DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
 // import { registerDev } from '../actions/formRegisterDev';
 
 /* export const initialState = {
@@ -60,6 +60,35 @@ const favorisFromApi = (store) => (next) => (action) => {
 
           console.log(favorites);
           store.dispatch(favoritesList(favorites));
+          // store.dispatch(favoritesList(response.data));
+        }).catch((error) => {
+          console.log(error.response.data);
+        });
+      next(action);
+      break;
+    }
+
+    case ADD_ONE_FAVORITE: {
+      const state = store.getState();
+      const recrutUserId = state.settings.log.user_id;
+      const devUserId = state.modalProfil.userId;
+
+      console.log(recrutUserId);
+      console.log(devUserId);
+      axios
+        .post(
+
+          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
+          // ou url: 'http://localhost/api/users:8000',
+          {
+            devUserId: devUserId,
+            recrutUserId: recrutUserId,
+          },
+        )
+        .then((response) => {
+          console.log(response.data);
+          console.log('favori bien ajouté de la liste');
+
           // store.dispatch(favoritesList(response.data));
         }).catch((error) => {
           console.log(error.response.data);

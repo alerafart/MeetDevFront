@@ -51,25 +51,25 @@ function ModifyRecruiter() {
   }
 
   return (
-    <div className="inscriptionRecruter">
-      <h2 className="inscriptionRecruter__title">
+    <div className="inscriptionRecruiter">
+      <h2 className="inscriptionRecruiter__title">
         Mes informations
       </h2>
 
-      <form className="inscriptionRecruter__header">
+      <form className="inscriptionRecruiter__header">
         <div className="inscription__form__avatarContainer">
           {
                   avatar && (
                     <img src={avatar} alt="" />
                   )
                 }
-          <button type="button" className="inscriptionRecruter__header--button" onClick={() => dispatch(chooseAvatarModal())}>Ajouter un logo</button>
+          <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Modifier le logo</button>
           {
                   displayChooseAvatarModal && <ModalChooseAvatar />
                 }
         </div>
       </form>
-      <form className="inscriptionRecruter__form">
+      <form className="inscriptionRecruiter__form">
         {/* <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--radio">
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp1">
@@ -89,53 +89,53 @@ function ModifyRecruiter() {
             </label>
           </div>
         </div> */}
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Prénom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.firstname} name="firstname" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.firstname} name="firstname" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Nom
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.lastname} name="lastname" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.lastname} name="lastname" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Entreprise
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.firms} name="firms" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.firms} name="firms" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Ville
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.city} name="city" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.city} name="city" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Tél
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.phone} name="phone" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.phone} name="phone" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Site Internet
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.website} name="website" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.website} name="website" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__champ">
-          <div className="inscriptionRecruter__form__champ--label">
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Mail
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.email} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.email} name="email" onChange={handleChangeForm} />
         </div>
-        <div className="inscriptionRecruter__form__buttons">
+        <div className="inscriptionRecruiter__form__buttons">
           <Link to="/profil">
             <button
               type="submit"
-              className="inscriptionRecruter__form__buttons__button--valid"
+              className="inscriptionRecruiter__form__buttons__button--valid"
               onClick={() => {
                 // dispatch(inscriptionDev());
                 dispatch(toggleWindowLog());
@@ -147,7 +147,7 @@ function ModifyRecruiter() {
           <Link to="/profil">
             <button
               type="submit"
-              className="inscriptionRecruter__form__buttons__button--cancel"
+              className="inscriptionRecruiter__form__buttons__button--cancel"
             >
               Annuler
             </button>

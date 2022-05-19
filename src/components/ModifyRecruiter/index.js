@@ -2,18 +2,58 @@ import './modifyRecruiter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { tempModifRecProfil } from '../../actions/profilRecModifyTemp';
+
+import { chooseAvatarModal, toggleWindowLog } from '../../actions/settings';
+
+// import all avatars
+import companyAvatar1 from '../../assets/avatars/avatar_company1.png';
+import companyAvatar2 from '../../assets/avatars/avatar_company2.png';
+import companyAvatar3 from '../../assets/avatars/avatar_company3.png';
+import companyAvatar4 from '../../assets/avatars/avatar_company4.png';
+import companyAvatar5 from '../../assets/avatars/avatar_company5.png';
+import companyAvatar6 from '../../assets/avatars/avatar_company6.png';
+import ModalChooseAvatar from './ModalChooseAvatar';
+
 import { validateModifyRecruiter } from '../../actions/middleware';
+
 
 function ModifyRecruiter() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.profilRecruiterModifyTemp.register);
-  console.log(data);
+  const displayChooseAvatarModal = useSelector(
+    (state) => state.settings.navigation.chooseAvatarModal,
+  );
 
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
     dispatch(tempModifRecProfil(value, name));
   }
+
+  // select how avatar to display
+  let avatar;
+  if (data.profilePicture === 'companyAvatar1') {
+    avatar = companyAvatar1;
+  }
+  if (data.profilePicture === 'companyAvatar2') {
+    avatar = companyAvatar2;
+  }
+  if (data.profilePicture === 'companyAvatar3') {
+    avatar = companyAvatar3;
+  }
+  if (data.profilePicture === 'companyAvatar4') {
+    avatar = companyAvatar4;
+  }
+  if (data.profilePicture === 'companyAvatar5') {
+    avatar = companyAvatar5;
+  }
+  if (data.profilePicture === 'companyAvatar6') {
+    avatar = companyAvatar6;
+  }
+  if (data.profilePicture === '') {
+    avatar = '';
+  }
+
   return (
     <div className="inscriptionRecruter">
       <h2 className="inscriptionRecruter__title">
@@ -21,12 +61,17 @@ function ModifyRecruiter() {
       </h2>
 
       <form className="inscriptionRecruter__header">
-        <input
-          className="inscriptionRecruter__header--avatar"
-          type="file"
-          name="logo"
-        />
-        <button type="button" className="inscriptionRecruter__header--button">Logo entreprise</button>
+        <div className="inscription__form__avatarContainer">
+          {
+                  avatar && (
+                    <img src={avatar} alt="" />
+                  )
+                }
+          <button type="button" className="inscriptionRecruter__header--button" onClick={() => dispatch(chooseAvatarModal())}>Ajouter un logo</button>
+          {
+                  displayChooseAvatarModal && <ModalChooseAvatar />
+                }
+        </div>
       </form>
       <form className="inscriptionRecruter__form">
         {/* <div className="inscriptionRecruter__form__champ">
@@ -96,10 +141,15 @@ function ModifyRecruiter() {
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
               onClick={() => {
+
+                // dispatch(inscriptionDev());
+                dispatch(toggleWindowLog());
+
                 dispatch(validateModifyRecruiter());
+
               }}
             >
-              valider
+              Valider
             </button>
           </Link>
           <Link to="/profil">

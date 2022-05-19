@@ -2,16 +2,14 @@ import './modalChooseAvatar.scss';
 import { useDispatch } from 'react-redux';
 
 // import all avatars
-import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
-import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
-import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
-import manAvatar4 from '../../../assets/avatars/avatar_man4.png';
-import womanAvatar1 from '../../../assets/avatars/avatar_woman1.png';
-import womanAvatar2 from '../../../assets/avatars/avatar_woman2.png';
-import womanAvatar3 from '../../../assets/avatars/avatar_woman3.png';
-import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
+import companyAvatar1 from '../../../assets/avatars/avatar_company1.png';
+import companyAvatar2 from '../../../assets/avatars/avatar_company2.png';
+import companyAvatar3 from '../../../assets/avatars/avatar_company3.png';
+import companyAvatar4 from '../../../assets/avatars/avatar_company4.png';
+import companyAvatar5 from '../../../assets/avatars/avatar_company5.png';
+import companyAvatar6 from '../../../assets/avatars/avatar_company6.png';
 import { chooseAvatarModal } from '../../../actions/settings';
-import { selectAvatarTemp } from '../../../actions/profilDevModifyTemp';
+import { selectAvatarTempRecruiter } from '../../../actions/profilRecModifyTemp';
 
 function ModalChooseAvatar() {
   const dispatch = useDispatch();
@@ -27,73 +25,55 @@ function ModalChooseAvatar() {
         <div className="chooseAvatarContainer__imgs">
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar1}
+            src={companyAvatar1}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar1'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar1'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar2}
+            src={companyAvatar2}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar2'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar2'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar3}
+            src={companyAvatar3}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar3'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar3'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={womanAvatar4}
+            src={companyAvatar4}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('womanAvatar4'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar4'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={manAvatar1}
+            src={companyAvatar5}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('manAvatar1'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar5'));
               dispatch(chooseAvatarModal());
             }}
           />
           <img
             className="chooseAvatarContainer__imgs--img"
-            src={manAvatar2}
+            src={companyAvatar6}
             alt=""
             onClick={() => {
-              dispatch(selectAvatarTemp('manAvatar2'));
-              dispatch(chooseAvatarModal());
-            }}
-          />
-          <img
-            className="chooseAvatarContainer__imgs--img"
-            src={manAvatar3}
-            alt=""
-            onClick={() => {
-              dispatch(selectAvatarTemp('manAvatar3'));
-              dispatch(chooseAvatarModal());
-            }}
-          />
-          <img
-            className="chooseAvatarContainer__imgs--img"
-            src={manAvatar4}
-            alt=""
-            onClick={() => {
-              dispatch(selectAvatarTemp('manAvatar4'));
+              dispatch(selectAvatarTempRecruiter('companyAvatar6'));
               dispatch(chooseAvatarModal());
             }}
           />

@@ -15,9 +15,9 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
         password,
         firms,
         website,
-        department,
+        /* department,
         zipCode,
-        profilePicture,
+        profilePicture, */
         description,
       } = state.formRegisterRecruiter.register;
       // const { status } = state.formRegisterRecruiter.register;
@@ -40,13 +40,13 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
           lastname: lastname,
           firstname: firstname,
           city: city,
-          zip_code: zipCode,
-          department: department,
+          zip_code: 14000, // TODO a changer
+          department: 14, // TODO a changer
           email_address: email,
           phone: phone,
           password: password,
           subscribe_to_push_notif: 0, // non dynamique pour le moment
-          profile_picture: profilePicture,
+          profile_picture: 'ldlc.png', // TODO a changer
           needs_description: description,
           // status: status,
           company_name: firms,

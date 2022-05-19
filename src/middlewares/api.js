@@ -12,7 +12,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/login',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
         // ou url: 'http://localhost/api/users:8000',
         {
           email_address: email,
@@ -27,13 +27,14 @@ const apiMiddleWare = (store) => (next) => (action) => {
           const statusMessage = response.data.message;
           const { isDev } = response.data;
           const { isRecruiter } = response.data;
+          const token = response.data.token.original.access_token;
           // les datas de l'utilisateurs
           const user = response.data.general;
           // les datas de la table pivot dev ou recruiter
           const userData = response.data.spec[0];
 
           // Changement du state settings: logged:true + save email utilisateur)
-          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id));
+          store.dispatch(logged(user.email_address, user.id, user.dev_id, user.recrut_id, token));
 
           // TEST SI SUCCESS
           if (status === 'success' && statusMessage === 'Login successfull') {

@@ -58,6 +58,14 @@ export const deleteOneFavorite = () => ({
 
 });
 
+export const ADD_ONE_FAVORITE = 'ADD_ONE_FAVORITE';
+
+// ACTION CREATOR searchProfile
+export const addOneFavorite = () => ({
+  type: ADD_ONE_FAVORITE,
+
+});
+
 /* export const GET_ONE_FAVORITE_FROM_API = 'GET_ONE_FAVORITE_FROM_API';
 
 export const getOneFavoriteFromApi = () => ({

@@ -12,12 +12,3 @@ export const tempModifRecProfil = (value, name) => ({
   value,
   name,
 });
-
-// ACTION TYPE SELECT_AVATAR_TEMP_RECRUITER
-export const SELECT_AVATAR_TEMP_RECRUITER = 'SELECT_AVATAR_TEMP_RECRUITER';
-
-// ACTION CREATOR selectAvatarTempRecruiter
-export const selectAvatarTempRecruiter = (profilePicture) => ({
-  type: SELECT_AVATAR_TEMP_RECRUITER,
-  profilePicture,
-});

@@ -17,7 +17,7 @@ import github from '../../assets/images/github.png';
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
 
-import { searchCity } from '../../actions/middleware';
+import { searchCity, validateModifyDev } from '../../actions/middleware';
 // import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
@@ -57,9 +57,6 @@ function ModifyDev() {
   }
   if (data.profilePicture === 'womanAvatar4') {
     avatar = womanAvatar4;
-  }
-  if (data.profilePicture === '') {
-    avatar = '';
   }
 
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
@@ -308,13 +305,14 @@ function ModifyDev() {
                 type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
         </div>
         <div className="inscription__form__buttons">
-          <Link to="/">
+          <Link to="/profil">
             <button
               type="submit"
               className="inscription__form__buttons__button--valid"
               onClick={() => {
                 // dispatch(inscriptionDev());
-                dispatch(toggleWindowLog());
+                // dispatch(toggleWindowLog());
+                dispatch(validateModifyDev());
               }}
             >
               Valider

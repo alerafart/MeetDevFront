@@ -1,13 +1,21 @@
 import './recruiterprofil.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 
 function RecruiterProfile() {
   const profilRec = useSelector((state) => state.profilRecruiter);
-  const data = useSelector((state) => state.profilRecruiter.register);
+  const data = profilRec.register;
+  // console.log(profilRec);
+  // // const data = useSelector((state) => state.profilRecruiter.register);
+  // const { data } = profilRec;
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+
+  // });
 
   function handlecopy() {
     dispatch(copyProfilRecToTemp(profilRec));

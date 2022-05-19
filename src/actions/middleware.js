@@ -21,12 +21,28 @@ export const inscriptionDev = () => ({
   type: INSCRIPTION_DEV,
 });
 
-// ACTION TYPE INSCRIPTION_RECRUITER
+// ACTION TYPE INSCRIPTION
+export const VALIDATE_MODIFY_DEV = 'VALIDATE_MODIFY_DEV';
+
+// ACTION CREATOR inscription
+export const validateModifyDev = () => ({
+  type: VALIDATE_MODIFY_DEV,
+});
+
 export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
 
 // ACTION CREATOR inscriptionRecruiter
 export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
+});
+
+
+// ACTION TYPE INSCRIPTION
+export const VALIDATE_MODIFY_RECRUITER = 'VALIDATE_MODIFY_RECRUITER';
+
+// ACTION CREATOR inscription
+export const validateModifyRecruiter = () => ({
+  type: VALIDATE_MODIFY_RECRUITER,
 });
 
 // ACTION TYPE SEARCH_CITY
@@ -60,6 +76,14 @@ export const DELETE_ONE_FAVORITE = 'DELETE_ONE_FAVORITE';
 // ACTION CREATOR deleteOneFavorite
 export const deleteOneFavorite = () => ({
   type: DELETE_ONE_FAVORITE,
+
+});
+
+export const ADD_ONE_FAVORITE = 'ADD_ONE_FAVORITE';
+
+// ACTION CREATOR searchProfile
+export const addOneFavorite = () => ({
+  type: ADD_ONE_FAVORITE,
 
 });
 

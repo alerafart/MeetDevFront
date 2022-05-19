@@ -2,6 +2,7 @@ import './modifyRecruiter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { tempModifRecProfil } from '../../actions/profilRecModifyTemp';
+
 import { chooseAvatarModal, toggleWindowLog } from '../../actions/settings';
 
 // import all avatars
@@ -12,6 +13,9 @@ import companyAvatar4 from '../../assets/avatars/avatar_company4.png';
 import companyAvatar5 from '../../assets/avatars/avatar_company5.png';
 import companyAvatar6 from '../../assets/avatars/avatar_company6.png';
 import ModalChooseAvatar from './ModalChooseAvatar';
+
+import { validateModifyRecruiter } from '../../actions/middleware';
+
 
 function ModifyRecruiter() {
   const dispatch = useDispatch();
@@ -127,9 +131,9 @@ function ModifyRecruiter() {
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
-            Mail
+            Description
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.email} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.description} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__buttons">
           <Link to="/profil">
@@ -137,8 +141,12 @@ function ModifyRecruiter() {
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
               onClick={() => {
+
                 // dispatch(inscriptionDev());
                 dispatch(toggleWindowLog());
+
+                dispatch(validateModifyRecruiter());
+
               }}
             >
               Valider

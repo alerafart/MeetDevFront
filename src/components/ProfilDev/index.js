@@ -43,6 +43,7 @@ import reactnative from '../../assets/images/archive/logo-reactnative.png';
 import ModalSendMessage from '../ModalSendMessage';
 import { setToggleModalSendMessage } from '../../actions/settings';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
+import { addOneFavorite } from '../../actions/middleware';
 
 function ProfilDev() {
   const isDev = useSelector((state) => state.settings.log.isDev);
@@ -152,8 +153,15 @@ function ProfilDev() {
           {
             // Display 'add to favorites' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
-            <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
-
+              <p
+                type="button"
+                className="profilDev__header__about__---favorite"
+                onClick={() => {
+                  dispatch(addOneFavorite());
+                }}
+              > FAVORIS
+                <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
+              </p>
             )
           }
           <h3 className="profilDev__header__about--label">

@@ -1,4 +1,4 @@
-import { COPY_PROFIL_REC_TO_TEMP, TEMP_MODIF_REC_PROFIL } from '../actions/profilRecModifyTemp';
+import { COPY_PROFIL_REC_TO_TEMP, SELECT_AVATAR_TEMP_RECRUITER, TEMP_MODIF_REC_PROFIL } from '../actions/profilRecModifyTemp';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -41,6 +41,16 @@ const profilRecruiterModifyTemp = (state = initialState, action = {}) => {
         register: {
           ...state.register,
           [action.name]: action.value,
+        },
+      };
+    }
+
+    case SELECT_AVATAR_TEMP_RECRUITER: {
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          profilePicture: action.profilePicture,
         },
       };
     }

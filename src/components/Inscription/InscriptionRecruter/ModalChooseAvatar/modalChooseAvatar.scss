@@ -1,0 +1,71 @@
+@use '../../../../styles/vars';
+
+.chooseAvatarBackground {
+  z-index: 3;
+  background-color: rgb(0, 0, 0, 0.7);
+  height: 200vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.chooseAvatarContainer {
+  z-index: 3;
+  margin-top: 15rem;
+  background-color: vars.$mainBackground;
+  border-radius: 0.8rem;
+  width: 45rem;
+  // width: 45rem;
+  // height: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.5rem 2.5rem;
+
+  @media (max-width: 665px) {
+    padding: 1.5rem 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--title {
+    width: 90%;
+    color: vars.$mainColor;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid vars.$mainFontGrey;
+    margin-bottom: 1rem;
+  }
+
+  &__imgs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &--img {
+      margin: 1rem 1rem;
+    }
+
+  }
+
+  &__cancel {
+    margin: 1rem 0;
+    border-top: 1px solid vars.$mainFontGrey;
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+      margin-top: 1rem;
+      background-color: vars.$cancelOption;
+    }
+  }
+}

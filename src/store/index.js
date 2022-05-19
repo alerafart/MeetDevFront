@@ -11,6 +11,8 @@ import searchCity from '../middlewares/searchCity';
 
 import searchApi from '../middlewares/searchApi';
 import favorisFromApi from '../middlewares/favorites';
+import ModifyDevApi from '../middlewares/ModifyDevApi';
+import ModifyRecruiterApi from '../middlewares/ModifyRecruiterApi';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -22,10 +24,11 @@ const enhancers = composeEnhancers(
     inscriptionDevApi,
     inscriptionRecruiterApi,
     searchApi,
-
+    ModifyDevApi,
     favorisFromApi,
     searchCity,
     favorisFromApi,
+    ModifyRecruiterApi,
     // favorites,
   ),
 

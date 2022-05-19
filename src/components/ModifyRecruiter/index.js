@@ -2,6 +2,7 @@ import './modifyRecruiter.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { tempModifRecProfil } from '../../actions/profilRecModifyTemp';
+import { validateModifyRecruiter } from '../../actions/middleware';
 
 function ModifyRecruiter() {
   const dispatch = useDispatch();
@@ -85,15 +86,18 @@ function ModifyRecruiter() {
         </div>
         <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--label">
-            Mail
+            Description
           </div>
-          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.email} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruter__form__champ--input" type="text" value={data.description} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruter__form__buttons">
           <Link to="/profil">
             <button
               type="submit"
               className="inscriptionRecruter__form__buttons__button--valid"
+              onClick={() => {
+                dispatch(validateModifyRecruiter());
+              }}
             >
               valider
             </button>

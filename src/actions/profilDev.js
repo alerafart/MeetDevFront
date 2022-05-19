@@ -5,3 +5,10 @@ export const dataProfilDevFromApi = (value, name) => ({
   value,
   name,
 });
+
+export const MAJ_PROFIL_DEV_FROM_API = 'MAJ_PROFIL_DEV_FROM_API';
+
+export const majProfilDevFromApi = (data) => ({
+  type: MAJ_PROFIL_DEV_FROM_API,
+  data,
+});

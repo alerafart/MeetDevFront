@@ -17,11 +17,27 @@ export const inscriptionDev = () => ({
 });
 
 // ACTION TYPE INSCRIPTION
+export const VALIDATE_MODIFY_DEV = 'VALIDATE_MODIFY_DEV';
+
+// ACTION CREATOR inscription
+export const validateModifyDev = () => ({
+  type: VALIDATE_MODIFY_DEV,
+});
+
+// ACTION TYPE INSCRIPTION
 export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
 
 // ACTION CREATOR inscription
 export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
+});
+
+// ACTION TYPE INSCRIPTION
+export const VALIDATE_MODIFY_RECRUITER = 'VALIDATE_MODIFY_RECRUITER';
+
+// ACTION CREATOR inscription
+export const validateModifyRecruiter = () => ({
+  type: VALIDATE_MODIFY_RECRUITER,
 });
 
 // ACTION TYPE INSCRIPTION

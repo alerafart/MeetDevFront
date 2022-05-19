@@ -68,9 +68,7 @@ function Inscription() {
   if (register.profilePicture === 'womanAvatar4') {
     avatar = womanAvatar4;
   }
-  if (register.profilePicture === '') {
-    avatar = '';
-  }
+
   // save in state which route we come from for other display.
   useEffect(() => {
     dispatch(setFromInscriptionRoute());
@@ -191,7 +189,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Description
                 </div>
-                <textarea className="inscription__form__champ--input" type="mail" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
+                <textarea className="inscription__form__champ--input" type="text" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">

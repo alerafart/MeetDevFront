@@ -1,4 +1,4 @@
-import { DATA_PROFIL_DEV_FROM_API } from '../actions/profilDev';
+import { DATA_PROFIL_DEV_FROM_API, MAJ_PROFIL_DEV_FROM_API } from '../actions/profilDev';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -39,6 +39,14 @@ const profilDev = (state = initialState, action = {}) => {
           ...state.register,
           [action.name]: action.value,
         },
+      };
+    }
+
+    case MAJ_PROFIL_DEV_FROM_API: {
+      console.log(action.data);
+      return {
+        ...state,
+        ...action.data,
       };
     }
 

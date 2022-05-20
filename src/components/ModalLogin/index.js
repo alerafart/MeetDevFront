@@ -70,7 +70,7 @@ function ModalLogin() {
               className="modalLoginContainer__form--connexion"
               onClick={() => {
                 dispatch(toggleWindowLog());
-                handleSubmit();
+                // handleSubmit();
                 // dispatch(logged());
               }}
             >

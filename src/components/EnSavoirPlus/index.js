@@ -79,27 +79,27 @@ function EnSavoirPlus() {
             <div className="about__us--container">
               <h4 className="about__us--container--name">Alejandra</h4>
               <p className="about__us--container--role">Lead Dev Back</p>
-              <p className="about__us--container--photo">Photo</p>
+              {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
             <div className="about__us--container">
               <h4 className="about__us--container--name">Alicia</h4>
               <p className="about__us--container--role">Git Master</p>
-              <p className="about__us--container--photo">Photo</p>
+              {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
             <div className="about__us--container">
               <h4 className="about__us--container--name">Henri</h4>
               <p className="about__us--container--role">Lead Dev Front</p>
-              <p className="about__us--container--photo">Photo</p>
+              {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
             <div className="about__us--container">
               <h4 className="about__us--container--name">Sébastien</h4>
               <p className="about__us--container--role">Scrum Master</p>
-              <p className="about__us--container--photo">Photo</p>
+              {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
             <div className="about__us--container">
               <h4 className="about__us--container--name">Christophe</h4>
               <p className="about__us--container--role">Product Owner</p>
-              <p className="about__us--container--photo">Photo</p>
+              {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
           </div>
         </div>

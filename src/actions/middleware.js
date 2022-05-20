@@ -1,14 +1,9 @@
-// ACTION TYPE TEST_CONNEXION_BACK
 export const TEST_CONNEXION_BACK = 'TEST_CONNEXION_BACK';
-// ACTION CREATOR testConnexionBack
 export const testConnexionBack = () => ({
   type: TEST_CONNEXION_BACK,
 });
 
-// ACTION TYPE LOGIN_TEST
 export const LOGIN_TEST = 'LOGIN_TEST';
-
-// ACTION CREATOR loginTest
 export const loginTest = () => ({
   type: LOGIN_TEST,
 });
@@ -29,13 +24,13 @@ export const validateModifyDev = () => ({
   type: VALIDATE_MODIFY_DEV,
 });
 
+// ACTION TYPE INSCRIPTION
 export const INSCRIPTION_RECRUITER = 'INSCRIPTION_RECRUITER';
 
-// ACTION CREATOR inscriptionRecruiter
+// ACTION CREATOR inscription
 export const inscriptionRecruiter = () => ({
   type: INSCRIPTION_RECRUITER,
 });
-
 
 // ACTION TYPE INSCRIPTION
 export const VALIDATE_MODIFY_RECRUITER = 'VALIDATE_MODIFY_RECRUITER';
@@ -45,10 +40,10 @@ export const validateModifyRecruiter = () => ({
   type: VALIDATE_MODIFY_RECRUITER,
 });
 
-// ACTION TYPE SEARCH_CITY
+// ACTION TYPE INSCRIPTION
 export const SEARCH_CITY = 'SEARCH_CITY';
 
-// ACTION CREATOR searchCity
+// ACTION CREATOR inscription
 export const searchCity = () => ({
   type: SEARCH_CITY,
 });
@@ -56,24 +51,24 @@ export const searchCity = () => ({
 // ACTION TYPE FETCH_PROFILE
 export const FETCH_PROFILE = 'FETCH_PROFILE';
 
-// ACTION CREATOR fetchProfile
+// ACTION CREATOR FETCHProfile
 export const fetchProfile = () => ({
   type: FETCH_PROFILE,
 });
 
-// ACTION TYPE RECRUITER_FAVORITES
+// ACTION TYPE SEARCH_PROFILE
 export const RECRUITER_FAVORITES = 'RECRUITER_FAVORITES';
 
-// ACTION CREATOR recruiterFavorites
+// ACTION CREATOR searchProfile
 export const recruiterFavorites = () => ({
   type: RECRUITER_FAVORITES,
 
 });
 
-// ACTION TYPE DELETE_ONE_FAVORITE
+// ACTION TYPE SEARCH_PROFILE
 export const DELETE_ONE_FAVORITE = 'DELETE_ONE_FAVORITE';
 
-// ACTION CREATOR deleteOneFavorite
+// ACTION CREATOR searchProfile
 export const deleteOneFavorite = () => ({
   type: DELETE_ONE_FAVORITE,
 

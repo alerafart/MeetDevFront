@@ -54,7 +54,7 @@ function RecruiterProfile() {
 
     <div className="profilrecruiter">
       <h2 className="profilrecruiter__title">
-        fiche recruteur
+        Mon profil
       </h2>
       <header className="profilrecruiter__header">
         <div className="profilrecruiter__header__cadre">

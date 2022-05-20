@@ -104,6 +104,9 @@ function ProfilDev() {
   if (profilDevPicture === 'womanAvatar4') {
     avatar = womanAvatar4;
   }
+  if (profilDevPicture === '') {
+    avatar = '';
+  }
 
   // const dataProfilDev = useSelector((state) => state.profilDev.register);
   // console.log('profilDEv fiche perso');

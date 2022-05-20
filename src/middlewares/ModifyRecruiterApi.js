@@ -14,9 +14,9 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
         phone,
         firms,
         website,
-        /* department,
+        department,
         zipCode,
-        profilePicture, */
+        profilePicture,
         description,
       } = state.profilRecruiterModifyTemp.register;
       const userId = state.settings.log.user_id;
@@ -35,11 +35,11 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
         lastname: lastname,
         firstname: firstname,
         city: city,
-        zip_code: 14000, // TODO a changer
-        department: 14, // TODO a changer
+        zip_code: zipCode,
+        department: department,
         phone: phone,
         subscribe_to_push_notif: 0, // non dynamique pour le moment
-        profile_picture: 'ldlc.png', // TODO a changer
+        profile_picture: profilePicture,
         needs_description: description,
         // status: status,
         company_name: firms,

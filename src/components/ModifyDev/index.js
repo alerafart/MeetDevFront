@@ -21,7 +21,6 @@ import { searchCity, validateModifyDev } from '../../actions/middleware';
 // import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
-  toggleWindowLog,
   searchCityClose,
   chooseAvatarModal,
   toggleModalChooseTechnologie,

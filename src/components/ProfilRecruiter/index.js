@@ -1,6 +1,5 @@
 import './recruiterprofil.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import dikkenek from '../../assets/images/dikkenek.jpeg';
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';

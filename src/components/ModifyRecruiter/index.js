@@ -130,9 +130,14 @@ function ModifyRecruiter() {
         </div>
         <div className="inscriptionRecruiter__form__champ">
           <div className="inscriptionRecruiter__form__champ--label">
+            Mail
+          </div>
+          <input className="inscriptionRecruiter__form__champ--input" type="email" value={data.description} name="email" onChange={handleChangeForm} />
+        <div className="inscriptionRecruiter__form__champ">
+          <div className="inscriptionRecruiter__form__champ--label">
             Description
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.description} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="text" value={data.description} name="description" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__buttons">
           <Link to="/profil">

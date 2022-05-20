@@ -132,7 +132,7 @@ function ModifyRecruiter() {
           <div className="inscriptionRecruiter__form__champ--label">
             Mail
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="email" value={data.mail} name="email" onChange={handleChangeForm} />
+          <input className="inscriptionRecruiter__form__champ--input" type="email" value={data.email} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
           <div className="inscriptionRecruiter__form__champ--label">

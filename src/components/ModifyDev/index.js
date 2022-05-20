@@ -17,13 +17,11 @@ import github from '../../assets/images/github.png';
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
 
-
 import { searchCity, validateModifyDev } from '../../actions/middleware';
 
 // import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
-  toggleWindowLog,
   searchCityClose,
   chooseAvatarModal,
   toggleModalChooseTechnologie,

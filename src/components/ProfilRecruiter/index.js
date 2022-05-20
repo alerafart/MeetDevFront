@@ -1,9 +1,15 @@
 import './recruiterprofil.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import dikkenek from '../../assets/images/dikkenek.jpeg';
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
+
+// import all avatars
+import companyAvatar1 from '../../assets/avatars/avatar_company1.png';
+import companyAvatar2 from '../../assets/avatars/avatar_company2.png';
+import companyAvatar3 from '../../assets/avatars/avatar_company3.png';
+import companyAvatar4 from '../../assets/avatars/avatar_company4.png';
+import companyAvatar5 from '../../assets/avatars/avatar_company5.png';
+import companyAvatar6 from '../../assets/avatars/avatar_company6.png';
 
 function RecruiterProfile() {
   const profilRec = useSelector((state) => state.profilRecruiter);
@@ -20,6 +26,29 @@ function RecruiterProfile() {
   function handlecopy() {
     dispatch(copyProfilRecToTemp(profilRec));
   }
+  // select how avatar to display
+  let avatar;
+  if (data.profilePicture === 'companyAvatar1') {
+    avatar = companyAvatar1;
+  }
+  if (data.profilePicture === 'companyAvatar2') {
+    avatar = companyAvatar2;
+  }
+  if (data.profilePicture === 'companyAvatar3') {
+    avatar = companyAvatar3;
+  }
+  if (data.profilePicture === 'companyAvatar4') {
+    avatar = companyAvatar4;
+  }
+  if (data.profilePicture === 'companyAvatar5') {
+    avatar = companyAvatar5;
+  }
+  if (data.profilePicture === 'companyAvatar6') {
+    avatar = companyAvatar6;
+  }
+  if (data.profilePicture === '') {
+    avatar = '';
+  }
 
   return (
 
@@ -31,7 +60,7 @@ function RecruiterProfile() {
         <div className="profilrecruiter__header__cadre">
           <img
             className="profilrecruiter__header__cadre--img"
-            src={dikkenek}
+            src={avatar}
             alt="logo de l'entreprise"
           />
         </div>

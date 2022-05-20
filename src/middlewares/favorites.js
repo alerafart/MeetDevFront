@@ -13,6 +13,7 @@ const favorisFromApi = (store) => (next) => (action) => {
     case RECRUITER_FAVORITES: {
       const state = store.getState();
       const id = state.settings.log.user_id;
+      const { token } = state.settings.log;
 
       console.log(id);
       axios
@@ -21,6 +22,13 @@ const favorisFromApi = (store) => (next) => (action) => {
           `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
+            // TODO ready to test JWT
+            config: {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+
             params: {
               id: id,
             },
@@ -58,7 +66,6 @@ const favorisFromApi = (store) => (next) => (action) => {
 
           //   ),
 
-          console.log(favorites);
           store.dispatch(favoritesList(favorites));
           // store.dispatch(favoritesList(response.data));
         }).catch((error) => {
@@ -72,15 +79,22 @@ const favorisFromApi = (store) => (next) => (action) => {
       const state = store.getState();
       const recrutUserId = state.settings.log.user_id;
       const devUserId = state.modalProfil.userId;
-
-      console.log(recrutUserId);
-      console.log(devUserId);
+      const { token } = state.settings.log;
+      // console.log(recrutUserId);
+      // console.log(devUserId);
       axios
         .post(
 
           'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
           // ou url: 'http://localhost/api/users:8000',
           {
+            // TODO ready to test JWT
+            config: {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+
             devUserId: devUserId,
             recrutUserId: recrutUserId,
           },
@@ -99,14 +113,21 @@ const favorisFromApi = (store) => (next) => (action) => {
     case DELETE_ONE_FAVORITE: {
       const state = store.getState();
       const id = state.modalProfil.result.detailId;
-
-      console.log(id);
+      const { token } = state.settings.log;
+      // console.log(id);
       axios
         .delete(
 
           `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
+            // TODO ready to test JWT
+            config: {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+
             params: {
               id: id,
             },

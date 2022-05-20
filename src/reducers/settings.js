@@ -116,6 +116,7 @@ const settings = (state = initialState, action = {}) => {
           user_id: action.userId,
           dev_id: action.devId,
           recruit_id: action.recruitId,
+          token: action.token,
         },
       };
     case LOGOUT:

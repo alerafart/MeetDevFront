@@ -23,10 +23,8 @@ const favorisFromApi = (store) => (next) => (action) => {
           // ou url: 'http://localhost/api/users:8000',
           {
             // TODO ready to test JWT
-            config: {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
 
             params: {
@@ -89,14 +87,15 @@ const favorisFromApi = (store) => (next) => (action) => {
           // ou url: 'http://localhost/api/users:8000',
           {
             // TODO ready to test JWT
-            config: {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
 
-            devUserId: devUserId,
-            recrutUserId: recrutUserId,
+            params: {
+              devUserId: devUserId,
+              recrutUserId: recrutUserId,
+            },
           },
         )
         .then((response) => {
@@ -122,10 +121,8 @@ const favorisFromApi = (store) => (next) => (action) => {
           // ou url: 'http://localhost/api/users:8000',
           {
             // TODO ready to test JWT
-            config: {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
 
             params: {

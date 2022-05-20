@@ -14,25 +14,32 @@ const searchApi = (store) => (next) => (action) => {
       //     Authorization: `Bearer ${token}`,
       //   },
       // };
-
       const {
         city, technology, experience,
       } = state.formSearchDev.search;
+      // const params = {
+      //   city: city,
+      //   language: technology,
+      //   exp: experience,
+      // };
+      // const url = 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search';
       axios.get(
         'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search',
         {
-          // TODO ready to test JWT
-          config: {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          // // TODO ready to test JWT
+          // config: {
+          //   headers: {
+          //     Authorization: `Bearer ${token}`,
+          //   },
+          // },
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-
-          params:
-          {
+          params: {
             city: city,
             language: technology,
             exp: experience,
+
           },
         },
       )
@@ -59,7 +66,7 @@ const searchApi = (store) => (next) => (action) => {
           else {
             console.log('probleme de connexion');
           }
-          console.log('profils trouvés');
+          console.log(response.data);
         }).catch((error) => {
           console.log(error.response);
           console.log('problème de connexion');

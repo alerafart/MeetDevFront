@@ -1,4 +1,4 @@
-import { REGISTER_RECRUITER, REGISTER_RECRUITER_CANCEL } from '../actions/formRegisterRecruiter';
+import { REGISTER_RECRUITER, REGISTER_RECRUITER_CANCEL, SELECT_AVATAR_RECRUITER } from '../actions/formRegisterRecruiter';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -34,6 +34,15 @@ const formRegisterRecruiter = (state = initialState, action = {}) => {
         },
       };
     }
+    case SELECT_AVATAR_RECRUITER: {
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          profilePicture: action.profilePicture,
+        },
+      };
+    }
     case REGISTER_RECRUITER_CANCEL: {
       return {
         ...state,
@@ -49,6 +58,7 @@ const formRegisterRecruiter = (state = initialState, action = {}) => {
           email: '',
           password: '',
           verifypassword: '',
+          profilePicture: '',
         },
       };
     }
@@ -67,6 +77,7 @@ const formRegisterRecruiter = (state = initialState, action = {}) => {
           email: '',
           password: '',
           verifypassword: '',
+          profilePicture: '',
         },
       };
 

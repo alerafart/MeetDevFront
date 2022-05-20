@@ -18,10 +18,10 @@ import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
 
 import { searchCity, validateModifyDev } from '../../actions/middleware';
+
 // import { dataProfilDevFromApi } from '../../actions/profilDev';
 import {
   searchCityDisplay,
-  toggleWindowLog,
   searchCityClose,
   chooseAvatarModal,
   toggleModalChooseTechnologie,
@@ -57,6 +57,9 @@ function ModifyDev() {
   }
   if (data.profilePicture === 'womanAvatar4') {
     avatar = womanAvatar4;
+  }
+  if (data.profilePicture === '') {
+    avatar = '';
   }
 
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);

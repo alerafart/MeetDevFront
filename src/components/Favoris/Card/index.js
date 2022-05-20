@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 // import all avatars
@@ -46,8 +48,8 @@ import './card.scss';
 
 function Card({ favorite }) {
   const dispatch = useDispatch();
-  const { profilePicture } = favorite.data.UserData;
-  const { technology } = favorite.data.UserData;
+  const profilePicture = favorite.data.UserData.profile_picture;
+  const technology = favorite.data.UserData.languages;
 
   // select how avatar to display
   let avatar;
@@ -148,8 +150,8 @@ Card.propTypes = {
         lastname: PropTypes.string.isRequired,
         city: PropTypes.string.isRequired,
         years_of_experience: PropTypes.number.isRequired,
-        profilePicture: PropTypes.string.isRequired,
-        technology: PropTypes.string.isRequired,
+        profile_picture: PropTypes.string.isRequired,
+        languages: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
   ).isRequired,

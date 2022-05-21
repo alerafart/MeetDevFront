@@ -37,6 +37,9 @@ import wordpress from '../../assets/images/archive/logo-wordpress.png';
 import mysql from '../../assets/images/archive/logo-mysql.png';
 import swift from '../../assets/images/archive/logo-swift.png';
 import reactnative from '../../assets/images/archive/logo-reactnative.png';
+import mongo from '../../assets/images/archive/logo-mongo.png';
+import git from '../../assets/images/archive/logo-git.png';
+import docker from '../../assets/images/archive/logo-docker.png';
 
 function ModalProfil() {
   const dispatch = useDispatch();
@@ -141,16 +144,19 @@ function ModalProfil() {
               {languages.includes('Rust') ? <img src={rust} className="profilDev__skills__item__logos--logo" alt="logo rust" /> : '' }
               {languages.includes('Ruby') ? <img src={ruby} className="profilDev__skills__item__logos--logo" alt="logo ruby" /> : '' }
               {languages.includes('Node.js') ? <img src={node} className="profilDev__skills__item__logos--logo" alt="logo node.js" /> : '' }
-              {languages.includes('Vue.js') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
+              {languages.includes('VueJs') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
               {languages.includes('jQuery') ? <img src={jquery} className="profilDev__skills__item__logos--logo" alt="logo jquery" /> : '' }
               {languages.includes('Express') ? <img src={express} className="profilDev__skills__item__logos--logo" alt="logo express" /> : '' }
               {languages.includes('Laravel') ? <img src={laravel} className="profilDev__skills__item__logos--logo" alt="logo laravel" /> : '' }
               {languages.includes('Angular') ? <img src={angular} className="profilDev__skills__item__logos--logo" alt="logo angular" /> : '' }
               {languages.includes('Django') ? <img src={django} className="profilDev__skills__item__logos--logo" alt="logo django" /> : '' }
-              {languages.includes('Wordpress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
+              {languages.includes('WordPress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
               {languages.includes('mysql') ? <img src={mysql} className="profilDev__skills__item__logos--logo" alt="logo mysql" /> : '' }
               {languages.includes('Swift') ? <img src={swift} className="profilDev__skills__item__logos--logo" alt="logo swift" /> : '' }
               {languages.includes('React_Native') ? <img src={reactnative} className="profilDev__skills__item__logos--logo" alt="logo react native" /> : '' }
+              {languages.includes('MongoDb') ? <img src={mongo} className="profilDev__skills__item__logos--logo" alt="logo MongoDb" /> : '' }
+              {languages.includes('Git') ? <img src={git} className="profilDev__skills__item__logos--logo" alt="logo git" /> : '' }
+              {languages.includes('Docker') ? <img src={docker} className="profilDev__skills__item__logos--logo" alt="logo docker" /> : '' }
             </div>
           </div>
           <div className="modalContainer__main--right">&gt;</div>

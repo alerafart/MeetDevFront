@@ -50,7 +50,7 @@ const modalProdil = (state = initialState, action = {}) => {
           zipCode: action.user.data.zip_code,
           departement: action.user.data.department,
           phone: action.user.data.phone,
-          technology: action.user.data.languages,
+          technology: action.user.data.languages.split(','),
           password: action.user.data.password,
           verifypassword: '',
           portfolio: action.user.data.portfolio_link,

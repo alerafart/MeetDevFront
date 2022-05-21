@@ -40,6 +40,9 @@ import wordpress from '../../assets/images/archive/logo-wordpress.png';
 import mysql from '../../assets/images/archive/logo-mysql.png';
 import swift from '../../assets/images/archive/logo-swift.png';
 import reactnative from '../../assets/images/archive/logo-reactnative.png';
+import mongo from '../../assets/images/archive/logo-mongo.png';
+import git from '../../assets/images/archive/logo-git.png';
+import docker from '../../assets/images/archive/logo-docker.png';
 import ModalSendMessage from '../ModalSendMessage';
 import { setToggleModalSendMessage } from '../../actions/settings';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
@@ -292,7 +295,9 @@ function ProfilDev() {
               <div className="profilDev__skills__item--label">Stack :
               </div>
               <div className="profilDev__skills__item--color">
-                {data.technology}
+                {data.technology.map((item) => (
+                  <div className="profilDev__skills__item--color--stack"> {item}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -314,16 +319,19 @@ function ProfilDev() {
               {data.technology.includes('Rust') ? <img src={rust} className="profilDev__skills__item__logos--logo" alt="logo rust" /> : '' }
               {data.technology.includes('Ruby') ? <img src={ruby} className="profilDev__skills__item__logos--logo" alt="logo ruby" /> : '' }
               {data.technology.includes('Node.js') ? <img src={node} className="profilDev__skills__item__logos--logo" alt="logo node.js" /> : '' }
-              {data.technology.includes('Vue.js') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
+              {data.technology.includes('VueJs') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
               {data.technology.includes('jQuery') ? <img src={jquery} className="profilDev__skills__item__logos--logo" alt="logo jquery" /> : '' }
               {data.technology.includes('Express') ? <img src={express} className="profilDev__skills__item__logos--logo" alt="logo express" /> : '' }
               {data.technology.includes('Laravel') ? <img src={laravel} className="profilDev__skills__item__logos--logo" alt="logo laravel" /> : '' }
               {data.technology.includes('Angular') ? <img src={angular} className="profilDev__skills__item__logos--logo" alt="logo angular" /> : '' }
               {data.technology.includes('Django') ? <img src={django} className="profilDev__skills__item__logos--logo" alt="logo django" /> : '' }
-              {data.technology.includes('Wordpress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
+              {data.technology.includes('WordPress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
               {data.technology.includes('mysql') ? <img src={mysql} className="profilDev__skills__item__logos--logo" alt="logo mysql" /> : '' }
               {data.technology.includes('Swift') ? <img src={swift} className="profilDev__skills__item__logos--logo" alt="logo swift" /> : '' }
               {data.technology.includes('React_Native') ? <img src={reactnative} className="profilDev__skills__item__logos--logo" alt="logo react native" /> : '' }
+              {data.technology.includes('MongoDb') ? <img src={mongo} className="profilDev__skills__item__logos--logo" alt="logo mongoDb" /> : '' }
+              {data.technology.includes('Git') ? <img src={git} className="profilDev__skills__item__logos--logo" alt="logo git" /> : '' }
+              {data.technology.includes('Docker') ? <img src={docker} className="profilDev__skills__item__logos--logo" alt="docker" /> : '' }
             </div>
             {/* <div className="profilDev__skills__item__logos">
 

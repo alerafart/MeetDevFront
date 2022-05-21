@@ -277,6 +277,14 @@
 
       &--color {
         color: vars.$mainColor;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        &--stack {
+          padding-right: 0.75rem;
+          padding-bottom: 0.5rem;
+        }
       }
 
       &--container {
@@ -293,8 +301,10 @@
         display: flex;
         flex-wrap: wrap;
 
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
+
+
 
         &--logo {
           display: flex;

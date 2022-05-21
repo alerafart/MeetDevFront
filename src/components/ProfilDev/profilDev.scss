@@ -45,11 +45,14 @@
       min-width: 300px;
       min-height: 300px;
 
+      border-radius: 8px;
+
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
       margin: 2rem 3rem;
+      box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
 
       @media (max-width: 400px) {
         width: 230px;
@@ -285,16 +288,21 @@
       &__logos {
         margin-left: 6rem;
         width: 100%;
-        max-width: 15rem;
+        height: 10rem;
+        // max-width: 10rem;
         display: flex;
+        flex-wrap: wrap;
+
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
 
         &--logo {
           display: flex;
           flex-wrap: wrap;
-          width: 4rem;
+          width: 3rem;
           height: 3rem;
+
+          margin-right: 0.5rem;
         }
       }
     }

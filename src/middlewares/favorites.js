@@ -80,24 +80,20 @@ const favorisFromApi = (store) => (next) => (action) => {
       const { token } = state.settings.log;
       // console.log(recrutUserId);
       // console.log(devUserId);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const params = {
+        devUserId: devUserId,
+        recrutUserId: recrutUserId,
+      };
+
+      const url = 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters';
+
       axios
-        .post(
-
-          'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters',
-          // ou url: 'http://localhost/api/users:8000',
-          {
-            // TODO ready to test JWT
-
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-
-            params: {
-              devUserId: devUserId,
-              recrutUserId: recrutUserId,
-            },
-          },
-        )
+        .post(url, params, config)
         .then((response) => {
           console.log(response.data);
           console.log('favori bien ajouté de la liste');

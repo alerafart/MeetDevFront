@@ -27,6 +27,42 @@
     flex-grow: 2;
   }
 
+  &__login {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+
+    &--mail {
+      height: 2.5rem;
+      border: 1px solid vars.$mainFontGrey;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    &--password {
+      height: 2.5rem;
+      border: 1px solid vars.$mainFontGrey;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    &--button {
+      height: 2.5rem;
+      border: 1px solid vars.$mainColor;
+      background-color: vars.$mainColor;
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      color: vars.$mainBackground;
+    }
+
+
+  }
+
   &__items {
     // height: 100vh;
     background-color: vars.$mainBackground;
@@ -39,7 +75,7 @@
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
     &--item {
-      color: vars.$mainFontAnthra;
+      color: grey;
       width: 12rem;
       font-size: 1.2rem;
       padding: 0.5rem 1.5rem;
@@ -53,7 +89,7 @@
 
     &--log {
       background-color: vars.$mainBackground;
-      color: vars.$mainColor;
+      color: vars.$mainFontAnthra;
       width: 12rem;
       padding: 0.5rem 0;
       font-size: 1.2rem;
@@ -61,12 +97,13 @@
       padding-bottom: 1.5rem;
 
       &:hover {
-        &:hover {
-          // background-color: vars.$mainColor;
-          color: orangered;
-        }
 
-        color: vars.$cancelOption;
+        // background-color: vars.$mainColor;
+        color: vars.$mainColor;
+        cursor: pointer;
+
+
+        // color: vars.$cancelOption;
       }
     }
 

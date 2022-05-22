@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteRule .* index.html
+RewriteRule "index.html"
 # RewriteCond %{SERVER_PORT} 80
-# RewriteRule ^(.*)$ https://www.meetdev.henriteinturier.fr/$1 [R,L]
+# RewriteRule ^(.*)$ http://www.meetdev.henriteinturier.fr/$1 [R,L]

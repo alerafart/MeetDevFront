@@ -1,7 +1,10 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
-import { logout, toggleWindowLog, setFromAway } from '../../actions/settings';
+import {
+  logout, toggleWindowLog, setFromAway, setFromSearchRoute, setFromFavoritesRoute,
+} from '../../actions/settings';
+import { recruiterFavorites } from '../../actions/middleware';
 
 function NavigationDesktop() {
   const logged = useSelector((state) => state.settings.log.logged);
@@ -46,7 +49,7 @@ function NavigationDesktop() {
               <>
                 <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"><NavLink to="/">Accueil</NavLink></li>
                 <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
-                <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"><NavLink to="/recherche">Recherche</NavLink></li>
+                <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromSearchRoute())}><NavLink to="/recherche">Recherche</NavLink></li>
               </>
               )}
               {/* if i'm Recruiter display this navbar */}
@@ -54,8 +57,16 @@ function NavigationDesktop() {
                 <>
                   <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"><NavLink to="/">Accueil</NavLink></li>
                   <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
-                  <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"><NavLink to="/recherche">Recherche</NavLink></li>
-                  <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"><NavLink to="/favoris">Favoris</NavLink></li>
+                  <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromSearchRoute())}><NavLink to="/recherche">Recherche</NavLink></li>
+                  <li
+                    className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"
+                    onClick={() => {
+                      dispatch(setFromFavoritesRoute());
+                      dispatch(recruiterFavorites());
+                    }}
+                  >
+                    <NavLink to="/favoris">Favoris</NavLink>
+                  </li>
                 </>
               )}
             </ul>

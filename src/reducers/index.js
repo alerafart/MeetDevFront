@@ -14,7 +14,7 @@ import profilRecruiterModifyTemp from './profilRecruiterModifyTemp';
 import formDevContact from './formDevContact';
 
 import formContact from './formContact';
-import favorites from './recruiterFavorites';
+import favoritesReducer from './recruiterFavoritesReducer';
 import modalProfil from './modalProfil';
 
 const rootReducer = combineReducers({
@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
   profilDev: profilDev,
   profilRecruiter: profilRecruiter,
   resultSearch: resultSearch,
-  favorites: favorites,
+  favorites: favoritesReducer,
   modalProfil: modalProfil,
   profilDevModifyTemp: profilDevModifyTemp,
   profilRecruiterModifyTemp: profilRecruiterModifyTemp,

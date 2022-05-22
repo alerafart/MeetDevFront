@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
 // import { useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { burgerMenuOpen, loginBurger, logout } from '../../actions/settings';
-import { loginTest } from '../../actions/middleware';
+import {
+  burgerMenuOpen, loginBurger, logout, setFromAway, setFromFavoritesRoute, setFromSearchRoute,
+} from '../../actions/settings';
+import { loginTest, recruiterFavorites } from '../../actions/middleware';
 import { login } from '../../actions/formLogin';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
@@ -180,7 +182,18 @@ function BurgerMenu() {
                     >
                       <NavLink to="/modifier">Modifier profil</NavLink>
                     </motion.li>
-                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/recherche">Recherche</NavLink></motion.li>
+                    <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.45 }}
+                      className="burgerMenu__items--item"
+                      onClick={() => {
+                        closeMenu();
+                        dispatch(handlecopy());
+                      }}
+                    >
+                      <NavLink to="/recherche">Recherche</NavLink>
+                    </motion.li>
                     <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
 
                   </>
@@ -201,7 +214,18 @@ function BurgerMenu() {
                     >
                       <NavLink to="/modifier">Modifier profil</NavLink>
                     </motion.li>
-                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/recherche">Recherche</NavLink></motion.li>
+                    <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.45 }}
+                      className="burgerMenu__items--item"
+                      onClick={() => {
+                        closeMenu();
+                        dispatch(setFromSearchRoute());
+                      }}
+                    >
+                      <NavLink to="/recherche">Recherche</NavLink>
+                    </motion.li>
                     <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
                     <motion.li
                       initial={animateFrom}
@@ -211,6 +235,8 @@ function BurgerMenu() {
                       onClick={
                         () => {
                           closeMenu();
+                          dispatch(setFromFavoritesRoute());
+                          dispatch(recruiterFavorites());
                         }
                       }
                     >
@@ -230,6 +256,7 @@ function BurgerMenu() {
                     () => {
                       closeMenu();
                       dispatch(logout());
+                      dispatch(setFromAway());
                     }
                   }
                 >

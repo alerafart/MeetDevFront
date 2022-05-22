@@ -7,6 +7,8 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { burgerMenuOpen, loginBurger, logout } from '../../actions/settings';
 import { loginTest } from '../../actions/middleware';
 import { login } from '../../actions/formLogin';
+import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
+import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 
 function BurgerMenu() {
   const dispatch = useDispatch();
@@ -22,6 +24,13 @@ function BurgerMenu() {
     dispatch(login(value, name));
   }
 
+  const profilRec = useSelector((state) => state.profilRecruiter);
+  const profilDev = useSelector((state) => state.profilDev);
+
+  function handlecopy() {
+    dispatch(copyProfilRecToTemp(profilRec));
+  }
+
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -35,6 +44,7 @@ function BurgerMenu() {
 
   const logged = useSelector((state) => state.settings.log.logged);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const isDev = useSelector((state) => state.settings.log.isDev);
   const isLogin = useSelector((state) => state.settings.navigation.burgerLogin);
   const burgerMenu = useSelector((state) => state.settings.navigation.burgerMenuOpen);
   const formLogin = useSelector((state) => state.formLogin.login);
@@ -155,15 +165,61 @@ function BurgerMenu() {
               <>
 
                 <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.15 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/profil">Mon profil</NavLink></motion.li>
-                <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.25 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/modifier">Modifier profil</NavLink></motion.li>
-                <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/recherche">Recherche</NavLink></motion.li>
+
+                { isDev && (
+                  <>
+                    <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.25 }}
+                      className="burgerMenu__items--item"
+                      onClick={() => {
+                        closeMenu();
+                        dispatch(copyProfilDevToTemp(profilDev));
+                      }}
+                    >
+                      <NavLink to="/modifier">Modifier profil</NavLink>
+                    </motion.li>
+                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/recherche">Recherche</NavLink></motion.li>
+                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
+
+                  </>
+                )}
 
                 {
                 isRecruiter && (
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.55 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/favoris">Mes favoris</NavLink></motion.li>
+                  <>
+                    <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.25 }}
+                      className="burgerMenu__items--item"
+                      onClick={() => {
+                        closeMenu();
+                        dispatch(handlecopy());
+                      }}
+                    >
+                      <NavLink to="/modifier">Modifier profil</NavLink>
+                    </motion.li>
+                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}><NavLink to="/recherche">Recherche</NavLink></motion.li>
+                    <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
+                    <motion.li
+                      initial={animateFrom}
+                      animate={animateTo}
+                      transition={{ delay: 0.55 }}
+                      className="burgerMenu__items--item"
+                      onClick={
+                        () => {
+                          closeMenu();
+                        }
+                      }
+                    >
+                      <NavLink to="/favoris">Mes favoris</NavLink>
+                    </motion.li>
+
+                  </>
                 )
               }
-                <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.65 }} className="burgerMenu__items--item" onClick={closeMenu}>Mes messages</motion.li>
 
                 <motion.li
                   initial={animateFrom}

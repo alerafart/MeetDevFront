@@ -1,10 +1,11 @@
 @use '../../../styles/vars';
 
 .card {
+  // background-color: red;
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 22.5%;
+  // width: 22.5%;
   max-width: 13rem;
   margin-bottom: 2rem;
   margin-left: 0.5rem;
@@ -37,16 +38,9 @@
     align-items: center;
     overflow: hidden;
     position: relative;
-    border-radius: 8px;
-
-
-    &--logo {
-      position: absolute;
-      width: 2.5rem;
-      z-index: 1;
-      top: 4px;
-      left: 4px;
-    }
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: rgb(31, 209, 191);
 
     &--img {
       width: 19rem;
@@ -60,28 +54,63 @@
 
     &--name {
       padding: 0.2rem;
+      color: vars.$mainFontAnthra;
     }
 
     &--localisation {
       padding: 0.2rem;
+      color: vars.$mainFontGrey;
+      font-weight: bolder;
+      margin-bottom: 0.7rem;
+
+      &--icon {
+        width: 1rem;
+      }
     }
 
     &--experience {
       padding: 0.2rem;
       width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      &--title {
+        width: 100%;
+        margin-bottom: 0.3rem;
+      }
 
       &--year {
         border: none;
         background-color: vars.$mainColor;
         color: vars.$mainBackground;
-        padding: 1px 1rem;
+        padding: 4px 1rem;
         border-radius: 8px;
-        margin: 0rem;
+
       }
     }
   }
 
+  &__logos {
+    display: flex;
+    padding: 0.5rem;
+    height: 5rem;
+    overflow-x: auto;
+    height: auto;
+    min-height: 4rem;
+    margin-bottom: 0.5rem;
 
+    z-index: 1;
+    // top: 4px;
+    // left: 4px;
+
+    & img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0.3rem 0.3rem;
+    }
+
+  }
 
   &__button {
     display: flex;

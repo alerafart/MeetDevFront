@@ -51,7 +51,7 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
 
       };
 
-      const url = `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
+      const url = `https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
 
       // axios.put(url, params, config);
       // TODO REMETTRE EN get pour messages

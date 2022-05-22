@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import all avatars and logos
+import mapPointer from '../../../assets/images/mapPointer.png';
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
@@ -86,6 +87,45 @@ function Card({ favorite }) {
   return (
     <div className="card">
       <div className="card__avatar">
+
+        {/* display avatar from dev */}
+        <img src={avatar} alt="Avatar" className="card__avatar--img" />
+      </div>
+      {/* Display, fistname, lastname and city from dev on card.
+        //TODO bug display Experience
+       */}
+      <div className="card__container">
+        <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
+        <p className="card__container--localisation"><img className="card__container--localisation--icon" src={mapPointer} alt="map pointer" />{favorite.data.UserData.city}</p>
+        <div
+          className="card__container--experience"
+        >
+          <h4 className="card__container--experience--title">
+            Experience
+          </h4>
+          <div className="card__container--experience--year">
+            {/* ďisplay '- 1 an' '1 à 3 ans' or '+ 3 ans' according to experience 1/2/3  */}
+            {
+              favorite.data.UserData.years_of_experience === 1 && (
+                '- 1 an'
+              )
+            }
+            {
+              favorite.data.UserData.years_of_experience === 2 && (
+                '1 à 3 ans'
+              )
+            }
+            {
+              favorite.data.UserData.years_of_experience === 3 && (
+                '+ 3 ans'
+              )
+            }
+          </div>
+        </div>
+      </div>
+      {/* Button display profil: On click open modal profil dev + store informations developper with getOneFavorites on state modalProfil */}
+
+      <div className="card__logos">
         {
           //* DISPLAY TECHNOLOGIE FROM PROFIL.
           //* TODO FOR THE MOMENT ALL LOGO ARE NOT VISIBLE  */
@@ -116,18 +156,9 @@ function Card({ favorite }) {
         {technology.includes('mysql') ? <img src={mysql} className="card__avatar--logo" alt="logo mysql" /> : '' }
         {technology.includes('Swift') ? <img src={swift} className="card__avatar--logo" alt="logo swift" /> : '' }
         {technology.includes('React_Native') ? <img src={reactnative} className="card__avatar--logo" alt="logo react native" /> : '' }
-        {/* display avatar from dev */}
-        <img src={avatar} alt="Avatar" className="card__avatar--img" />
+
       </div>
-      {/* Display, fistname, lastname and city from dev on card.
-        //TODO bug display Experience
-       */}
-      <div className="card__container">
-        <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
-        <p className="card__container--localisation">{favorite.data.UserData.city}</p>
-        <p className="card__container--experience">Experience <span className="card__container--experience--year"> -{favorite.data.UserData.years_of_experience} an</span></p>
-      </div>
-      {/* Button display profil: On click open modal profil dev + store informations developper with getOneFavorites on state modalProfil */}
+
       <div className="card__button">
         <button
           type="button"

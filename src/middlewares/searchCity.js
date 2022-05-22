@@ -13,7 +13,7 @@ const searchCity = (store) => (next) => (action) => {
       }
       console.log(adress);
       axios.get(
-        `https://api-adresse.data.gouv.fr/search/?q=${adress}&type=municipality&autocomplete=1`,
+        `http://api-adresse.data.gouv.fr/search/?q=${adress}&type=municipality&autocomplete=1`,
         // ou url: 'http://localhost/api/users:8000',
       )
         .then((response) => {

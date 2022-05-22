@@ -13,7 +13,7 @@ const favorisFromApi = (store) => (next) => (action) => {
       axios
         .get(
 
-          `https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters/${id}`,
+          `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
             headers: {
@@ -57,7 +57,7 @@ const favorisFromApi = (store) => (next) => (action) => {
         recrutUserId: recrutUserId,
       };
 
-      const url = 'https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters';
+      const url = 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/recruiters';
 
       axios
         .post(url, params, config)
@@ -78,7 +78,7 @@ const favorisFromApi = (store) => (next) => (action) => {
       axios
         .delete(
 
-          `https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/${id}`,
+          `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/favorites/${id}`,
           // ou url: 'http://localhost/api/users:8000',
           {
             // TODO ready to test JWT

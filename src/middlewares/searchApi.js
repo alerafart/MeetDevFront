@@ -24,7 +24,7 @@ const searchApi = (store) => (next) => (action) => {
       // };
       // const url = 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search';
       axios.get(
-        'https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/search',
         {
           // // TODO ready to test JWT
           // config: {

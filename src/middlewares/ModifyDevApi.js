@@ -59,7 +59,7 @@ const ModifyDevApi = (store) => (next) => (action) => {
         language: '', // non pris en compte: Obligatoire?
       };
 
-      const url = `https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
+      const url = `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
       console.log('ligne 68');
       axios.put(url, params, config).then((response) => {
         console.log(response.data);

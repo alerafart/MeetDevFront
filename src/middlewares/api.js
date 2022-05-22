@@ -12,7 +12,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
       const state = store.getState();
       const { email, password } = state.formLogin.login;
       axios.post(
-        'https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/login',
         // ou url: 'http://localhost/api/users:8000',
         {
           email_address: email,
@@ -104,7 +104,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
     case TEST_CONNEXION_BACK: {
       axios({
         method: 'get',
-        url: 'https://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
+        url: 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users',
         // ou url: 'http://localhost/api/users:8000',
       })
         .then((response) => {

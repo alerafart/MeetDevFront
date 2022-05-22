@@ -8,6 +8,7 @@ import Footer from '../Footer';
 import Error from '../Error';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
+import VerifyEmail from '../VerifyEmail';
 import Search from '../Search';
 import Favoris from '../Favoris';
 import Profil from '../Profil';
@@ -45,6 +46,12 @@ function MeetDev() {
           path="/connexion"
           element={(
             <Connexion />
+          )}
+        />
+        <Route
+          path="/email/verify/:slug"
+          element={(
+            <VerifyEmail />
           )}
         />
         <Route

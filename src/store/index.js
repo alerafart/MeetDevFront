@@ -6,6 +6,7 @@ import apiMiddleWare from '../middlewares/api';
 import inscriptionDevApi from '../middlewares/inscriptionDevApi';
 import inscriptionRecruiterApi from '../middlewares/inscriptionRecruiterApi';
 // import favorites from '../middlewares/favorites';
+import verifiedEmail from '../middlewares/VerifyEmail';
 
 import searchCity from '../middlewares/searchCity';
 
@@ -30,6 +31,7 @@ const enhancers = composeEnhancers(
     favorisFromApi,
     ModifyRecruiterApi,
     // favorites,
+    verifiedEmail,
   ),
 
 );

@@ -66,6 +66,7 @@ function NavigationDesktop() {
                 className="header__button"
                 onClick={() => {
                   dispatch(logout());
+                  dispatch(setFromAway());
                 }}
               >
                 Deconnexion

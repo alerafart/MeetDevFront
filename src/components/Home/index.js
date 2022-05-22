@@ -11,9 +11,9 @@ function Home() {
 
   const isLogged = useSelector((state) => state.settings.log.logged);
 
-  useEffect(() => {
-    dispatch(setFromAway());
-  });
+  // useEffect(() => {
+  //   dispatch(setFromAway());
+  // }, []);
 
   return (
     <>

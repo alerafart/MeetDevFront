@@ -1,30 +1,17 @@
-// styles
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-// import PropTypes from 'prop-types';
-import ModalProfil from '../ModalProfil';
+import { useSelector } from 'react-redux';
 import './favoris.scss';
 
+import ModalProfil from '../ModalProfil';
 import Card from './Card';
-import { setFromFavoritesRoute } from '../../actions/settings';
-import { recruiterFavorites } from '../../actions/middleware';
 
 function Favoris() {
+  // to display/notDisplay modal profil dev selected
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
 
-  const dispatch = useDispatch();
-
-  let favoritesArray = [];
-
-  favoritesArray = useSelector(
+  // Recup array list of favorites
+  const favoritesArray = useSelector(
     (state) => state.favorites.favorites.listFavorites,
   );
-  console.log(favoritesArray);
-
-  useEffect(() => {
-    dispatch(setFromFavoritesRoute());
-    dispatch(recruiterFavorites());
-  }, []);
 
   return (
     <div className="wrapper">
@@ -38,13 +25,15 @@ function Favoris() {
         }
 
         <div className="favoris__card">
-          {favoritesArray?.map(
-            (favorite) => (
+          { // display all favorites cards
+            favoritesArray?.map(
+              (favorite) => (
 
-              <Card favorite={favorite} key={favorite.data.id} />
+                <Card favorite={favorite} key={favorite.data.id} />
 
-            ),
-          )}
+              ),
+            )
+          }
         </div>
       </div>
 

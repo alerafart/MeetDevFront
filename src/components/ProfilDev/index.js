@@ -111,24 +111,6 @@ function ProfilDev() {
     avatar = '';
   }
 
-  // const dataProfilDev = useSelector((state) => state.profilDev.register);
-  // console.log('profilDEv fiche perso');
-  // console.log(dataProfilDev);
-
-  // TODO: selon d'ou je viens je n'irais
-  // pas chercher les infos au même endroit:
-  // TODO Développer to modify: state.profilDev.register
-  // TODO Developpeur or Recruter from
-  // search or recruter from favorites: state.profilDevVisit (ou un autre nom)
-  // TODO dans le state profilDevVisit il
-  // faudrait reprendre exactement les mêmes
-  // noms de données que pour le state profilDev.register
-  // TODO cela permettra de l'utiliser
-  // pour stocker les données du profildev
-  // selectionné via le search ou les favorites de façon indifférente.
-  // TODO de plus ayant la même constructions
-  // que profilDev on pourrait plus
-  // facilement réutiliser les données pour l'affichage du rendu ci dessous.
   let data;
   if (fromSearch || fromFavorites) {
     data = useSelector((state) => state.modalProfil.result);
@@ -136,8 +118,6 @@ function ProfilDev() {
   else {
     data = useSelector((state) => state.profilDev.register);
   }
-  console.log(data);
-  console.log(data.available_for_recruiters);
 
   const dispatch = useDispatch();
   return (
@@ -159,15 +139,22 @@ function ProfilDev() {
           {
             // Display 'add to favorites' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
-              <p
-                type="button"
-                className="profilDev__header__about__---favorite"
-                onClick={() => {
-                  dispatch(addOneFavorite());
-                }}
-              > FAVORIS
-                <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
-              </p>
+              <div
+                // type="button"
+                className="profilDev__header__about--favorite"
+                // onClick={() => {
+                //   dispatch(addOneFavorite());
+                // }}
+              >
+                <img
+                  src={addfavorites}
+                  alt="add favorites"
+                  className="profilDev__header__about--favorite"
+                  onClick={() => {
+                    dispatch(addOneFavorite());
+                  }}
+                />
+              </div>
             )
           }
           <h3 className="profilDev__header__about--label">

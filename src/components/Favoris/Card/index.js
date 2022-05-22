@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
-
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-// import all avatars
+
+// import all avatars and logos
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
@@ -40,7 +40,7 @@ import reactnative from '../../../assets/images/archive/logo-reactnative.png';
 
 // import action-creator
 import { setToggleModalProfil } from '../../../actions/settings';
-import { getOneFavorite } from '../../../actions/favorites';
+import { getOneFavorite } from '../../../actions/favoritesaction';
 import { deleteOneFavorite } from '../../../actions/middleware';
 
 // style
@@ -48,10 +48,12 @@ import './card.scss';
 
 function Card({ favorite }) {
   const dispatch = useDispatch();
+  // to display profil Picture on card
   const profilePicture = favorite.data.UserData.profile_picture;
+  // technologies(langages) format string
   const technology = favorite.data.UserData.languages;
 
-  // select how avatar to display
+  // select what avatar to display
   let avatar;
   if (profilePicture === 'manAvatar1') {
     avatar = manAvatar1;
@@ -84,6 +86,10 @@ function Card({ favorite }) {
   return (
     <div className="card">
       <div className="card__avatar">
+        {
+          //* DISPLAY TECHNOLOGIE FROM PROFIL.
+          //* TODO FOR THE MOMENT ALL LOGO ARE NOT VISIBLE  */
+        }
         {technology.includes('React') ? <img src={react} className="card__avatar--logo" alt="logo react" /> : '' }
         {technology.includes('JavaScript') ? <img src={javascript} className="card__avatar--logo" alt="logo javascript" /> : '' }
         {technology.includes('HTML/CSS') ? <img src={html} className="card__avatar--logo" alt="logo html" /> : '' }
@@ -110,13 +116,18 @@ function Card({ favorite }) {
         {technology.includes('mysql') ? <img src={mysql} className="card__avatar--logo" alt="logo mysql" /> : '' }
         {technology.includes('Swift') ? <img src={swift} className="card__avatar--logo" alt="logo swift" /> : '' }
         {technology.includes('React_Native') ? <img src={reactnative} className="card__avatar--logo" alt="logo react native" /> : '' }
+        {/* display avatar from dev */}
         <img src={avatar} alt="Avatar" className="card__avatar--img" />
       </div>
+      {/* Display, fistname, lastname and city from dev on card.
+        //TODO bug display Experience
+       */}
       <div className="card__container">
         <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
         <p className="card__container--localisation">{favorite.data.UserData.city}</p>
         <p className="card__container--experience">Experience <span className="card__container--experience--year"> -{favorite.data.UserData.years_of_experience} an</span></p>
       </div>
+      {/* Button display profil: On click open modal profil dev + store informations developper with getOneFavorites on state modalProfil */}
       <div className="card__button">
         <button
           type="button"
@@ -127,6 +138,9 @@ function Card({ favorite }) {
           className="card__button--profileview"
         >Voir le profil
         </button>
+        {/* Button delete profil: On click store informations developper with getOneFavorites on state modalProfil
+          // deleted profildev selected with action deleted from middleware favorites
+        */}
         <button
           type="button"
           onClick={() => {

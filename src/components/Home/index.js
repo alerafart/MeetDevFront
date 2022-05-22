@@ -1,10 +1,9 @@
 import { Link, Navigate } from 'react-router-dom';
 import './home.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import rocket from '../../assets/images/rocket.png';
 // import background from '../../assets/images/backgroundMain.png';
-import { isDev, isRecruiter, setFromAway } from '../../actions/settings';
+import { isDev, isRecruiter } from '../../actions/settings';
 
 function Home() {
   const dispatch = useDispatch();

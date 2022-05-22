@@ -114,6 +114,12 @@ function MeetDev() {
           )}
         />
         <Route
+          path="%PUBLIC_URL%/*"
+          element={(
+            <Error />
+          )}
+        />
+        <Route
           path="www.meetdev.henriteint.fr/*"
           element={(
             <Error />

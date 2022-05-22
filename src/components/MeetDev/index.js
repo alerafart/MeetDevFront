@@ -108,6 +108,12 @@ function MeetDev() {
           )}
         />
         <Route
+          path="www.meetdev.henriteint.fr/*"
+          element={(
+            <Error />
+          )}
+        />
+        <Route
           path="/cookies"
           element={(
             <Cookies />

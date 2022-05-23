@@ -7,13 +7,19 @@ import { setFromAway } from '../../actions/settings';
 import './contact.scss';
 
 function Contact() {
+  // we useSelector to control in reading and writting the differents input
+  // also, we could use all the data in the state message later
   const message = useSelector((state) => state.formContact.message);
+
+  // we initialise the dispatch function from react-redux
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setFromAway());
   }, []);
 
+  // we create a handleChangeForm function
+  // in the aim of send the name and value of each input in the store
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;

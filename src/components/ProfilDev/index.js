@@ -40,6 +40,9 @@ import wordpress from '../../assets/images/archive/logo-wordpress.png';
 import mysql from '../../assets/images/archive/logo-mysql.png';
 import swift from '../../assets/images/archive/logo-swift.png';
 import reactnative from '../../assets/images/archive/logo-reactnative.png';
+import mongo from '../../assets/images/archive/logo-mongo.png';
+import git from '../../assets/images/archive/logo-git.png';
+import docker from '../../assets/images/archive/logo-docker.png';
 import ModalSendMessage from '../ModalSendMessage';
 import { setToggleModalSendMessage } from '../../actions/settings';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
@@ -80,24 +83,6 @@ function ProfilDev() {
     avatar = womanAvatar4;
   }
 
-  // const dataProfilDev = useSelector((state) => state.profilDev.register);
-  // console.log('profilDEv fiche perso');
-  // console.log(dataProfilDev);
-
-  // TODO: selon d'ou je viens je n'irais
-  // pas chercher les infos au même endroit:
-  // TODO Développer to modify: state.profilDev.register
-  // TODO Developpeur or Recruter from
-  // search or recruter from favorites: state.profilDevVisit (ou un autre nom)
-  // TODO dans le state profilDevVisit il
-  // faudrait reprendre exactement les mêmes
-  // noms de données que pour le state profilDev.register
-  // TODO cela permettra de l'utiliser
-  // pour stocker les données du profildev
-  // selectionné via le search ou les favorites de façon indifférente.
-  // TODO de plus ayant la même constructions
-  // que profilDev on pourrait plus
-  // facilement réutiliser les données pour l'affichage du rendu ci dessous.
   let data;
   if (fromSearch || fromFavorites) {
     data = useSelector((state) => state.modalProfil.result);
@@ -105,8 +90,6 @@ function ProfilDev() {
   else {
     data = useSelector((state) => state.profilDev.register);
   }
-  console.log(data);
-  console.log(data.available_for_recruiters);
 
   const dispatch = useDispatch();
   return (
@@ -128,15 +111,22 @@ function ProfilDev() {
           {
             // Display 'add to favorites' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
-              <p
-                type="button"
-                className="profilDev__header__about__---favorite"
-                onClick={() => {
-                  dispatch(addOneFavorite());
-                }}
-              > FAVORIS
-                <img src={addfavorites} alt="add favorites" className="profilDev__header__about--favorite" />
-              </p>
+              <div
+                // type="button"
+                className="profilDev__header__about--favorite"
+                // onClick={() => {
+                //   dispatch(addOneFavorite());
+                // }}
+              >
+                <img
+                  src={addfavorites}
+                  alt="add favorites"
+                  className="profilDev__header__about--favorite"
+                  onClick={() => {
+                    dispatch(addOneFavorite());
+                  }}
+                />
+              </div>
             )
           }
           <h3 className="profilDev__header__about--label">
@@ -264,7 +254,9 @@ function ProfilDev() {
               <div className="profilDev__skills__item--label">Stack :
               </div>
               <div className="profilDev__skills__item--color">
-                {data.technology}
+                {data.technology.map((item) => (
+                  <div className="profilDev__skills__item--color--stack"> {item}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -286,16 +278,19 @@ function ProfilDev() {
               {data.technology.includes('Rust') ? <img src={rust} className="profilDev__skills__item__logos--logo" alt="logo rust" /> : '' }
               {data.technology.includes('Ruby') ? <img src={ruby} className="profilDev__skills__item__logos--logo" alt="logo ruby" /> : '' }
               {data.technology.includes('Node.js') ? <img src={node} className="profilDev__skills__item__logos--logo" alt="logo node.js" /> : '' }
-              {data.technology.includes('Vue.js') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
+              {data.technology.includes('VueJs') ? <img src={vue} className="profilDev__skills__item__logos--logo" alt="logo vue.js" /> : '' }
               {data.technology.includes('jQuery') ? <img src={jquery} className="profilDev__skills__item__logos--logo" alt="logo jquery" /> : '' }
               {data.technology.includes('Express') ? <img src={express} className="profilDev__skills__item__logos--logo" alt="logo express" /> : '' }
               {data.technology.includes('Laravel') ? <img src={laravel} className="profilDev__skills__item__logos--logo" alt="logo laravel" /> : '' }
               {data.technology.includes('Angular') ? <img src={angular} className="profilDev__skills__item__logos--logo" alt="logo angular" /> : '' }
               {data.technology.includes('Django') ? <img src={django} className="profilDev__skills__item__logos--logo" alt="logo django" /> : '' }
-              {data.technology.includes('Wordpress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
+              {data.technology.includes('WordPress') ? <img src={wordpress} className="profilDev__skills__item__logos--logo" alt="logo wordpress" /> : '' }
               {data.technology.includes('mysql') ? <img src={mysql} className="profilDev__skills__item__logos--logo" alt="logo mysql" /> : '' }
               {data.technology.includes('Swift') ? <img src={swift} className="profilDev__skills__item__logos--logo" alt="logo swift" /> : '' }
               {data.technology.includes('React_Native') ? <img src={reactnative} className="profilDev__skills__item__logos--logo" alt="logo react native" /> : '' }
+              {data.technology.includes('MongoDb') ? <img src={mongo} className="profilDev__skills__item__logos--logo" alt="logo mongoDb" /> : '' }
+              {data.technology.includes('Git') ? <img src={git} className="profilDev__skills__item__logos--logo" alt="logo git" /> : '' }
+              {data.technology.includes('Docker') ? <img src={docker} className="profilDev__skills__item__logos--logo" alt="docker" /> : '' }
             </div>
             {/* <div className="profilDev__skills__item__logos">
 

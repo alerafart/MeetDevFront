@@ -46,6 +46,7 @@ function ModalSendMessage() {
             className="modalDevContactContainer__form--connexion"
             onClick={() => {
               dispatch(setToggleModalSendMessage());
+              dispatch(contactDevRaz());
             }}
           >
             Envoyer

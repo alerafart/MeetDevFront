@@ -179,7 +179,7 @@ function Card({ favorite }) {
             dispatch(deleteOneFavorite());
           }}
           className="card__button--delete"
-        >supprimer
+        >Supprimer
         </button>
       </div>
     </div>

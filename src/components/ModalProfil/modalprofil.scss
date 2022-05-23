@@ -185,6 +185,7 @@
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
+        overflow-x: auto;
 
         @media (max-width: 665px) {
           width: 70%;

@@ -8,7 +8,7 @@ export const dataProfilDevFromApi = (value, name) => ({
 
 export const MAJ_PROFIL_DEV_FROM_API = 'MAJ_PROFIL_DEV_FROM_API';
 
-export const majProfilDevFromApi = (data) => ({
+export const majProfilDevFromApi = (user) => ({
   type: MAJ_PROFIL_DEV_FROM_API,
-  data,
+  user,
 });

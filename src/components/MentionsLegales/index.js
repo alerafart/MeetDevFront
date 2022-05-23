@@ -1,6 +1,11 @@
 import './mentionslegales.scss';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../../actions/settings';
 
 function MentionsLegales() {
+  const dispatch = useDispatch;
+
   return (
     <div className="mentionslegales">
       <h3 className="mentionslegales__title">Mentions-Légales</h3>
@@ -262,6 +267,16 @@ function MentionsLegales() {
         transposant la directive 96/9 du 11 mars 1996 relative à
         la protection juridique des bases de données.
       </p>
+      <Link to="/">
+        <button
+          type="button"
+          className="inscription__form__buttons__button--cancel"
+          onClick={() => {
+            dispatch(logout());
+          }}
+        >Retour
+        </button>
+      </Link>
     </div>
   );
 }

@@ -1,7 +1,11 @@
 // styles
 import './ensavoirplus.scss';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../../actions/settings';
 
 function EnSavoirPlus() {
+  const dispatch = useDispatch();
   return (
 
     <div className="about">
@@ -101,7 +105,18 @@ function EnSavoirPlus() {
               <p className="about__us--container--role">Product Owner</p>
               {/* <p className="about__us--container--photo">Photo</p> */}
             </div>
+
           </div>
+          <Link to="/">
+            <button
+              type="button"
+              className="inscription__form__buttons__button--cancel"
+              onClick={() => {
+                dispatch(logout());
+              }}
+            >Retour
+            </button>
+          </Link>
         </div>
       </div>
     </div>

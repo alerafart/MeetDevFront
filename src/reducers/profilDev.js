@@ -43,10 +43,32 @@ const profilDev = (state = initialState, action = {}) => {
     }
 
     case MAJ_PROFIL_DEV_FROM_API: {
-      console.log(action.data);
+      console.log(action.user);
       return {
         ...state,
-        ...action.data,
+        register: {
+          ...state.register,
+          firstname: action.user.firstname,
+          lastname: action.user.lastname,
+          age: action.user.age,
+          city: action.user.city,
+          zipCode: action.user.zip_code,
+          departement: action.user.department,
+          phone: action.user.phone,
+          technology: action.user.languages.split(','),
+          experience: action.user.years_of_experience,
+          password: action.user.password,
+          portfolio: action.user.portfolio_link,
+          description: action.user.description,
+          available_for_recruiters: action.user.available_for_developers,
+          available_for_developers: action.user.available_for_developers,
+          github: action.user.github_link,
+          salary: action.user.minimum_salary_requested,
+          english: action.user.english_spoken,
+          availability: action.user.available_for_developers,
+          label: action.user.label,
+          profilePicture: action.user.profile_picture,
+        },
       };
     }
 

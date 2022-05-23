@@ -1,10 +1,10 @@
 // styles
 import './cookies.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { closeCookies } from '../../actions/settings';
 
 function Cookies() {
-  const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
+  // const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   const dispatch = useDispatch();
   return (
     <div className="cookies">

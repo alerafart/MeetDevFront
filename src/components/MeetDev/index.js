@@ -22,6 +22,8 @@ import Cookies from '../Cookies';
 
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
+  const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
+
   return (
     <div className="meetdev">
       <Header />
@@ -32,7 +34,16 @@ function MeetDev() {
         <Route
           path="/"
           element={(
-            <><Home /><Cookies /></>
+            <>
+
+              {
+                !cookiesLoad && <Home />
+              }
+              {
+                cookiesLoad && <Cookies />
+              }
+            </>
+
           )}
         />
         <Route

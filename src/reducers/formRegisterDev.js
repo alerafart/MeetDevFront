@@ -1,4 +1,6 @@
-import { REGISTER_DEV, SELECT_AVATAR, TOGGLE_STACK } from '../actions/formRegisterDev';
+import {
+  REGISTER_DEV, SELECT_AVATAR, TOGGLE_STACK, FORM_ERROR_ON_SUBMIT,
+} from '../actions/formRegisterDev';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -26,6 +28,26 @@ export const initialState = {
     description: '',
     availability: '',
     profilePicture: '',
+  },
+  //
+  error: {
+    firstnameEmpty: false,
+    lastnameEmpty: false,
+    emailEmpty: false,
+    emailTestEmpty: false,
+    cityEmpty: false,
+    // zipCodeEmpty: false,
+    // departementEmpty: false,
+    phoneEmpty: false,
+    // technology: false,
+    experienceEmpty: false,
+    passwordEmpty: false,
+    verifyPasswordEmpty: false,
+    salaryEmpty: false,
+    englishEmpty: false,
+    labelEmpty: false,
+    descriptionEmpty: false,
+    // availability: false,
   },
 
 };
@@ -100,6 +122,18 @@ const formRegisterDev = (state = initialState, action = {}) => {
           profilePicture: '',
         },
       };
+
+    case FORM_ERROR_ON_SUBMIT: {
+      console.log('LANCE');
+      console.log(action.name);
+      return {
+        ...state,
+        error: {
+          ...state.error,
+          [action.name]: action.value,
+        },
+      };
+    }
 
     default:
       return state;

@@ -33,7 +33,7 @@ const inscriptionDevApi = (store) => (next) => (action) => {
       const technologyInString = technology.toString();
 
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/developers',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/register/users/developers',
         // ou url: 'http://localhost/api/users:8000',
         {
           lastname: lastname,

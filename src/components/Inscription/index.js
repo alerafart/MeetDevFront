@@ -16,7 +16,7 @@ import github from '../../assets/images/github.png';
 import {
   logout, setFromInscriptionRoute, searchCityDisplay, toggleWindowLog, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
 } from '../../actions/settings';
-import { registerDev } from '../../actions/formRegisterDev';
+import { registerDev, formErrorOnSubmit } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
 
 // import all avatars
@@ -32,6 +32,8 @@ import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 function Inscription() {
   // State for controlled champs of formulaire
   const register = useSelector((state) => state.formRegisterDev.register);
+  const error = useSelector((state) => state.formRegisterDev.error);
+
   // State to know if i'm Dev or Recruiter. To Display Inscription page Dev or Recruiter
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
@@ -83,6 +85,106 @@ function Inscription() {
     dispatch(registerDev(value, name));
   }
 
+  function submitForm() {
+    if (register.firstname.length === 0) {
+      dispatch(formErrorOnSubmit('firstnameEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('firstnameEmpty', false));
+    }
+    if (register.lastname.length === 0) {
+      dispatch(formErrorOnSubmit('lastnameEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('lastnameEmpty', false));
+    }
+    if (register.email.length === 0 || register.emailTest !== register.email) {
+      dispatch(formErrorOnSubmit('emailEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('emailEmpty', false));
+    }
+    if (register.emailTest.length === 0 || register.emailTest !== register.email) {
+      dispatch(formErrorOnSubmit('emailTestEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('emailEmpty', false));
+    }
+    if (register.phone.length === 0) {
+      dispatch(formErrorOnSubmit('phoneEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('phoneEmpty', false));
+    }
+    if (register.experience.length === 0) {
+      dispatch(formErrorOnSubmit('experienceEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('experienceEmpty', false));
+    }
+    if (register.password.length === 0 || register.password !== register.verifypassword) {
+      dispatch(formErrorOnSubmit('passwordEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('passwordEmpty', false));
+    }
+    if (register.verifypassword.length === 0 || register.password !== register.verifypassword) {
+      dispatch(formErrorOnSubmit('verifyPasswordEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('verifyPasswordEmpty', false));
+    }
+    if (register.salary.length === 0) {
+      dispatch(formErrorOnSubmit('salaryEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('salaryEmpty', false));
+    }
+    if (register.english.length === 0) {
+      dispatch(formErrorOnSubmit('englishEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('englishEmpty', false));
+    }
+    if (register.label.length === 0) {
+      dispatch(formErrorOnSubmit('labelEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('labelEmpty', false));
+    }
+    if (register.description.length === 0) {
+      dispatch(formErrorOnSubmit('descriptionEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('descriptionEmpty', false));
+    }
+    if (register.city.length === 0) {
+      dispatch(formErrorOnSubmit('cityEmpty', true));
+    }
+    else {
+      dispatch(formErrorOnSubmit('cityEmpty', false));
+    }
+
+    if (error.firstnameEmpty === false
+      && error.lastnameEmpty === false
+      && error.emailEmpty === false
+      && error.emailTestEmpty === false
+      && error.cityEmpty === false
+      && error.phoneEmpty === false
+      && error.experience === false
+      && error.passwordEmpty === false
+      && error.verifypasswordEmpty === false
+      && error.salaryEmpty === false
+      && error.englishEmpty === false
+      && error.labelEmpty === false
+      && error.descriptionEmpty === false) {
+      // dispatch(inscriptionDev());
+      dispatch(toggleWindowLog());
+    }
+  }
+
+  console.log(Object.values(error));
+
   return (
     <>
       {
@@ -114,20 +216,20 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Prénom
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="firstname" value={register.firstname} onChange={handleChangeForm} />
+                <input className={error.firstnameEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="firstname" value={register.firstname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Nom
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} />
+                <input className={error.lastnameEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Ville
                 </div>
                 <input
-                  className="inscription__form__champ--input"
+                  className={error.cityEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'}
                   type="text"
                   name="city"
                   value={register.city}
@@ -179,49 +281,49 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Tél
                 </div>
-                <input className="inscription__form__champ--input" type="number" name="phone" value={register.phone} onChange={handleChangeForm} />
+                <input className={error.phoneEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="number" name="phone" value={register.phone} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Label
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="label" value={register.label} onChange={handleChangeForm} placeholder="Exemple: Developper Front-end React" />
+                <input className={error.labelEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="label" value={register.label} onChange={handleChangeForm} placeholder="Exemple: Developper Front-end React" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Description
                 </div>
-                <textarea className="inscription__form__champ--input" type="mail" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
+                <textarea className={error.descriptionEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Mail
                 </div>
-                <input className="inscription__form__champ--input" type="mail" name="email" value={register.email} onChange={handleChangeForm} />
+                <input className={error.emailEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="email" value={register.email} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Vérif Mail
                 </div>
-                <input className="inscription__form__champ--input" type="mail" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
+                <input className={error.emailTestEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Mdp
                 </div>
-                <input className="inscription__form__champ--input" type="password" name="password" value={register.password} onChange={handleChangeForm} />
+                <input className={error.passwordEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="password" name="password" value={register.password} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Vérif Mdp
                 </div>
-                <input className="inscription__form__champ--input" type="password" name="verifypassword" value={register.verifpassword} onChange={handleChangeForm} />
+                <input className={error.verifyPasswordEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="password" name="verifypassword" value={register.verifpassword} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Anglais
                 </div>
-                <select value={register.english} type="text" className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
+                <select value={register.english} type="text" className={error.englishEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} name="english" onChange={handleChangeForm}>
                   <option value="">{null}</option>
                   <option value="fluent">Bilingue</option>
                   <option value="middle">Intermédiare</option>
@@ -232,7 +334,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Salaire annuel
                 </div>
-                <select name="salary" type="number" defaultValue={register.salary} className="inscription__form__champ--input" onChange={handleChangeForm}>
+                <select name="salary" type="number" defaultValue={register.salary} className={error.salaryEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} onChange={handleChangeForm}>
                   <option value="">{null}</option>
                   <option value={30}>30 k€</option>
                   <option value={40}>40 k€</option>
@@ -308,20 +410,15 @@ function Inscription() {
                 </div>
                 <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} />
               </div>
-              <div className="inscription__form__champ">
-                {/* <div className="inscription__form__champ--label">
-                  PortFolio
-                </div>
-                <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
-              </div>
+
               <div className="inscription__form__buttons">
                 <Link to="/">
                   <button
                     type="submit"
                     className="inscription__form__buttons__button--valid"
-                    onClick={() => {
-                      dispatch(inscriptionDev());
-                      dispatch(toggleWindowLog());
+                    onClick={(e) => {
+                      e.preventDefault();
+                      submitForm();
                     }}
                   >
                     Valider

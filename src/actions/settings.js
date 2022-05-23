@@ -150,3 +150,14 @@ export const toggleModalChooseTechnologie = () => ({
   type: TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
 
 });
+
+// ACTION TYPE close_cookies
+
+export const CLOSE_COOKIES = 'CLOSE_COOKIES';
+
+// ACTION CREATOR close_cookies
+
+export const closeCookies = () => ({
+  type: CLOSE_COOKIES,
+
+});

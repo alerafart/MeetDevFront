@@ -1,6 +1,6 @@
 // styles
 import './cookies.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Cookies() {
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
@@ -13,8 +13,22 @@ function Cookies() {
         et pour comprendre la provenance de nos visiteurs.
       </p>
       <div className="cookies__button">
-        <button type="button" className="cookies__button--agree">J'accepte</button>
-        <button type="button" className="cookies__button--disagree">Je refuse</button>
+        <button
+          type="button"
+          className="cookies__button--agree"
+          onClick={() => {
+            console.log('agree button');
+          }}
+        >J'accepte
+        </button>
+        <button
+          type="button"
+          className="cookies__button--disagree"
+          onClick={() => {
+            console.log('refuse button');
+          }}
+        >Je refuse
+        </button>
       </div>
 
       <div id="all" />

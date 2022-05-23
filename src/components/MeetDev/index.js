@@ -32,7 +32,7 @@ function MeetDev() {
         <Route
           path="/"
           element={(
-            <Home />
+            <><Home /><Cookies /></>
           )}
         />
         <Route

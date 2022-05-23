@@ -1,7 +1,9 @@
 // styles
 import './cookies.scss';
+import { useSelector } from 'react-redux';
 
 function Cookies() {
+  const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   return (
     <div className="cookies">
       <h3 className="cookies__title">Nous utilisons des cookies</h3>

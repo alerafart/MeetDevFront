@@ -33,6 +33,7 @@ export const initialState = {
     user_id: '',
     dev_id: '',
     recruit_id: '',
+    cookiesLoad: true,
   },
   navigation: {
     windowSendMessage: false, // open Modal Send Message

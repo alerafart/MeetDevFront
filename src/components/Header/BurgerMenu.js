@@ -1,9 +1,11 @@
-import './burgerMenu.scss';
+// == Import : npm
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
 // import { useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+
+// == Import : action creator
 import {
   burgerMenuOpen, loginBurger, logout, setFromAway, setFromFavoritesRoute, setFromSearchRoute,
 } from '../../actions/settings';
@@ -12,6 +14,10 @@ import { login } from '../../actions/formLogin';
 import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 
+// == Import Style
+import './burgerMenu.scss';
+
+// == Composant
 function BurgerMenu() {
   const dispatch = useDispatch();
 
@@ -20,21 +26,23 @@ function BurgerMenu() {
     dispatch(burgerMenuOpen());
   };
 
+  // function to change param login
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
     dispatch(login(value, name));
   }
-
+  // function to select state profilRecruiter and profilDev
   const profilRec = useSelector((state) => state.profilRecruiter);
   const profilDev = useSelector((state) => state.profilDev);
 
+  // function to duplicate profilRec
   function handlecopy() {
     dispatch(copyProfilRecToTemp(profilRec));
   }
 
   const navigate = useNavigate();
-
+  // function to submit login with button connect
   function handleSubmit(e) {
     e.preventDefault();
     // console.log('click');
@@ -43,12 +51,13 @@ function BurgerMenu() {
     dispatch(burgerMenuOpen());
     navigate('/');
   }
-
+  // function to select state settings
   const logged = useSelector((state) => state.settings.log.logged);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isLogin = useSelector((state) => state.settings.navigation.burgerLogin);
   const burgerMenu = useSelector((state) => state.settings.navigation.burgerMenuOpen);
+  // function to select state formLogin
   const formLogin = useSelector((state) => state.formLogin.login);
 
   // configure apparition effect burger menu (framer-motion)
@@ -63,7 +72,7 @@ function BurgerMenu() {
     exit: { y: '-50%', opacity: 0 },
     transition: { duration: 0.4, ease: 'easeOut' },
   };
-
+  // configure animation apparition burger menu
   const burgerMenuAnimation = {
     key: 'burgerMenu',
     initial: { x: '-100vw', opacity: 0.7 },

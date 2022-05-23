@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// == Import : npm
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -47,6 +48,7 @@ import { deleteOneFavorite, recruiterFavorites } from '../../../actions/middlewa
 // style
 import './card.scss';
 
+// == Composant
 function Card({ favorite }) {
   const dispatch = useDispatch();
   // to display profil Picture on card
@@ -91,9 +93,7 @@ function Card({ favorite }) {
         {/* display avatar from dev */}
         <img src={avatar} alt="Avatar" className="card__avatar--img" />
       </div>
-      {/* Display, fistname, lastname and city from dev on card.
-        //TODO bug display Experience
-       */}
+      {/* Display, fistname, lastname and city from dev on card. */}
       <div className="card__container">
         <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
         <p className="card__container--localisation"><img className="card__container--localisation--icon" src={mapPointer} alt="map pointer" />{favorite.data.UserData.city}</p>
@@ -162,6 +162,7 @@ function Card({ favorite }) {
       <div className="card__button">
         <button
           type="button"
+          // Button to open a modal profile
           onClick={() => {
             dispatch(getOneFavorite(favorite));
             dispatch(setToggleModalProfil());
@@ -180,7 +181,7 @@ function Card({ favorite }) {
             dispatch(recruiterFavorites());
           }}
           className="card__button--delete"
-        >supprimer
+        >Supprimer
         </button>
       </div>
     </div>

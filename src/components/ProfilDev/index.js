@@ -213,7 +213,7 @@ function ProfilDev() {
             </div>
           </div>
           {
-            data.available_for_recruiters === 1 && (
+            data.available_for_recruiters === '1' && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible:
@@ -229,7 +229,7 @@ function ProfilDev() {
             )
           }
           {
-            data.available_for_recruiters === 0 && (
+            data.available_for_recruiters === '0' && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible dans 3 mois:

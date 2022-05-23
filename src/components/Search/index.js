@@ -1,14 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import './search.scss';
 import Card from './Card';
 import ModalProfil from '../ModalProfil';
-import { setFromSearchRoute } from '../../actions/settings';
 import { searchDev } from '../../actions/formSearchDev';
 import { fetchProfile } from '../../actions/middleware';
 
 function Search() {
+  // To display/notDisplay modal Profil select dev
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
   const search = useSelector((state) => state.formSearchDev.search);
   const results = useSelector((state) => state.resultSearch.results);
@@ -24,9 +23,6 @@ function Search() {
     dispatch(searchDev(value, name));
   }
 
-  useEffect(() => {
-    dispatch(setFromSearchRoute());
-  }, []);
   return (
     <div className="wrapper">
       <h2 className="banniere">

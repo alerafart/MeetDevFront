@@ -18,6 +18,7 @@ import {
   SEARCH_CITY_CLOSE,
   CHOOSE_AVATAR_MODAL,
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
+  LOGIN_BURGER,
 
 } from '../actions/settings';
 
@@ -44,6 +45,7 @@ export const initialState = {
     displaySearchCity: false,
     resultSearchCity: [],
     burgerMenuOpen: false,
+    burgerLogin: false,
   },
 };
 
@@ -55,9 +57,17 @@ const settings = (state = initialState, action = {}) => {
         navigation: {
           ...state.navigation,
           burgerMenuOpen: !state.navigation.burgerMenuOpen,
+          burgerLogin: false,
         },
       };
-
+    case LOGIN_BURGER:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          burgerLogin: !state.navigation.burgerLogin,
+        },
+      };
     case TOGGLE_MODAL_CHOOSE_TECHNOLOGIE:
       return {
         ...state,

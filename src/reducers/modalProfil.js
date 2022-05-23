@@ -1,4 +1,4 @@
-import { GET_ONE_FAVORITE } from '../actions/favorites';
+import { GET_ONE_FAVORITE } from '../actions/favoritesaction';
 import { FETCH_PROFILE_MODALE } from '../actions/formSearchDev';
 import { LOGOUT } from '../actions/settings';
 
@@ -50,7 +50,7 @@ const modalProdil = (state = initialState, action = {}) => {
           zipCode: action.user.data.zip_code,
           departement: action.user.data.department,
           phone: action.user.data.phone,
-          technology: action.user.data.languages,
+          technology: action.user.data.languages.split(','),
           password: action.user.data.password,
           verifypassword: '',
           portfolio: action.user.data.portfolio_link,
@@ -84,7 +84,7 @@ const modalProdil = (state = initialState, action = {}) => {
           zipCode: action.user.data.UserData.zip_code,
           departement: action.user.data.UserData.department,
           phone: action.user.data.UserData.phone,
-          technology: action.user.data.UserData.languages,
+          technology: action.user.data.UserData.languages.split(','),
           password: action.user.data.UserData.password,
           verifypassword: '',
           portfolio: action.user.data.UserData.portfolio_link,

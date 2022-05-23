@@ -12,6 +12,14 @@ export const logged = (email, userId, devId, recruitId, token) => ({
   token,
 });
 
+// ACTION TYPE LOGIN_BURGER
+export const LOGIN_BURGER = 'LOGIN_BURGER';
+
+// ACTION CREATOR LOGIN_BURGER
+export const loginBurger = () => ({
+  type: LOGIN_BURGER,
+});
+
 // ACTION TYPE IS_DEV
 
 export const IS_DEV = 'IS_DEV';

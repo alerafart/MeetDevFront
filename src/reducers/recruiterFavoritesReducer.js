@@ -1,6 +1,6 @@
 // import { DATA_PROFIL_RECRUITER_FROM_API } from '../actions/profilRecruiter';
 
-import { FAVORITES_LIST } from '../actions/favorites';
+import { FAVORITES_LIST } from '../actions/favoritesaction';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {

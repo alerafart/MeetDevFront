@@ -36,8 +36,6 @@ export const initialState = {
     emailEmpty: false,
     emailTestEmpty: false,
     cityEmpty: false,
-    // zipCodeEmpty: false,
-    // departementEmpty: false,
     phoneEmpty: false,
     // technology: false,
     experienceEmpty: false,
@@ -124,8 +122,6 @@ const formRegisterDev = (state = initialState, action = {}) => {
       };
 
     case FORM_ERROR_ON_SUBMIT: {
-      console.log('LANCE');
-      console.log(action.name);
       return {
         ...state,
         error: {

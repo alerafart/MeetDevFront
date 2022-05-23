@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
@@ -30,15 +30,10 @@ function VerifyEmail() {
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
   console.log(isVerified);
 
-  let isEmptyMail = true;
-  let isEmptyPass = true;
-
   function handleSubmit() {
     // dispatch(toggleWindowLog());
-    console.log('handleSUBMIT');
-    console.log(formLogin.email.length);
 
-    if (formLogin.password.length > 0) {
+    /* if (formLogin.password.length > 0) {
       console.log(formLogin.password.length);
       isEmptyPass = false;
       // dispatch(loginTest());
@@ -46,10 +41,9 @@ function VerifyEmail() {
     if (formLogin.email.length > 0) {
       console.log(formLogin.email);
       isEmptyMail = false;
-    }
+    } */
+    dispatch(loginTest());
   }
-
-  console.log(isEmptyMail, isEmptyPass);
 
   return (
     <div
@@ -79,8 +73,10 @@ function VerifyEmail() {
         </header>
 
         <form className="modalLoginContainer__form" onChange={handleChangeForm} onSubmit={handleSubmit}>
-          <input className={!isEmptyMail ? 'modalLoginContainer__form--login' : 'field__empty--error'} type="email" placeholder="Email" value={formLogin.email} name="email" />
-          <input className={isEmptyPass ? 'modalLoginContainer__form--password' : 'field__empty--error'} type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
+          {/* <input className={!isEmptyMail ? 'modalLoginContainer__form--login' : 'field__empty--error'} type="email" placeholder="Email" value={formLogin.email} name="email" /> */}
+          <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
+          {/* <input className={isEmptyPass ? 'modalLoginContainer__form--password' : 'field__empty--error'} type="password" placeholder="Mot de passe" name="password" value={formLogin.password} /> */}
+          <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
           <p className="modalLoginContainer__form--error">
             L'email et/ou le mot de passe sont incorrects
           </p>

@@ -75,40 +75,60 @@
 
       }
 
-
       &--label {
         color: vars.$mainColor;
         border-bottom: 1px solid vars.$mainFontGrey;
         margin-bottom: 1rem;
       }
 
-      &--name {
-        font-size: 1.7rem;
-        color: vars.$mainFontAnthra;
-        margin-bottom: 0.3rem;
-        text-align: left;
-      }
+      &__item {
+        display: flex;
+        justify-content: flex-start;
+        // align-items: center;
+        margin-bottom: 1rem;
 
-      &--firms {
-        font-size: 1.7rem;
-        color: vars.$mainFontAnthra;
-        margin-bottom: 0.3rem;
-        text-align: left;
-      }
+        &--label {
+          margin-right: 1rem;
+          margin-top: 0.3rem;
+          min-width: 8rem;
+        }
 
-      &--city {
-        font-size: 1.7rem;
-        color: vars.$mainFontAnthra;
-        margin-bottom: 0.3rem;
-        text-align: left;
-      }
+        &--contact {
+          font-size: 1.4rem;
+          color: vars.$mainFontAnthra;
+        }
 
 
-      &--description {
-        max-width: 35rem;
-        padding-left: 0;
-        text-align: left;
+        &--name {
+          font-size: 1.7rem;
+          color: vars.$mainFontAnthra;
+          margin-bottom: 0.3rem;
+          text-align: left;
+        }
+
+        &--firms {
+          font-size: 1.7rem;
+          color: vars.$mainFontAnthra;
+        }
+
+        &--city {
+          font-size: 1.4rem;
+          color: vars.$mainFontAnthra;
+          ;
+          text-align: left;
+        }
+
+
+        &--description {
+          max-width: 20rem;
+          padding-left: 0;
+          text-align: left;
+          color: vars.$mainFontAnthra;
+          line-height: 1.3rem;
+        }
+
       }
+
 
     }
   }

@@ -6,3 +6,10 @@ export const dataProfilRecruiterFromApi = (value, name) => ({
   value,
   name,
 });
+
+export const MAJ_PROFIL_RECRUITER_FROM_API = 'MAJ_PROFIL_RECRUITER_FROM_API';
+
+export const majProfilRecruiterFromApi = (user) => ({
+  type: MAJ_PROFIL_RECRUITER_FROM_API,
+  user,
+});

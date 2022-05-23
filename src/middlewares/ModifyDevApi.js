@@ -68,7 +68,9 @@ const ModifyDevApi = (store) => (next) => (action) => {
       axios.put(url, params, config).then((response) => {
         console.log(response.data);
         console.log('modification envoyé');
-        store.dispatch(majProfilDevFromApi(response.data.userProfile));
+        const developperModifie = state.profilDevModifyTemp.register;
+        console.log(developperModifie);
+        store.dispatch(majProfilDevFromApi(developperModifie));
         // navigate('/profil');
         // TODO BACK VA COIRRIGER POUR ME RENVOYER LES INFOS AVEC LA REPONSE
       }).catch((error) => {

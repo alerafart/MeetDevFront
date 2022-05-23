@@ -3,11 +3,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import action-creator
-import { setToggleModalProfil } from '../../../actions/settings';
-import { getOneFavorite } from '../../../actions/favoritesaction';
-import { deleteOneFavorite } from '../../../actions/middleware';
-
 // import all avatars and logos
 import mapPointer from '../../../assets/images/mapPointer.png';
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
@@ -44,6 +39,11 @@ import wordpress from '../../../assets/images/archive/logo-wordpress.png';
 import mysql from '../../../assets/images/archive/logo-mysql.png';
 import swift from '../../../assets/images/archive/logo-swift.png';
 import reactnative from '../../../assets/images/archive/logo-reactnative.png';
+
+// import action-creator
+import { setToggleModalProfil } from '../../../actions/settings';
+import { getOneFavorite } from '../../../actions/favoritesaction';
+import { deleteOneFavorite, recruiterFavorites } from '../../../actions/middleware';
 
 // style
 import './card.scss';
@@ -178,6 +178,7 @@ function Card({ favorite }) {
           onClick={() => {
             dispatch(getOneFavorite(favorite));
             dispatch(deleteOneFavorite());
+            dispatch(recruiterFavorites());
           }}
           className="card__button--delete"
         >Supprimer

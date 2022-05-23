@@ -50,6 +50,7 @@ import { addOneFavorite } from '../../actions/middleware';
 
 function ProfilDev() {
   const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRec = useSelector((state) => state.settings.log.isRecruiter);
   const logged = useSelector((state) => state.settings.log.logged);
   const sendMessage = useSelector((state) => state.settings.navigation.windowSendMessage);
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
@@ -124,8 +125,9 @@ function ProfilDev() {
         </div>
         <div className="profilDev__header__about">
           {
-            // Display 'add to favorites' only if we come from search Route or Favorites Route
-            (fromSearch || fromFavorites) && (
+            // Display 'add to favorites' only if we come from search Route or
+            // Favorites Route and i'm recruiter
+            ((fromSearch || fromFavorites) && isRec) && (
               <div
                 // type="button"
                 className="profilDev__header__about--favorite"
@@ -213,7 +215,7 @@ function ProfilDev() {
             </div>
           </div>
           {
-            data.available_for_recruiters === 1 && (
+            ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible:
@@ -229,7 +231,7 @@ function ProfilDev() {
             )
           }
           {
-            data.available_for_recruiters === 0 && (
+            ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
               <div className="profilDev__informations__disponibility">
                 <div className="profilDev__informations__disponibility--txt">
                   Disponible dans 3 mois:

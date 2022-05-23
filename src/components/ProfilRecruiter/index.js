@@ -68,10 +68,35 @@ function RecruiterProfile() {
           <h3 className="profilrecruiter__header__about--label">
             A Propos
           </h3>
-          <h4 className="profilrecruiter__header__about--firms"> {data.firms} </h4>
-          <h4 className="profilrecruiter__header__about--name">{data.firstname} {data.lastname}</h4>
-          <h4 className="profilrecruiter__header__about--city">{data.city}</h4>
-          <p className="profilrecruiter__header__about--description">{data.description}</p>
+          <div className="profilrecruiter__header__about__item">
+            <div className="profilrecruiter__header__about__item--label">
+              Entreprise:
+            </div>
+            <div className="profilrecruiter__header__about__item--firms">{data.firms}
+            </div>
+          </div>
+          <div className="profilrecruiter__header__about__item">
+            <div className="profilrecruiter__header__about__item--label">
+              Contact:
+            </div>
+            <div className="profilrecruiter__header__about__item--contact">{data.firstname} {data.lastname}
+            </div>
+          </div>
+          <div className="profilrecruiter__header__about__item">
+            <div className="profilrecruiter__header__about__item--label">
+              Ville:
+            </div>
+            <div className="profilrecruiter__header__about__item--city">{data.city}
+            </div>
+          </div>
+          <div className="profilrecruiter__header__about__item">
+            <div className="profilrecruiter__header__about__item--label">
+              Description:
+            </div>
+            <div className="profilrecruiter__header__about__item--description">{data.description}
+            </div>
+          </div>
+
         </div>
         {/* <p className="profil__informations--aboutme">About us TODO</p>
           <p className="profil__informations--description">

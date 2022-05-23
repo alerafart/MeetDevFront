@@ -15,8 +15,8 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
         password,
         firms,
         website,
-        department,
-        zipCode,
+        // department,
+        // zipCode,
         profilePicture,
         description,
       } = state.formRegisterRecruiter.register;

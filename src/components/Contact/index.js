@@ -1,8 +1,9 @@
 // styles
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { sendMessage } from '../../actions/formContact';
-import { setFromAway } from '../../actions/settings';
+import { logout, setFromAway } from '../../actions/settings';
 import './contact.scss';
 
 function Contact() {
@@ -92,6 +93,16 @@ function Contact() {
         <div className="col-sm-12">
           <button type="button" className="contact__form--button">Envoyer</button>
         </div>
+        <Link to="/">
+          <button
+            type="button"
+            className="inscription__form__buttons__button--cancel"
+            onClick={() => {
+              dispatch(logout());
+            }}
+          >Retour
+          </button>
+        </Link>
       </form>
     </section>
 

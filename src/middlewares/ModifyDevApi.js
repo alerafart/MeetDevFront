@@ -1,5 +1,9 @@
 import axios from 'axios';
+
 import { VALIDATE_MODIFY_DEV } from '../actions/middleware';
+import { majProfilDevFromApi } from '../actions/profilDev';
+
+// const navigate = useNavigate();
 
 const ModifyDevApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -64,6 +68,8 @@ const ModifyDevApi = (store) => (next) => (action) => {
       axios.put(url, params, config).then((response) => {
         console.log(response.data);
         console.log('modification envoyé');
+        store.dispatch(majProfilDevFromApi(response.data.userProfile));
+        // navigate('/profil');
         // TODO BACK VA COIRRIGER POUR ME RENVOYER LES INFOS AVEC LA REPONSE
       }).catch((error) => {
         console.log(error);

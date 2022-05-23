@@ -7,9 +7,9 @@ import twitter from '../../assets/images/twitter.png';
 function Footer() {
   return (
     <div className="footer">
-      <div className="footer__link--home">
+      {/* <div className="footer__link--home">
         <Link to="/">Accueil</Link>
-      </div>
+      </div> */}
       <div className="footer__link--contact">
         <Link to="/contact">Contact</Link>
       </div>

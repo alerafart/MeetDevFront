@@ -5,3 +5,10 @@ export const dataProfilRecruiterFromApi = (value, name) => ({
   value,
   name,
 });
+
+export const MAJ_PROFIL_REC_FROM_API = 'MAJ_PROFIL_REC_FROM_API';
+
+export const majProfilRecFromApi = (user) => ({
+  type: MAJ_PROFIL_REC_FROM_API,
+  user,
+});

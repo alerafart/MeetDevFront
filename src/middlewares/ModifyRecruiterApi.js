@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { VALIDATE_MODIFY_RECRUITER } from '../actions/middleware';
+import { majProfilRecFromApi } from '../actions/profilRecruiter';
 
 const ModifyRecruiterApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -59,6 +60,7 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
         .then((response) => {
           console.log('modication réussi');
           console.log(response.data);
+          store.dispatch(majProfilRecFromApi(response.data.userProfile));
         }).catch((error) => {
           console.log('modication echec');
           console.log(error.response.data);

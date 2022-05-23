@@ -56,33 +56,45 @@ function ProfilDev() {
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
   const profilDev = useSelector((state) => state.profilDev);
   const modalProfilPicture = useSelector((state) => state.modalProfil.result.profilePicture);
+  const profilDevPicture = profilDev.register.profilePicture;
+
+  // si l'on vient de la route search ou favorite
+  // alors on utilise modalProfilPicture sinon on utilise profilPicture
+
+  let profilPicture;
+  if (fromSearch || fromFavorites) {
+    profilPicture = modalProfilPicture;
+  }
+  else {
+    profilPicture = profilDevPicture;
+  }
 
   let avatar;
-  if (modalProfilPicture === 'manAvatar1') {
+  if (profilPicture === 'manAvatar1') {
     avatar = manAvatar1;
   }
-  if (modalProfilPicture === 'manAvatar2') {
+  if (profilPicture === 'manAvatar2') {
     avatar = manAvatar2;
   }
-  if (modalProfilPicture === 'manAvatar3') {
+  if (profilPicture === 'manAvatar3') {
     avatar = manAvatar3;
   }
-  if (modalProfilPicture === 'manAvatar4') {
+  if (profilPicture === 'manAvatar4') {
     avatar = manAvatar4;
   }
-  if (modalProfilPicture === 'womanAvatar1') {
+  if (profilPicture === 'womanAvatar1') {
     avatar = womanAvatar1;
   }
-  if (modalProfilPicture === 'womanAvatar2') {
+  if (profilPicture === 'womanAvatar2') {
     avatar = womanAvatar2;
   }
-  if (modalProfilPicture === 'womanAvatar3') {
+  if (profilPicture === 'womanAvatar3') {
     avatar = womanAvatar3;
   }
-  if (modalProfilPicture === 'womanAvatar4') {
+  if (profilPicture === 'womanAvatar4') {
     avatar = womanAvatar4;
   }
-  if (modalProfilPicture === '') {
+  if (profilPicture === '') {
     avatar = '';
   }
 

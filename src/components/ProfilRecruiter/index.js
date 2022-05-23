@@ -71,7 +71,7 @@ function RecruiterProfile() {
           <h4 className="profilrecruiter__header__about--firms"> {data.firms} </h4>
           <h4 className="profilrecruiter__header__about--name">{data.firstname} {data.lastname}</h4>
           <h4 className="profilrecruiter__header__about--city">{data.city}</h4>
-          <p className="profilrecruiter__header__about--description">{data.description} test description</p>
+          <p className="profilrecruiter__header__about--description">{data.description}</p>
         </div>
         {/* <p className="profil__informations--aboutme">About us TODO</p>
           <p className="profil__informations--description">
@@ -103,9 +103,9 @@ function RecruiterProfile() {
             </div>
           </div>
           <div className="profilrecruiter__informations__item">
-            <div className="profilrecruiter__informations__item--label"> website:
+            <div className="profilrecruiter__informations__item--label"> Website:
             </div>
-            <div className="profilrecruiter__informations__item--color">{data.website} website en dur
+            <div className="profilrecruiter__informations__item--color">{data.website}
             </div>
           </div>
 

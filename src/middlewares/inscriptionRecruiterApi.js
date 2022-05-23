@@ -34,7 +34,7 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
       // const { description } = state.formRegisterRecruiter.register;
 
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/recruiters',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/register/users/recruiters',
         // ou url: 'http://localhost/api/users:8000',
         {
           lastname: lastname,

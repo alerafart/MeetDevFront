@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { VALIDATE_MODIFY_RECRUITER } from '../actions/middleware';
+import { majProfilRecruiterFromApi } from '../actions/profilRecruiter';
 
 const ModifyRecruiterApi = (store) => (next) => (action) => {
   switch (action.type) {
@@ -54,11 +55,16 @@ const ModifyRecruiterApi = (store) => (next) => (action) => {
       const url = `http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/secure/users/${userId}`;
 
       // axios.put(url, params, config);
-      // TODO REMETTRE EN get pour messages
+      // TODO ATTENTION BUG BACK NE RENVOI PAS LES BONNES
+      // DONNES DU COUP JE RECUPERE LES INFOS DE RECRUITERTEMP
+      // POUR MISE A JOUR
       axios.put(url, params, config)
         .then((response) => {
+          const recruiterModifie = state.profilRecruiterModifyTemp.register;
+          console.log(recruiterModifie);
           console.log('modication réussi');
           console.log(response.data);
+          store.dispatch(majProfilRecruiterFromApi(recruiterModifie));
         }).catch((error) => {
           console.log('modication echec');
           console.log(error.response.data);

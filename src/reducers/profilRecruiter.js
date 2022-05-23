@@ -1,4 +1,4 @@
-import { DATA_PROFIL_RECRUITER_FROM_API } from '../actions/profilRecruiter';
+import { DATA_PROFIL_RECRUITER_FROM_API, MAJ_PROFIL_RECRUITER_FROM_API } from '../actions/profilRecruiter';
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {
@@ -31,6 +31,26 @@ const profilRecruiter = (state = initialState, action = {}) => {
         register: {
           ...state.register,
           [action.name]: action.value,
+        },
+      };
+    }
+    case MAJ_PROFIL_RECRUITER_FROM_API: {
+      console.log(action.user);
+      return {
+        ...state,
+        register: {
+          ...state.register,
+          firstname: action.user.firstname,
+          lastname: action.user.lastname,
+          firms: action.user.firms,
+          city: action.user.city,
+          department: action.user.department,
+          zipCode: action.user.zipCode,
+          phone: action.user.phone,
+          website: action.user.website,
+          profilePicture: action.user.profilePicture,
+          description: action.user.description,
+          availability: action.user.availability,
         },
       };
     }

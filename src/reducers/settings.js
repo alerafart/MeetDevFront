@@ -19,6 +19,7 @@ import {
   CHOOSE_AVATAR_MODAL,
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
   LOGIN_BURGER,
+  CLOSE_COOKIES,
 
 } from '../actions/settings';
 
@@ -230,6 +231,14 @@ const settings = (state = initialState, action = {}) => {
           fromSearchRoute: false,
           fromFavoritesRoute: false,
           frominscriptionRoute: false,
+        },
+      };
+    case CLOSE_COOKIES:
+      return {
+        ...state,
+        log: {
+          ...state.log,
+          cookiesLoad: false,
         },
       };
     default:

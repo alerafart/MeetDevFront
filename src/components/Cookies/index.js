@@ -1,9 +1,11 @@
 // styles
 import './cookies.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { closeCookies } from '../../actions/settings';
 
 function Cookies() {
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
+  const dispatch = useDispatch();
   return (
     <div className="cookies">
       <h3 className="cookies__title">Nous utilisons des cookies</h3>
@@ -17,6 +19,7 @@ function Cookies() {
           type="button"
           className="cookies__button--agree"
           onClick={() => {
+            dispatch(closeCookies());
             console.log('agree button');
           }}
         >J'accepte
@@ -25,6 +28,7 @@ function Cookies() {
           type="button"
           className="cookies__button--disagree"
           onClick={() => {
+            dispatch(closeCookies());
             console.log('refuse button');
           }}
         >Je refuse

@@ -1,6 +1,8 @@
+// == Import
 import gif from '../../assets/images/gif_404.gif';
 import './error.scss';
 
+// == Composant
 function Error() {
   return (
     <div className="error">

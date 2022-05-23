@@ -19,6 +19,7 @@ import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
 import ModalLogin from '../ModalLogin';
 import Cookies from '../Cookies';
+import RocketLoading from '../RocketLoading';
 
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
@@ -116,6 +117,12 @@ function MeetDev() {
           path="/cookies"
           element={(
             <Cookies />
+          )}
+        />
+        <Route
+          path="/loading"
+          element={(
+            <RocketLoading />
           )}
         />
         <Route

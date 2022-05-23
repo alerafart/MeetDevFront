@@ -64,6 +64,15 @@
       transition: transform 0.3s;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
+
     }
+  }
+
+  &--captcha {
+    text-align: center;
+    color: vars.$mainColor;
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
   }
 }

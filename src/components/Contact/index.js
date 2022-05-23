@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { sendMessage } from '../../actions/formContact';
-import { logout, setFromAway } from '../../actions/settings';
+import { setFromAway } from '../../actions/settings';
 import './contact.scss';
 
 function Contact() {

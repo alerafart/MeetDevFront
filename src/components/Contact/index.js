@@ -97,9 +97,9 @@ function Contact() {
           <button
             type="button"
             className="inscription__form__buttons__button--cancel"
-            onClick={() => {
-              dispatch(logout());
-            }}
+            // onClick={() => {
+            //   dispatch(logout());
+            // }}
           >Retour
           </button>
         </Link>

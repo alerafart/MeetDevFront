@@ -83,6 +83,45 @@ function Inscription() {
     dispatch(registerDev(value, name));
   }
 
+  const
+    {
+      lastname,
+      firstname,
+      city,
+      email,
+      zipCode,
+      departement,
+      technology,
+      phone,
+      password,
+      salary,
+      experience,
+      github,
+      portfolio,
+      english,
+      label,
+      description,
+      availability,
+      profilePicture,
+      age,
+    } = useSelector((state) => state.formRegisterDev.register);
+
+  let firsnameEmpty = false;
+  function submitForm() {
+    console.log({ lastname });
+    console.log(register.firstname);
+    if (register.firstname > 0) {
+      console.log('PLUS');
+    }
+    else {
+      console.log('NADA');
+      firsnameEmpty = true;
+      console.log(firsnameEmpty);
+    }
+  // dispatch(inscriptionDev());
+  // dispatch(toggleWindowLog());
+  }
+
   return (
     <>
       {
@@ -114,13 +153,13 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Prénom
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="firstname" value={register.firstname} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="text" name="firstname" value={register.firstname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
                   Nom
                 </div>
-                <input className="inscription__form__champ--input" type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} />
+                <input className="inscription__form__champ--input" type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
@@ -319,9 +358,9 @@ function Inscription() {
                   <button
                     type="submit"
                     className="inscription__form__buttons__button--valid"
-                    onClick={() => {
-                      dispatch(inscriptionDev());
-                      dispatch(toggleWindowLog());
+                    onClick={(e) => {
+                      e.preventDefault();
+                      submitForm();
                     }}
                   >
                     Valider

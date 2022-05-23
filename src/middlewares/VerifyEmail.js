@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { isVerified, VERIFY_USER_EMAIL } from '../actions/verifiedEmail';
+import { isVerified, RESEND_VERIFICATION, VERIFY_USER_EMAIL } from '../actions/verifiedEmail';
 
 const verifiedEmail = (store) => (next) => (action) => {
   switch (action.type) {
@@ -8,6 +8,7 @@ const verifiedEmail = (store) => (next) => (action) => {
       const params = {
         token: tok,
       };
+      console.log(tok);
       const url = 'http://localhost:8080/api/email/verify';
 
       axios.post(url, params)
@@ -25,6 +26,18 @@ const verifiedEmail = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    case RESEND_VERIFICATION: {
+      axios.post('http://localhost:8080/email/request-verification')
+        .then((response) => {
+          console.log(response.data);
+        }).catch((error) => {
+          console.log(error.response);
+        });
+      next(action);
+      break;
+    }
+
     default:
       next(action);
   }

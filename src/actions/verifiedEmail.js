@@ -11,3 +11,8 @@ export const isVerified = (verified) => ({
   type: IS_VERIFIED,
   verified,
 });
+
+export const RESEND_VERIFICATION = 'RESEND_VERIFICATION';
+export const resendVerification = () => ({
+  type: RESEND_VERIFICATION,
+});

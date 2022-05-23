@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
-import { verifyUserEmail } from '../../actions/verifiedEmail';
-// import './modalLogin.scss';
+import { verifyUserEmail, resendVerification } from '../../actions/verifiedEmail';
+import './verifyEmail.scss';
 
 function VerifyEmail() {
   const params = useParams();
@@ -30,19 +30,39 @@ function VerifyEmail() {
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
   console.log(isVerified);
 
+  let isEmptyMail = true;
+  let isEmptyPass = true;
+
   function handleSubmit() {
-    dispatch(loginTest());
+    // dispatch(toggleWindowLog());
+    console.log('handleSUBMIT');
+    console.log(formLogin.email.length);
+
+    if (formLogin.password.length > 0) {
+      console.log(formLogin.password.length);
+      isEmptyPass = false;
+      // dispatch(loginTest());
+    }
+    if (formLogin.email.length > 0) {
+      console.log(formLogin.email);
+      isEmptyMail = false;
+    }
   }
+
+  console.log(isEmptyMail, isEmptyPass);
 
   return (
     <div
       className="modalLoginBackground"
     >
       <div className="modalLoginContainer">
-        <header className="modalLoginContainer__header">
+        <header className="modalLoginContainer__header--verify">
           <h2 className="modalLoginContainer__header--title">
-            {isVerified ? 'Adresse email vérifiée avec succès ! Merci :)' : 'Bienvenue' }
+            Bienvenue
           </h2>
+          <div>
+            {isVerified ? 'Adresse email vérifiée avec succès ! Merci :)' : 'Une erreur est survenue, l\'adresse email n\'a pas pu être vérifiée' }
+          </div>
           <Link to="/">
             <button
               className="modalLoginContainer__header--button"
@@ -59,8 +79,8 @@ function VerifyEmail() {
         </header>
 
         <form className="modalLoginContainer__form" onChange={handleChangeForm} onSubmit={handleSubmit}>
-          <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
-          <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
+          <input className={!isEmptyMail ? 'modalLoginContainer__form--login' : 'field__empty--error'} type="email" placeholder="Email" value={formLogin.email} name="email" />
+          <input className={isEmptyPass ? 'modalLoginContainer__form--password' : 'field__empty--error'} type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
           <p className="modalLoginContainer__form--error">
             L'email et/ou le mot de passe sont incorrects
           </p>
@@ -89,12 +109,18 @@ function VerifyEmail() {
         </form>
 
         <footer className="modalLoginContainer__footer">
-          <p className="modalLoginContainer__footer--forget">
+          <span className="modalLoginContainer__footer--forget">
             Mot de passe oublié?
-          </p>
-          <p className="modalLoginContainer__footer--register">
-            Vous n'êtes pas inscrit? <span> Inscription</span>
-          </p>
+          </span>
+          <button
+            type="button"
+            className="modalLoginContainer__footer__button--resend"
+            onClick={() => {
+              dispatch(resendVerification());
+            }}
+          >
+            Renvoyer un mail de vérification
+          </button>
         </footer>
 
       </div>

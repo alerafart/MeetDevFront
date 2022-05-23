@@ -1,0 +1,190 @@
+@use '../../styles/vars';
+
+.modalLoginBackground {
+  background-color: rgb(0, 0, 0, 0.7);
+  height: 200vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.field__empty--error {
+    border: solid 1px red;
+    background-color: violet;
+    color:red;
+    height:5rem;
+}
+
+.modalLoginContainer {
+  z-index: 3;
+  margin-top: 15rem;
+  // position: relative;
+  background-color: vars.$mainBackground;
+  border-radius: 0.8rem;
+  width: 45rem;
+  height: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem;
+
+  @media (max-width: 665px) {
+    padding: 1.5rem 0.5rem;
+    width: 100%;
+  }
+
+  &__header--verify {
+    display: grid;
+    justify-content: center;
+    height: 5rem;
+    border-bottom: 1px solid vars.$mainFontGrey;
+    width: 100%;
+    text-align: center;
+
+    @media (max-width: 500px) {
+      justify-content: space-around;
+    }
+
+    &--title h2 {
+      color: vars.$mainColor;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    div {
+        margin: 0.5rem;
+    }
+
+    &--button {
+      top: -0.8rem;
+      right: 2rem;
+      position: absolute;
+      border: none;
+      background-color: vars.$cancelOption;
+      padding: 4px 4px;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      width: 2em;
+
+      @media (max-width: 500px) {
+        position: relative;
+        right: 0rem;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+  }
+
+  &__form {
+    padding: 2rem 2rem;
+    width: 100%;
+    // height: 30rem;
+    display: flex;
+    flex-direction: column;
+
+    &--login {
+      border: none;
+      border-bottom: 1px solid vars.$mainFontGrey;
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      font-size: 1.3rem;
+
+      &--error {
+        border: solid 1px red;
+        color:red;
+      }
+    
+    }
+
+
+    &--password {
+      border: none;
+      border-bottom: 1px solid vars.$mainFontGrey;
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    &--error {
+      color: vars.$cancelOption;
+      margin-top: 1rem;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    &__remember {
+
+      &--checkbox {}
+    }
+
+    &--connexion {
+      background-color: vars.$mainColor;
+      border: none;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      color: vars.$mainBackground;
+      font-size: 1.2rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
+
+    p {
+      padding: 0;
+    }
+
+    &--forget {
+      color: vars.$mainColor;
+      height: 2rem;
+      font-size: 1.1rem;
+      margin-top: 0.4rem;
+    }
+
+    &--register {
+      span {
+        color: vars.$mainColor;
+      }
+    }
+
+    &__button--resend {
+        color: rgb(26, 174, 159);
+        border: none;
+        text-decoration: none;
+        background-color: #fff;
+        font-size: 1.1rem;
+        height: 2rem;
+    }
+  }
+}

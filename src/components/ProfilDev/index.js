@@ -55,7 +55,6 @@ function ProfilDev() {
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
   const profilDev = useSelector((state) => state.profilDev);
-  const profilDevPicture = profilDev.register.profilePicture;
   const modalProfilPicture = useSelector((state) => state.modalProfil.result.profilePicture);
 
   let avatar;
@@ -83,31 +82,7 @@ function ProfilDev() {
   if (modalProfilPicture === 'womanAvatar4') {
     avatar = womanAvatar4;
   }
-  if (profilDevPicture === 'manAvatar1') {
-    avatar = manAvatar1;
-  }
-  if (profilDevPicture === 'manAvatar2') {
-    avatar = manAvatar2;
-  }
-  if (profilDevPicture === 'manAvatar3') {
-    avatar = manAvatar3;
-  }
-  if (profilDevPicture === 'manAvatar4') {
-    avatar = manAvatar4;
-  }
-  if (profilDevPicture === 'womanAvatar1') {
-    avatar = womanAvatar1;
-  }
-  if (profilDevPicture === 'womanAvatar2') {
-    avatar = womanAvatar2;
-  }
-  if (profilDevPicture === 'womanAvatar3') {
-    avatar = womanAvatar3;
-  }
-  if (profilDevPicture === 'womanAvatar4') {
-    avatar = womanAvatar4;
-  }
-  if (profilDevPicture === '') {
+  if (modalProfilPicture === '') {
     avatar = '';
   }
 

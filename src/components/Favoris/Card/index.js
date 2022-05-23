@@ -1,6 +1,12 @@
 /* eslint-disable max-len */
+// == Import : npm
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
+// import action-creator
+import { setToggleModalProfil } from '../../../actions/settings';
+import { getOneFavorite } from '../../../actions/favoritesaction';
+import { deleteOneFavorite } from '../../../actions/middleware';
 
 // import all avatars and logos
 import mapPointer from '../../../assets/images/mapPointer.png';
@@ -39,14 +45,10 @@ import mysql from '../../../assets/images/archive/logo-mysql.png';
 import swift from '../../../assets/images/archive/logo-swift.png';
 import reactnative from '../../../assets/images/archive/logo-reactnative.png';
 
-// import action-creator
-import { setToggleModalProfil } from '../../../actions/settings';
-import { getOneFavorite } from '../../../actions/favoritesaction';
-import { deleteOneFavorite } from '../../../actions/middleware';
-
 // style
 import './card.scss';
 
+// == Composant
 function Card({ favorite }) {
   const dispatch = useDispatch();
   // to display profil Picture on card
@@ -91,9 +93,7 @@ function Card({ favorite }) {
         {/* display avatar from dev */}
         <img src={avatar} alt="Avatar" className="card__avatar--img" />
       </div>
-      {/* Display, fistname, lastname and city from dev on card.
-        //TODO bug display Experience
-       */}
+      {/* Display, fistname, lastname and city from dev on card. */}
       <div className="card__container">
         <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
         <p className="card__container--localisation"><img className="card__container--localisation--icon" src={mapPointer} alt="map pointer" />{favorite.data.UserData.city}</p>
@@ -162,6 +162,7 @@ function Card({ favorite }) {
       <div className="card__button">
         <button
           type="button"
+          // Button to open a modal profile
           onClick={() => {
             dispatch(getOneFavorite(favorite));
             dispatch(setToggleModalProfil());
@@ -179,7 +180,7 @@ function Card({ favorite }) {
             dispatch(deleteOneFavorite());
           }}
           className="card__button--delete"
-        >supprimer
+        >Supprimer
         </button>
       </div>
     </div>

@@ -6,10 +6,17 @@ const sendMailApi = (store) => (next) => (action) => {
   switch (action.type) {
     case SEND_MAIL: {
       const state = store.getState();
+      const { isDev, isRecruiter } = state.settings.log;
       const { token } = state.settings.log;
       const mailToSend = state.modalProfil.result.email;
       const sender = state.settings.log.user_id;
-      const receiver = state.modalProfil.userId;
+      let receiver;
+      if (isDev) {
+        receiver = state.modalProfil.userId;
+      }
+      else if (isRecruiter) {
+        receiver = state.modalProfil.result.userId;
+      }
       const messageTitle = state.formDevContact.formContact.title;
       const messageContent = state.formDevContact.formContact.message;
       console.log(mailToSend, sender, receiver, messageTitle, messageContent);

@@ -42,7 +42,7 @@ import reactnative from '../../../assets/images/archive/logo-reactnative.png';
 // import action-creator
 import { setToggleModalProfil } from '../../../actions/settings';
 import { getOneFavorite } from '../../../actions/favoritesaction';
-import { deleteOneFavorite } from '../../../actions/middleware';
+import { deleteOneFavorite, recruiterFavorites } from '../../../actions/middleware';
 
 // style
 import './card.scss';
@@ -177,6 +177,7 @@ function Card({ favorite }) {
           onClick={() => {
             dispatch(getOneFavorite(favorite));
             dispatch(deleteOneFavorite());
+            dispatch(recruiterFavorites());
           }}
           className="card__button--delete"
         >supprimer

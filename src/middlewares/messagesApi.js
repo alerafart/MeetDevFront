@@ -33,6 +33,7 @@ const sendMailApi = (store) => (next) => (action) => {
             params: {
               // testEmail: mailToSend,
               testEmail: 'brocard.c@gmail.com',
+              // testEmail: 'henri.teinturier@gmail.com',
               sender_user_id: sender,
               receiver_user_id: receiver,
               message_title: messageTitle,

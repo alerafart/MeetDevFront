@@ -53,6 +53,14 @@ export const toggleWindowLog = () => ({
   type: TOGGLE_WINDOW_LOG,
 });
 
+// ACTION TYPE TOGGLE_WINDOW_LOG_ON
+export const TOGGLE_WINDOW_LOG_ON = 'TOGGLE_WINDOW_LOG_ON';
+
+// ACTION CREATOR toggleWindowLogOn
+export const toggleWindowLogOn = () => ({
+  type: TOGGLE_WINDOW_LOG_ON,
+});
+
 // ACTION TYPE TOGGLE_WINDOW_LOG
 export const TOGGLE_MODAL_SEND_MESSAGE = 'TOGGLE_MODAL_SEND_MESSAGE';
 

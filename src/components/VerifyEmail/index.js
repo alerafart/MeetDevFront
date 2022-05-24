@@ -4,12 +4,12 @@ import { useEffect } from 'react';
 import { logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
-import { verifyUserEmail, resendVerification } from '../../actions/verifiedEmail';
+import { resendVerification } from '../../actions/verifiedEmail';
 import './verifyEmail.scss';
 
 function VerifyEmail() {
-  const params = useParams();
-  const { slug } = params;
+  // const params = useParams();
+  // const { slug } = params;
 
   const formLogin = useSelector((state) => state.formLogin.login);
   const dispatch = useDispatch();
@@ -20,12 +20,12 @@ function VerifyEmail() {
     dispatch(login(value, name));
   }
 
-  useEffect(
-    () => {
-      dispatch(verifyUserEmail(slug));
-    },
-    [verifyUserEmail],
-  );
+  // useEffect(
+  //   () => {
+  //     dispatch(verifyUserEmail(slug));
+  //   },
+  //   [verifyUserEmail],
+  // );
 
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
   console.log(isVerified);

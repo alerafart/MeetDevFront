@@ -1,15 +1,17 @@
 import axios from 'axios';
+import { toggleWindowLogOn } from '../actions/settings';
 import { isVerified, RESEND_VERIFICATION, VERIFY_USER_EMAIL } from '../actions/verifiedEmail';
 
 const verifiedEmail = (store) => (next) => (action) => {
   switch (action.type) {
     case VERIFY_USER_EMAIL: {
+      console.log('arrive dans middleware verify email');
       const tok = action.token;
       const params = {
         token: tok,
       };
       console.log(tok);
-      const url = 'http://localhost:8080/api/email/verify';
+      const url = 'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/email/verify';
 
       axios.post(url, params)
         .then((response) => {
@@ -19,6 +21,7 @@ const verifiedEmail = (store) => (next) => (action) => {
           // if (requestStatus === 'success' && requestStatus === 200) {
           if (requestStatus !== 401) {
             store.dispatch(isVerified(true));
+            store.dispatch(toggleWindowLogOn());
           }
         }).catch((error) => {
           console.log(error.response);

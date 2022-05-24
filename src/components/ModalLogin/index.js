@@ -8,6 +8,8 @@ import './modalLogin.scss';
 function ModalLogin() {
   const formLogin = useSelector((state) => state.formLogin.login);
   const dispatch = useDispatch();
+  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
+  console.log(isVerified);
 
   function handleChangeForm(e) {
     const { value } = e.target;
@@ -34,6 +36,9 @@ function ModalLogin() {
           <h2 className="modalLoginContainer__header--title">
             Bienvenue
           </h2>
+          <div>
+            {isVerified ? 'Adresse email vérifiée avec succès ! Merci :)' : 'Une erreur est survenue, l\'adresse email n\'a pas pu être vérifiée' }
+          </div>
           <Link to="/">
             <button
               className="modalLoginContainer__header--button"

@@ -1,15 +1,24 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import './home.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
 // import background from '../../assets/images/backgroundMain.png';
 import { isDev, isRecruiter } from '../../actions/settings';
+import { verifyUserEmail } from '../../actions/verifiedEmail';
 
 function Home() {
   const dispatch = useDispatch();
 
   const isLogged = useSelector((state) => state.settings.log.logged);
+  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
+  const params = useParams();
+  // console.log(params);
+  const { slug } = params;
+  // console.log(slug);
 
+  if ((slug !== undefined) && (isVerified === false)) {
+    dispatch(verifyUserEmail(slug));
+  }
   // useEffect(() => {
   //   dispatch(setFromAway());
   // }, []);

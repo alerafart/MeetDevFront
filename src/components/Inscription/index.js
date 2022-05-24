@@ -164,20 +164,22 @@ function Inscription() {
     else {
       dispatch(formErrorOnSubmit('cityEmpty', false));
     }
-
-    if (error.firstnameEmpty === false
-      && error.lastnameEmpty === false
-      && error.emailEmpty === false
-      && error.emailTestEmpty === false
-      && error.cityEmpty === false
-      && error.phoneEmpty === false
-      && error.experience === false
-      && error.passwordEmpty === false
-      && error.verifypasswordEmpty === false
-      && error.salaryEmpty === false
-      && error.englishEmpty === false
-      && error.labelEmpty === false
-      && error.descriptionEmpty === false) {
+    console.log('inscritpion clic hors clic');
+    console.log(error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty);
+    if (!error.firstnameEmpty
+      && !error.lastnameEmpty
+      && !error.emailEmpty
+      && !error.emailTestEmpty
+      && !error.cityEmpty
+      && !error.phoneEmpty
+      && !error.experienceEmpty
+      && !error.passwordEmpty
+      && !error.verifypasswordEmpty
+      && !error.salaryEmpty
+      && !error.englishEmpty
+      && !error.labelEmpty
+      && !error.descriptionEmpty) {
+      console.log('inscritpion clic');
       dispatch(inscriptionDev());
       dispatch(toggleWindowLog());
     }

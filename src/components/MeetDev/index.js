@@ -1,6 +1,7 @@
 import './meetdev.scss';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -8,7 +9,7 @@ import Footer from '../Footer';
 import Error from '../Error';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
-import VerifyEmail from '../VerifyEmail';
+// import VerifyEmail from '../VerifyEmail';
 import Search from '../Search';
 import Favoris from '../Favoris';
 import Profil from '../Profil';
@@ -20,9 +21,18 @@ import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
 import ModalLogin from '../ModalLogin';
 import Cookies from '../Cookies';
+// import { verifyUserEmail } from '../../actions/verifiedEmail';
 
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
+
+  // useEffect(
+  //   () => {
+  //     dispatch(verifyUserEmail(slug));
+  //   },
+  //   [verifyUserEmail],
+  // );
+
   return (
     <div className="meetdev">
       <Header />
@@ -32,6 +42,12 @@ function MeetDev() {
       <Routes>
         <Route
           path="/"
+          element={(
+            <Home />
+          )}
+        />
+        <Route
+          path="/email/verify/:slug"
           element={(
             <Home />
           )}
@@ -48,12 +64,12 @@ function MeetDev() {
             <Connexion />
           )}
         />
-        <Route
+        {/* <Route
           path="/email/verify/:slug"
           element={(
             <VerifyEmail />
           )}
-        />
+        /> */}
         <Route
           path="/recherche"
           element={(

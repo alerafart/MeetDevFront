@@ -178,7 +178,7 @@ function Inscription() {
       && error.englishEmpty === false
       && error.labelEmpty === false
       && error.descriptionEmpty === false) {
-      // dispatch(inscriptionDev());
+      dispatch(inscriptionDev());
       dispatch(toggleWindowLog());
     }
   }

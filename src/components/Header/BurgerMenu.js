@@ -7,7 +7,9 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 // == Import : action creator
 import {
-  burgerMenuOpen, loginBurger, logout, setFromAway, setFromFavoritesRoute, setFromSearchRoute,
+  burgerMenuOpen,
+  loading,
+  loginBurger, logout, setFromAway, setFromFavoritesRoute, setFromSearchRoute,
 } from '../../actions/settings';
 import { loginTest, recruiterFavorites } from '../../actions/middleware';
 import { login } from '../../actions/formLogin';
@@ -46,8 +48,12 @@ function BurgerMenu() {
   function handleSubmit(e) {
     e.preventDefault();
     // console.log('click');
-    console.log('click');
-    dispatch(loginTest());
+    // console.log('click');
+    dispatch(loading());
+    setTimeout(() => {
+      dispatch(loginTest());
+    }, 1000);
+    // dispatch(loginTest());
     dispatch(burgerMenuOpen());
     navigate('/');
   }

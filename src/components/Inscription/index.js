@@ -104,11 +104,11 @@ function Inscription() {
     else {
       dispatch(formErrorOnSubmit('emailEmpty', false));
     }
-    if (register.emailTest.length === 0 || register.emailTest !== register.email) {
+    if (register.emailTest.length === 0 || register.email !== register.emailTest) {
       dispatch(formErrorOnSubmit('emailTestEmpty', true));
     }
     else {
-      dispatch(formErrorOnSubmit('emailEmpty', false));
+      dispatch(formErrorOnSubmit('emailTestEmpty', false));
     }
     if (register.phone.length === 0) {
       dispatch(formErrorOnSubmit('phoneEmpty', true));

@@ -132,12 +132,17 @@ export const toggleModalChooseTechnologie = () => ({
 });
 
 // ACTION TYPE close_cookies
-
 export const CLOSE_COOKIES = 'CLOSE_COOKIES';
 
 // ACTION CREATOR close_cookies
-
 export const closeCookies = () => ({
   type: CLOSE_COOKIES,
+});
 
+// ACTION TYPE loading
+export const LOADING = 'LOADING';
+
+// ACTION CREATOR loading
+export const loading = () => ({
+  type: LOADING,
 });

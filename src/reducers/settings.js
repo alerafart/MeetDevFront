@@ -20,6 +20,7 @@ import {
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
   LOGIN_BURGER,
   CLOSE_COOKIES,
+  LOADING,
 
 } from '../actions/settings';
 
@@ -48,11 +49,20 @@ export const initialState = {
     resultSearchCity: [],
     burgerMenuOpen: false,
     burgerLogin: false,
+    loading: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          loading: !state.navigation.loading,
+        },
+      };
     case BURGER_MENU_OPEN:
       return {
         ...state,

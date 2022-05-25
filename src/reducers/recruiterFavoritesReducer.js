@@ -6,6 +6,7 @@ import { LOGOUT } from '../actions/settings';
 export const initialState = {
   favorites: {
     listFavorites: [],
+    coloredStar: false,
   },
 };
 

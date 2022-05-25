@@ -12,6 +12,8 @@ function Search() {
   const search = useSelector((state) => state.formSearchDev.search);
   const results = useSelector((state) => state.resultSearch.results);
   const count = results.length;
+  /* const experience = useSelector((state) => state.formSearchDev.search);
+  console.log(experience); */
   /*   console.log(results);
   console.log(typeof results); */
 
@@ -22,6 +24,12 @@ function Search() {
     const { name } = e.target;
     dispatch(searchDev(value, name));
   }
+  /* function handleChangeCheckbox(e) {
+    // dispatch(toggleExperience(e.target.name));
+    const { value } = e.target.value;
+    const { name } = e.target.value;
+    dispatch(toggleExperience(value, name));
+  } */
 
   return (
     <div className="wrapper">
@@ -64,15 +72,33 @@ function Search() {
             </div>
             <div className="search__filter__champ--radio" onChange={handleChangeForm}>
               <label className="search__filter__champ--radio--item" htmlFor="exp1">
-                <input type="radio" value="1" name="experience" defaultchecked={search.experience === '- 1 an'} />
+                <input
+                  type="radio"
+                  value="1"
+                  name="experience"
+                  defaultChecked={search.experience === '- 1 an'}
+                  // onChange={(e) => handleChangeCheckbox(e)}
+                />
                 - 1 an
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp2">
-                <input type="radio" value="2" name="experience" checked={search.experience === '1 à 3 ans'} />
+                <input
+                  type="radio"
+                  value="2"
+                  name="experience"
+                  defaultChecked={search.experience === '1 à 3 ans'}
+                  // onChange={(e) => handleChangeCheckbox(e)}
+                />
                 1 à 3 ans
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp3">
-                <input type="radio" name="experience" value="3" checked={search.experience === '+ 3ans'} />
+                <input
+                  type="radio"
+                  name="experience"
+                  value="3"
+                  defaultChecked={search.experience === '+ 3ans'}
+                  // onChange={(e) => handleChangeCheckbox(e)}
+                />
                 + 3 ans
               </label>
             </div>

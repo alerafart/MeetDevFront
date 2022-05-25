@@ -28,6 +28,7 @@ import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
 import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
+// import { toggleExperience } from '../../actions/formSearchDev';
 
 function Inscription() {
   // State for controlled champs of formulaire
@@ -82,6 +83,10 @@ function Inscription() {
     const { name } = e.target;
     dispatch(registerDev(value, name));
   }
+
+  /* function handleChangeCheckbox(e) {
+    dispatch(toggleExperience(e.target.name));
+  } */
 
   return (
     <>
@@ -263,15 +268,33 @@ function Inscription() {
                 </div>
                 <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
                   <label className="inscription__form__champ--radio--item" htmlFor="experience">
-                    <input type="radio" value="1" name="experience" checked={register.experience === '1'} />
+                    <input
+                      type="radio"
+                      value="1"
+                      name="experience"
+                      checked={register.experience === '1'}
+                      // onClick={(e) => handleChangeCheckbox(e)}
+                    />
                     - 1 an
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp2">
-                    <input type="radio" value="2" name="experience" checked={register.experience === '2'} />
+                    <input
+                      type="radio"
+                      value="2"
+                      name="experience"
+                      checked={register.experience === '2'}
+                      // onClick={(e) => handleChangeCheckbox(e)}
+                    />
                     1 à 3 ans
                   </label>
                   <label className="inscription__form__champ--radio--item" htmlFor="exp3">
-                    <input type="radio" name="experience" value="3" checked={register.experience === '3'} />
+                    <input
+                      type="radio"
+                      name="experience"
+                      value="3"
+                      checked={register.experience === '3'}
+                      // onClick={(e) => handleChangeCheckbox(e)}
+                    />
                     + 3 ans
                   </label>
                 </div>

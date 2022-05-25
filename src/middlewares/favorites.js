@@ -1,6 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action creator
 import { favoritesList } from '../actions/favoritesaction';
-
+// == Import action
 import { ADD_ONE_FAVORITE, DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
 
 const favorisFromApi = (store) => (next) => (action) => {

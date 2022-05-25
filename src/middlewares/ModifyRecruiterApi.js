@@ -1,5 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action
 import { VALIDATE_MODIFY_RECRUITER } from '../actions/middleware';
+// == Import action creator
 import { majProfilRecruiterFromApi } from '../actions/profilRecruiter';
 
 const ModifyRecruiterApi = (store) => (next) => (action) => {

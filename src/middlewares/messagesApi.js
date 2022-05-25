@@ -1,5 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action creator
 import { contactDevRaz } from '../actions/formDevContact';
+// == Import action
 import { SEND_MAIL } from '../actions/messageAction';
 
 const sendMailApi = (store) => (next) => (action) => {

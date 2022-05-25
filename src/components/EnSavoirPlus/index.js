@@ -1,10 +1,11 @@
-// == Import
+// == Import npm
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { logout } from '../../actions/settings';
 // == Import styles
 import './ensavoirplus.scss';
-
+// == Composant
 function EnSavoirPlus() {
   const dispatch = useDispatch();
   return (
@@ -107,7 +108,7 @@ function EnSavoirPlus() {
             <button
               type="button"
               className="inscription__form__buttons__button--cancel"
-              // if click on button return, come back to the home page
+              // if click on button return, come back to home page
               onClick={() => {
                 dispatch(logout());
               }}

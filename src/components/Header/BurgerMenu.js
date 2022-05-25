@@ -1,8 +1,8 @@
 // == Import : npm
+// import framer motion to create burger menu
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
-// import { useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 // == Import : action creator
@@ -19,7 +19,7 @@ import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
 // == Import Style
 import './burgerMenu.scss';
 
-// == Composant
+// == Component
 function BurgerMenu() {
   const dispatch = useDispatch();
 

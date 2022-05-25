@@ -1,4 +1,6 @@
+// == Import npm
 import axios from 'axios';
+// == Import action
 import { INSCRIPTION_RECRUITER } from '../actions/middleware';
 
 const inscriptionRecruiterApi = (store) => (next) => (action) => {

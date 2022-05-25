@@ -1,13 +1,17 @@
-import './modalChooseStack.scss';
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+// == Import action creator
 import { toggleModalChooseTechnologie } from '../../../actions/settings';
 import { toggleStack } from '../../../actions/formRegisterDev';
-
+// == Import styles
+import './modalChooseStack.scss';
+// == Component
 function ModalChooseStack() {
+  // State to have different technology
   const stacks = useSelector((state) => state.formRegisterDev.register.technology);
-  console.log(stacks.includes('react'));
+  // console.log(stacks.includes('react'));
   const dispatch = useDispatch();
-
+  // function to choose technology
   function handleChangeCheckbox(e) {
     dispatch(toggleStack(e.target.name));
   }
@@ -356,6 +360,7 @@ function ModalChooseStack() {
         </div>
 
         <div className="chooseStackContainer__cancel">
+          {/* button to close stack and save technology in the state */}
           <button className="chooseStackContainer__cancel--button" type="button" onClick={() => dispatch(toggleModalChooseTechnologie())}>
             Fermeture
           </button>

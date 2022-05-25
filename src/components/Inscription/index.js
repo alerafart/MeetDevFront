@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import './inscription.scss';
@@ -14,7 +14,7 @@ import github from '../../assets/images/github.png';
 
 // actions & actions creators
 import {
-  logout, setFromInscriptionRoute, searchCityDisplay, toggleWindowLog, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
+  logout, setFromInscriptionRoute, searchCityDisplay, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
 } from '../../actions/settings';
 import { registerDev, formErrorOnSubmit } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
@@ -33,7 +33,7 @@ function Inscription() {
   // State for controlled champs of formulaire
   const register = useSelector((state) => state.formRegisterDev.register);
   const error = useSelector((state) => state.formRegisterDev.error);
-
+  // let array;
   // State to know if i'm Dev or Recruiter. To Display Inscription page Dev or Recruiter
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
@@ -43,6 +43,7 @@ function Inscription() {
   const displayChooseAvatarModal = useSelector((state) => state.settings.navigation.chooseAvatarModal);
   const displayChooseStackModal = useSelector((state) => state.settings.navigation.chooseTechnologieModal);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // select how avatar to display
   let avatar;
@@ -85,6 +86,22 @@ function Inscription() {
     dispatch(registerDev(value, name));
   }
 
+  function validInscription() {
+    console.log('arrive dans valid inscription');
+    const array = [error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty];
+    console.log(array);
+    if (array.every((e) => e === false)) {
+      console.log('envoi inscription back');
+      // console.log(Object.values(error).every((e) => e === false));
+      dispatch(inscriptionDev());
+      navigate('/');
+      // dispatch(toggleWindowLog());
+    }
+    else {
+      console.log('inscription pas valid pas envoyée en back');
+    }
+  }
+
   function submitForm() {
     if (register.firstname.length === 0) {
       dispatch(formErrorOnSubmit('firstnameEmpty', true));
@@ -98,7 +115,7 @@ function Inscription() {
     else {
       dispatch(formErrorOnSubmit('lastnameEmpty', false));
     }
-    if (register.email.length === 0 || register.emailTest !== register.email) {
+    if (register.email.length === 0) {
       dispatch(formErrorOnSubmit('emailEmpty', true));
     }
     else {
@@ -122,7 +139,7 @@ function Inscription() {
     else {
       dispatch(formErrorOnSubmit('experienceEmpty', false));
     }
-    if (register.password.length === 0 || register.password !== register.verifypassword) {
+    if (register.password.length === 0) {
       dispatch(formErrorOnSubmit('passwordEmpty', true));
     }
     else {
@@ -164,25 +181,10 @@ function Inscription() {
     else {
       dispatch(formErrorOnSubmit('cityEmpty', false));
     }
-    console.log('inscritpion clic hors clic');
-    console.log(error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty);
-    if (!error.firstnameEmpty
-      && !error.lastnameEmpty
-      && !error.emailEmpty
-      && !error.emailTestEmpty
-      && !error.cityEmpty
-      && !error.phoneEmpty
-      && !error.experienceEmpty
-      && !error.passwordEmpty
-      && !error.verifypasswordEmpty
-      && !error.salaryEmpty
-      && !error.englishEmpty
-      && !error.labelEmpty
-      && !error.descriptionEmpty) {
-      console.log('inscritpion clic');
-      dispatch(inscriptionDev());
-      dispatch(toggleWindowLog());
-    }
+    // console.log('inscritpion clic hors clic');
+    // console.log(error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty);
+    // array = [error.firstnameEmpty, error.lastnameEmpty, error.emailEmpty, error.emailTestEmpty, error.cityEmpty, error.phoneEmpty, error.experienceEmpty, error.passwordEmpty, error.verifyPasswordEmpty, error.salaryEmpty, error.englishEmpty, error.labelEmpty, error.descriptionEmpty];
+    // validInscription();
   }
 
   console.log(Object.values(error));
@@ -202,7 +204,19 @@ function Inscription() {
             <h2 className="inscription__title">
               Mes informations
             </h2>
-            <form className="inscription__form">
+            <form
+              className="inscription__form"
+              onChange={() => {
+                submitForm();
+              }}
+              onBlur={() => {
+                submitForm();
+              }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                validInscription();
+              }}
+            >
               <div className="inscription__form__avatarContainer">
                 {
                   avatar && (
@@ -420,7 +434,7 @@ function Inscription() {
                     className="inscription__form__buttons__button--valid"
                     onClick={(e) => {
                       e.preventDefault();
-                      submitForm();
+                      validInscription();
                     }}
                   >
                     Valider

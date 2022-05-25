@@ -5,6 +5,9 @@ import reducer from '../reducers';
 import apiMiddleWare from '../middlewares/api';
 import inscriptionDevApi from '../middlewares/inscriptionDevApi';
 import inscriptionRecruiterApi from '../middlewares/inscriptionRecruiterApi';
+// import favorites from '../middlewares/favorites';
+import verifiedEmail from '../middlewares/VerifyEmail';
+
 import searchCity from '../middlewares/searchCity';
 import searchApi from '../middlewares/searchApi';
 import favorisFromApi from '../middlewares/favorites';
@@ -27,6 +30,8 @@ const enhancers = composeEnhancers(
     searchCity,
     // favorisFromApi,
     ModifyRecruiterApi,
+    // favorites,
+    verifiedEmail,
     messagesApi,
   ),
 

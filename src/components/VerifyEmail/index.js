@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { loading, logout, toggleWindowLog } from '../../actions/settings';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
-import './modalLogin.scss';
+import { resendVerification } from '../../actions/verifiedEmail';
+import './verifyEmail.scss';
 
-function ModalLogin() {
+function VerifyEmail() {
+  // const params = useParams();
+  // const { slug } = params;
+
   const formLogin = useSelector((state) => state.formLogin.login);
   const dispatch = useDispatch();
-  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
-  console.log(isVerified);
 
   function handleChangeForm(e) {
     const { value } = e.target;
@@ -17,26 +20,37 @@ function ModalLogin() {
     dispatch(login(value, name));
   }
 
-  function handleSubmit() {
-    // event.preventDefault();
-    // console.log('click');
-    dispatch(loading());
-    setTimeout(() => {
-      dispatch(loginTest());
-    }, 1000);
-    // dispatch(loginTest());
-  }
+  // useEffect(
+  //   () => {
+  //     dispatch(verifyUserEmail(slug));
+  //   },
+  //   [verifyUserEmail],
+  // );
 
-  // function test() {
-  //   dispatch(loginTest());
-  // }
+  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
+  console.log(isVerified);
+
+  function handleSubmit() {
+    // dispatch(toggleWindowLog());
+
+    /* if (formLogin.password.length > 0) {
+      console.log(formLogin.password.length);
+      isEmptyPass = false;
+      // dispatch(loginTest());
+    }
+    if (formLogin.email.length > 0) {
+      console.log(formLogin.email);
+      isEmptyMail = false;
+    } */
+    dispatch(loginTest());
+  }
 
   return (
     <div
       className="modalLoginBackground"
     >
       <div className="modalLoginContainer">
-        <header className="modalLoginContainer__header">
+        <header className="modalLoginContainer__header--verify">
           <h2 className="modalLoginContainer__header--title">
             Bienvenue
           </h2>
@@ -59,7 +73,9 @@ function ModalLogin() {
         </header>
 
         <form className="modalLoginContainer__form" onChange={handleChangeForm} onSubmit={handleSubmit}>
+          {/* <input className={!isEmptyMail ? 'modalLoginContainer__form--login' : 'field__empty--error'} type="email" placeholder="Email" value={formLogin.email} name="email" /> */}
           <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
+          {/* <input className={isEmptyPass ? 'modalLoginContainer__form--password' : 'field__empty--error'} type="password" placeholder="Mot de passe" name="password" value={formLogin.password} /> */}
           <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
           <p className="modalLoginContainer__form--error">
             L'email et/ou le mot de passe sont incorrects
@@ -89,12 +105,18 @@ function ModalLogin() {
         </form>
 
         <footer className="modalLoginContainer__footer">
-          <p className="modalLoginContainer__footer--forget">
+          <span className="modalLoginContainer__footer--forget">
             Mot de passe oublié?
-          </p>
-          <p className="modalLoginContainer__footer--register">
-            Vous n'êtes pas inscrit? <span> Inscription</span>
-          </p>
+          </span>
+          <button
+            type="button"
+            className="modalLoginContainer__footer__button--resend"
+            onClick={() => {
+              dispatch(resendVerification());
+            }}
+          >
+            Renvoyer un mail de vérification
+          </button>
         </footer>
 
       </div>
@@ -103,4 +125,4 @@ function ModalLogin() {
   );
 }
 
-export default ModalLogin;
+export default VerifyEmail;

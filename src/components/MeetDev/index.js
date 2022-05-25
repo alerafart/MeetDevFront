@@ -1,6 +1,7 @@
 import './meetdev.scss';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
 
 import Header from '../Header';
 import Home from '../Home';
@@ -8,6 +9,7 @@ import Footer from '../Footer';
 import Error from '../Error';
 import Inscription from '../Inscription';
 import Connexion from '../Connexion';
+// import VerifyEmail from '../VerifyEmail';
 import Search from '../Search';
 import Favoris from '../Favoris';
 import Profil from '../Profil';
@@ -19,6 +21,19 @@ import HomeDeveloper from '../Home/HomeDeveloper';
 import HomeRecruiter from '../Home/HomeRecruiter';
 import ModalLogin from '../ModalLogin';
 import Cookies from '../Cookies';
+
+// import { verifyUserEmail } from '../../actions/verifiedEmail';
+
+function MeetDev() {
+  const windowLog = useSelector((state) => state.settings.log.windowLog);
+
+  // useEffect(
+  //   () => {
+  //     dispatch(verifyUserEmail(slug));
+  //   },
+  //   [verifyUserEmail],
+  // );
+
 import RocketLoading from '../RocketLoading';
 
 function MeetDev() {
@@ -26,12 +41,14 @@ function MeetDev() {
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   const loading = useSelector((state) => state.settings.navigation.loading);
 
+
   return (
     <div className="meetdev">
       <Header />
       {
         windowLog && <ModalLogin />
       }
+
       {
         loading && (
           <RocketLoading />
@@ -55,6 +72,12 @@ function MeetDev() {
 
           )}
             />
+             <Route
+              path="/email/verify/:slug"
+              element={(
+                <Home />
+              )}
+             />
             <Route
               path="/inscription"
               element={(

@@ -24,3 +24,13 @@ export const toggleStack = (name) => ({
   type: TOGGLE_STACK,
   name,
 });
+
+// ACTION TYPE TOGGLE_SEARCH_CITY_DISPLAY
+export const FORM_ERROR_ON_SUBMIT = 'FORM_ERROR_ON_SUBMIT';
+
+// ACTION CREATOR toggleWindowLog
+export const formErrorOnSubmit = (name, value) => ({
+  type: FORM_ERROR_ON_SUBMIT,
+  name,
+  value,
+});

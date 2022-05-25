@@ -1,7 +1,8 @@
-import { IS_VERIFIED } from '../actions/verifiedEmail';
+import { IS_VERIFIED, HAS_SLUG } from '../actions/verifiedEmail';
 
 export const initialState = {
   emailVerified: false,
+  slug: false,
 };
 
 const verifyEmail = (state = initialState, action = {}) => {
@@ -10,6 +11,12 @@ const verifyEmail = (state = initialState, action = {}) => {
       return {
         ...state,
         emailVerified: action.verified,
+      };
+    }
+    case HAS_SLUG: {
+      return {
+        ...state,
+        slug: action.slug,
       };
     }
     default:

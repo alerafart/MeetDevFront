@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import rocket from '../../assets/images/rocket.png';
 // import background from '../../assets/images/backgroundMain.png';
 import { isDev, isRecruiter } from '../../actions/settings';
-import { verifyUserEmail } from '../../actions/verifiedEmail';
+import { verifyUserEmail, hasSlug } from '../../actions/verifiedEmail';
 
 function Home() {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ function Home() {
 
   if ((slug !== undefined) && (isVerified === false)) {
     dispatch(verifyUserEmail(slug));
+    dispatch(hasSlug(true));
   }
   // useEffect(() => {
   //   dispatch(setFromAway());

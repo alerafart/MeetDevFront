@@ -70,7 +70,6 @@ function Search() {
                   value="1"
                   name="experience"
                   defaultChecked={search.experience === '- 1 an'}
-                  // onChange={(e) => handleChangeCheckbox(e)}
                 />
                 - 1 an
               </label>
@@ -80,7 +79,6 @@ function Search() {
                   value="2"
                   name="experience"
                   defaultChecked={search.experience === '1 à 3 ans'}
-                  // onChange={(e) => handleChangeCheckbox(e)}
                 />
                 1 à 3 ans
               </label>
@@ -90,7 +88,6 @@ function Search() {
                   name="experience"
                   value="3"
                   defaultChecked={search.experience === '+ 3ans'}
-                  // onChange={(e) => handleChangeCheckbox(e)}
                 />
                 + 3 ans
               </label>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { loading, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
@@ -10,6 +10,13 @@ function ModalLogin() {
   const dispatch = useDispatch();
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
   console.log(isVerified);
+
+  const hasSlug = useSelector((state) => state.verifyEmail.slug);
+
+  /* const params = useParams();
+  console.log(params);
+  const { slug } = params; */
+  console.log(hasSlug);
 
   function handleChangeForm(e) {
     const { value } = e.target;
@@ -40,9 +47,11 @@ function ModalLogin() {
           <h2 className="modalLoginContainer__header--title">
             Bienvenue
           </h2>
-          <div>
+          { (hasSlug) && (
+          <h3 className="modalLoginContainer__header--verify">
             {isVerified ? 'Adresse email vérifiée avec succès ! Merci :)' : 'Une erreur est survenue, l\'adresse email n\'a pas pu être vérifiée' }
-          </div>
+          </h3>
+          )}
           <Link to="/">
             <button
               className="modalLoginContainer__header--button"

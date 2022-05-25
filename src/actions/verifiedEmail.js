@@ -12,6 +12,12 @@ export const isVerified = (verified) => ({
   verified,
 });
 
+export const HAS_SLUG = 'HAS_SLUG';
+export const hasSlug = (slug) => ({
+  type: HAS_SLUG,
+  slug,
+});
+
 export const RESEND_VERIFICATION = 'RESEND_VERIFICATION';
 export const resendVerification = () => ({
   type: RESEND_VERIFICATION,

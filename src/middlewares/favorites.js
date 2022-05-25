@@ -27,9 +27,12 @@ const favorisFromApi = (store) => (next) => (action) => {
         )
         .then((response) => {
           const responseArray = response.data.favoriteUsersData;
+
+          console.log(response.data);
           const favorites = responseArray.map((character, index) => ({
             data: response.data.favoriteUsersData[index],
             detailId: response.data.favoritesDetails[index].id,
+
           }));
 
           store.dispatch(favoritesList(favorites));

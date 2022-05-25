@@ -15,8 +15,8 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
         password,
         firms,
         website,
-        department,
-        zipCode,
+        // department,
+        // zipCode,
         profilePicture,
         description,
       } = state.formRegisterRecruiter.register;
@@ -34,14 +34,16 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
       // const { description } = state.formRegisterRecruiter.register;
 
       axios.post(
-        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/users/recruiters',
+        'http://aliciamv-server.eddi.cloud/projet-10-meet-dev-back/public/api/register/users/recruiters',
         // ou url: 'http://localhost/api/users:8000',
         {
           lastname: lastname,
           firstname: firstname,
           city: city,
-          zip_code: zipCode,
-          department: department,
+          // zip_code: zipCode,
+          zip_code: 14500,
+          // department: department,
+          department: 15,
           email_address: email,
           phone: phone,
           password: password,

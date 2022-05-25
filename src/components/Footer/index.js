@@ -1,9 +1,15 @@
+// == Import : npm
 import { Link } from 'react-router-dom';
-import './footer.scss';
+
+// == Import logo
 import instagram from '../../assets/images/instagram.png';
 import facebook from '../../assets/images/facebook.png';
 import twitter from '../../assets/images/twitter.png';
 
+// == Style
+import './footer.scss';
+
+// == Composant
 function Footer() {
   return (
     <div className="footer">

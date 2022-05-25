@@ -20,6 +20,9 @@ import {
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
   LOGIN_BURGER,
   TOGGLE_WINDOW_LOG_ON,
+  CLOSE_COOKIES,
+  LOADING,
+
 
 } from '../actions/settings';
 
@@ -34,6 +37,7 @@ export const initialState = {
     user_id: '',
     dev_id: '',
     recruit_id: '',
+    cookiesLoad: true,
   },
   navigation: {
     windowSendMessage: false, // open Modal Send Message
@@ -47,11 +51,20 @@ export const initialState = {
     resultSearchCity: [],
     burgerMenuOpen: false,
     burgerLogin: false,
+    loading: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          loading: !state.navigation.loading,
+        },
+      };
     case BURGER_MENU_OPEN:
       return {
         ...state,
@@ -238,6 +251,14 @@ const settings = (state = initialState, action = {}) => {
           fromSearchRoute: false,
           fromFavoritesRoute: false,
           frominscriptionRoute: false,
+        },
+      };
+    case CLOSE_COOKIES:
+      return {
+        ...state,
+        log: {
+          ...state.log,
+          cookiesLoad: false,
         },
       };
     default:

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { contactDev, contactDevRaz } from '../../actions/formDevContact';
+import { sendMessage } from '../../actions/messageAction';
 import { setToggleModalSendMessage } from '../../actions/settings';
 import './modalDevContact.scss';
 
@@ -10,7 +11,7 @@ function ModalSendMessage() {
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
-    console.log(`name: ${name}    value:${value}`);
+    // console.log(`name: ${name}    value:${value}`);
     dispatch(contactDev(value, name));
   }
 
@@ -35,18 +36,19 @@ function ModalSendMessage() {
           </button>
         </header>
 
-        <form className="modalDevContactContainer__form">
+        <form className="modalDevContactContainer__form" onChange={handleChangeForm}>
           <p className="modalDevContactContainer__form--label">Titre</p>
-          <input className="modalDevContactContainer__form--titre" type="txt" name="title" onChange={handleChangeForm} value={formContact.title} />
+          <input className="modalDevContactContainer__form--titre" type="txt" name="title" value={formContact.title} />
           <p className="modalDevContactContainer__form--label">Message</p>
-          <textarea className="modalDevContactContainer__form--message" name="message" value={formContact.message} onChange={handleChangeForm} />
+          <textarea className="modalDevContactContainer__form--message" name="message" value={formContact.message} />
 
           <button
             type="submit"
             className="modalDevContactContainer__form--connexion"
             onClick={() => {
+              dispatch(sendMessage());
               dispatch(setToggleModalSendMessage());
-              dispatch(contactDevRaz());
+              // dispatch(contactDevRaz());
             }}
           >
             Envoyer

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout, toggleWindowLog } from '../../actions/settings';
+import { loading, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
 import './modalLogin.scss';
@@ -20,7 +20,11 @@ function ModalLogin() {
   function handleSubmit() {
     // event.preventDefault();
     // console.log('click');
-    dispatch(loginTest());
+    dispatch(loading());
+    setTimeout(() => {
+      dispatch(loginTest());
+    }, 1000);
+    // dispatch(loginTest());
   }
 
   // function test() {

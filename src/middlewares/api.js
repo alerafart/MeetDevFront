@@ -2,7 +2,9 @@ import axios from 'axios';
 import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
 import { dataProfilDevFromApi } from '../actions/profilDev';
 import { dataProfilRecruiterFromApi } from '../actions/profilRecruiter';
-import { logged, isDev as actionIsDev, isRecruiter as actionIsRecruiter } from '../actions/settings';
+import {
+  logged, isDev as actionIsDev, isRecruiter as actionIsRecruiter, loading,
+} from '../actions/settings';
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
@@ -70,6 +72,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
               store.dispatch(dataProfilDevFromApi(userData.minimum_salary_requested, 'salary'));
               // store.dispatch(dataProfilDevFromApi('', 'gender'));
               // redirection vers page profil
+              store.dispatch(loading());
             }
             else if (isRecruiter) {
               // changement du state settings: isDev: true
@@ -89,6 +92,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
               store.dispatch(dataProfilRecruiterFromApi(user.password, 'password'));
               store.dispatch(dataProfilRecruiterFromApi(user.profile_picture, 'profilePicture'));
               store.dispatch(dataProfilRecruiterFromApi(userData.needs_description, 'description'));
+              store.dispatch(loading());
             }
             else {
               console.log('probleme de connexion');

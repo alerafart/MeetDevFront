@@ -13,6 +13,7 @@ import searchApi from '../middlewares/searchApi';
 import favorisFromApi from '../middlewares/favorites';
 import ModifyDevApi from '../middlewares/ModifyDevApi';
 import ModifyRecruiterApi from '../middlewares/ModifyRecruiterApi';
+import messagesApi from '../middlewares/messagesApi';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -31,6 +32,7 @@ const enhancers = composeEnhancers(
     ModifyRecruiterApi,
     // favorites,
     verifiedEmail,
+    messagesApi,
   ),
 
 );

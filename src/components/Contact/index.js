@@ -1,9 +1,10 @@
-// styles
+// == Import npm
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { sendMessage } from '../../actions/formContact';
 import { setFromAway } from '../../actions/settings';
+// styles
 import './contact.scss';
 
 function Contact() {
@@ -19,6 +20,8 @@ function Contact() {
     const { name } = e.target;
     dispatch(sendMessage(value, name));
   }
+  // function to have a captcha (number and letter) to protect the website with the bot
+  const captcha = (Math.random() + 1).toString(36).substring(7);
 
   return (
     <section className="contact-wrap">
@@ -91,6 +94,13 @@ function Contact() {
           </div>
         </div>
         <div className="col-sm-12">
+          <div className="contact__form--captcha">{captcha}</div>
+          <div className="contact__form--input">
+            <input className="contact__form--control" type="text" placeholder="Recopier le captcha" name="captcha" id="captcha" />
+          </div>
+        </div>
+        <div className="col-sm-12">
+
           <button type="button" className="contact__form--button">Envoyer</button>
         </div>
         <Link to="/">

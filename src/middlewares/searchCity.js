@@ -1,5 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action
 import { SEARCH_CITY } from '../actions/middleware';
+// == Import action creator
 import { addResultSearchCity } from '../actions/settings';
 
 const searchCity = (store) => (next) => (action) => {

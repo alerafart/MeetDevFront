@@ -1,3 +1,4 @@
+// == Import action
 import { REGISTER_DEV, SELECT_AVATAR, TOGGLE_STACK } from '../actions/formRegisterDev';
 import { LOGOUT } from '../actions/settings';
 

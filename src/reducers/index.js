@@ -1,5 +1,6 @@
+// == Import npm
 import { combineReducers } from 'redux';
-
+// == Import reducer
 import settingsReducer from './settings';
 import formRegisterDev from './formRegisterDev';
 import formRegisterRecruiter from './formRegisterRecruiter';

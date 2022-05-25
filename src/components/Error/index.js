@@ -1,5 +1,6 @@
-// == Import
+// == Import img
 import gif from '../../assets/images/gif_404.gif';
+// == Import style
 import './error.scss';
 
 // == Composant

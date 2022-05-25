@@ -1,8 +1,10 @@
-// styles
-import './cookies.scss';
+// == Import npm
 import { useDispatch } from 'react-redux';
+// == Import action creator
 import { closeCookies } from '../../actions/settings';
-
+// == Import styles
+import './cookies.scss';
+// == Component
 function Cookies() {
   // const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   const dispatch = useDispatch();
@@ -15,21 +17,23 @@ function Cookies() {
         et pour comprendre la provenance de nos visiteurs.
       </p>
       <div className="cookies__button">
+        {/* button to close the window and TODO accept the cookies */}
         <button
           type="button"
           className="cookies__button--agree"
           onClick={() => {
             dispatch(closeCookies());
-            console.log('agree button');
+            // console.log('agree button');
           }}
         >J'accepte
         </button>
+        {/* button to close the window and TODO refuse the cookies */}
         <button
           type="button"
           className="cookies__button--disagree"
           onClick={() => {
             dispatch(closeCookies());
-            console.log('refuse button');
+            // console.log('refuse button');
           }}
         >Je refuse
         </button>

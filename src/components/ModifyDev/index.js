@@ -1,7 +1,19 @@
-import './profildevmodify.scss';
+// == Import npm
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import all avatars
+// == Import component
+import ModalChooseAvatar from './ModalChooseAvatar';
+import ModalChooseStack from './ModalChooseStack';
+// == Import action creator
+import { searchCity, validateModifyDev } from '../../actions/middleware';
+import {
+  searchCityDisplay,
+  searchCityClose,
+  chooseAvatarModal,
+  toggleModalChooseTechnologie,
+} from '../../actions/settings';
+import { tempModifDevProfil } from '../../actions/profilDevModifyTemp';
+// == Import avatars
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../assets/avatars/avatar_man3.png';
@@ -11,25 +23,24 @@ import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 import github from '../../assets/images/github.png';
-// import { registerDev } from '../../actions/formRegisterDev';
-
-import ModalChooseAvatar from './ModalChooseAvatar';
-import ModalChooseStack from './ModalChooseStack';
-
-import { searchCity, validateModifyDev } from '../../actions/middleware';
-
-// import { dataProfilDevFromApi } from '../../actions/profilDev';
-import {
-  searchCityDisplay,
-  searchCityClose,
-  chooseAvatarModal,
-  toggleModalChooseTechnologie,
-} from '../../actions/settings';
-import { tempModifDevProfil } from '../../actions/profilDevModifyTemp';
-
+// == Import styles
+import './profildevmodify.scss';
+// == Component
 function ModifyDev() {
-  const data = useSelector((state) => state.profilDevModifyTemp.register);
   const dispatch = useDispatch();
+  // state to know user data
+  const data = useSelector((state) => state.profilDevModifyTemp.register);
+  // state to know user city
+  const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
+  const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
+  // state to know user avatar
+  const displayChooseAvatarModal = useSelector(
+    (state) => state.settings.navigation.chooseAvatarModal,
+  );
+  // state to know user stack
+  const displayChooseStackModal = useSelector(
+    (state) => state.settings.navigation.chooseTechnologieModal,
+  );
 
   // select how avatar to display
   let avatar;
@@ -60,16 +71,7 @@ function ModifyDev() {
   if (data.profilePicture === '') {
     avatar = '';
   }
-
-  const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
-  const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
-  const displayChooseAvatarModal = useSelector(
-    (state) => state.settings.navigation.chooseAvatarModal,
-  );
-  const displayChooseStackModal = useSelector(
-    (state) => state.settings.navigation.chooseTechnologieModal,
-  );
-
+  // function to change user data value
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -91,6 +93,7 @@ function ModifyDev() {
                     <img src={avatar} alt="" />
                   )
                 }
+          {/* button to open avatar modal */}
           <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Choisir son avatar</button>
           {
                   displayChooseAvatarModal && <ModalChooseAvatar />
@@ -233,6 +236,7 @@ function ModifyDev() {
           <div className="inscription__form__champ--label">
             Stack
           </div>
+          {/* button to open stack modal */}
           <button
             type="button"
             className="inscription__form__champ--stack"
@@ -308,6 +312,7 @@ function ModifyDev() {
         </div>
         <div className="inscription__form__buttons">
           <Link to="/profil">
+            {/* button to save data and display user profile */}
             <button
               type="submit"
               className="inscription__form__buttons__button--valid"
@@ -321,6 +326,7 @@ function ModifyDev() {
             </button>
           </Link>
           <Link to="/profil">
+            {/* button close window and cancel changes */}
             <button
               type="button"
               className="inscription__form__buttons__button--cancel"

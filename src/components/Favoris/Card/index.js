@@ -48,7 +48,7 @@ import { deleteOneFavorite, recruiterFavorites } from '../../../actions/middlewa
 // style
 import './card.scss';
 
-// == Composant
+// == Component
 function Card({ favorite }) {
   const dispatch = useDispatch();
   // to display profil Picture on card

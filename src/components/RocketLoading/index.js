@@ -1,6 +1,6 @@
-// styles
+// == Import styles
 import './rocketloading.scss';
-
+// == Component
 function RocketLoading() {
   return (
     <div className="rocketloading">

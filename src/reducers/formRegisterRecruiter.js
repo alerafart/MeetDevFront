@@ -1,3 +1,4 @@
+// == Import action
 import { REGISTER_RECRUITER, REGISTER_RECRUITER_CANCEL, SELECT_AVATAR_RECRUITER } from '../actions/formRegisterRecruiter';
 import { LOGOUT } from '../actions/settings';
 

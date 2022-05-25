@@ -1,15 +1,14 @@
-import './header.scss';
+// == Import npm
 import { useSelector } from 'react-redux';
-
-// import { useSelector } from 'react-redux';
+// == Import component
 import NavigationDesktop from './NavigationDesktop';
 import NavigationMobile from './NavigationMobile';
 import BurgerMenu from './BurgerMenu';
-
-// import rocket from '../../assets/images/rocket1.png';
-// import { logout, toggleWindowLog, setFromAway } from '../../actions/settings';
-
+// == Import style
+import './header.scss';
+// == Component
 function Header() {
+  // function to select the state settings to transfer in the component BurgerMenu
   const burgerMenuOpen = useSelector((state) => state.settings.navigation.burgerMenuOpen);
   return (
     <>

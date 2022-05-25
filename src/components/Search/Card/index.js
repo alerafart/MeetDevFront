@@ -68,7 +68,7 @@ function Title({
 }
 
 Title.propTypes = {
-  user: PropTypes.array(
+  user: PropTypes.arrayOf(
     PropTypes.shape({
       profile_picture: PropTypes.string.isRequired,
       firstname: PropTypes.string.isRequired,

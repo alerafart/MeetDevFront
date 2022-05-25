@@ -34,15 +34,6 @@ const formSearchDev = (state = initialState, action = {}) => {
         },
       };
 
-    /* case TOGGLE_EXPERIENCE: {
-      return {
-        ...state,
-        search: {
-          ...state.search,
-          [action.name]: action.value,
-        },
-      };
-    } */
     default:
       return state;
   }

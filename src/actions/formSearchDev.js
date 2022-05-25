@@ -23,13 +23,3 @@ export const fetchProfileModale = (user, userId) => ({
   user,
   userId,
 });
-
-// ACTION TYPE TOGGLE_STACK
-// export const TOGGLE_EXPERIENCE = 'TOGGLE_EXPERIENCE';
-
-// ACTION CREATOR toggleEXPERIENCE
-/* export const toggleExperience = (value, name) => ({
-  type: TOGGLE_EXPERIENCE,
-  value,
-  name,
-}); */

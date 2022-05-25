@@ -12,8 +12,7 @@ function Search() {
   const search = useSelector((state) => state.formSearchDev.search);
   const results = useSelector((state) => state.resultSearch.results);
   const count = results.length;
-  /* const experience = useSelector((state) => state.formSearchDev.search);
-  console.log(experience); */
+
   /*   console.log(results);
   console.log(typeof results); */
 
@@ -24,12 +23,6 @@ function Search() {
     const { name } = e.target;
     dispatch(searchDev(value, name));
   }
-  /* function handleChangeCheckbox(e) {
-    // dispatch(toggleExperience(e.target.name));
-    const { value } = e.target.value;
-    const { name } = e.target.value;
-    dispatch(toggleExperience(value, name));
-  } */
 
   return (
     <div className="wrapper">

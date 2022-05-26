@@ -179,6 +179,7 @@ const settings = (state = initialState, action = {}) => {
           displaySearchCity: false,
           resultSearchCity: [],
           burgerMenuOpen: false,
+          loading: true,
         },
       };
     case IS_DEV:

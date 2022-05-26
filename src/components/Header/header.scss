@@ -32,10 +32,27 @@
   }
 
   &__enSavoirPlus {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    font-weight: bold;
 
-    &:hover {
-      font-weight: bold;
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 3px vars.$mainColor;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+    }
+
+    &fromRight:after {
+      transform-origin: 100% 50%;
+    }
+
+    &fromLeft:after {
+      transform-origin: 0% 50%;
     }
   }
 
@@ -77,8 +94,24 @@
       font-weight: bold;
       border-bottom: transparent 3px solid;
 
-      &:hover {
-        border-bottom: vars.$mainColor 3px solid;
+      &:after {
+        display: block;
+        content: '';
+        border-bottom: solid 3px vars.$mainColor;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+
+      &fromRight:after {
+        transform-origin: 100% 50%;
+      }
+
+      &fromLeft:after {
+        transform-origin: 0% 50%;
       }
     }
 

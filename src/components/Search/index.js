@@ -26,7 +26,7 @@ function Search() {
   return (
     <div className="wrapper">
       <h2 className="banniere">
-        Filtres de recherche
+        Ma recherche
       </h2>
       <div className="search">
         {
@@ -58,25 +58,28 @@ function Search() {
               <option value="PHP">PHP</option>
             </select>
           </div> */}
-          <div className="search__filter__champ">
+          {/*           <div className="search__filter__champ">
             <div className="search__filter__champ--label">
               Expérience
             </div>
             <div className="search__filter__champ--radio" onChange={handleChangeForm}>
               <label className="search__filter__champ--radio--item" htmlFor="exp1">
-                <input type="radio" value="1" name="experience" defaultchecked={search.experience === '- 1 an'} />
+                <input type="radio" value="1" name="experience"
+                defaultchecked={search.experience === '- 1 an'} />
                 - 1 an
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp2">
-                <input type="radio" value="2" name="experience" checked={search.experience === '1 à 3 ans'} />
+                <input type="radio" value="2" name="experience"
+                defaultChecked={search.experience === '1 à 3 ans'} />
                 1 à 3 ans
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp3">
-                <input type="radio" name="experience" value="3" checked={search.experience === '+ 3ans'} />
+                <input type="radio" name="experience" value="3"
+                defaultChecked={search.experience === '+ 3ans'} />
                 + 3 ans
               </label>
             </div>
-          </div>
+          </div> */}
           {/*  <div className="search__filter__champ">
             <div className="search__filter__champ--label">
               Disponibilité
@@ -103,7 +106,7 @@ function Search() {
               dispatch(fetchProfile());
             }}
           >
-            Filtrer
+            Rechercher
           </button>
         </form>
         <h2 className="search__title">

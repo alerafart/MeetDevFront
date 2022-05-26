@@ -77,7 +77,8 @@
       height: 45px;
       width: 500px;
       align-items: center;
-      margin: 0 auto 16px;
+      margin: 0 auto 3rem;
+      font-weight: bold;
 
       @media (max-width: 520px) {
         width: 350px;

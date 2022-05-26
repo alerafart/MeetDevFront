@@ -64,6 +64,7 @@
       flex-grow: 2;
       position: relative;
 
+
       @media (max-width: 695px) {
         margin: 1rem 1rem 1rem 1rem;
 
@@ -79,6 +80,7 @@
         color: vars.$mainColor;
         border-bottom: 1px solid vars.$mainFontGrey;
         margin-bottom: 1rem;
+        font-weight: bold;
       }
 
       &__item {
@@ -96,6 +98,7 @@
         &--contact {
           font-size: 1.4rem;
           color: vars.$mainFontAnthra;
+          font-weight: bold;
         }
 
 
@@ -104,17 +107,19 @@
           color: vars.$mainFontAnthra;
           margin-bottom: 0.3rem;
           text-align: left;
+          font-weight: bold;
         }
 
         &--firms {
           font-size: 1.7rem;
           color: vars.$mainFontAnthra;
+          font-weight: bold;
         }
 
         &--city {
           font-size: 1.4rem;
           color: vars.$mainFontAnthra;
-          ;
+          font-weight: bold;
           text-align: left;
         }
 
@@ -125,6 +130,7 @@
           text-align: left;
           color: vars.$mainFontAnthra;
           line-height: 1.3rem;
+          font-weight: bold;
         }
 
       }
@@ -163,6 +169,7 @@
       color: vars.$mainColor;
       border-bottom: 1px solid vars.$mainFontGrey;
       margin-bottom: 1rem;
+      font-weight: bold;
     }
 
     &__item {
@@ -178,6 +185,7 @@
 
       &--color {
         color: vars.$mainColor;
+        font-weight: bold;
       }
     }
 

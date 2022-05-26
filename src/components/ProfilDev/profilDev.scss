@@ -108,6 +108,7 @@
         width: 16rem;
         font-size: 1.2rem;
         font-weight: bold;
+        color: vars.$mainColor;
 
         @media (max-width: 400px) {
           right: 3rem;
@@ -119,15 +120,15 @@
           width: 3rem;
 
           &:hover {
-            transform: scale(1.1);
+            transform: scale(1.2);
             transition: transform 0.3s;
-            filter: opacity(0.4) drop-shadow(0 0 0 rgb(0, 255, 213));
+            filter: opacity(0.4) drop-shadow(0 0 0 rgb(61, 255, 255));
           }
         }
 
         &:hover {
           cursor: pointer;
-          filter: opacity(0.4) drop-shadow(0 0 0 rgb(0, 255, 213));
+          filter: opacity(0.4) drop-shadow(0 0 0 rgb(61, 255, 255));
         }
 
       }
@@ -195,8 +196,6 @@
           background-color: vars.$mainColor;
           color: vars.$mainBackground;
         }
-
-        &:focus {}
 
         &--logo {
           margin-right: 1rem;
@@ -454,11 +453,11 @@
         }
 
         &--pointer {
-          color: vars.$mainFontGrey;
+          color: vars.$mainColor;
         }
 
         &--city {
-          color: vars.$mainFontGrey;
+          color: vars.$mainColor;
         }
 
         &--profession {

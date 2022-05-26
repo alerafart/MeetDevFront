@@ -34,15 +34,15 @@
     display: flex;
     justify-content: stretch;
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
     }
 
     &__cadre {
-      width: 330px;
+      width: 340px;
       height: 300px;
-      min-width: 330px;
+      min-width: 340px;
       min-height: 300px;
 
       border-radius: 8px;
@@ -54,7 +54,7 @@
       margin: 2rem 3rem;
       box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
 
-      @media (max-width: 400px) {
+      @media (max-width: 425px) {
         width: 230px;
         height: 230px;
         min-width: 230px;
@@ -89,22 +89,25 @@
       margin: 2rem 2rem 2rem 0rem;
       position: relative;
 
-      @media (max-width: 695px) {
-        margin: 1rem 1rem 1rem 1rem;
-
+      @media (max-width: 768px) {
+        width: 380px;
+        margin: 0rem 1rem 1rem 1rem;
+        height: 400px;
       }
 
-      @media (max-width: 400px) {
-        width: 310px;
-        margin: 1rem 0.5rem 1rem 0.5rem;
-
+      @media (max-width: 425px) {
+        width: 340px;
+        height: 480px;
+        min-width: 330px;
+        min-height: 480px;
       }
 
       &--favorite {
-        position: absolute;
-        width: 3rem;
-        right: 1.5rem;
-        top: 1.5rem;
+        margin: auto;
+        margin-top: 0.5rem;
+        width: 16rem;
+        font-size: 1.2rem;
+        font-weight: bold;
 
         @media (max-width: 400px) {
           right: 3rem;
@@ -112,8 +115,19 @@
           display: none;
         }
 
+        & img {
+          width: 3rem;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            filter: opacity(0.4) drop-shadow(0 0 0 rgb(0, 255, 213));
+          }
+        }
+
         &:hover {
           cursor: pointer;
+          filter: opacity(0.4) drop-shadow(0 0 0 rgb(0, 255, 213));
         }
 
       }
@@ -163,27 +177,46 @@
       }
 
       &__mail {
-        padding-left: 0;
+        margin: auto;
+        width: 18rem;
+        height: 3.5rem;
+        border: 2px solid vars.$mainColor;
+        border-radius: 8px;
+        margin-top: 1.5rem;
         display: flex;
-        align-items: center;
+        justify-content: center;
         color: vars.$mainFontAnthra;
         font-size: 1.2rem;
         font-weight: bold;
+        padding-top: 1rem;
 
         &:hover {
           cursor: pointer;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
         }
 
-        &--logo {
-          width: 3rem;
+        &:focus {}
 
-          padding-left: 0;
-          text-align: left;
+        &--logo {
+          margin-right: 1rem;
         }
 
         &--txt {
-          margin-bottom: 0;
-          padding-left: 1rem;
+          padding: 0;
+        }
+
+        @media (max-width: 768px) {
+          width: 13rem;
+          height: 4.2rem;
+
+          &--logo {
+            margin-left: 1rem;
+          }
+        }
+
+        @media (max-width: 425px) {
+          width: 13rem;
         }
       }
     }
@@ -191,18 +224,20 @@
 
   &__container {
     display: flex;
-    padding: 0rem 3rem;
+    justify-content: center;
 
-    @media (max-width: 695px) {
+    @media (max-width: 1024px) {}
+
+    @media (max-width: 768px) {
+      display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0rem 1rem;
     }
   }
 
   &__informations {
-    width: 330px;
-    min-width: 330px;
+    width: 340px;
+    min-width: 340px;
     height: 220px;
     border-radius: 8px;
     overflow: hidden;
@@ -214,21 +249,19 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width: 695px) {
-      width: 330px;
-      padding: 0rem 1rem;
+    @media (max-width: 768px) {
+      width: 380px;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 425px) {
       width: 330px;
-      margin: 0 0.5rem;
       font-size: 0.8rem;
     }
 
     &--label {
       color: vars.$mainColor;
       border-bottom: 1px solid vars.$mainFontGrey;
-      margin: 0.5rem 0.5rem 1rem;
+      margin: 1rem;
     }
 
     &__item {
@@ -282,11 +315,16 @@
 
 
 
-    @media (max-width: 695px) {
-      width: 330px;
-      margin: 0rem 1em;
-      padding: 0rem 1em;
+    @media (max-width: 768px) {
+      width: 380px;
+      margin-top: 2rem;
+      margin-left: 0;
+    }
 
+    @media (max-width: 425px) {
+      width: 330px;
+      font-size: 0.8rem;
+      margin-left: 0;
     }
 
     &--label {
@@ -360,7 +398,7 @@
   }
 
   &__buttons {
-    margin-top: 3rem;
+    margin-top: 2.2rem;
     display: flex;
     justify-content: center;
 

@@ -126,28 +126,7 @@ function ProfilDev() {
           <img className={isDark ? 'profilDev__header__cadre--img dark' : 'profilDev__header__cadre--img'} src={avatar} alt="profil" />
         </div>
         <div className="profilDev__header__about">
-          {
-            // Display 'add to favorites' only if we come from search Route or
-            // Favorites Route and i'm recruiter
-            ((fromSearch || fromFavorites) && isRec) && (
-              <div
-                // type="button"
-                className="profilDev__header__about--favorite"
-                // onClick={() => {
-                //   dispatch(addOneFavorite());
-                // }}
-              >
-                <img
-                  src={addfavorites}
-                  alt="add favorites"
-                  className="profilDev__header__about--favorite"
-                  onClick={() => {
-                    dispatch(addOneFavorite());
-                  }}
-                />
-              </div>
-            )
-          }
+
           <h3 className={isDark ? 'profilDev__header__about--label dark' : 'profilDev__header__about--label'}>
             A Propos
           </h3>
@@ -195,25 +174,6 @@ function ProfilDev() {
               </div>
             )
           }
-          {
-            // Display button 'send message' only if we come from search Route or Favorites Route
-            (fromSearch || fromFavorites) && (
-              <div className="profilDev__header__about__mail">
-                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
-                  <GrMail />
-                </div>
-                <p
-                  type="button"
-                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
-                  onClick={() => {
-                    dispatch(setToggleModalSendMessage());
-                  }}
-                >Envoyer un message
-                </p>
-              </div>
-            )
-          }
-
         </div>
 
       </header>
@@ -353,6 +313,46 @@ function ProfilDev() {
           </div>
         </div>
       </div>
+      {
+            // Display button 'send message' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+              <div className="profilDev__header__about__mail">
+                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
+                  <GrMail />
+                </div>
+                <p
+                  type="button"
+                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
+                  onClick={() => {
+                    dispatch(setToggleModalSendMessage());
+                  }}
+                >Envoyer un message
+                </p>
+              </div>
+            )
+          }
+      {
+            // Display 'add to favorites' only if we come from search Route or
+            // Favorites Route and i'm recruiter
+            ((fromSearch || fromFavorites) && isRec) && (
+              <div
+                // type="button"
+                className="profilDev__header__about--favorite"
+                // onClick={() => {
+                //   dispatch(addOneFavorite());
+                // }}
+              >
+                <img
+                  src={addfavorites}
+                  alt="add favorites"
+                  className="profilDev__header__about--favorite"
+                  onClick={() => {
+                    dispatch(addOneFavorite());
+                  }}
+                /> Ajouter aux favoris
+              </div>
+            )
+          }
 
       {
         (fromSearch || fromFavorites) && (

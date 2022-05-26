@@ -151,8 +151,10 @@ function ProfilDev() {
           <h3 className={isDark ? 'profilDev__header__about--label dark' : 'profilDev__header__about--label'}>
             A Propos
           </h3>
-          <h4 className="profilDev__header__about--name">
-            {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+          <span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+
+          <h4 className={isDark ? 'profilDev__header__about--name dark' : 'profilDev__header__about--name'}>
+            {data.firstname} {data.lastname}
           </h4>
           <div className={isDark ? 'profilDev__header__about--profession dark' : 'profilDev__header__about--profession'}>
             {data.label}
@@ -160,6 +162,39 @@ function ProfilDev() {
           <p className={isDark ? 'profilDev__header__about--presentation dark' : 'profilDev__header__about--presentation'}>
             {data.description}
           </p>
+          {
+            ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
+              <div className="profilDev__informations__disponibility">
+
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
+                  Disponible
+
+                </div>
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={disponible}
+                  alt="disponiblilité"
+                />
+
+              </div>
+
+            )
+          }
+          {
+            ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
+              <div className="profilDev__informations__disponibility">
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
+                  Disponible dans 3 mois:
+                </div>
+
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={indisponible}
+                  alt="disponiblilité"
+                />
+              </div>
+            )
+          }
           {
             // Display button 'send message' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
@@ -233,39 +268,6 @@ function ProfilDev() {
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.github}
             </div>
           </div>
-          {
-            ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
-              <div className="profilDev__informations__disponibility">
-
-                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
-                  Disponible
-
-                </div>
-                <img
-                  className="profilDev__informations__disponibility--logo"
-                  src={disponible}
-                  alt="disponiblilité"
-                />
-
-              </div>
-
-            )
-          }
-          {
-            ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
-              <div className="profilDev__informations__disponibility">
-                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
-                  Disponible dans 3 mois:
-                </div>
-
-                <img
-                  className="profilDev__informations__disponibility--logo"
-                  src={indisponible}
-                  alt="disponiblilité"
-                />
-              </div>
-            )
-          }
         </div>
 
         <div className="profilDev__skills">

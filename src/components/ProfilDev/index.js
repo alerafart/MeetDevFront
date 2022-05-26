@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { GrMailOption, GrMail } from 'react-icons/gr';
+import { GrMail } from 'react-icons/gr';
 import './profilDev.scss';
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';

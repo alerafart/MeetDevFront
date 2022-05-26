@@ -1,7 +1,14 @@
 @use '../../styles/vars';
 
 .wrapper {
+    transition: 0.2s;
     min-height: 80vh;
+}
+
+.dark {
+    transition: 0.2s;
+
+    &.wrapper {}
 }
 
 .banniere {
@@ -17,6 +24,7 @@
 }
 
 .favoris {
+    transition: 0.2s;
     background-color: vars.$mainBackground;
     margin: 0 auto;
     padding: 1em 3em;
@@ -55,5 +63,19 @@
         }
 
 
+    }
+}
+
+.dark {
+    transition: 0.2s;
+
+    &.favoris {
+        background-color: vars.$mainBackgroundDark;
+
+        &__title {
+            color: vars.$mainColor;
+        }
+
+        &__card {}
     }
 }

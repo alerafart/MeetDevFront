@@ -167,10 +167,14 @@
         align-items: center;
         justify-content: space-between;
 
-        &--item {}
+        &--item {
+          color: vars.$mainFontSecondaryDark;
+        }
       }
 
       &--label {
+        &--img {}
+
         width: 6.25rem;
 
       }
@@ -278,6 +282,160 @@
 
   }
 
+}
+
+.dark {
+  &.inscription {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+    }
+
+    &__form {
+
+      &__avatarContainer {
+
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+      }
+
+      // TODO to delete
+      &--picture {
+        // width: 50%;
+        // display: flex;
+        // align-items: center;
+
+
+        // &--img {
+        //   width: 80px;
+        //   padding-left: 10px;
+        // }
+
+        // &--left {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   width: 26%;
+        //   margin-bottom: 16px;
+
+        //   @media (max-width: 767px) {
+        //     width: 40%;
+        //   }
+
+        // }
+
+        // &--right {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   width: 30%;
+        //   margin-bottom: 16px;
+
+        //   @media (max-width: 767px) {
+        //     width: 30%;
+        //   }
+
+        // }
+      }
+
+      &__champ {
+
+        &__searchCity {
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+
+        &--radio {
+
+          &--item {}
+        }
+
+        &--label {
+          &--img {
+            background-color: red;
+          }
+        }
+
+        &__searchCity {
+
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+        }
+
+        &--stack {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+
+        &__button {
+
+
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOption;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 

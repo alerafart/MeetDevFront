@@ -27,7 +27,7 @@ function NavigationDesktop() {
                 dispatch(toggleDarkMode());
               }}
               >
-                <MdDarkMode className="header__menu__darkModeIcon" />
+                <MdDarkMode className={isDarkMode ? 'header__menu__clearModeIcon dark' : 'header__menu__clearModeIcon'} />
               </div>
             )
           }
@@ -37,7 +37,7 @@ function NavigationDesktop() {
                 dispatch(toggleDarkMode());
               }}
               >
-                <MdOutlineDarkMode className="header__menu__clearModeIcon" />
+                <MdOutlineDarkMode className={isDarkMode ? 'header__menu__clearModeIcon dark' : 'header__menu__clearModeIcon'} />
 
               </div>
             )

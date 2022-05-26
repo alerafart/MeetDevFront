@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 
 .footer {
-
+  transition: 0.2s;
 
   height: 10vh;
   min-height: 75px;
@@ -135,6 +135,7 @@
 }
 
 .dark {
+  transition: 0.2s;
 
   &.footer {
     // border-top: 2px solid vars.$mainColorDark;

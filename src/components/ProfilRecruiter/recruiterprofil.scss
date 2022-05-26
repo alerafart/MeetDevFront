@@ -2,6 +2,7 @@
 
 
 .profilrecruiter {
+  transition: 0.2s;
   margin: 0 auto;
   //* modifié par rapport à l'orignial
   padding: 0em 0em;
@@ -217,4 +218,83 @@
   }
 
 
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.profilrecruiter {
+    background: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainBackground;
+      border-bottom: 1px solid vars.$mainFontGrey;
+      background-color: vars.$mainColor;
+    }
+
+    &__header {
+      &__cadre {
+        &--img {}
+
+      }
+
+      &__about {
+        &--label {
+          color: vars.$mainColor;
+          border-bottom: 1px solid vars.$mainFontGrey;
+        }
+
+        &__item {
+          &--label {
+            color: vars.$mainFontSecondaryDark;
+          }
+
+          &--contact {
+            color: vars.$secondaryColorDark;
+          }
+
+          &--name {
+            color: vars.$secondaryColorDark;
+          }
+
+          &--firms {
+            color: vars.$secondaryColorDark;
+          }
+
+          &--city {
+            color: vars.$secondaryColorDark;
+          }
+
+          &--description {
+            color: vars.$secondaryColorDark;
+          }
+        }
+      }
+    }
+
+    &__container {}
+
+    &__informations {
+      &--label {
+        color: vars.$mainColor;
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &__item {
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--color {
+          color: vars.$secondaryColorDark;
+        }
+      }
+    }
+
+    &__modify {
+      &--form {
+        background-color: vars.$mainColor;
+      }
+    }
+  }
 }

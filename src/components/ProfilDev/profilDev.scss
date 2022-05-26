@@ -12,6 +12,7 @@
 // }
 
 .profilDev {
+  transition: 0.2s;
   margin: 0 auto;
   //* modifié par rapport à l'orignial
   padding: 0em 0em;
@@ -347,6 +348,8 @@
 }
 
 .dark {
+  transition: 0.2s;
+
   &.profilDev {
     background: vars.$mainBackgroundDark;
 

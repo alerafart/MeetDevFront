@@ -12,6 +12,12 @@
   align-items: center;
 }
 
+.dark {
+  &.modalDevContactBackground {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+}
+
 .modalDevContactContainer {
   // position: relative;
   background-color: vars.$mainBackground;
@@ -146,4 +152,62 @@
 
   }
 
+}
+
+.dark {
+  &.modalDevContactContainer {
+    // position: relative;
+    background-color: vars.$mainBackgroundformDark;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &__header {
+      border-bottom: 1px solid vars.$mainFontGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--button {
+        background-color: vars.$cancelOption;
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+      }
+    }
+
+    &__form {
+
+      &--label {
+        color: vars.$mainColor;
+      }
+
+      &--titre {
+        background-color: vars.$mainBackgroundClearDark;
+        border: 1px solid vars.$mainFontGrey;
+
+        &:focus {
+          border: 2px solid black;
+        }
+      }
+
+      &--message {
+        background-color: vars.$mainBackgroundClearDark;
+        border: 1px solid vars.$mainFontGrey;
+
+      }
+
+      &--connexion {
+        background-color: vars.$mainColor;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 @use '../../../styles/vars';
 
 .inscriptionRecruiter {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -252,4 +253,101 @@
 
   }
 
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.inscriptionRecruiter {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+    }
+
+    &__form {
+      &__avatarContainer {
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+        }
+      }
+
+      &__champ {
+        &__searchCity {
+          background-color: white;
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+        &__searchCity {
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--radio {
+          color: vars.$mainColor;
+
+          &--item {
+            & input {}
+          }
+        }
+
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainFontSecondaryDark;
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+        &__button {
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOptionDark;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
 }

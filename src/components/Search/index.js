@@ -59,21 +59,29 @@ function Search() {
               <option value="PHP">PHP</option>
             </select>
           </div> */}
-          <div className="search__filter__champ">
-            <div className={isDark ? 'search__filter__champ--label dark' : 'search__filter__champ--label'}>
+          {/* <div className="search__filter__champ">
+           <div className={isDark ? 'search__filter__champ--label dark' :
+           'search__filter__champ--label'}>
               Expérience
             </div>
             <div className="search__filter__champ--radio" onChange={handleChangeForm}>
-              <label className={isDark ? 'search__filter__champ--radio--item dark' : 'search__filter__champ--radio--item'} htmlFor="exp1">
-                <input type="radio" value="1" name="experience" defaultchecked={search.experience === '- 1 an'} />
+              <label className={isDark ? 'search__filter__champ--radio--item dark' :
+               'search__filter__champ--radio--item'} htmlFor="exp1">
+                <input type="radio" value="1" name="experience" defaultchecked={search.
+                experience === '- 1 an'} />
                 - 1 an
               </label>
-              <label className={isDark ? 'search__filter__champ--radio--item dark' : 'search__filter__champ--radio--item'} htmlFor="exp2">
-                <input type="radio" value="2" name="experience" checked={search.experience === '1 à 3 ans'} />
+              <label className={isDark ? 'search__filter__champ--radio--item dark' :
+              'search__filter__champ--radio--item'} htmlFor="exp2">
+              <input type="radio" value="2" name="experience"
+               checked={search.experience === '1 à 3 ans'} />
                 1 à 3 ans
               </label>
-              <label className={isDark ? 'search__filter__champ--radio--item dark' : 'search__filter__champ--radio--item'} htmlFor="exp3">
-                <input type="radio" name="experience" value="3" checked={search.experience === '+ 3ans'} />
+              <label className={isDark ?
+             'search__filter__champ--radio--item dark' :
+             'search__filter__champ--radio--item'} htmlFor="exp3">
+             <input type="radio" name="experience" value="3"
+             checked={search.experience === '+ 3ans'} />
                 + 3 ans
               </label>
             </div>

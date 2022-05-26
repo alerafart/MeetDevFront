@@ -1,16 +1,17 @@
 // styles
 import './homedeveloper.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout, toggleWindowLog } from '../../../actions/settings';
 
 function HomeDeveloper() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   return (
-    <div className="homedeveloper">
+    <div className={isDark ? 'homedeveloper dark' : 'homedeveloper'}>
       <h3 className="homedeveloper__title">Développeur</h3>
       <div className="homedeveloper__content">
-        <div className="homedeveloper__dev--content">
+        <div className={isDark ? 'homedeveloper__dev--content dark' : 'homedeveloper__dev--content'}>
           <p>Vous avez sûrement regardé les offres d’emplois pour développeur ?</p>
           <p>En 2022, chercher un job de dév sur Internet est difficile,</p>
           <p>les sites d’emploi sont généralistes, ayant une expérience utilisateur compliquée,

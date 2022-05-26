@@ -156,6 +156,7 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
+          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
@@ -167,6 +168,7 @@ const settings = (state = initialState, action = {}) => {
           recruit_id: '',
         },
         navigation: {
+          ...state.navigation,
           windowSendMessage: false, // open Modal Send Message
           windowProfil: false,
           fromSearchRoute: false,

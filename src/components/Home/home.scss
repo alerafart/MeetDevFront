@@ -66,6 +66,7 @@
   }
 
   &__slogan {
+
     font-size: 1.3rem;
     color: vars.$mainColor;
     font-style: italic;
@@ -130,6 +131,166 @@
       border: none;
       background-color: vars.$mainColor;
       color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      min-width: 13rem;
+      max-width: 13rem;
+
+
+      @media (max-width: 720px) {
+        margin-bottom: 2rem;
+      }
+
+
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+
+    }
+
+
+  }
+
+  &__map {
+    padding: 2rem;
+
+    &--img {
+      display: block;
+      margin: 3rem auto;
+      width: 30rem;
+      border-radius: 10px;
+
+      @media (max-width: 800px) {
+        width: 80%;
+      }
+    }
+  }
+
+
+}
+
+.home.dark {
+  background-color: vars.$mainBackgroundDark;
+  margin: 0 auto;
+  padding: 1em 0em;
+  min-height: 80vh;
+  overflow: hidden;
+  background-image: url('../../assets/images/backgroundMain.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
+
+  &__header {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    @media (max-width: 720px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    &--title {
+      font-weight: bolder;
+      font-size: 5.5rem;
+      color: vars.$mainColorDark;
+
+      @media (max-width: 400px) {
+        font-size: 4rem;
+      }
+    }
+
+    &--img {
+      width: 2.8rem;
+      transform: rotate(45deg);
+      margin-right: 1.5rem;
+      z-index: 0;
+
+      @media (max-width: 720px) {
+        display: none;
+      }
+
+    }
+
+
+  }
+
+  &__slogan {
+    background-color: red;
+    font-size: 1.3rem;
+    color: vars.$mainColorDark;
+    font-style: italic;
+    margin-bottom: 4rem;
+
+    @media (max-width: 700px) {
+      padding: 0 1rem;
+    }
+  }
+
+  &__citation {
+    // height: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.8rem;
+    color: vars.$mainFontAnthraDark;
+    margin-bottom: 1.5rem;
+
+    &--citation {
+      color: white;
+      max-width: 500px;
+      text-align: center;
+      line-height: 32px;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+
+      @media (max-width: 500px) {
+        margin: 0 1rem;
+      }
+    }
+
+    &--author {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 5rem;
+    }
+
+    &--iam {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  }
+
+
+
+  &__choice {
+    color: vars.$mainFontAnthraDark;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 90%;
+
+
+    @media (max-width: 720px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--button {
+      border: none;
+      background-color: vars.$mainColorDark;
+      color: vars.$mainBackgroundDark;
       padding: 12px 3rem;
       border-radius: 8px;
       font-size: 1.2rem;

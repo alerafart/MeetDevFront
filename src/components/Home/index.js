@@ -6,6 +6,7 @@ import rocket from '../../assets/images/rocket.png';
 import { isDev, isRecruiter } from '../../actions/settings';
 
 function Home() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
 
   const isLogged = useSelector((state) => state.settings.log.logged);
@@ -22,11 +23,11 @@ function Home() {
       {
       (!isLogged) && (
         <div
-          className="home"
+          className={isDark ? 'home dark' : 'home'}
 
         >
 
-          <div className="home__header">
+          <div className={isDark ? 'home__header dark' : 'home__header'}>
             <img
               className="home__header--img"
               src={rocket}

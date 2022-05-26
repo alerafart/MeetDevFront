@@ -14,7 +14,7 @@ function NavigationDesktop() {
   const isDarkMode = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   return (
-    <div className="header">
+    <div className={isDarkMode ? 'header dark' : 'header'}>
       {/* if not Logged display connexion button + en Savoir +*/}
       { !logged && (
         <>

@@ -164,8 +164,8 @@ function ProfilDev() {
             // Display button 'send message' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
               <div className="profilDev__header__about__mail">
-                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}> <GrMailOption /><GrMail />
-
+                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
+                  <GrMail />
                 </div>
                 <p
                   type="button"

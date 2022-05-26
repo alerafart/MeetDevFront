@@ -1,13 +1,14 @@
 // styles
 import './cookies.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeCookies } from '../../actions/settings';
 
 function Cookies() {
   // const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
   const dispatch = useDispatch();
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   return (
-    <div className="cookies">
+    <div className={isDark ? 'cookies dark' : 'cookies'}>
       <h3 className="cookies__title">Nous utilisons des cookies</h3>
       <p className="cookies__content">Nous utilisons des cookies et d'autres technologies de suivi pour améliorer
         votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé
@@ -20,7 +21,6 @@ function Cookies() {
           className="cookies__button--agree"
           onClick={() => {
             dispatch(closeCookies());
-            console.log('agree button');
           }}
         >J'accepte
         </button>
@@ -29,7 +29,6 @@ function Cookies() {
           className="cookies__button--disagree"
           onClick={() => {
             dispatch(closeCookies());
-            console.log('refuse button');
           }}
         >Je refuse
         </button>

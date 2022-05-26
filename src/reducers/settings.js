@@ -21,6 +21,7 @@ import {
   LOGIN_BURGER,
   CLOSE_COOKIES,
   LOADING,
+  TOGGLE_DARK_MODE,
 
 } from '../actions/settings';
 
@@ -50,11 +51,21 @@ export const initialState = {
     burgerMenuOpen: false,
     burgerLogin: false,
     loading: false,
+    darkMode: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_DARK_MODE: {
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          darkMode: !state.navigation.darkMode,
+        },
+      };
+    }
     case LOADING:
       return {
         ...state,

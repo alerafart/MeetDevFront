@@ -101,6 +101,104 @@ $bg:vars.$mainBackground;
   }
 }
 
+.cookies.dark {
+  background-color: vars.$mainBackgroundDark;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
+
+  &__title {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColorDark;
+    margin-bottom: 1em;
+  }
+
+  &__content {}
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    &--agree {
+      border: none;
+      background-color: vars.$mainColorDark;
+      color: vars.$mainBackgroundDark;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+    &--disagree {
+      border: none;
+      background-color: vars.$cancelOptionDark;
+      color: vars.$mainBackgroundDark;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+    &--privacy {
+      border: none;
+      background-color: vars.$mainColorDark;
+      color: vars.$mainBackgroundDark;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+  }
+}
+
 #all {
   top: 13rem;
   left: 0;

@@ -1,5 +1,6 @@
 // == Import : npm
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // == Import logo
 import instagram from '../../assets/images/instagram.png';
@@ -11,8 +12,9 @@ import './footer.scss';
 
 // == Composant
 function Footer() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   return (
-    <div className="footer">
+    <div className={isDark ? 'footer dark' : 'footer'}>
       {/* <div className="footer__link--home">
         <Link to="/">Accueil</Link>
       </div> */}

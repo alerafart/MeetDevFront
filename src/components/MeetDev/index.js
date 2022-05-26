@@ -24,7 +24,8 @@ import RocketLoading from '../RocketLoading';
 function MeetDev() {
   const windowLog = useSelector((state) => state.settings.log.windowLog);
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
-  const loading = useSelector((state) => state.settings.navigation.loading);
+  // const loading = useSelector((state) => state.settings.navigation.loading);
+  const loading = false;
 
   return (
     <div className="meetdev">

@@ -10,6 +10,13 @@ export const logged = (email, userId, devId, recruitId, token) => ({
   token,
 });
 
+// ACTION TYPE TOGGLE_DARK_MODE
+export const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE';
+// ACTION CREATOR toggleDarkMode
+export const toggleDarkMode = () => ({
+  type: TOGGLE_DARK_MODE,
+});
+
 // ACTION TYPE LOGIN_BURGER
 export const LOGIN_BURGER = 'LOGIN_BURGER';
 // ACTION CREATOR loginBurger

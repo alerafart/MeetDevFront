@@ -1,8 +1,9 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
 import rocket from '../../assets/images/rocket.png';
 import {
-  logout, toggleWindowLog, setFromAway, setFromSearchRoute, setFromFavoritesRoute,
+  logout, toggleWindowLog, setFromAway, setFromSearchRoute, setFromFavoritesRoute, toggleDarkMode,
 } from '../../actions/settings';
 import { recruiterFavorites } from '../../actions/middleware';
 
@@ -10,6 +11,7 @@ function NavigationDesktop() {
   const logged = useSelector((state) => state.settings.log.logged);
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const isDarkMode = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   return (
     <div className="header">
@@ -19,6 +21,27 @@ function NavigationDesktop() {
           <div className="header__enSavoirPlus">
             <Link to="/en-savoir-plus">En savoir plus</Link>
           </div>
+          {
+            isDarkMode && (
+              <div onClick={() => {
+                dispatch(toggleDarkMode());
+              }}
+              >
+                <MdDarkMode className="header__menu__darkModeIcon" />
+              </div>
+            )
+          }
+          {
+            !isDarkMode && (
+              <div onClick={() => {
+                dispatch(toggleDarkMode());
+              }}
+              >
+                <MdOutlineDarkMode className="header__menu__clearModeIcon" />
+
+              </div>
+            )
+          }
           <button
             type="button"
             className="header__button"
@@ -67,6 +90,26 @@ function NavigationDesktop() {
                   </li>
                 </>
               )}
+              {
+            isDarkMode && (
+              <MdDarkMode
+                className="header__menu__darkModeIcon"
+                onClick={() => {
+                  dispatch(toggleDarkMode());
+                }}
+              />
+            )
+          }
+              {
+            !isDarkMode && (
+              <MdOutlineDarkMode
+                className="header__menu__clearModeIcon"
+                onClick={() => {
+                  dispatch(toggleDarkMode());
+                }}
+              />
+            )
+          }
             </ul>
             {/* if i'm connected display deconnexion Button */}
             <Link to="/">

@@ -384,12 +384,14 @@
         }
 
         &--profession {
-          color: vars.$mainColor;
+          color: vars.$secondaryColorDark;
         }
 
         &--citation {}
 
-        &--presentation {}
+        &--presentation {
+          color: vars.$mainBackgroundClearDark;
+        }
 
         &__mail {
           color: vars.$mainFontAnthra;
@@ -404,16 +406,24 @@
       }
 
       &__item {
-        &--label {}
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
 
-        &--black {}
+        &--black {
+          color: vars.$mainFontSecondaryDark;
+        }
 
         &--color {
-          color: vars.$mainColor;
+          color: vars.$secondaryColorDark;
         }
       }
 
       &__disponibility {
+        &--txt {
+          color: vars.$mainFontSecondaryDark;
+        }
+
         &--logo {}
       }
     }
@@ -425,7 +435,9 @@
       }
 
       &__item {
-        &--label {}
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
 
         &--result {
           &__title {
@@ -436,9 +448,11 @@
         &--black {}
 
         &--color {
-          color: vars.$mainColor;
+          color: vars.$secondaryColorDark;
 
-          &--stack {}
+          &--stack {
+            color: vars.$secondaryColorDark;
+          }
         }
 
         &--container {}

@@ -49,6 +49,7 @@ function ModalProfil() {
   const experience = useSelector((state) => state.modalProfil.result.experience);
   const languages = useSelector((state) => state.modalProfil.result.technology);
   const modalProfile = useSelector((state) => state.modalProfil.result.profilePicture);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
   let avatar;
   if (modalProfile === 'manAvatar1') {
@@ -77,12 +78,12 @@ function ModalProfil() {
   }
   return (
     <div
-      className="modalBackground"
+      className={isDark ? 'modalBackground dark' : 'modalBackground'}
     >
-      <div className="modalContainer">
-        <div className="modalContainer__exit">
+      <div className={isDark ? 'modalContainer dark' : 'modalContainer'}>
+        <div className={isDark ? 'modalContainer__exit dark' : 'modalContainer__exit'}>
           <button
-            className="modalContainer__exit--button"
+            className={isDark ? 'modalContainer__exit--button dark' : 'modalContainer__exit--button'}
             type="button"
             onClick={() => {
               dispatch(setToggleModalProfil());
@@ -99,7 +100,7 @@ function ModalProfil() {
           />
         </header>
         <main className="modalContainer__main">
-          <div className="modalContainer__main--left">&#x3C;</div>
+          <div className={isDark ? 'modalContainer__main--left dark' : 'modalContainer__main--left'}>&#x3C;</div>
           <div className="modalContainer__main__profil">
             <div className="modalContainer__main__profil--item--name">
               {firstname} {lastname}
@@ -159,7 +160,7 @@ function ModalProfil() {
               {languages.includes('Docker') ? <img src={docker} className="profilDev__skills__item__logos--logo" alt="logo docker" /> : '' }
             </div>
           </div>
-          <div className="modalContainer__main--right">&gt;</div>
+          <div className={isDark ? 'modalContainer__main--right dark' : 'modalContainer__main--right'}>&gt;</div>
           <div className="modalContainer__footer">
             {/* <button
               className="modalContainer__footer--button"

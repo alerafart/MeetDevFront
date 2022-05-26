@@ -6,6 +6,12 @@
   margin: 0 auto;
 }
 
+.dark {
+  &.wrapper {
+    background-color: vars.$mainBackgroundDark;
+  }
+}
+
 .banniere {
   color: vars.$mainBackground;
   // color: vars.$mainFontAnthra;
@@ -130,6 +136,40 @@
 
 }
 
+.dark {
+  &.search {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__filter {
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &__champ {
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainBackground;
+        }
+
+        &--radio {
+          &--item {
+            color: vars.$mainFontSecondaryDark;
+          }
+        }
+      }
+    }
+  }
+}
+
 .result {
   margin-top: 2rem;
   display: flex;
@@ -181,4 +221,21 @@
     }
   }
 
+}
+
+.dark {
+  &.result {
+    &__champ {
+      border: 2px solid vars.$mainFontAnthra;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      background-color: vars.$mainBackgroundformDark;
+
+      &--img {}
+
+      &--item {
+        color: vars.$mainFontSecondaryDark;
+      }
+    }
+
+  }
 }

@@ -1,5 +1,5 @@
 import './title.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
@@ -16,9 +16,8 @@ import { fetchProfileModale } from '../../../actions/formSearchDev';
 function Title({
   user,
 }) {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
-  console.log(user);
-  console.log(user.data.profile_picture);
 
   // select how avatar to display
   let avatar;
@@ -48,7 +47,7 @@ function Title({
   }
   return (
     <div
-      className="result__champ"
+      className={isDark ? 'result__champ dark' : 'result__champ'}
       onClick={() => {
         dispatch(fetchProfileModale(user));
         dispatch(setToggleModalProfil());
@@ -59,7 +58,7 @@ function Title({
         src={avatar}
         alt="avatar"
       />
-      <div className="result__champ--item">
+      <div className={isDark ? 'result__champ--item dark' : 'result__champ--item'}>
         {user.data.firstname} {user.data.lastname}
       </div>
     </div>

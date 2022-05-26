@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .modalLoginBackground {
+  transition: 0.2s;
   background-color: rgb(0, 0, 0, 0.7);
   height: 200vh;
   width: 100vw;
@@ -10,14 +11,18 @@
   display: flex;
   justify-content: center;
 
-  z-index: 2;
+  z-index: 1000;
+
+  &.dark {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
 }
 
 .modalLoginContainer {
-  z-index: 3;
+  z-index: 1001;
   margin-top: 15rem;
   // position: relative;
-  background-color: vars.$mainBackground;
+  background-color: vars.$mainBackgroundDark;
   border-radius: 0.8rem;
   width: 45rem;
   height: 30rem;
@@ -111,7 +116,9 @@
 
     &__remember {
 
-      &--checkbox {}
+      &--checkbox {
+        margin-top: 1rem;
+      }
     }
 
     &--connexion {
@@ -155,6 +162,66 @@
     &--register {
       span {
         color: vars.$mainColor;
+      }
+    }
+  }
+}
+
+.dark {
+  &.modalLoginContainer {
+    background-color: vars.$mainBackgroundformDark;
+
+    &__header {
+      border-bottom: 1px solid vars.$mainFontGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--button {
+        background-color: vars.$cancelOptionDark;
+        color: vars.$mainBackground;
+      }
+    }
+
+    &__form {
+
+      &--login {
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &--password {
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &--error {
+        color: vars.$cancelOption;
+      }
+
+      &__remember {
+        color: vars.$mainFontSecondaryDark;
+
+        &--checkbox {}
+      }
+
+      &--connexion {
+        background-color: vars.$mainColor;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        color: vars.$mainBackground;
+      }
+    }
+
+    &__footer {
+      &--forget {
+        color: vars.$mainColor;
+      }
+
+      &--register {
+        color: vars.$mainFontSecondaryDark;
+
+        span {
+          color: vars.$mainColor;
+        }
       }
     }
   }

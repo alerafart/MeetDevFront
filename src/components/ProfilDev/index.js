@@ -58,6 +58,7 @@ function ProfilDev() {
   const profilDev = useSelector((state) => state.profilDev);
   const modalProfilPicture = useSelector((state) => state.modalProfil.result.profilePicture);
   const profilDevPicture = profilDev.register.profilePicture;
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
   // si l'on vient de la route search ou favorite
   // alors on utilise modalProfilPicture sinon on utilise profilPicture
@@ -111,17 +112,17 @@ function ProfilDev() {
   return (
     logged && (
     // open/close sendMessage Modal
-    <div className="profilDev">
+    <div className={isDark ? 'profilDev dark' : 'profilDev'}>
       {sendMessage && (
         <ModalSendMessage />
       )}
-      <h2 className="profilDev__title">
+      <h2 className={isDark ? 'profilDev__title dark' : 'profilDev__title'}>
         Fiche développeur
       </h2>
 
       <header className="profilDev__header">
-        <div className="profilDev__header__cadre">
-          <img className="profilDev__header__cadre--img" src={avatar} alt="profil" />
+        <div className={isDark ? 'profilDev__header__cadre dark' : 'profilDev__header__cadre'}>
+          <img className={isDark ? 'profilDev__header__cadre--img dark' : 'profilDev__header__cadre--img'} src={avatar} alt="profil" />
         </div>
         <div className="profilDev__header__about">
           {

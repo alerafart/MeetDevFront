@@ -23,9 +23,11 @@ function Contact() {
   // function to have a captcha (number and letter) to protect the website with the bot
   const captcha = (Math.random() + 1).toString(36).substring(7);
 
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
+
   return (
-    <section className="contact-wrap">
-      <form action="" className="contact__form">
+    <section className={isDark ? 'contact-wrap dark' : 'contact-wrap'}>
+      <form action="" className={isDark ? 'contact__form dark' : 'contact__form'}>
         <h3 className="contact__form--title">Contact</h3>
         <div className="col-sm-6">
           <div className="contact__form--input">
@@ -106,7 +108,7 @@ function Contact() {
         <Link to="/">
           <button
             type="button"
-            className="inscription__form__buttons__button--cancel"
+            className={isDark ? 'inscription__form__buttons__button--cancel dark' : 'inscription__form__buttons__button--cancel'}
             // onClick={() => {
             //   dispatch(logout());
             // }}

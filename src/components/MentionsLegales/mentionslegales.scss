@@ -26,6 +26,25 @@
   }
 }
 
+.dark {
+  &.mentionslegales {
+    background-color: vars.$mainBackgroundDark;
+
+    &__p {
+      color: white;
+    }
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__subtitle {
+      color: vars.$mainColor;
+    }
+
+  }
+}
+
 p {
   padding: 0 6em;
   text-align: center;

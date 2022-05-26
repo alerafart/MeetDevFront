@@ -345,3 +345,115 @@
     }
   }
 }
+
+.dark {
+  &.profilDev {
+    background: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainBackground;
+      border-bottom: 1px solid vars.$mainFontGrey;
+      background-color: vars.$mainColor;
+    }
+
+    &__header {
+      &__cadre {
+        background-color: vars.$mainBackgroundformDark;
+
+        &--img {}
+      }
+
+
+      &__about {
+        &--favorite {}
+
+        &--label {
+          color: vars.$mainColor;
+        }
+
+        &--name {
+          color: vars.$mainFontAnthra;
+        }
+
+        &--pointer {
+          color: vars.$mainFontGrey;
+        }
+
+        &--city {
+          color: vars.$mainFontGrey;
+        }
+
+        &--profession {
+          color: vars.$mainColor;
+        }
+
+        &--citation {}
+
+        &--presentation {}
+
+        &__mail {
+          color: vars.$mainFontAnthra;
+        }
+      }
+    }
+
+    &__informations {
+      &--label {
+        color: vars.$mainColor;
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &__item {
+        &--label {}
+
+        &--black {}
+
+        &--color {
+          color: vars.$mainColor;
+        }
+      }
+
+      &__disponibility {
+        &--logo {}
+      }
+    }
+
+    &__skills {
+      &--label {
+        color: vars.$mainColor;
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &__item {
+        &--label {}
+
+        &--result {
+          &__title {
+            margin-bottom: 1rem;
+          }
+        }
+
+        &--black {}
+
+        &--color {
+          color: vars.$mainColor;
+
+          &--stack {}
+        }
+
+        &--container {}
+
+        &__logos {
+          &--logo {}
+        }
+      }
+    }
+
+    &__buttons {
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+    }
+  }
+}

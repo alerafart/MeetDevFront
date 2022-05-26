@@ -54,7 +54,7 @@ function HomeRecruiter() {
         <Link to="/">
           <button
             type="button"
-            className="homerecruiter__button--back"
+            className={isDark ? 'homerecruiter__button--back dark' : 'homerecruiter__button--back'}
             onClick={() => dispatch(logout())}
           >Retour
           </button>

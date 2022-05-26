@@ -113,109 +113,31 @@
   }
 }
 
-.header.dark {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid vars.$mainColorDark;
-  height: 10vh;
-  min-height: 75px;
-  padding: 0 3rem;
-  color: vars.$secondaryColorDark;
-  background-color: vars.$mainBackgroundDark;
+.dark {
+  &.header {
+    border-bottom: 2px solid vars.$mainColorDark;
+    color: vars.$secondaryColorDark;
+    background-color: vars.$mainBackgroundDark;
 
-  @media (max-width: 720px) {
-    display: none;
-  }
+    &__enSavoirPlus {}
 
-  @media (max-width: 650px) {
-    padding: 0 1rem;
-  }
-
-  @media (max-width: 550px) {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__enSavoirPlus {
-    font-size: 1.6rem;
-
-    &:hover {
-      font-weight: bold;
-    }
-  }
-
-  &__logo {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media (max-width: 769px) {
-      display: none;
+    &__logo {
+      &--img {}
     }
 
-    &--img {
-      width: 35px;
-      display: block;
-      padding-right: 0.5rem;
+    &__menu {
+      color: vars.$mainFontAnthraDark;
 
-      @media (max-width: 820px) {
-        display: none;
-      }
+      &--item {}
 
-
-    }
-  }
-
-  &__menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: vars.$mainFontAnthraDark;
-    // display: none;
-
-
-    &--item {
-      margin: 0 0.6rem;
-      font-size: 1.3rem;
-      font-weight: bold;
-      border-bottom: transparent 3px solid;
-
-      &:hover {
+      &--item .active {
         border-bottom: vars.$mainColorDark 3px solid;
       }
     }
 
-    &--item .active {
-      border-bottom: vars.$mainColorDark 3px solid;
-    }
-  }
-
-
-
-
-  &__button {
-    border: none;
-    background-color: vars.$mainColorDark;
-    color: vars.$mainBackgroundDark;
-    padding: 12px 3rem;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-    min-width: 12rem;
-
-    @media (max-width: 550px) {
-      margin-bottom: 0.1rem;
-    }
-
-    &:hover {
-      transform: scale(1.1);
-      transition: transform 0.3s;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
+    &__button {
+      background-color: vars.$mainColorDark;
+      color: vars.$mainBackgroundDark;
     }
   }
 }

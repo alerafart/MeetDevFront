@@ -51,7 +51,7 @@ function HomeDeveloper() {
         <Link to="/">
           <button
             type="button"
-            className="homedeveloper__button--back"
+            className={isDark ? 'homedeveloper__button--back dark' : 'homedeveloper__button--back'}
             onClick={() => dispatch(logout())}
           >Retour
           </button>

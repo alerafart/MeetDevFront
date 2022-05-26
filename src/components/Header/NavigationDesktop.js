@@ -66,11 +66,15 @@ function NavigationDesktop() {
               />
               Meet Dev
             </div>
-            <ul className="header__menu">
+            <ul className={isDarkMode ? 'header__menu dark' : 'header__menu'}>
               {/* if i'm Dev display this navbar */}
               {isDev && (
               <>
-                <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromAway())}><NavLink to="/profil">Profil</NavLink></li>
+                <li
+                  className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}"
+                  onClick={() => dispatch(setFromAway())}
+                ><NavLink to="/profil">Profil</NavLink>
+                </li>
                 <li className="{({ isActive }) => (isActive ? 'header__menu--item header__menu--item active ' : 'header__menu--item')}" onClick={() => dispatch(setFromSearchRoute())}><NavLink to="/recherche">Recherche</NavLink></li>
               </>
               )}

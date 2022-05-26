@@ -1,15 +1,16 @@
 // == Import
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/settings';
 // == Import styles
 import './ensavoirplus.scss';
 
 function EnSavoirPlus() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   return (
 
-    <div className="about">
+    <div className={isDark ? 'about dark' : 'about'}>
       <h2 className="about__title">
         En savoir plus
       </h2>

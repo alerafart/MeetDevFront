@@ -79,3 +79,36 @@
     }
   }
 }
+
+.dark {
+
+  &.contact__form {
+    background-color: vars.$mainBackgroundDark;
+
+    &--title {
+      color: vars.$mainColor;
+    }
+
+    &--input {
+      background-color: vars.$mainBackground;
+      border: solid 1px vars.$mainColor;
+    }
+
+    &--control {
+      color: vars.$mainFontAnthra;
+    }
+
+    &--button {
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+    }
+
+    &--captcha {
+      color: vars.$mainColor;
+    }
+  }
+
+  &.inscription__form__buttons__button--cancel {
+    background-color: vars.$cancelOptionDark;
+  }
+}

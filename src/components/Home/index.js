@@ -33,19 +33,19 @@ function Home() {
               src={rocket}
               alt="maps"
             />
-            <h1 className="home__header--title">Meet Dev</h1>
+            <h1 className={isDark ? 'home__header--title dark' : 'home__header--title'}>Meet Dev</h1>
 
           </div>
-          <p className="home__slogan">Match Your Future Developer</p>
+          <p className={isDark ? 'home__slogan dark' : 'home__slogan'}>Match Your Future Developer</p>
 
           <div className="home__citation">
-            <h2 className="home__citation--citation">
+            <h2 className={isDark ? 'home__citation--citation dark' : 'home__citation--citation'}>
               Shoot for the moon even if you miss you'll land among the stars
             </h2>
-            <p className="home__citation--author">
+            <p className={isDark ? 'home__citation--author dark' : 'home__citation--author'}>
               Oscar Wilde
             </p>
-            <div className="home__citation--iam">
+            <div className={isDark ? 'home__citation--iam dark' : 'home__citation--iam'}>
               Je suis
             </div>
 

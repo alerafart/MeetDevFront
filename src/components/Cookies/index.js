@@ -9,8 +9,8 @@ function Cookies() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   return (
     <div className={isDark ? 'cookies dark' : 'cookies'}>
-      <h3 className="cookies__title">Nous utilisons des cookies</h3>
-      <p className="cookies__content">Nous utilisons des cookies et d'autres technologies de suivi pour améliorer
+      <h3 className={isDark ? 'cookies__title dark' : 'cookies__title'}>Nous utilisons des cookies</h3>
+      <p className={isDark ? 'cookies__content dark' : 'cookies__content'}>Nous utilisons des cookies et d'autres technologies de suivi pour améliorer
         votre expérience de navigation sur notre site, pour vous montrer un contenu personnalisé
         et des publicités ciblées, pour analyser le trafic de notre site
         et pour comprendre la provenance de nos visiteurs.
@@ -18,7 +18,7 @@ function Cookies() {
       <div className="cookies__button">
         <button
           type="button"
-          className="cookies__button--agree"
+          className={isDark ? 'cookies__button--agree dark' : 'cookies__button--agree'}
           onClick={() => {
             dispatch(closeCookies());
           }}
@@ -26,7 +26,7 @@ function Cookies() {
         </button>
         <button
           type="button"
-          className="cookies__button--disagree"
+          className={isDark ? 'cookies__button--disagree dark' : 'cookies__button--disagree'}
           onClick={() => {
             dispatch(closeCookies());
           }}

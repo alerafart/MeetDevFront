@@ -18,10 +18,10 @@ function Footer() {
       {/* <div className="footer__link--home">
         <Link to="/">Accueil</Link>
       </div> */}
-      <div className="footer__link--contact">
+      <div className={isDark ? 'footer__link--contact dark' : 'footer__link--contact'}>
         <Link to="/contact">Contact</Link>
       </div>
-      <div className="footer__link--mention">
+      <div className={isDark ? 'footer__link--mention dark' : 'footer__link--mention'}>
         <Link to="/mentions-legales">Mentions Légales</Link>
       </div>
       <div className="footer__logos">

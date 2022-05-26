@@ -110,3 +110,65 @@
   }
 
 }
+
+.dark {
+
+  &.burgerMenu {
+    background-color: rgb(0, 0, 0, 0.4);
+
+    &__exit {
+      color: vars.$secondaryColorDark;
+    }
+
+    &__login {
+      &--mail {
+        border: 1px solid vars.$mainBackgroundClearDark;
+        background-color: vars.$mainBackgroundClearDark;
+      }
+
+      &--password {
+        border: 1px solid vars.$mainBackgroundClearDark;
+        background-color: vars.$mainBackgroundClearDark;
+      }
+
+      &--button {
+        height: 2.5rem;
+        border: 1px solid vars.$mainColor;
+        background-color: vars.$mainColor;
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        color: vars.$mainBackground;
+      }
+
+
+    }
+
+    &__items {
+      // height: 100vh;
+      background-color: vars.$mainBackgroundDark;
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+      &--item {
+        color: vars.$mainFontSecondaryDark;
+
+        &:hover {
+          // background-color: vars.$mainColor;
+          color: vars.$mainColorDark;
+
+        }
+      }
+
+      &--log {
+        background-color: vars.$mainBackgroundDark;
+        color: vars.$secondaryColorDark;
+
+        &:hover {}
+      }
+
+    }
+
+  }
+
+}

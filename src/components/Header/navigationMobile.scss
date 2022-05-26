@@ -43,3 +43,15 @@
     display: none;
   }
 }
+
+.dark {
+  &.navigationMobile {
+    background-color: vars.$mainBackgroundDark;
+    border-bottom: 2px solid vars.$mainColor;
+
+    &__burger {
+      color: vars.$secondaryColorDark;
+    }
+  }
+
+}

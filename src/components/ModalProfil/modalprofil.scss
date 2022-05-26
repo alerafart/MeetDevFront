@@ -296,6 +296,8 @@
         border: 1px solid vars.$mainFontGrey;
 
         &--item {
+          color: vars.$mainFontSecondaryDark;
+
           &--name {
             color: vars.$mainColor;
           }

@@ -369,6 +369,7 @@
 
         &--label {
           color: vars.$mainColor;
+          // background-color: red;
         }
 
         &--name {
@@ -395,6 +396,14 @@
 
         &__mail {
           color: vars.$mainFontAnthra;
+
+          &--logo {
+            color: vars.$mainFontSecondaryDark;
+          }
+
+          &--txt {
+            color: vars.$mainFontSecondaryDark;
+          }
         }
       }
     }

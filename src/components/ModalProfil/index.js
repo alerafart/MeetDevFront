@@ -117,7 +117,7 @@ function ModalProfil() {
                 </div>
               </div>
             </div>
-            <div className="modalContainer__main__profil--item">
+            <div className={isDark ? 'modalContainer__main__profil--item dark' : 'modalContainer__main__profil--item'}>
               Expérience
             </div>
             <div className="modalContainer__main__profil--item--experience">
@@ -125,7 +125,7 @@ function ModalProfil() {
               {experience === 2 ? '1 à 3 ans' : ''}
               {experience === 3 ? '+ de 3 ans' : ''}
             </div>
-            <div className="modalContainer__main__profil--item">
+            <div className={isDark ? 'modalContainer__main__profil--item dark' : 'modalContainer__main__profil--item'}>
               Langages
             </div>
             <div className="modalContainer__main__profil--logos">

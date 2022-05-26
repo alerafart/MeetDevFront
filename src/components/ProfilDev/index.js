@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { GrMailOption, GrMail } from 'react-icons/gr';
 import './profilDev.scss';
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
@@ -10,7 +11,7 @@ import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 import mapPointer from '../../assets/images/mapPointer.png';
-import mail from '../../assets/images/mail.png';
+// import mail from '../../assets/images/mail.png';
 import addfavorites from '../../assets/images/addfavorites.png';
 import disponible from '../../assets/images/Disponible.png';
 import indisponible from '../../assets/images/indisponible.png';
@@ -147,7 +148,7 @@ function ProfilDev() {
               </div>
             )
           }
-          <h3 className="profilDev__header__about--label">
+          <h3 className={isDark ? 'profilDev__header__about--label dark' : 'profilDev__header__about--label'}>
             A Propos
           </h3>
           <h4 className="profilDev__header__about--name">
@@ -163,10 +164,12 @@ function ProfilDev() {
             // Display button 'send message' only if we come from search Route or Favorites Route
             (fromSearch || fromFavorites) && (
               <div className="profilDev__header__about__mail">
-                <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
+                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}> <GrMailOption /><GrMail />
+
+                </div>
                 <p
                   type="button"
-                  className="profilDev__header__about__mail--txt"
+                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
                   onClick={() => {
                     dispatch(setToggleModalSendMessage());
                   }}
@@ -198,9 +201,12 @@ function ProfilDev() {
             <div className="profilDev__informations__item--label"> Adresse
 
           <div className="profilDev__informations__item">
-            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> Adresse:
+            <div className={isDark ?
+            'profilDev__informations__item--label dark' :
+            'profilDev__informations__item--label'}> Adresse:
             </div>
-            <div className={isDark ? 'profilDev__informations__item--black dark' : 'profilDev__informations__item--black'}>{data.zipCode} {data.city}
+            <div className={isDark ? 'profilDev__informations__item--black dark' :
+            'profilDev__informations__item--black'}>{data.zipCode} {data.city}
             </div>
           </div> */}
           <div className="profilDev__informations__item">
@@ -288,7 +294,7 @@ function ProfilDev() {
               { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
               }
 
-              <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Stack 
+              <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Stack
 
               </div>
               <div className="profilDev__skills__item--color">

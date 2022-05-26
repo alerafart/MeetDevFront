@@ -183,34 +183,46 @@ function ProfilDev() {
       <div className="profilDev__container">
         <div className="profilDev__informations">
           <h3 className="profilDev__informations--label">
-            Informations
+            Contact
           </h3>
           <div className="profilDev__informations__item">
-            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> Tél:
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> Tél
+
             </div>
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>0{data.phone}
             </div>
           </div>
+
+          {/*           <div className="profilDev__informations__item">
+            <div className="profilDev__informations__item--label"> Adresse
+
           <div className="profilDev__informations__item">
             <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> Adresse:
             </div>
             <div className={isDark ? 'profilDev__informations__item--black dark' : 'profilDev__informations__item--black'}>{data.zipCode} {data.city}
             </div>
-          </div>
+          </div> */}
           <div className="profilDev__informations__item">
-            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> E-mail:
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> E-mail
+
             </div>
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.email}
             </div>
           </div>
           <div className="profilDev__informations__item">
-            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> PortFolio:
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> PortFolio
+
             </div>
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.portfolio}
             </div>
           </div>
           <div className="profilDev__informations__item">
-            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> GitHub:
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> GitHub
+
             </div>
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.github}
             </div>
@@ -218,8 +230,10 @@ function ProfilDev() {
           {
             ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
               <div className="profilDev__informations__disponibility">
+
                 <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
-                  Disponible:
+                  Disponible
+
                 </div>
                 <img
                   className="profilDev__informations__disponibility--logo"
@@ -253,13 +267,17 @@ function ProfilDev() {
             Skills
           </h3>
           <div className="profilDev__skills__item">
-            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}> Experience:
+
+            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}> Experience
+
             </div>
             <div className={isDark ? 'profilDev__skills__item--color dark' : 'profilDev__skills__item--color'}>{data.experience} ans
             </div>
           </div>
           <div className="profilDev__skills__item">
-            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Anglais:
+
+            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Anglais
+
             </div>
             <div className={isDark ? 'profilDev__skills__item--color dark' : 'profilDev__skills__item--color'}>{data.english}
             </div>
@@ -269,7 +287,9 @@ function ProfilDev() {
 
               { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
               }
-              <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Stack :
+
+              <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Stack 
+
               </div>
               <div className="profilDev__skills__item--color">
                 {data.technology.map((item) => (

@@ -27,7 +27,7 @@ function Search() {
   return (
     <div className={isDark ? 'wrapper dark' : 'wrapper'}>
       <h2 className="banniere">
-        Filtres de recherche
+        Ma recherche
       </h2>
       <div className={isDark ? 'search dark' : 'search'}>
         {
@@ -77,7 +77,7 @@ function Search() {
                 + 3 ans
               </label>
             </div>
-          </div>
+          </div> */}
           {/*  <div className="search__filter__champ">
             <div className="search__filter__champ--label">
               Disponibilité
@@ -104,7 +104,7 @@ function Search() {
               dispatch(fetchProfile());
             }}
           >
-            Filtrer
+            Rechercher
           </button>
         </form>
         <h2 className="search__title">

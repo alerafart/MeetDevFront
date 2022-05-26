@@ -41,6 +41,7 @@ We have a special route managed in our Main Component (MeetDev) which allows to 
   )}
 />
 ```
+
 In our Home component we have a check if we come from the route of the mail check.  
 If this case we retrieve the slug with useParm and check if it corresponds to the expected token (the slug is the token received via the confirmation email)
 ```jsx
@@ -64,4 +65,50 @@ Finally, in our modal login we use a conditional display and a ternary in order 
 These are our middlewares to modify user profiles (developers or recruiters).  
 
 1. VALIDATE_MODIFY_DEV and VALIDATE_MODIFY_RECRUITER  
+This is a put request via axios protected by the JWT token.  
+We send all form data including unmodified data to the server to update the database.  
+The information is also sent to the state to update the user file directly.
 
+## searchApi
+
+This is a middleware to search all developpers by city.  
+
+1. FETCH_PROFILE  
+This is a get request via axios protected by the JWT token.  
+We map on the response in order to reformat the arrays sent by the back.  
+Then the search is save to the state.
+
+## favorites
+
+In this middleware there are three case about favorites developper of a recruiter
+
+1. RECRUITER_FAVORITES 
+This case return all the favorites of a recruiter.  
+This is a get request via axios protected by the JWT token. we need Id of user to update the url of the request.  
+We map on the response in order to reformat the array sent by the back.  
+Then the favorites are save into the state
+
+2. ADD_ONE_FAVORITE  
+This case add a favorite to the favorites of a recruiter.
+This is a post request via axios protected by the JWT token. Need Id of the recruiter and id of the developper to add to favorites.
+
+3. DELETE_ONE_FAVORITE  
+This case delete a favorite of favorites recruiter.  
+This is a delete request via axios protected by the JWT token.  
+We need id of the developper to delete. The recruiter is recognized by the token send with the request.  
+
+## searchCity
+
+This is a middleware to connect on API from gouv to search City and ZipCode.  
+
+1. SEARCH_CITY  
+this case is to connect to the gouvernment API to search city and zipCode from France.  
+This is a get request via axios on gouv API.  
+We need to retrieve the search string in order to customize the query url with this city search.
+
+## messagesApi
+
+This is a middleware to send a mail to a developper.  
+
+1. SEND_MAIL  
+This is a get request via axios on 

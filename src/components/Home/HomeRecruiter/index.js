@@ -1,16 +1,17 @@
 // styles
 import './homerecruiter.scss';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logged, logout, toggleWindowLog } from '../../../actions/settings';
 
 function HomeRecruiter() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   return (
-    <div className="homerecruiter">
+    <div className={isDark ? 'homerecruiter dark' : 'homerecruiter'}>
       <h3 className="homerecruiter__title">Recruteur</h3>
       <div className="homerecruiter__content">
-        <div className="homerecruiter__dev--content">
+        <div className={isDark ? 'homerecruiter__dev--content dark' : 'homerecruiter__dev--content'}>
           <p>Vous cherchez des développeurs web?</p>
           <p>
             Il n’est pas chose aisé de trouver un développeur qui soit proche de son entreprise,
@@ -31,7 +32,7 @@ function HomeRecruiter() {
           </p>
           <p>Vous devenez grâce à Meet Dev un chasseur de tête hors-pair !
           </p>
-          <p className="homerecruiter__slogan">Meet Your Future Developer !</p>
+          <p className={isDark ? 'homerecruiter__slogan dark' : 'homerecruiter__slogan'}>Meet Your Future Developer !</p>
         </div>
       </div>
       <div className="homerecruiter__button">

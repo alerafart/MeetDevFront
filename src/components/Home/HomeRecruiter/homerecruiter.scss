@@ -101,6 +101,40 @@
   }
 }
 
+.dark {
+
+  &.homerecruiter {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__content {}
+
+    &__slogan {
+      color: vars.$mainFontAnthra;
+    }
+
+    &__button {
+      &--login {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--inscription {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--back {
+        background-color: vars.$cancelOption;
+        color: vars.$mainBackground;
+      }
+    }
+  }
+}
+
 p {
   margin-bottom: 1.7rem;
 }
@@ -114,4 +148,14 @@ p {
 .homerecruiter__dev--content p {
   padding: 0;
   max-width: 50rem;
+}
+
+.dark {
+  &.homerecruiter__dev--content {
+    color: vars.$mainFontSecondaryDark;
+  }
+
+  &.homerecruiter__slogan {
+    color: vars.$mainColor;
+  }
 }

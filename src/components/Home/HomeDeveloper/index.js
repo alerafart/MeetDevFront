@@ -27,7 +27,7 @@ function HomeDeveloper() {
           <p>Il ne reste plus qu'à vous inscrire, remplir votre profil,
             et attendre qu'une entreprise vous accueille dans son équipe !
           </p>
-          <p className="homedeveloper__slogan">Meet Your Future Company !</p>
+          <p className={isDark ? 'homedeveloper__slogan dark' : 'homedeveloper__slogan'}>Meet Your Future Company !</p>
         </div>
       </div>
       <div className="homedeveloper__button">

@@ -1,5 +1,6 @@
+// == Import npm
 import { legacy_createStore as createStore, applyMiddleware, compose } from 'redux';
-
+// == Import reducer
 import reducer from '../reducers';
 // we import our middleware
 import apiMiddleWare from '../middlewares/api';

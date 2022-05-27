@@ -1,6 +1,9 @@
-In this middleimport axios from 'axios';
+// In this middleimport axios from 'axios';
+// == Import npm
+import axios from 'axios';
+// == Import action creator
 import { favoritesList } from '../actions/favoritesaction';
-
+// == Import action
 import { ADD_ONE_FAVORITE, DELETE_ONE_FAVORITE, RECRUITER_FAVORITES } from '../actions/middleware';
 
 const favorisFromApi = (store) => (next) => (action) => {
@@ -27,9 +30,12 @@ const favorisFromApi = (store) => (next) => (action) => {
         )
         .then((response) => {
           const responseArray = response.data.favoriteUsersData;
+
+          console.log(response.data);
           const favorites = responseArray.map((character, index) => ({
             data: response.data.favoriteUsersData[index],
             detailId: response.data.favoritesDetails[index].id,
+
           }));
 
           store.dispatch(favoritesList(favorites));

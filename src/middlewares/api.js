@@ -1,5 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action
 import { LOGIN_TEST, TEST_CONNEXION_BACK } from '../actions/middleware';
+// == Import action creator
 import { dataProfilDevFromApi } from '../actions/profilDev';
 import { dataProfilRecruiterFromApi } from '../actions/profilRecruiter';
 import {

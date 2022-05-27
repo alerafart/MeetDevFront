@@ -1,11 +1,14 @@
+// == Import npm
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import rocket from '../../assets/images/rocket.png';
+// == Import action creator
 import {
   logout, toggleWindowLog, setFromAway, setFromSearchRoute, setFromFavoritesRoute,
 } from '../../actions/settings';
 import { recruiterFavorites } from '../../actions/middleware';
-
+// == Import img
+import rocket from '../../assets/images/rocket.png';
+// == Composant
 function NavigationDesktop() {
   const logged = useSelector((state) => state.settings.log.logged);
   const isDev = useSelector((state) => state.settings.log.isDev);

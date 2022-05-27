@@ -1,3 +1,4 @@
+// == Import action
 import {
   COPY_PROFIL_DEV_TO_TEMP, SELECT_AVATAR_TEMP, TEMP_MODIF_DEV_PROFIL, TOGGLE_STACK_TEMP,
 } from '../actions/profilDevModifyTemp';

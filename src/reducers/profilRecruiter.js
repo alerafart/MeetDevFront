@@ -1,3 +1,4 @@
+// == Import action
 import { DATA_PROFIL_RECRUITER_FROM_API, MAJ_PROFIL_RECRUITER_FROM_API } from '../actions/profilRecruiter';
 import { LOGOUT } from '../actions/settings';
 

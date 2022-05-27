@@ -1,13 +1,16 @@
+// == Import npm
 import { Link, Navigate } from 'react-router-dom';
-import './home.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import rocket from '../../assets/images/rocket.png';
-// import background from '../../assets/images/backgroundMain.png';
+// == Import action creator
 import { isDev, isRecruiter } from '../../actions/settings';
-
+// == Import img
+import rocket from '../../assets/images/rocket.png';
+// == Import Style
+import './home.scss';
+// == Component
 function Home() {
   const dispatch = useDispatch();
-
+  // function to select state settings to know if the user is logged or not
   const isLogged = useSelector((state) => state.settings.log.logged);
 
   // useEffect(() => {
@@ -16,9 +19,11 @@ function Home() {
 
   return (
     <>
+      {/* if islogged is true the user goes to his profile */}
       {
       isLogged && <Navigate to="/profil" />
     }
+      {/* if islogged is false the user goes to home page */}
       {
       (!isLogged) && (
         <div
@@ -52,11 +57,13 @@ function Home() {
 
           <form className="home__choice">
             <Link to="/home-developer">
+              {/* button to go in the home page developer */}
               <button className="home__choice--button" type="button" onClick={() => dispatch(isDev())}>
                 Dev
               </button>
             </Link>
             <Link to="/home-recruiter">
+              {/* button to go in the home page recruiter */}
               <button className="home__choice--button" type="button" onClick={() => dispatch(isRecruiter())}>
                 Recruteur
               </button>

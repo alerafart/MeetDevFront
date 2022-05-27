@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import './inscription.scss';
 import { FaGithub } from 'react-icons/fa';
 
 // Composants
@@ -21,7 +20,6 @@ import {
 import { registerDev, formErrorOnSubmit } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
 // == Import img
-import github from '../../assets/images/github.png';
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../assets/avatars/avatar_man3.png';

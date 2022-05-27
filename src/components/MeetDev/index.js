@@ -169,8 +169,6 @@ function MeetDev() {
                   <Error />
             )}
               />
-
-
             </Routes>
           )
         }

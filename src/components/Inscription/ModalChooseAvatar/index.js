@@ -1,5 +1,3 @@
-
-import './modalChooseAvatar.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 // == Import action creator

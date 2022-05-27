@@ -1,9 +1,11 @@
-// styles
-import './homerecruiter.scss';
+// == Import npm
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+// == Import action creator
 import { logged, logout, toggleWindowLog } from '../../../actions/settings';
-
+// == Import Styles
+import './homerecruiter.scss';
+// == Component
 function HomeRecruiter() {
   const dispatch = useDispatch();
   return (
@@ -36,6 +38,7 @@ function HomeRecruiter() {
       </div>
       <div className="homerecruiter__button">
         <Link to="/inscription">
+          {/* button to open inscription page */}
           <button
             type="button"
             className="homerecruiter__button--inscription"
@@ -43,6 +46,7 @@ function HomeRecruiter() {
             Inscription Gratuite
           </button>
         </Link>
+        {/* button to open modal to login */}
         <button
           type="button"
           className="homerecruiter__button--login"
@@ -51,6 +55,7 @@ function HomeRecruiter() {
           Connexion
         </button>
         <Link to="/">
+          {/* button to come back at home page and put logout true in state */}
           <button
             type="button"
             className="homerecruiter__button--back"

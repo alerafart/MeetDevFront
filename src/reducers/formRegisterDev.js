@@ -1,6 +1,8 @@
+
 import {
   REGISTER_DEV, SELECT_AVATAR, TOGGLE_STACK, FORM_ERROR_ON_SUBMIT,
 } from '../actions/formRegisterDev';
+
 import { LOGOUT } from '../actions/settings';
 
 export const initialState = {

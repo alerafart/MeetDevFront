@@ -1,18 +1,23 @@
-// styles
-import './profil.scss';
+// == Import npm
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+// == Import components
 import ProfilDev from '../ProfilDev';
 import ProfilRecruiter from '../ProfilRecruiter';
+// == Import styles
+import './profil.scss';
 
+// == Component
 function Profil() {
+  // state to know if user is dev or recruiter, and is logged or not
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
   const logged = useSelector((state) => state.settings.log.logged);
+  // state to know if user come to search route or favorites route
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
 
-  //* infos to transmit if first case:
+  // infos to transmit if first case:
   // const dataProfilDev = useSelector((state) => state.profilDev.register);
   // console.log('profilDEv fiche perso');
 

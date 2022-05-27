@@ -1,8 +1,11 @@
-import './mentionslegales.scss';
+// == Import npm
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { logout } from '../../actions/settings';
-
+// == Import styles
+import './mentionslegales.scss';
+// == Component
 function MentionsLegales() {
   const dispatch = useDispatch;
 
@@ -268,6 +271,7 @@ function MentionsLegales() {
         la protection juridique des bases de données.
       </p>
       <Link to="/">
+        {/* button to come back at home page */}
         <button
           type="button"
           className="inscription__form__buttons__button--cancel"

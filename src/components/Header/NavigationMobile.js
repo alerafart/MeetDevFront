@@ -1,9 +1,13 @@
-import './navigationMobile.scss';
+// == Import npm
 import { useDispatch } from 'react-redux';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import rocket from '../../assets/images/rocket.png';
+// == Import action-creator
 import { burgerMenuOpen } from '../../actions/settings';
-
+// == Import img
+import rocket from '../../assets/images/rocket.png';
+// == Import style
+import './navigationMobile.scss';
+// == Composant
 function NavigationMobile() {
   const dispatch = useDispatch();
 

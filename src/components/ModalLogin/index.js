@@ -1,13 +1,19 @@
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Link, useParams } from 'react-router-dom';
+
 import { loading, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
+// == Import styles
 import './modalLogin.scss';
-
+// == Component
 function ModalLogin() {
+  // state to have data to log user
   const formLogin = useSelector((state) => state.formLogin.login);
   const dispatch = useDispatch();
+
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
   console.log(isVerified);
 
@@ -23,7 +29,7 @@ function ModalLogin() {
     const { name } = e.target;
     dispatch(login(value, name));
   }
-
+  // function to have loading when user click on Se Connecter
   function handleSubmit() {
     // event.preventDefault();
     // console.log('click');
@@ -53,6 +59,7 @@ function ModalLogin() {
           </h3>
           )}
           <Link to="/">
+            {/* button to close login modal */}
             <button
               className="modalLoginContainer__header--button"
               type="button"
@@ -83,6 +90,7 @@ function ModalLogin() {
             Se souvenir de moi
           </div>
           <Link to="/profil">
+            {/* button to connect user, close login modal, and go to user profile */}
             <button
               type="submit"
               className="modalLoginContainer__form--connexion"

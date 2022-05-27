@@ -1,25 +1,20 @@
 /* eslint-disable max-len */
 import { Link, useNavigate } from 'react-router-dom';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import './inscription.scss';
-
-// Composants
+// == Import components
 import InscriptionRecruter from './InscriptionRecruter';
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
-
-// data
-import github from '../../assets/images/github.png';
-
-// actions & actions creators
+// == Import action creator
 import {
   logout, setFromInscriptionRoute, searchCityDisplay, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
 } from '../../actions/settings';
 import { registerDev, formErrorOnSubmit } from '../../actions/formRegisterDev';
 import { inscriptionDev, searchCity } from '../../actions/middleware';
-
-// import all avatars
+// == Import img
+import github from '../../assets/images/github.png';
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../assets/avatars/avatar_man3.png';
@@ -28,7 +23,10 @@ import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
 import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
+// == Import styles
+import './inscription.scss';
 
+// == Component
 function Inscription() {
   // State for controlled champs of formulaire
   const register = useSelector((state) => state.formRegisterDev.register);
@@ -37,9 +35,10 @@ function Inscription() {
   // State to know if i'm Dev or Recruiter. To Display Inscription page Dev or Recruiter
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
-  // TODO State search from form + result from api + not done
+  // State to know the city
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
   const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
+  // State to choose avatar and stack
   const displayChooseAvatarModal = useSelector((state) => state.settings.navigation.chooseAvatarModal);
   const displayChooseStackModal = useSelector((state) => state.settings.navigation.chooseTechnologieModal);
   const dispatch = useDispatch();
@@ -191,9 +190,11 @@ function Inscription() {
 
   return (
     <>
+      {/* if user is recruiter go to component inscription recruiter */}
       {
         isRecruiter && <InscriptionRecruter />
       }
+      {/* if user is developer go to component inscription developer */}
       {
         isDev && (
 
@@ -223,6 +224,7 @@ function Inscription() {
                     <img src={avatar} alt="" />
                   )
                 }
+                {/* button to open modal to choose avatar */}
                 <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Choisir son avatar</button>
                 {
                   displayChooseAvatarModal && <ModalChooseAvatar />
@@ -361,6 +363,7 @@ function Inscription() {
                 <div className="inscription__form__champ--label">
                   Stack
                 </div>
+                {/* button to open modal to choose technologies */}
                 <button
                   type="button"
                   className="inscription__form__champ--stack"
@@ -429,6 +432,7 @@ function Inscription() {
 
               <div className="inscription__form__buttons">
                 <Link to="/">
+                  {/* button to send data and open login modal */}
                   <button
                     type="submit"
                     className="inscription__form__buttons__button--valid"
@@ -441,6 +445,7 @@ function Inscription() {
                   </button>
                 </Link>
                 <Link to="/">
+                  {/* button to come back at home page and put logout true */}
                   <button
                     type="button"
                     className="inscription__form__buttons__button--cancel"

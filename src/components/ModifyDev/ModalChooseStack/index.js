@@ -1,14 +1,17 @@
-import './modalChooseStack.scss';
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+// == Import action creator
 import { toggleModalChooseTechnologie } from '../../../actions/settings';
-// import { toggleStack } from '../../../actions/formRegisterDev';
 import { toggleStackTemp } from '../../../actions/profilDevModifyTemp';
-
+// == Import styles
+import './modalChooseStack.scss';
+// == Component
 function ModalChooseStack() {
+  // state to know user languages
   const stacks = useSelector((state) => state.profilDevModifyTemp.register.technology);
   // console.log(stacks.includes('react'));
   const dispatch = useDispatch();
-
+  // function to select languages
   function handleChangeCheckbox(e) {
     dispatch(toggleStackTemp(e.target.name));
   }
@@ -357,6 +360,7 @@ function ModalChooseStack() {
         </div>
 
         <div className="chooseStackContainer__cancel">
+          {/* button to save change of user stack */}
           <button className="chooseStackContainer__cancel--button" type="button" onClick={() => dispatch(toggleModalChooseTechnologie())}>
             Valider
           </button>

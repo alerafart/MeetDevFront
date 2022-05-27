@@ -1,13 +1,17 @@
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+// == Import action creator
 import { contactDev, contactDevRaz } from '../../actions/formDevContact';
 import { sendMessage } from '../../actions/messageAction';
 import { setToggleModalSendMessage } from '../../actions/settings';
+// == Import style
 import './modalDevContact.scss';
-
+// == Copmponent
 function ModalSendMessage() {
+  // state to have title and message from formDevContact
   const formContact = useSelector((state) => state.formDevContact.formContact);
   const dispatch = useDispatch();
-
+  // function to change value of formDevContact state
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -24,6 +28,7 @@ function ModalSendMessage() {
           <h2 className="modalDevContactContainer__header--title">
             Formulaire de Contact
           </h2>
+          { /* button to close message modal and clear state */}
           <button
             className="modalDevContactContainer__header--button"
             type="button"
@@ -41,7 +46,7 @@ function ModalSendMessage() {
           <input className="modalDevContactContainer__form--titre" type="txt" name="title" value={formContact.title} />
           <p className="modalDevContactContainer__form--label">Message</p>
           <textarea className="modalDevContactContainer__form--message" name="message" value={formContact.message} />
-
+          { /* button to send message and close modal */}
           <button
             type="submit"
             className="modalDevContactContainer__form--connexion"

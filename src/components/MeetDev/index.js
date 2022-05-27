@@ -1,8 +1,9 @@
-import './meetdev.scss';
+// == Import npm
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 
+// == Import components
 import Header from '../Header';
 import Home from '../Home';
 import Footer from '../Footer';
@@ -23,9 +24,16 @@ import ModalLogin from '../ModalLogin';
 import Cookies from '../Cookies';
 import RocketLoading from '../RocketLoading';
 
+// == Import styles
+import './meetdev.scss';
+
+// == Component
 function MeetDev() {
+  // state to know if the login modal is open or close
   const windowLog = useSelector((state) => state.settings.log.windowLog);
+  // state to know if the cookies are true or false
   const cookiesLoad = useSelector((state) => state.settings.log.cookiesLoad);
+  // state to put loading true or false
   const loading = useSelector((state) => state.settings.navigation.loading);
 
   return (

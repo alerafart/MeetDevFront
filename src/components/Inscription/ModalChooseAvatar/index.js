@@ -1,7 +1,9 @@
-import './modalChooseAvatar.scss';
+// == Import npm
 import { useDispatch } from 'react-redux';
-
-// import all avatars
+// == Import action creator
+import { chooseAvatarModal } from '../../../actions/settings';
+import { selectAvatar } from '../../../actions/formRegisterDev';
+// == Import avatars
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
@@ -10,9 +12,9 @@ import womanAvatar1 from '../../../assets/avatars/avatar_woman1.png';
 import womanAvatar2 from '../../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
-import { chooseAvatarModal } from '../../../actions/settings';
-import { selectAvatar } from '../../../actions/formRegisterDev';
-
+// == Import styles
+import './modalChooseAvatar.scss';
+// == Component
 function ModalChooseAvatar() {
   const dispatch = useDispatch();
 
@@ -99,6 +101,7 @@ function ModalChooseAvatar() {
           />
         </div>
         <div className="chooseAvatarContainer__cancel">
+          {/* button to close avatar modal and cancel avatar in the state */}
           <button className="chooseAvatarContainer__cancel--button" type="button" onClick={() => dispatch(chooseAvatarModal())}>
             Annuler
           </button>

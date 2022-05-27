@@ -1,11 +1,14 @@
+// == Import npm
 import { useSelector, useDispatch } from 'react-redux';
-
-import './search.scss';
+// == Import component
 import Card from './Card';
 import ModalProfil from '../ModalProfil';
+// == Import action creator
 import { searchDev } from '../../actions/formSearchDev';
 import { fetchProfile } from '../../actions/middleware';
-
+// == Import styles
+import './search.scss';
+// == Component
 function Search() {
   // To display/notDisplay modal Profil select dev
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
@@ -16,7 +19,7 @@ function Search() {
   console.log(typeof results); */
 
   const dispatch = useDispatch();
-
+  // function to change value of formSearchDev state
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -64,15 +67,15 @@ function Search() {
             </div>
             <div className="search__filter__champ--radio" onChange={handleChangeForm}>
               <label className="search__filter__champ--radio--item" htmlFor="exp1">
-                <input type="radio" value="1" name="experience" defaultchecked={search.experience === '- 1 an'} />
+                <input type="radio" value="1" name="experience" defaultChecked={search.experience === '- 1 an'} />
                 - 1 an
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp2">
-                <input type="radio" value="2" name="experience" checked={search.experience === '1 à 3 ans'} />
+                <input type="radio" value="2" name="experience" defaultChecked={search.experience === '1 à 3 ans'} />
                 1 à 3 ans
               </label>
               <label className="search__filter__champ--radio--item" htmlFor="exp3">
-                <input type="radio" name="experience" value="3" checked={search.experience === '+ 3ans'} />
+                <input type="radio" name="experience" value="3" defaultChecked={search.experience === '+ 3ans'} />
                 + 3 ans
               </label>
             </div>
@@ -95,6 +98,7 @@ function Search() {
               </label>
             </div>
           </div> */}
+          { /* button to search developer with filter */}
           <button
             type="submit"
             className="search__filter--button"

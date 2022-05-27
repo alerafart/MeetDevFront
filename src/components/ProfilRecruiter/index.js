@@ -91,7 +91,7 @@ function RecruiterProfile() {
           </div>
           <div className="profilrecruiter__header__about__item">
             <div className="profilrecruiter__header__about__item--label">
-              Description
+              Mon besoin
             </div>
             <div className="profilrecruiter__header__about__item--description">{data.description}
             </div>

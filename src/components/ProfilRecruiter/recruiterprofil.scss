@@ -61,6 +61,18 @@
     }
 
     &__about {
+      width: 550px;
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
       margin: 2rem 2rem 2rem 0rem;
       flex-grow: 2;
       position: relative;
@@ -80,7 +92,8 @@
       &--label {
         color: vars.$mainColor;
         border-bottom: 1px solid vars.$mainFontGrey;
-        margin-bottom: 1rem;
+        margin: 1rem;
+        margin-bottom: 2rem;
         font-weight: bold;
       }
 
@@ -91,7 +104,7 @@
         margin-bottom: 1rem;
 
         &--label {
-          margin-right: 1rem;
+          margin-left: 1rem;
           margin-top: 0.3rem;
           min-width: 8rem;
         }
@@ -100,6 +113,7 @@
           font-size: 1.4rem;
           color: vars.$mainFontAnthra;
           font-weight: bold;
+
         }
 
 
@@ -113,13 +127,13 @@
 
         &--firms {
           font-size: 1.7rem;
-          color: vars.$mainFontAnthra;
+          color: vars.$mainColor;
           font-weight: bold;
         }
 
         &--city {
           font-size: 1.4rem;
-          color: vars.$mainFontAnthra;
+          color: vars.$mainColor;
           font-weight: bold;
           text-align: left;
         }
@@ -152,8 +166,20 @@
   }
 
   &__informations {
-    width: 300px;
-    min-width: 300px;
+    width: 340px;
+    min-width: 340px;
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 
     @media (max-width: 695px) {
       width: 100%;
@@ -169,7 +195,7 @@
     &--label {
       color: vars.$mainColor;
       border-bottom: 1px solid vars.$mainFontGrey;
-      margin-bottom: 1rem;
+      margin: 1rem;
       font-weight: bold;
     }
 
@@ -193,7 +219,8 @@
   }
 
   &__modify {
-    margin-top: 3rem;
+    margin-top: 5rem;
+    margin-left: 21rem;
     display: flex;
     justify-content: center;
 

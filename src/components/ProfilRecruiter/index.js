@@ -91,8 +91,10 @@ function RecruiterProfile() {
             </div>
           </div>
           <div className="profilrecruiter__header__about__item">
+
             <div className={isDark ? 'profilrecruiter__header__about__item--label dark' : 'profilrecruiter__header__about__item--label'}>
-              Description
+              Mon besoin
+
             </div>
             <div className={isDark ? 'profilrecruiter__header__about__item--description dark' : 'profilrecruiter__header__about__item--description'}>{data.description}
             </div>

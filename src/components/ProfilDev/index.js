@@ -126,33 +126,14 @@ function ProfilDev() {
           <img className={isDark ? 'profilDev__header__cadre--img dark' : 'profilDev__header__cadre--img'} src={avatar} alt="profil" />
         </div>
         <div className="profilDev__header__about">
-          {
-            // Display 'add to favorites' only if we come from search Route or
-            // Favorites Route and i'm recruiter
-            ((fromSearch || fromFavorites) && isRec) && (
-              <div
-                // type="button"
-                className="profilDev__header__about--favorite"
-                // onClick={() => {
-                //   dispatch(addOneFavorite());
-                // }}
-              >
-                <img
-                  src={addfavorites}
-                  alt="add favorites"
-                  className="profilDev__header__about--favorite"
-                  onClick={() => {
-                    dispatch(addOneFavorite());
-                  }}
-                />
-              </div>
-            )
-          }
+
           <h3 className={isDark ? 'profilDev__header__about--label dark' : 'profilDev__header__about--label'}>
             A Propos
           </h3>
-          <h4 className="profilDev__header__about--name">
-            {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+          <span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+
+          <h4 className={isDark ? 'profilDev__header__about--name dark' : 'profilDev__header__about--name'}>
+            {data.firstname} {data.lastname}
           </h4>
           <div className={isDark ? 'profilDev__header__about--profession dark' : 'profilDev__header__about--profession'}>
             {data.label}
@@ -161,24 +142,38 @@ function ProfilDev() {
             {data.description}
           </p>
           {
-            // Display button 'send message' only if we come from search Route or Favorites Route
-            (fromSearch || fromFavorites) && (
-              <div className="profilDev__header__about__mail">
-                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
-                  <GrMail />
+            ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
+              <div className="profilDev__informations__disponibility">
+
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
+                  Disponible
+
                 </div>
-                <p
-                  type="button"
-                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
-                  onClick={() => {
-                    dispatch(setToggleModalSendMessage());
-                  }}
-                >Envoyer un message
-                </p>
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={disponible}
+                  alt="disponiblilité"
+                />
+
+              </div>
+
+            )
+          }
+          {
+            ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
+              <div className="profilDev__informations__disponibility">
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
+                  Disponible dans 3 mois:
+                </div>
+
+                <img
+                  className="profilDev__informations__disponibility--logo"
+                  src={indisponible}
+                  alt="disponiblilité"
+                />
               </div>
             )
           }
-
         </div>
 
       </header>
@@ -233,39 +228,6 @@ function ProfilDev() {
             <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.github}
             </div>
           </div>
-          {
-            ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
-              <div className="profilDev__informations__disponibility">
-
-                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
-                  Disponible
-
-                </div>
-                <img
-                  className="profilDev__informations__disponibility--logo"
-                  src={disponible}
-                  alt="disponiblilité"
-                />
-
-              </div>
-
-            )
-          }
-          {
-            ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
-              <div className="profilDev__informations__disponibility">
-                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
-                  Disponible dans 3 mois:
-                </div>
-
-                <img
-                  className="profilDev__informations__disponibility--logo"
-                  src={indisponible}
-                  alt="disponiblilité"
-                />
-              </div>
-            )
-          }
         </div>
 
         <div className="profilDev__skills">
@@ -351,6 +313,46 @@ function ProfilDev() {
           </div>
         </div>
       </div>
+      {
+            // Display button 'send message' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+              <div className="profilDev__header__about__mail">
+                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
+                  <GrMail />
+                </div>
+                <p
+                  type="button"
+                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
+                  onClick={() => {
+                    dispatch(setToggleModalSendMessage());
+                  }}
+                >Envoyer un message
+                </p>
+              </div>
+            )
+          }
+      {
+            // Display 'add to favorites' only if we come from search Route or
+            // Favorites Route and i'm recruiter
+            ((fromSearch || fromFavorites) && isRec) && (
+              <div
+                // type="button"
+                className="profilDev__header__about--favorite"
+                // onClick={() => {
+                //   dispatch(addOneFavorite());
+                // }}
+              >
+                <img
+                  src={addfavorites}
+                  alt="add favorites"
+                  className="profilDev__header__about--favorite"
+                  onClick={() => {
+                    dispatch(addOneFavorite());
+                  }}
+                /> Ajouter aux favoris
+              </div>
+            )
+          }
 
       {
         (fromSearch || fromFavorites) && (

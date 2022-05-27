@@ -1,8 +1,11 @@
 import './mentionslegales.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { logout } from '../../actions/settings';
-
+// == Import styles
+import './mentionslegales.scss';
+// == Component
 function MentionsLegales() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch;
@@ -269,6 +272,7 @@ function MentionsLegales() {
         la protection juridique des bases de données.
       </p>
       <Link to="/">
+        {/* button to come back at home page */}
         <button
           type="button"
           className={isDark ? 'inscription__form__buttons__button--cancel dark' : 'inscription__form__buttons__button--cancel'}

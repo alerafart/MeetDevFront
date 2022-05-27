@@ -1,11 +1,14 @@
+// == Import npm
 import { useSelector, useDispatch } from 'react-redux';
-
-import './search.scss';
+// == Import component
 import Card from './Card';
 import ModalProfil from '../ModalProfil';
+// == Import action creator
 import { searchDev } from '../../actions/formSearchDev';
 import { fetchProfile } from '../../actions/middleware';
-
+// == Import styles
+import './search.scss';
+// == Component
 function Search() {
   // To display/notDisplay modal Profil select dev
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
@@ -17,7 +20,7 @@ function Search() {
   console.log(typeof results); */
 
   const dispatch = useDispatch();
-
+  // function to change value of formSearchDev state
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -104,6 +107,7 @@ function Search() {
               </label>
             </div>
           </div> */}
+          { /* button to search developer with filter */}
           <button
             type="submit"
             className="search__filter--button"

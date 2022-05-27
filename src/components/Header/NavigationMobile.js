@@ -4,7 +4,6 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
 import rocket from '../../assets/images/rocket.png';
 import { burgerMenuOpen, toggleDarkMode } from '../../actions/settings';
-
 function NavigationMobile() {
   const isDarkMode = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();

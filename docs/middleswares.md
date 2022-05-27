@@ -111,4 +111,5 @@ We need to retrieve the search string in order to customize the query url with t
 This is a middleware to send a mail to a developper.  
 
 1. SEND_MAIL  
-This is a get request via axios on 
+This is a get request via axios with JWT.
+

@@ -1,14 +1,17 @@
-import './modalChooseStack.scss';
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+// == Import action creator
 import { toggleModalChooseTechnologie } from '../../../actions/settings';
 import { toggleStack } from '../../../actions/formRegisterDev';
-
+// == Import styles
+import './modalChooseStack.scss';
+// == Component
 function ModalChooseStack() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const stacks = useSelector((state) => state.formRegisterDev.register.technology);
-  console.log(stacks.includes('react'));
+  // console.log(stacks.includes('react'));
   const dispatch = useDispatch();
-
+  // function to choose technology
   function handleChangeCheckbox(e) {
     dispatch(toggleStack(e.target.name));
   }

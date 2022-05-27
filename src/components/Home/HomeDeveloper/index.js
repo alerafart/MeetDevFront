@@ -2,8 +2,11 @@
 import './homedeveloper.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { logout, toggleWindowLog } from '../../../actions/settings';
-
+// == Import styles
+import './homedeveloper.scss';
+// == Component
 function HomeDeveloper() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
@@ -32,6 +35,7 @@ function HomeDeveloper() {
       </div>
       <div className="homedeveloper__button">
         <Link to="/inscription">
+          {/* button to open inscription page */}
           <button
             type="button"
             className="homedeveloper__button--inscription"
@@ -39,7 +43,7 @@ function HomeDeveloper() {
             Inscription Gratuite
           </button>
         </Link>
-
+        {/* button to open modal to login */}
         <button
           type="button"
           className="homedeveloper__button--login"
@@ -47,7 +51,7 @@ function HomeDeveloper() {
         >
           Connexion
         </button>
-
+        {/* button to come back at home page and put logout true in state */}
         <Link to="/">
           <button
             type="button"

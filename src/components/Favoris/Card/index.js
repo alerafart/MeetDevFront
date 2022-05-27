@@ -48,7 +48,7 @@ import { deleteOneFavorite, recruiterFavorites } from '../../../actions/middlewa
 // style
 import './card.scss';
 
-// == Composant
+// == Component
 function Card({ favorite }) {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.settings.navigation.darkMode);

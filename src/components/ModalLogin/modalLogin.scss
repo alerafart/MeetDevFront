@@ -40,22 +40,24 @@
 
   &__header {
     position: relative;
-    display: flex;
+    //display: flex;
     justify-content: center;
-    height: 3rem;
+    height: 4rem;
     border-bottom: 1px solid vars.$mainFontGrey;
     width: 100%;
+    display: inline-grid;
 
     @media (max-width: 500px) {
       justify-content: space-around;
     }
 
 
-
     &--title {
       color: vars.$mainColor;
       font-size: 1.5rem;
+      text-align: center;
     }
+
 
     &--button {
       top: -0.8rem;

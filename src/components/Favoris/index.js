@@ -1,12 +1,12 @@
 // == Import : npm
 import { useSelector } from 'react-redux';
-// Import composant
+// Import component
 import ModalProfil from '../ModalProfil';
 import Card from './Card';
 // == Import styles
 import './favoris.scss';
 
-// == Composant
+// == Component
 function Favoris() {
   // to display/notDisplay modal profil dev selected
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);

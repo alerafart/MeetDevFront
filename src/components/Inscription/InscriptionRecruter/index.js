@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
+// == Import npm
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-// actions & actions creators
+// == Import action creator
 import {
   chooseAvatarModal,
   logout,
@@ -13,7 +14,7 @@ import {
 } from '../../../actions/settings';
 import { registerRecruiter, registerRecruiterCancel } from '../../../actions/formRegisterRecruiter';
 import { inscriptionRecruiter, searchCity } from '../../../actions/middleware';
-// import all avatars
+// == Import avatars
 import companyAvatar1 from '../../../assets/avatars/avatar_company1.png';
 import companyAvatar2 from '../../../assets/avatars/avatar_company2.png';
 import companyAvatar3 from '../../../assets/avatars/avatar_company3.png';
@@ -21,9 +22,9 @@ import companyAvatar4 from '../../../assets/avatars/avatar_company4.png';
 import companyAvatar5 from '../../../assets/avatars/avatar_company5.png';
 import companyAvatar6 from '../../../assets/avatars/avatar_company6.png';
 import ModalChooseAvatar from './ModalChooseAvatar';
-// style
+// == Import style
 import './inscriptionrecruter.scss';
-
+// == Component
 function InscriptionRecruter() {
   const dispatch = useDispatch();
   // State for controlled champs of formulaire

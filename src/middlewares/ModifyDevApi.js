@@ -1,6 +1,8 @@
+// == Import npm
 import axios from 'axios';
-
+// == Import action
 import { VALIDATE_MODIFY_DEV } from '../actions/middleware';
+// == Import action creator
 import { majProfilDevFromApi } from '../actions/profilDev';
 
 // const navigate = useNavigate();

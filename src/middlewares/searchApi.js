@@ -1,5 +1,8 @@
+// == Import npm
 import axios from 'axios';
+// == Import action creator
 import { saveProfile } from '../actions/formSearchDev';
+// == Import action
 import { FETCH_PROFILE } from '../actions/middleware';
 
 const searchApi = (store) => (next) => (action) => {

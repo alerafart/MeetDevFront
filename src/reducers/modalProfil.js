@@ -1,3 +1,4 @@
+// == Import action
 import { GET_ONE_FAVORITE } from '../actions/favoritesaction';
 import { FETCH_PROFILE_MODALE } from '../actions/formSearchDev';
 import { LOGOUT } from '../actions/settings';

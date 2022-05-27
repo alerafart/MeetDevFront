@@ -1,10 +1,11 @@
 // == Import
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { logout } from '../../actions/settings';
 // == Import styles
 import './ensavoirplus.scss';
-
+// == Composant
 function EnSavoirPlus() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();

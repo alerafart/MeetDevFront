@@ -1,8 +1,10 @@
-import './modalprofil.scss';
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import mapPointer from '../../assets/images/mapPointer.png';
+// == Import action creator
 import { setToggleModalProfil } from '../../actions/settings';
+// == Import img
+import mapPointer from '../../assets/images/mapPointer.png';
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../assets/avatars/avatar_man3.png';
@@ -40,9 +42,12 @@ import reactnative from '../../assets/images/archive/logo-reactnative.png';
 import mongo from '../../assets/images/archive/logo-mongo.png';
 import git from '../../assets/images/archive/logo-git.png';
 import docker from '../../assets/images/archive/logo-docker.png';
-
+// == Import style
+import './modalprofil.scss';
+// == Component
 function ModalProfil() {
   const dispatch = useDispatch();
+  // state to have user data in modalProfil
   const firstname = useSelector((state) => state.modalProfil.result.firstname);
   const lastname = useSelector((state) => state.modalProfil.result.lastname);
   const city = useSelector((state) => state.modalProfil.result.city);
@@ -51,6 +56,7 @@ function ModalProfil() {
   const modalProfile = useSelector((state) => state.modalProfil.result.profilePicture);
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
+  // select how avatar to display
   let avatar;
   if (modalProfile === 'manAvatar1') {
     avatar = manAvatar1;
@@ -128,6 +134,7 @@ function ModalProfil() {
             <div className={isDark ? 'modalContainer__main__profil--item dark' : 'modalContainer__main__profil--item'}>
               Langages
             </div>
+            {/* when languages includes word to display in user profile */}
             <div className="modalContainer__main__profil--logos">
               {languages.includes('React') ? <img src={react} className="profilDev__skills__item__logos--logo" alt="logo react" /> : '' }
               {languages.includes('JavaScript') ? <img src={javascript} className="profilDev__skills__item__logos--logo" alt="logo javascript" /> : '' }
@@ -172,6 +179,7 @@ function ModalProfil() {
               Contacter
             </button> */}
             <Link to="/profil">
+              { /* button to close profile modal and go to user profile */}
               <button
                 className="modalContainer__footer--button"
                 type="button"

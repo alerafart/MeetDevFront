@@ -1,3 +1,4 @@
+// == Import action
 import { COPY_PROFIL_REC_TO_TEMP, SELECT_AVATAR_TEMP_RECRUITER, TEMP_MODIF_REC_PROFIL } from '../actions/profilRecModifyTemp';
 import { LOGOUT } from '../actions/settings';
 

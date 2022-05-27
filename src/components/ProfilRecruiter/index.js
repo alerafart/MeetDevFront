@@ -1,29 +1,28 @@
-import './recruiterprofil.scss';
+// == Import npm
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+// == Import action creator
 import { copyProfilRecToTemp } from '../../actions/profilRecModifyTemp';
-
-// import all avatars
+// == Import styles
+import './recruiterprofil.scss';
+// == Import avatars
 import companyAvatar1 from '../../assets/avatars/avatar_company1.png';
 import companyAvatar2 from '../../assets/avatars/avatar_company2.png';
 import companyAvatar3 from '../../assets/avatars/avatar_company3.png';
 import companyAvatar4 from '../../assets/avatars/avatar_company4.png';
 import companyAvatar5 from '../../assets/avatars/avatar_company5.png';
 import companyAvatar6 from '../../assets/avatars/avatar_company6.png';
-
+// == Component
 function RecruiterProfile() {
+  // state to know all profile data
   const profilRec = useSelector((state) => state.profilRecruiter);
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const data = profilRec.register;
   // console.log(profilRec);
-  // // const data = useSelector((state) => state.profilRecruiter.register);
-  // const { data } = profilRec;
+
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-
-  // });
-
+  // function to duplicate profile data
   function handlecopy() {
     dispatch(copyProfilRecToTemp(profilRec));
   }
@@ -142,11 +141,12 @@ function RecruiterProfile() {
 
       <div className="profilrecruiter__modify">
         <Link to="/modifier">
+          {/* button to open window modify profile */}
           <button
             className="profilrecruiter__modify--form"
             type="button"
             onClick={() => {
-              console.log(profilRec);
+              // console.log(profilRec);
               dispatch(handlecopy());
             }}
           >

@@ -1,7 +1,16 @@
+// == Import npm
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { GrMail } from 'react-icons/gr';
+// == Import component
+import ModalSendMessage from '../ModalSendMessage';
+// == Import action creator
+import { setToggleModalSendMessage } from '../../actions/settings';
+import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
+import { addOneFavorite } from '../../actions/middleware';
+// == Import styles
 import './profilDev.scss';
+// == Import img
 import manAvatar1 from '../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../assets/avatars/avatar_man3.png';
@@ -44,26 +53,25 @@ import reactnative from '../../assets/images/archive/logo-reactnative.png';
 import mongo from '../../assets/images/archive/logo-mongo.png';
 import git from '../../assets/images/archive/logo-git.png';
 import docker from '../../assets/images/archive/logo-docker.png';
-import ModalSendMessage from '../ModalSendMessage';
-import { setToggleModalSendMessage } from '../../actions/settings';
-import { copyProfilDevToTemp } from '../../actions/profilDevModifyTemp';
-import { addOneFavorite } from '../../actions/middleware';
-
+// == Component
 function ProfilDev() {
+  // State to know if user is Dev or Recruiter and is logged or not
   const isDev = useSelector((state) => state.settings.log.isDev);
   const isRec = useSelector((state) => state.settings.log.isRecruiter);
   const logged = useSelector((state) => state.settings.log.logged);
+  // state to open modal and send message to developer
   const sendMessage = useSelector((state) => state.settings.navigation.windowSendMessage);
+  // state to know if user come to search route or favorites route
   const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
   const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+  // state to have user picture
   const profilDev = useSelector((state) => state.profilDev);
   const modalProfilPicture = useSelector((state) => state.modalProfil.result.profilePicture);
   const profilDevPicture = profilDev.register.profilePicture;
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
-  // si l'on vient de la route search ou favorite
-  // alors on utilise modalProfilPicture sinon on utilise profilPicture
-
+  // if user come search route or favorites route
+  // we use modalProfilPicture or profilPicture
   let profilPicture;
   if (fromSearch || fromFavorites) {
     profilPicture = modalProfilPicture;
@@ -71,7 +79,7 @@ function ProfilDev() {
   else {
     profilPicture = profilDevPicture;
   }
-
+  // select how avatar to display
   let avatar;
   if (profilPicture === 'manAvatar1') {
     avatar = manAvatar1;
@@ -100,7 +108,8 @@ function ProfilDev() {
   if (profilPicture === '') {
     avatar = '';
   }
-
+  // if user come search route or favorites route
+  // we use modalProfil or profilDev
   let data;
   if (fromSearch || fromFavorites) {
     data = useSelector((state) => state.modalProfil.result);
@@ -394,6 +403,7 @@ function ProfilDev() {
       { (isDev && !fromSearch) && (
       <div className="profilDev__buttons">
         <Link to="/modifier">
+          {/* button to open window modify profile */}
           <button
             className="profilDev__buttons--button"
             type="button"

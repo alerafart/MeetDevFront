@@ -1,21 +1,36 @@
+// == Import npm
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
+
 import { loading, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';
 import { loginTest } from '../../actions/middleware';
+// == Import styles
 import './modalLogin.scss';
-
+// == Component
 function ModalLogin() {
+  // state to have data to log user
   const formLogin = useSelector((state) => state.formLogin.login);
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
+
+  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
+  console.log(isVerified);
+
+  const hasSlug = useSelector((state) => state.verifyEmail.slug);
+
+  /* const params = useParams();
+  console.log(params);
+  const { slug } = params; */
+  console.log(hasSlug);
 
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
     dispatch(login(value, name));
   }
-
+  // function to have loading when user click on Se Connecter
   function handleSubmit() {
     // event.preventDefault();
     // console.log('click');
@@ -39,7 +54,13 @@ function ModalLogin() {
           <h2 className={isDark ? 'modalLoginContainer__header--title dark' : 'modalLoginContainer__header--title'}>
             Bienvenue
           </h2>
+          { (hasSlug) && (
+          <h3 className="modalLoginContainer__header--verify">
+            {isVerified ? 'Adresse email vérifiée avec succès ! Merci :)' : 'Une erreur est survenue, l\'adresse email n\'a pas pu être vérifiée' }
+          </h3>
+          )}
           <Link to="/">
+            {/* button to close login modal */}
             <button
               className={isDark ? 'modalLoginContainer__header--button dark' : 'modalLoginContainer__header--button'}
               type="button"
@@ -70,6 +91,7 @@ function ModalLogin() {
             Se souvenir de moi
           </div>
           <Link to="/profil">
+            {/* button to connect user, close login modal, and go to user profile */}
             <button
               type="submit"
               className="modalLoginContainer__form--connexion"

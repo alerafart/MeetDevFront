@@ -1,7 +1,12 @@
+
 import './modalChooseAvatar.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import all avatars
+// == Import action creator
+import { chooseAvatarModal } from '../../../actions/settings';
+import { selectAvatar } from '../../../actions/formRegisterDev';
+// == Import avatars
+
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
@@ -10,9 +15,9 @@ import womanAvatar1 from '../../../assets/avatars/avatar_woman1.png';
 import womanAvatar2 from '../../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
-import { chooseAvatarModal } from '../../../actions/settings';
-import { selectAvatar } from '../../../actions/formRegisterDev';
-
+// == Import styles
+import './modalChooseAvatar.scss';
+// == Component
 function ModalChooseAvatar() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();

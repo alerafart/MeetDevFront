@@ -2,12 +2,14 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+// == Import action creator
 import { sendMessage } from '../../actions/formContact';
 import { setFromAway } from '../../actions/settings';
-// styles
+// == Import Style
 import './contact.scss';
-
+// == Component
 function Contact() {
+  // function to have the state formContact
   const message = useSelector((state) => state.formContact.message);
   const dispatch = useDispatch();
 
@@ -15,6 +17,7 @@ function Contact() {
     dispatch(setFromAway());
   }, []);
 
+  // function to change value of the state formContact
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -98,6 +101,8 @@ function Contact() {
         <div className="col-sm-12">
           <div className="contact__form--captcha">{captcha}</div>
           <div className="contact__form--input">
+            {/* TODO compare captcha and input, if the word is the same
+            enable button Envoyer else disable button */}
             <input className="contact__form--control" type="text" placeholder="Recopier le captcha" name="captcha" id="captcha" />
           </div>
         </div>
@@ -105,6 +110,7 @@ function Contact() {
 
           <button type="button" className="contact__form--button">Envoyer</button>
         </div>
+        {/* link on button Retour to come back at home page */}
         <Link to="/">
           <button
             type="button"

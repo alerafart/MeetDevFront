@@ -1,3 +1,4 @@
+// == Import action
 import {
   FROM_AWAY,
   FROM_FAVORITES_ROUTE,
@@ -19,6 +20,7 @@ import {
   CHOOSE_AVATAR_MODAL,
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
   LOGIN_BURGER,
+  TOGGLE_WINDOW_LOG_ON,
   CLOSE_COOKIES,
   LOADING,
   TOGGLE_DARK_MODE,
@@ -137,6 +139,14 @@ const settings = (state = initialState, action = {}) => {
         log: {
           ...state.log,
           windowLog: !state.log.windowLog,
+        },
+      };
+    case TOGGLE_WINDOW_LOG_ON:
+      return {
+        ...state,
+        log: {
+          ...state.log,
+          windowLog: true,
         },
       };
     case LOGGED:

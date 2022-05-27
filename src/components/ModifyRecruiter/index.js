@@ -1,29 +1,33 @@
-import './modifyRecruiter.scss';
+// == Import npm
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// == Import component
+import ModalChooseAvatar from './ModalChooseAvatar';
+// == Import action creator
+import { validateModifyRecruiter } from '../../actions/middleware';
 import { tempModifRecProfil } from '../../actions/profilRecModifyTemp';
-
 import { chooseAvatarModal } from '../../actions/settings';
-
-// import all avatars
+// == Import avatar
 import companyAvatar1 from '../../assets/avatars/avatar_company1.png';
 import companyAvatar2 from '../../assets/avatars/avatar_company2.png';
 import companyAvatar3 from '../../assets/avatars/avatar_company3.png';
 import companyAvatar4 from '../../assets/avatars/avatar_company4.png';
 import companyAvatar5 from '../../assets/avatars/avatar_company5.png';
 import companyAvatar6 from '../../assets/avatars/avatar_company6.png';
-import ModalChooseAvatar from './ModalChooseAvatar';
+// == Import style
+import './modifyRecruiter.scss';
 
-import { validateModifyRecruiter } from '../../actions/middleware';
-
+// == Component
 function ModifyRecruiter() {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
+  // state to have user data from profilRecruiterModifyTemp state
   const data = useSelector((state) => state.profilRecruiterModifyTemp.register);
+  // state to show avatar modal or not
   const displayChooseAvatarModal = useSelector(
     (state) => state.settings.navigation.chooseAvatarModal,
   );
-
+    // function to change profilRecruiterModifyTemp data
   function handleChangeForm(e) {
     const { value } = e.target;
     const { name } = e.target;
@@ -67,6 +71,7 @@ function ModifyRecruiter() {
                     <img src={avatar} alt="" />
                   )
                 }
+          { /* button to open avatar modal */}
           <button type="button" onClick={() => dispatch(chooseAvatarModal())}>Ajouter un logo</button>
           {
                   displayChooseAvatarModal && <ModalChooseAvatar />
@@ -143,6 +148,7 @@ function ModifyRecruiter() {
         </div>
         <div className="inscriptionRecruiter__form__buttons">
           <Link to="/profil">
+            {/* button to save data, close window and go back on profile */}
             <button
               type="submit"
               className="inscriptionRecruiter__form__buttons__button--valid"
@@ -156,6 +162,7 @@ function ModifyRecruiter() {
             </button>
           </Link>
           <Link to="/profil">
+            {/* button to cancel data, close window and go back on profile */}
             <button
               type="submit"
               className={isDark ? 'inscriptionRecruiter__form__buttons__button--cancel dark' : 'inscriptionRecruiter__form__buttons__button--cancel'}

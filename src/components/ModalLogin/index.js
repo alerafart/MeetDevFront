@@ -1,7 +1,7 @@
 // == Import npm
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { loading, logout, toggleWindowLog } from '../../actions/settings';
 import { login, loginCancel } from '../../actions/formLogin';

@@ -1,4 +1,3 @@
-
 import { Link, Navigate, useParams } from 'react-router-dom';
 import './home.scss';
 
@@ -7,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isDev, isRecruiter } from '../../actions/settings';
 import { verifyUserEmail, hasSlug } from '../../actions/verifiedEmail';
 import rocket from '../../assets/images/rocket.png';
+
 function Home() {
   const dispatch = useDispatch();
   // function to select state settings to know if the user is logged or not

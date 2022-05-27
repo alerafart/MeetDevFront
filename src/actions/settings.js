@@ -45,7 +45,6 @@ export const toggleWindowLog = () => ({
   type: TOGGLE_WINDOW_LOG,
 });
 
-
 // ACTION TYPE TOGGLE_WINDOW_LOG_ON
 export const TOGGLE_WINDOW_LOG_ON = 'TOGGLE_WINDOW_LOG_ON';
 

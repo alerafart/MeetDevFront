@@ -24,7 +24,6 @@ import {
   CLOSE_COOKIES,
   LOADING,
 
-
 } from '../actions/settings';
 
 export const initialState = {

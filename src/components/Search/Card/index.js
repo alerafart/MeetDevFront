@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { setToggleModalProfil } from '../../../actions/settings';
 import { fetchProfileModale } from '../../../actions/formSearchDev';
 // == Import styles
-import './title.scss';
+
 // == Import img
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';

@@ -1,4 +1,3 @@
-import './modalChooseAvatar.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 // == Import action creator
@@ -85,7 +84,7 @@ function ModalChooseAvatar() {
         </div>
         <div className="chooseAvatarContainer__cancel">
           <button className={isDark ? 'chooseAvatarContainer__cancel--button dark' : 'chooseAvatarContainer__cancel--button'} type="button" onClick={() => dispatch(chooseAvatarModal())}>
-          {/* button to cancel avatar choice and close window */}
+            {/* button to cancel avatar choice and close window */}
             Annuler
           </button>
         </div>

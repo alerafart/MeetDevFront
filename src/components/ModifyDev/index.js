@@ -25,16 +25,7 @@ import {
   toggleModalChooseTechnologie,
 } from '../../actions/settings';
 import { tempModifDevProfil } from '../../actions/profilDevModifyTemp';
-// == Import avatars
-import manAvatar1 from '../../assets/avatars/avatar_man1.png';
-import manAvatar2 from '../../assets/avatars/avatar_man2.png';
-import manAvatar3 from '../../assets/avatars/avatar_man3.png';
-import manAvatar4 from '../../assets/avatars/avatar_man4.png';
-import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
-import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
-import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
-import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
-import github from '../../assets/images/github.png';
+
 // == Import styles
 import './profildevmodify.scss';
 // == Component
@@ -43,7 +34,7 @@ function ModifyDev() {
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   // state to know user data
-  const data = useSelector((state) => state.profilDevModifyTemp.register);
+
   // state to know user city
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
   const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);

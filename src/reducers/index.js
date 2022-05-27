@@ -11,6 +11,7 @@ import profilRecruiter from './profilRecruiter';
 import resultSearch from './resultSearch';
 import profilDevModifyTemp from './profilDevModifyTemp';
 import profilRecruiterModifyTemp from './profilRecruiterModifyTemp';
+import verifyEmail from './verifyEmail';
 
 import formDevContact from './formDevContact';
 
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   modalProfil: modalProfil,
   profilDevModifyTemp: profilDevModifyTemp,
   profilRecruiterModifyTemp: profilRecruiterModifyTemp,
+  verifyEmail: verifyEmail,
 });
 
 export default rootReducer;

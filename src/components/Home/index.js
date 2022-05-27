@@ -1,18 +1,26 @@
-// == Import npm
-import { Link, Navigate } from 'react-router-dom';
+
+import { Link, Navigate, useParams } from 'react-router-dom';
+import './home.scss';
+
 import { useDispatch, useSelector } from 'react-redux';
 // == Import action creator
 import { isDev, isRecruiter } from '../../actions/settings';
-// == Import img
+import { verifyUserEmail, hasSlug } from '../../actions/verifiedEmail';
 import rocket from '../../assets/images/rocket.png';
-// == Import Style
-import './home.scss';
-// == Component
 function Home() {
   const dispatch = useDispatch();
   // function to select state settings to know if the user is logged or not
   const isLogged = useSelector((state) => state.settings.log.logged);
+  const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
+  const params = useParams();
+  // console.log(params);
+  const { slug } = params;
+  // console.log(slug);
 
+  if ((slug !== undefined) && (isVerified === false)) {
+    dispatch(verifyUserEmail(slug));
+    dispatch(hasSlug(true));
+  }
   // useEffect(() => {
   //   dispatch(setFromAway());
   // }, []);

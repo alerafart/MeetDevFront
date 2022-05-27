@@ -20,8 +20,10 @@ import {
   CHOOSE_AVATAR_MODAL,
   TOGGLE_MODAL_CHOOSE_TECHNOLOGIE,
   LOGIN_BURGER,
+  TOGGLE_WINDOW_LOG_ON,
   CLOSE_COOKIES,
   LOADING,
+
 
 } from '../actions/settings';
 
@@ -127,6 +129,14 @@ const settings = (state = initialState, action = {}) => {
         log: {
           ...state.log,
           windowLog: !state.log.windowLog,
+        },
+      };
+    case TOGGLE_WINDOW_LOG_ON:
+      return {
+        ...state,
+        log: {
+          ...state.log,
+          windowLog: true,
         },
       };
     case LOGGED:

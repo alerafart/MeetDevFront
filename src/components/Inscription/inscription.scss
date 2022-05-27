@@ -97,8 +97,6 @@
         width: 100%;
       }
 
-
-
       &__searchCity {
         position: absolute;
         z-index: 3;
@@ -122,6 +120,17 @@
         }
       }
 
+      &__searchCity {
+
+        &--input {
+          width: 60%;
+          height: 100%;
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+          border-radius: 8px;
+        }
+      }
 
       &--radio {
         width: 60%;
@@ -133,19 +142,15 @@
       }
 
       &--label {
-        width: 6.25rem;
+        & svg {
+          width: 2.5rem;
+          height: 2.5rem;
+          // color: white;
+        }
 
-      }
+        &--img {
+          // width: 6.25rem;
 
-      &__searchCity {
-
-        &--input {
-          width: 60%;
-          height: 100%;
-          border: 2px solid vars.$mainColor;
-          padding: 0 1rem vars.$mainFontGrey;
-          background-color: vars.$mainBackground;
-          border-radius: 8px;
         }
       }
 
@@ -176,7 +181,7 @@
       }
 
       &--img {
-        width: 3.5rem;
+        width: 12rem;
       }
     }
 
@@ -240,4 +245,120 @@
 
   }
 
+}
+
+.dark {
+  &.inscription {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+    }
+
+    &__form {
+      &__avatarContainer {
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+      &__champ {
+        &__searchCity {
+          background-color: white;
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+        &__searchCity {
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--radio {
+          &--item {
+            color: vars.$mainFontSecondaryDark;
+          }
+        }
+
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+
+          & svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: white;
+          }
+
+          &--img {
+            // width: 6.25rem;
+            color: white;
+
+          }
+        }
+
+
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+        }
+
+        &--stack {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+        &__button {
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOption;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
 }

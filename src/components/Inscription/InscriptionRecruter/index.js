@@ -31,6 +31,7 @@ function InscriptionRecruter() {
   const displayChooseAvatarModal = useSelector((state) => state.settings.navigation.chooseAvatarModal);
   const displaySearchCity = useSelector((state) => state.settings.navigation.displaySearchCity);
   const resultSearchCity = useSelector((state) => state.settings.navigation.resultSearchCity);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
   // function to pass to state (via action creators) the value and name of the current form field
   function handleChangeForm(e) {
@@ -69,7 +70,7 @@ function InscriptionRecruter() {
   });
 
   return (
-    <div className="inscriptionRecruiter">
+    <div className={isDark ? 'inscriptionRecruiter dark' : 'inscriptionRecruiter'}>
       <h2 className="inscriptionRecruiter__title">
         Mes informations
       </h2>
@@ -87,7 +88,7 @@ function InscriptionRecruter() {
                 }
         </div>
       </form>
-      <form className="inscriptionRecruiter__form">
+      <form className={isDark ? 'inscriptionRecruiter__form dark' : 'inscriptionRecruiter__form'}>
         {/* <div className="inscriptionRecruter__form__champ">
           <div className="inscriptionRecruter__form__champ--radio">
             <label className="inscriptionRecruter__form__champ--radio--item" htmlFor="exp1">
@@ -108,35 +109,35 @@ function InscriptionRecruter() {
           </div>
         </div> */}
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Prénom
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.firstname} name="firstname" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.firstname} name="firstname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Nom
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.lastname} name="lastname" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.lastname} name="lastname" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Entreprise
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.firms} name="firms" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.firms} name="firms" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Description
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.description} name="description" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.description} name="description" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Ville
           </div>
           <input
-            className="inscriptionRecruiter__form__champ--input"
+            className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'}
             type="text"
             name="city"
             value={register.city}
@@ -184,40 +185,40 @@ function InscriptionRecruter() {
                 }
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Tél
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.phone} name="phone" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.phone} name="phone" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Site Internet
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="text" value={register.website} name="website" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="text" value={register.website} name="website" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Mail
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="mail" value={register.email} name="email" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="mail" value={register.email} name="email" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Mail Vérification
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="mail" value={register.verifyemail} name="verifyemail" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="mail" value={register.verifyemail} name="verifyemail" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Mdp
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="password" value={register.password} name="password" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="password" value={register.password} name="password" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__champ">
-          <div className="inscriptionRecruiter__form__champ--label">
+          <div className={isDark ? 'inscriptionRecruiter__form__champ--label dark' : 'inscriptionRecruiter__form__champ--label'}>
             Vérif Mdp
           </div>
-          <input className="inscriptionRecruiter__form__champ--input" type="password" value={register.verifypassword} name="verifypassword" onChange={handleChangeForm} />
+          <input className={isDark ? 'inscriptionRecruiter__form__champ--input dark' : 'inscriptionRecruiter__form__champ--input'} type="password" value={register.verifypassword} name="verifypassword" onChange={handleChangeForm} />
         </div>
         <div className="inscriptionRecruiter__form__buttons">
           <Link to="/profil">
@@ -236,7 +237,7 @@ function InscriptionRecruter() {
           <Link to="/">
             <button
               type="button"
-              className="inscriptionRecruiter__form__buttons__button--cancel"
+              className={isDark ? 'inscriptionRecruiter__form__buttons__button--cancel dark' : 'inscriptionRecruiter__form__buttons__button--cancel'}
               onClick={() => {
                 dispatch(logout());
                 dispatch(registerRecruiterCancel());

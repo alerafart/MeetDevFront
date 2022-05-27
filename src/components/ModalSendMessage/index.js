@@ -5,6 +5,7 @@ import { setToggleModalSendMessage } from '../../actions/settings';
 import './modalDevContact.scss';
 
 function ModalSendMessage() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const formContact = useSelector((state) => state.formDevContact.formContact);
   const dispatch = useDispatch();
 
@@ -17,9 +18,9 @@ function ModalSendMessage() {
 
   return (
     <div
-      className="modalDevContactBackground"
+      className={isDark ? 'modalDevContactBackground dark' : 'modalDevContactBackground'}
     >
-      <div className="modalDevContactContainer">
+      <div className={isDark ? 'modalDevContactContainer dark' : 'modalDevContactContainer'}>
         <header className="modalDevContactContainer__header">
           <h2 className="modalDevContactContainer__header--title">
             Formulaire de Contact
@@ -38,9 +39,9 @@ function ModalSendMessage() {
 
         <form className="modalDevContactContainer__form" onChange={handleChangeForm}>
           <p className="modalDevContactContainer__form--label">Titre</p>
-          <input className="modalDevContactContainer__form--titre" type="txt" name="title" value={formContact.title} />
+          <input className={isDark ? 'modalDevContactContainer__form--titre dark' : 'modalDevContactContainer__form--titre'} type="txt" name="title" value={formContact.title} />
           <p className="modalDevContactContainer__form--label">Message</p>
-          <textarea className="modalDevContactContainer__form--message" name="message" value={formContact.message} />
+          <textarea className={isDark ? 'modalDevContactContainer__form--message dark' : 'modalDevContactContainer__form--message'} name="message" value={formContact.message} />
 
           <button
             type="submit"

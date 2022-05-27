@@ -7,6 +7,7 @@
 }
 
 .header {
+  transition: 0.2s;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -87,6 +88,11 @@
     color: vars.$mainFontAnthra;
     // display: none;
 
+    &__clearModeIcon {
+      margin-left: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+    }
 
     &--item {
       margin: 0 0.6rem;
@@ -147,6 +153,8 @@
 }
 
 .dark {
+  transition: 0.2s;
+
   &.header {
     border-bottom: 2px solid vars.$mainColorDark;
     color: vars.$secondaryColorDark;
@@ -160,6 +168,18 @@
 
     &__menu {
       color: vars.$mainFontAnthraDark;
+
+      &__clearModeIcon {
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      & svg {
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
 
       &--item {}
 

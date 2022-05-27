@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .home {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 0em;
@@ -176,6 +177,7 @@
 }
 
 .dark {
+  transition: 0.2s;
 
   &.home {
     background-color: vars.$mainBackgroundDark;

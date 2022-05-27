@@ -37,6 +37,7 @@ function BurgerMenu() {
   // function to select state profilRecruiter and profilDev
   const profilRec = useSelector((state) => state.profilRecruiter);
   const profilDev = useSelector((state) => state.profilDev);
+  const isDarkMode = useSelector((state) => state.settings.navigation.darkMode);
 
   // function to duplicate profilRec
   function handlecopy() {
@@ -94,16 +95,16 @@ function BurgerMenu() {
     <AnimatePresence>
       {/* // wrapper of menu burger */}
       <motion.div
-        className="burgerMenu"
+        className={isDarkMode ? 'burgerMenu dark' : 'burgerMenu'}
       >
 
         {/* close button burger menu */}
-        <AiOutlineCloseCircle className="burgerMenu__exit" onClick={() => dispatch(burgerMenuOpen())} />
+        <AiOutlineCloseCircle className={isDarkMode ? 'burgerMenu__exit dark' : 'burgerMenu__exit'} onClick={() => dispatch(burgerMenuOpen())} />
         <AnimatePresence>
           {
             burgerMenu && (
             <motion.ul
-              className="burgerMenu__items"
+              className={isDarkMode ? 'burgerMenu__items dark' : 'burgerMenu__items'}
               {...burgerMenuAnimation}
             >
               {/* if not Logged display connexion button + en Savoir +*/}
@@ -114,7 +115,7 @@ function BurgerMenu() {
                     initial={animateFrom}
                     animate={animateTo}
                     transition={{ delay: 0.15 }}
-                    className="burgerMenu__items--log"
+                    className={isDarkMode ? 'burgerMenu__items--log dark' : 'burgerMenu__items--log'}
                     onClick={() => {
                     // dispatch(toggleWindowLog());
                     // dispatch(closeMenu());
@@ -134,8 +135,8 @@ function BurgerMenu() {
                     onChange={handleChangeForm}
                     onSubmit={handleSubmit}
                   >
-                    <input className="burgerMenu__login--mail" type="email" placeholder="Email" value={formLogin.email} name="email" />
-                    <input className="burgerMenu__login--password" placeholder="Mot de passe" type="password" name="password" value={formLogin.password} />
+                    <input className={isDarkMode ? 'burgerMenu__login--mail dark' : 'burgerMenu__login--mail'} type="email" placeholder="Email" value={formLogin.email} name="email" />
+                    <input className={isDarkMode ? 'burgerMenu__login--password dark' : 'burgerMenu__login--password'} placeholder="Mot de passe" type="password" name="password" value={formLogin.password} />
                     <button
                       type="submit"
                       className="burgerMenu__login--button"
@@ -153,22 +154,22 @@ function BurgerMenu() {
             }
                   </AnimatePresence>
 
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.25 }} className="burgerMenu__items--item" onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.25 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/">
                       Meet Dev
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.35 }} className="burgerMenu__items--item" onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.35 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/home-developer">
                       Je suis développeur
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className="burgerMenu__items--item" onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.45 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/home-recruiter">
                       Je suis recruteur
                     </NavLink>
                   </motion.li>
-                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.55 }} className="burgerMenu__items--item" onClick={closeMenu}>
+                  <motion.li initial={animateFrom} animate={animateTo} transition={{ delay: 0.55 }} className={isDarkMode ? 'burgerMenu__items--item dark' : 'burgerMenu__items--item'} onClick={closeMenu}>
                     <NavLink to="/en-savoir-plus">
                       En savoir plus
                     </NavLink>

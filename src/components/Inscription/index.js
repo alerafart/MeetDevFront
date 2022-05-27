@@ -3,11 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-// == Import components
+import './inscription.scss';
+import { FaGithub } from 'react-icons/fa';
+
+// Composants
 import InscriptionRecruter from './InscriptionRecruter';
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
-// == Import action creator
+
+// data
+// import github from '../../assets/images/github.png';
+
+// actions & actions creators
 import {
   logout, setFromInscriptionRoute, searchCityDisplay, searchCityClose, chooseAvatarModal, toggleModalChooseTechnologie,
 } from '../../actions/settings';
@@ -28,6 +35,7 @@ import './inscription.scss';
 
 // == Component
 function Inscription() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   // State for controlled champs of formulaire
   const register = useSelector((state) => state.formRegisterDev.register);
   const error = useSelector((state) => state.formRegisterDev.error);
@@ -198,7 +206,7 @@ function Inscription() {
       {
         isDev && (
 
-          <div className="inscription">
+          <div className={isDark ? 'inscription dark' : 'inscription'}>
             {
               displayChooseStackModal && <ModalChooseStack />
             }
@@ -231,19 +239,19 @@ function Inscription() {
                 }
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Prénom
                 </div>
                 <input className={error.firstnameEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="firstname" value={register.firstname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Nom
                 </div>
                 <input className={error.lastnameEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="lastname" value={register.lastname} onChange={handleChangeForm} required />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Ville
                 </div>
                 <input
@@ -296,49 +304,49 @@ function Inscription() {
 
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Tél
                 </div>
                 <input className={error.phoneEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="number" name="phone" value={register.phone} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Label
                 </div>
                 <input className={error.labelEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="text" name="label" value={register.label} onChange={handleChangeForm} placeholder="Exemple: Developper Front-end React" />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Description
                 </div>
                 <textarea className={error.descriptionEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="description" value={register.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Mail
                 </div>
                 <input className={error.emailEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="email" value={register.email} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Vérif Mail
                 </div>
                 <input className={error.emailTestEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="mail" name="emailTest" value={register.emailTest} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Mdp
                 </div>
                 <input className={error.passwordEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="password" name="password" value={register.password} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Vérif Mdp
                 </div>
                 <input className={error.verifyPasswordEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} type="password" name="verifypassword" value={register.verifpassword} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Anglais
                 </div>
                 <select value={register.english} type="text" className={error.englishEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} name="english" onChange={handleChangeForm}>
@@ -349,7 +357,7 @@ function Inscription() {
                 </select>
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Salaire annuel
                 </div>
                 <select name="salary" type="number" defaultValue={register.salary} className={error.salaryEmpty ? 'inscription__form__champ--error' : 'inscription__form__champ--input'} onChange={handleChangeForm}>
@@ -360,7 +368,7 @@ function Inscription() {
                 </select>
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Stack
                 </div>
                 {/* button to open modal to choose technologies */}
@@ -379,32 +387,32 @@ function Inscription() {
                 </select> */}
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Expérience
                 </div>
                 <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
-                  <label className="inscription__form__champ--radio--item" htmlFor="experience">
+                  <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="experience">
                     <input type="radio" value="1" name="experience" checked={register.experience === '1'} />
                     - 1 an
                   </label>
-                  <label className="inscription__form__champ--radio--item" htmlFor="exp2">
+                  <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="exp2">
                     <input type="radio" value="2" name="experience" checked={register.experience === '2'} />
                     1 à 3 ans
                   </label>
-                  <label className="inscription__form__champ--radio--item" htmlFor="exp3">
+                  <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="exp3">
                     <input type="radio" name="experience" value="3" checked={register.experience === '3'} />
                     + 3 ans
                   </label>
                 </div>
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Age
                 </div>
                 <input className="inscription__form__champ--input" type="number" name="age" value={register.age} onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   Disponibilité
                 </div>
                 <select defaultValue={register.availability} type="boolean" className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
@@ -415,16 +423,17 @@ function Inscription() {
               </div>
               <div className="inscription__form__champ">
                 <div className="inscription__form__champ--label">
-                  <img
+                  {/* <img
                     className="inscription__form__champ--img"
                     src={github}
                     alt="logo github"
-                  />
+                  /> */}
+                  <FaGithub className={isDark ? 'inscription__form__champ--label--img dark' : 'inscription__form__champ--label--img'} />
                 </div>
                 <input name="github" value={register.github} className="inscription__form__champ--input" type="text" onChange={handleChangeForm} />
               </div>
               <div className="inscription__form__champ">
-                <div className="inscription__form__champ--label">
+                <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
                   PortFolio
                 </div>
                 <input name="portfolio" className="inscription__form__champ--input" type="text" value={register.portfolio} onChange={handleChangeForm} />
@@ -448,7 +457,7 @@ function Inscription() {
                   {/* button to come back at home page and put logout true */}
                   <button
                     type="button"
-                    className="inscription__form__buttons__button--cancel"
+                    className={isDark ? 'inscription__form__buttons__button--cancel dark' : 'inscription__form__buttons__button--cancel'}
                     onClick={() => {
                       dispatch(logout());
                     }}

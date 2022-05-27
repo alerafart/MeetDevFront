@@ -1,6 +1,7 @@
 // == Import npm
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { GrMail } from 'react-icons/gr';
 // == Import component
 import ModalSendMessage from '../ModalSendMessage';
 // == Import action creator
@@ -19,7 +20,7 @@ import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
 import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
 import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
 import mapPointer from '../../assets/images/mapPointer.png';
-import mail from '../../assets/images/mail.png';
+// import mail from '../../assets/images/mail.png';
 import addfavorites from '../../assets/images/addfavorites.png';
 import disponible from '../../assets/images/Disponible.png';
 import indisponible from '../../assets/images/indisponible.png';
@@ -67,6 +68,7 @@ function ProfilDev() {
   const profilDev = useSelector((state) => state.profilDev);
   const modalProfilPicture = useSelector((state) => state.modalProfil.result.profilePicture);
   const profilDevPicture = profilDev.register.profilePicture;
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
   // if user come search route or favorites route
   // we use modalProfilPicture or profilPicture
@@ -120,114 +122,41 @@ function ProfilDev() {
   return (
     logged && (
     // open/close sendMessage Modal
-    <div className="profilDev">
+    <div className={isDark ? 'profilDev dark' : 'profilDev'}>
       {sendMessage && (
         <ModalSendMessage />
       )}
-      <h2 className="profilDev__title">
+      <h2 className={isDark ? 'profilDev__title dark' : 'profilDev__title'}>
         Fiche développeur
       </h2>
 
       <header className="profilDev__header">
-        <div className="profilDev__header__cadre">
-          <img className="profilDev__header__cadre--img" src={avatar} alt="profil" />
+        <div className={isDark ? 'profilDev__header__cadre dark' : 'profilDev__header__cadre'}>
+          <img className={isDark ? 'profilDev__header__cadre--img dark' : 'profilDev__header__cadre--img'} src={avatar} alt="profil" />
         </div>
         <div className="profilDev__header__about">
-          {
-            // Display 'add to favorites' only if we come from search Route or
-            // Favorites Route and i'm recruiter
-            ((fromSearch || fromFavorites) && isRec) && (
-              <div
-                // type="button"
-                className="profilDev__header__about--favorite"
-                // onClick={() => {
-                //   dispatch(addOneFavorite());
-                // }}
-              >
-                <img
-                  src={addfavorites}
-                  alt="add favorites"
-                  className="profilDev__header__about--favorite"
-                  onClick={() => {
-                    dispatch(addOneFavorite());
-                  }}
-                />
-              </div>
-            )
-          }
-          <h3 className="profilDev__header__about--label">
+
+          <h3 className={isDark ? 'profilDev__header__about--label dark' : 'profilDev__header__about--label'}>
             A Propos
           </h3>
-          <h4 className="profilDev__header__about--name">
-            {data.firstname} {data.lastname}<span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+          <span className="profilDev__header__about--city"><img src={mapPointer} alt="map pointer" className="profilDev__header__about--pointer" />{data.city}</span>
+
+          <h4 className={isDark ? 'profilDev__header__about--name dark' : 'profilDev__header__about--name'}>
+            {data.firstname} {data.lastname}
           </h4>
-          <div className="profilDev__header__about--profession">
+          <div className={isDark ? 'profilDev__header__about--profession dark' : 'profilDev__header__about--profession'}>
             {data.label}
           </div>
-          <p className="profilDev__header__about--presentation">
+          <p className={isDark ? 'profilDev__header__about--presentation dark' : 'profilDev__header__about--presentation'}>
             {data.description}
           </p>
           {
-            // Display button 'send message' only if we come from search Route or Favorites Route
-            (fromSearch || fromFavorites) && (
-              <div className="profilDev__header__about__mail">
-                <img src={mail} alt="envoyer mail" className="profilDev__header__about__mail--logo" />
-                <p
-                  type="button"
-                  className="profilDev__header__about__mail--txt"
-                  onClick={() => {
-                    dispatch(setToggleModalSendMessage());
-                  }}
-                >Envoyer un message
-                </p>
-              </div>
-            )
-          }
-
-        </div>
-
-      </header>
-
-      <div className="profilDev__container">
-        <div className="profilDev__informations">
-          <h3 className="profilDev__informations--label">
-            Informations
-          </h3>
-          <div className="profilDev__informations__item">
-            <div className="profilDev__informations__item--label"> Tél:
-            </div>
-            <div className="profilDev__informations__item--color">0{data.phone}
-            </div>
-          </div>
-          <div className="profilDev__informations__item">
-            <div className="profilDev__informations__item--label"> Adresse:
-            </div>
-            <div className="profilDev__informations__item--black">{data.zipCode} {data.city}
-            </div>
-          </div>
-          <div className="profilDev__informations__item">
-            <div className="profilDev__informations__item--label"> E-mail:
-            </div>
-            <div className="profilDev__informations__item--color">{data.email}
-            </div>
-          </div>
-          <div className="profilDev__informations__item">
-            <div className="profilDev__informations__item--label"> PortFolio:
-            </div>
-            <div className="profilDev__informations__item--color">{data.portfolio}
-            </div>
-          </div>
-          <div className="profilDev__informations__item">
-            <div className="profilDev__informations__item--label"> GitHub:
-            </div>
-            <div className="profilDev__informations__item--color">{data.github}
-            </div>
-          </div>
-          {
             ((data.available_for_recruiters === '1') || (data.available_for_recruiters === 1)) && (
               <div className="profilDev__informations__disponibility">
-                <div className="profilDev__informations__disponibility--txt">
-                  Disponible:
+
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
+                  Disponible
+
                 </div>
                 <img
                   className="profilDev__informations__disponibility--logo"
@@ -242,7 +171,7 @@ function ProfilDev() {
           {
             ((data.available_for_recruiters === '0') || (data.available_for_recruiters === 0)) && (
               <div className="profilDev__informations__disponibility">
-                <div className="profilDev__informations__disponibility--txt">
+                <div className={isDark ? 'profilDev__informations__disponibility--txt dark' : 'profilDev__informations__disponibility--txt'}>
                   Disponible dans 3 mois:
                 </div>
 
@@ -256,20 +185,78 @@ function ProfilDev() {
           }
         </div>
 
+      </header>
+
+      <div className="profilDev__container">
+        <div className="profilDev__informations">
+          <h3 className="profilDev__informations--label">
+            Contact
+          </h3>
+          <div className="profilDev__informations__item">
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> Tél
+
+            </div>
+            <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>0{data.phone}
+            </div>
+          </div>
+
+          {/*           <div className="profilDev__informations__item">
+            <div className="profilDev__informations__item--label"> Adresse
+
+          <div className="profilDev__informations__item">
+            <div className={isDark ?
+            'profilDev__informations__item--label dark' :
+            'profilDev__informations__item--label'}> Adresse:
+            </div>
+            <div className={isDark ? 'profilDev__informations__item--black dark' :
+            'profilDev__informations__item--black'}>{data.zipCode} {data.city}
+            </div>
+          </div> */}
+          <div className="profilDev__informations__item">
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> E-mail
+
+            </div>
+            <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.email}
+            </div>
+          </div>
+          <div className="profilDev__informations__item">
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> PortFolio
+
+            </div>
+            <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.portfolio}
+            </div>
+          </div>
+          <div className="profilDev__informations__item">
+
+            <div className={isDark ? 'profilDev__informations__item--label dark' : 'profilDev__informations__item--label'}> GitHub
+
+            </div>
+            <div className={isDark ? 'profilDev__informations__item--color dark' : 'profilDev__informations__item--color'}>{data.github}
+            </div>
+          </div>
+        </div>
+
         <div className="profilDev__skills">
           <h3 className="profilDev__skills--label">
             Skills
           </h3>
           <div className="profilDev__skills__item">
-            <div className="profilDev__skills__item--label"> Experience:
+
+            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}> Experience
+
             </div>
-            <div className="profilDev__skills__item--color">{data.experience} ans
+            <div className={isDark ? 'profilDev__skills__item--color dark' : 'profilDev__skills__item--color'}>{data.experience} ans
             </div>
           </div>
           <div className="profilDev__skills__item">
-            <div className="profilDev__skills__item--label">Anglais:
+
+            <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Anglais
+
             </div>
-            <div className="profilDev__skills__item--color">{data.english}
+            <div className={isDark ? 'profilDev__skills__item--color dark' : 'profilDev__skills__item--color'}>{data.english}
             </div>
           </div>
           <div className="profilDev__skills__item">
@@ -277,11 +264,13 @@ function ProfilDev() {
 
               { // TODO GESTION STACK ICON FROM TENS CHOICE BACK/FRONT
               }
-              <div className="profilDev__skills__item--label">Stack :
+
+              <div className={isDark ? 'profilDev__skills__item--label dark' : 'profilDev__skills__item--label'}>Stack
+
               </div>
               <div className="profilDev__skills__item--color">
                 {data.technology.map((item) => (
-                  <div className="profilDev__skills__item--color--stack" key={item}> {item}</div>
+                  <div className={isDark ? 'profilDev__skills__item--color--stack dark' : 'profilDev__skills__item--color--stack'} key={item}> {item}</div>
                 ))}
               </div>
             </div>
@@ -333,6 +322,46 @@ function ProfilDev() {
           </div>
         </div>
       </div>
+      {
+            // Display button 'send message' only if we come from search Route or Favorites Route
+            (fromSearch || fromFavorites) && (
+              <div className="profilDev__header__about__mail">
+                <div className={isDark ? 'profilDev__header__about__mail--logo dark' : 'profilDev__header__about__mail--logo'}>
+                  <GrMail />
+                </div>
+                <p
+                  type="button"
+                  className={isDark ? 'profilDev__header__about__mail--txt dark' : 'profilDev__header__about__mail--txt'}
+                  onClick={() => {
+                    dispatch(setToggleModalSendMessage());
+                  }}
+                >Envoyer un message
+                </p>
+              </div>
+            )
+          }
+      {
+            // Display 'add to favorites' only if we come from search Route or
+            // Favorites Route and i'm recruiter
+            ((fromSearch || fromFavorites) && isRec) && (
+              <div
+                // type="button"
+                className="profilDev__header__about--favorite"
+                onClick={() => {
+                  dispatch(addOneFavorite());
+                }}
+              >
+                <img
+                  src={addfavorites}
+                  alt="add favorites"
+                  className="profilDev__header__about--favorite"
+                  // onClick={() => {
+                  //   dispatch(addOneFavorite());
+                  // }}
+                /> Ajouter aux favoris
+              </div>
+            )
+          }
 
       {
         (fromSearch || fromFavorites) && (

@@ -1,6 +1,7 @@
 @use '../../../styles/vars';
 
 .card {
+  transition: 0.2s;
   // background-color: red;
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -48,7 +49,7 @@
   }
 
   &__container {
-    margin: 1rem;
+    margin: 0.5rem;
     padding: 2px 2px;
     text-align: center;
 
@@ -152,6 +153,68 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
+    }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: vars.$mainBackgroundClearDark;
+
+    &__avatar {
+      background-color: vars.$secondaryColorDark;
+
+      &--img {}
+    }
+
+    &__container {
+      &--name {
+        color: vars.$mainFontAnthra;
+      }
+
+      &--localisation {
+        color: vars.$mainBackgroundDark;
+
+        &--icon {}
+      }
+
+      &--experience {
+        &--title {}
+
+        &--year {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+        }
+      }
+    }
+
+    &__logos {
+      & img {}
+    }
+
+    &__button {
+      &--profileview {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      &--delete {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        background-color: vars.$cancelOptionDark;
+
+        &:hover {
+          background-color: vars.$cancelOption;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
     }
   }
 }

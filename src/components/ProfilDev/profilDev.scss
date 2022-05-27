@@ -12,6 +12,7 @@
 // }
 
 .profilDev {
+  transition: 0.2s;
   margin: 0 auto;
   //* modifié par rapport à l'orignial
   padding: 0em 0em;
@@ -34,15 +35,18 @@
     display: flex;
     justify-content: stretch;
 
-    @media (max-width: 767px) {
+    @media (max-width: 880px) {
+      width: 100%;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
 
     &__cadre {
-      width: 300px;
+      width: 340px;
       height: 300px;
-      min-width: 300px;
+      min-width: 340px;
       min-height: 300px;
 
       border-radius: 8px;
@@ -54,7 +58,7 @@
       margin: 2rem 3rem;
       box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
 
-      @media (max-width: 400px) {
+      @media (max-width: 425px) {
         width: 230px;
         height: 230px;
         min-width: 230px;
@@ -73,26 +77,42 @@
     }
 
     &__about {
-      margin: 2rem 2rem 2rem 0rem;
-      flex-grow: 2;
-      position: relative;
+      text-align: center;
+      width: 550px;
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
 
-      @media (max-width: 695px) {
-        margin: 1rem 1rem 1rem 1rem;
-
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
-      @media (max-width: 400px) {
-        width: 310px;
-        margin: 1rem 0.5rem 1rem 0.5rem;
+      margin: 2rem 2rem 2rem 0rem;
+      position: relative;
 
+      @media (max-width: 880px) {
+        width: 80%;
+        margin: 1rem 0rem 2rem 0rem;
+        // height: 400px;
+      }
+
+      @media (max-width: 450px) {
+        width: 340px;
+        height: 370px;
+        min-width: 250px;
+        // min-height: 480px;
       }
 
       &--favorite {
-        position: absolute;
-        width: 3rem;
-        right: 1.5rem;
-        top: 1.5rem;
+        margin: auto;
+        margin-top: 0.5rem;
+        width: 16rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: vars.$mainColor;
 
         @media (max-width: 400px) {
           right: 3rem;
@@ -100,23 +120,35 @@
           display: none;
         }
 
+        & img {
+          width: 3rem;
+
+          &:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s;
+            filter: opacity(0.4) drop-shadow(0 0 0 rgb(61, 255, 255));
+          }
+        }
+
         &:hover {
           cursor: pointer;
+          filter: opacity(0.4) drop-shadow(0 0 0 rgb(61, 255, 255));
         }
 
       }
 
       &--label {
+        text-align: start;
         color: vars.$mainColor;
         border-bottom: 1px solid vars.$mainFontGrey;
-        margin-bottom: 1rem;
+        margin: 1rem 1rem 0;
       }
 
       &--name {
         font-size: 1.7rem;
         font-weight: bold;
         color: vars.$mainFontAnthra;
-        margin-bottom: 0.3rem;
+        margin: 1rem;
       }
 
       &--pointer {
@@ -125,49 +157,69 @@
       }
 
       &--city {
-        color: vars.$mainFontGrey;
+        color: vars.$mainColor;
         font-size: 1.5rem;
+        margin-bottom: 1rem;
       }
 
       &--profession {
         color: vars.$mainColor;
         font-style: italic;
-        margin-bottom: 1.3rem;
+        margin: 1rem;
       }
 
       &--citation {
         padding-left: 0;
         text-align: left;
+        margin: 1rem;
       }
 
       &--presentation {
+        text-align: center;
         max-width: 35rem;
-        padding-left: 0;
-        text-align: left;
+        margin: 1rem;
+        line-height: initial;
       }
 
       &__mail {
-        padding-left: 0;
+        margin: auto;
+        width: 18rem;
+        height: 3.5rem;
+        border: 2px solid vars.$mainColor;
+        border-radius: 8px;
+        margin-top: 1.5rem;
         display: flex;
-        align-items: center;
+        justify-content: center;
         color: vars.$mainFontAnthra;
         font-size: 1.2rem;
         font-weight: bold;
+        padding-top: 1rem;
 
         &:hover {
           cursor: pointer;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
         }
 
         &--logo {
-          width: 3rem;
-
-          padding-left: 0;
-          text-align: left;
+          margin-right: 1rem;
         }
 
         &--txt {
-          margin-bottom: 0;
-          padding-left: 1rem;
+          padding: 0;
+        }
+
+        @media (max-width: 768px) {
+          width: 13rem;
+          height: 4.2rem;
+
+          &--logo {
+            margin-left: 1rem;
+          }
+        }
+
+        @media (max-width: 425px) {
+          width: 13rem;
         }
       }
     }
@@ -175,40 +227,51 @@
 
   &__container {
     display: flex;
-    padding: 0rem 3rem;
+    justify-content: center;
 
-    @media (max-width: 695px) {
+    @media (max-width: 1024px) {}
+
+    @media (max-width: 880px) {
+      display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0rem 1rem;
     }
   }
 
   &__informations {
-    width: 300px;
-    min-width: 300px;
+    width: 340px;
+    min-width: 340px;
+    // height: 220px;
+    min-height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
 
-    @media (max-width: 695px) {
-      width: 100%;
-      padding: 0rem 1rem;
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width: 400px) {
-      width: 310px;
-      margin: 0 0.5rem;
+    @media (max-width: 880px) {
+      width: 80%;
+    }
+
+    @media (max-width: 425px) {
+      width: 330px;
       font-size: 0.8rem;
     }
 
     &--label {
       color: vars.$mainColor;
       border-bottom: 1px solid vars.$mainFontGrey;
-      margin-bottom: 1rem;
+      margin: 1rem;
     }
 
     &__item {
       display: flex;
       justify-content: flex-start;
-      margin-bottom: 1rem;
+      margin: 0 0.5rem 1rem;
 
       &--label {
         width: 6rem;
@@ -219,6 +282,7 @@
 
       &--color {
         color: vars.$mainColor;
+        margin: 0 0 0 1rem;
       }
     }
 
@@ -226,8 +290,8 @@
       font-size: 1.2rem;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 1rem;
+      justify-content: center;
+      margin: 1rem;
 
       &--logo {
         width: 25px;
@@ -240,26 +304,45 @@
   }
 
   &__skills {
+    width: 550px;
+    // height: 220px;
+    min-height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
     margin-left: 3rem;
-    flex-grow: 1;
 
-    @media (max-width: 695px) {
-      width: 100%;
-      margin: 0rem 1em;
-      padding: 0rem 1em;
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 
+
+
+    @media (max-width: 880px) {
+      width: 80%;
+      margin-top: 2rem;
+      margin-left: 0;
+    }
+
+    @media (max-width: 450px) {
+      height: 500px;
+      width: 330px;
+      font-size: 0.8rem;
+      margin-left: 0;
     }
 
     &--label {
       color: vars.$mainColor;
       border-bottom: 1px solid vars.$mainFontGrey;
-      margin-bottom: 1rem;
+      margin: 1rem;
     }
 
     &__item {
       display: flex;
       justify-content: flex-start;
-      margin-bottom: 1rem;
+      margin: 1rem;
 
       &--label {
         width: 6rem;
@@ -280,6 +363,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        margin-left: 1rem;
 
         &--stack {
           padding-right: 0.75rem;
@@ -311,8 +395,7 @@
           flex-wrap: wrap;
           width: 3rem;
           height: 3rem;
-
-          margin-right: 0.5rem;
+          margin-left: 1rem;
         }
       }
     }
@@ -321,7 +404,7 @@
   }
 
   &__buttons {
-    margin-top: 3rem;
+    margin-top: 2.2rem;
     display: flex;
     justify-content: center;
 
@@ -341,6 +424,143 @@
         transition: transform 0.3s;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
+      }
+    }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.profilDev {
+    background: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainBackground;
+      border-bottom: 1px solid vars.$mainFontGrey;
+      background-color: vars.$mainColor;
+    }
+
+    &__header {
+      &__cadre {
+        background-color: vars.$mainBackgroundformDark;
+
+        &--img {}
+      }
+
+
+      &__about {
+        &--favorite {}
+
+        &--label {
+          color: vars.$mainColor;
+          // background-color: red;
+        }
+
+        &--name {
+          color: vars.$mainFontGrey;
+        }
+
+        &--pointer {
+          color: vars.$mainColor;
+        }
+
+        &--city {
+          color: vars.$mainColor;
+        }
+
+        &--profession {
+          color: vars.$secondaryColorDark;
+        }
+
+        &--citation {}
+
+        &--presentation {
+          color: vars.$mainBackgroundClearDark;
+        }
+
+        &__mail {
+          color: vars.$mainFontAnthra;
+
+          &--logo {
+            color: vars.$mainFontSecondaryDark;
+          }
+
+          &--txt {
+            color: vars.$mainFontSecondaryDark;
+          }
+        }
+      }
+    }
+
+    &__informations {
+      &--label {
+        color: vars.$mainColor;
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &__item {
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--black {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--color {
+          color: vars.$secondaryColorDark;
+        }
+      }
+
+      &__disponibility {
+        &--txt {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--logo {}
+      }
+    }
+
+    &__skills {
+      &--label {
+        color: vars.$mainColor;
+        border-bottom: 1px solid vars.$mainFontGrey;
+      }
+
+      &__item {
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--result {
+          &__title {
+            margin-bottom: 1rem;
+          }
+        }
+
+        &--black {}
+
+        &--color {
+          color: vars.$secondaryColorDark;
+
+          &--stack {
+            color: vars.$secondaryColorDark;
+          }
+        }
+
+        &--container {}
+
+        &__logos {
+          &--logo {}
+        }
+      }
+    }
+
+    &__buttons {
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
       }
     }
   }

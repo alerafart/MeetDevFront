@@ -1,6 +1,18 @@
 // == Import npm
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
+// import all avatars
+import { FaGithub } from 'react-icons/fa';
+import manAvatar1 from '../../assets/avatars/avatar_man1.png';
+import manAvatar2 from '../../assets/avatars/avatar_man2.png';
+import manAvatar3 from '../../assets/avatars/avatar_man3.png';
+import manAvatar4 from '../../assets/avatars/avatar_man4.png';
+import womanAvatar1 from '../../assets/avatars/avatar_woman1.png';
+import womanAvatar2 from '../../assets/avatars/avatar_woman2.png';
+import womanAvatar3 from '../../assets/avatars/avatar_woman3.png';
+import womanAvatar4 from '../../assets/avatars/avatar_woman4.png';
+
 // == Import component
 import ModalChooseAvatar from './ModalChooseAvatar';
 import ModalChooseStack from './ModalChooseStack';
@@ -27,6 +39,8 @@ import github from '../../assets/images/github.png';
 import './profildevmodify.scss';
 // == Component
 function ModifyDev() {
+  const data = useSelector((state) => state.profilDevModifyTemp.register);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   // state to know user data
   const data = useSelector((state) => state.profilDevModifyTemp.register);
@@ -79,7 +93,7 @@ function ModifyDev() {
   }
 
   return (
-    <div className="inscription">
+    <div className={isDark ? 'inscription dark' : 'inscription'}>
       {
               displayChooseStackModal && <ModalChooseStack />
             }
@@ -100,19 +114,19 @@ function ModifyDev() {
                 }
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Prénom
           </div>
           <input className="inscription__form__champ--input" type="text" name="firstname" value={data.firstname} onChange={handleChangeForm} />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Nom
           </div>
           <input className="inscription__form__champ--input" type="text" name="lastname" value={data.lastname} onChange={handleChangeForm} />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Ville
           </div>
           <input
@@ -165,45 +179,48 @@ function ModifyDev() {
 
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Tél
           </div>
           <input className="inscription__form__champ--input" type="number" name="phone" value={data.phone} onChange={handleChangeForm} />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Label
           </div>
           <input className="inscription__form__champ--input" type="text" name="label" value={data.label} onChange={handleChangeForm} placeholder="Exemple: Developper Front-end React" />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Description
           </div>
           <textarea className="inscription__form__champ--input" type="text" name="description" value={data.description} onChange={handleChangeForm} placeholder="Petite présentation/introduction sur vous" />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Mail
           </div>
           <input className="inscription__form__champ--input" type="mail" name="email" value={data.email} />
         </div>
         {/* <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ?
+          'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Vérif Mail
           </div>
           <input className="inscription__form__champ--input"
           type="mail" name="emailTest" value={data.emailTest} onChange={handleChangeForm} />
         </div> */}
         {/* <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ?
+          'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Mdp
           </div>
           <input className="inscription__form__champ--input"
           type="password" name="password" value={data.password} o />
         </div> */}
         {/* <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ?
+           'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Vérif Mdp
           </div>
           <input className="inscription__form__champ--input"
@@ -211,7 +228,7 @@ function ModifyDev() {
           value={data.verifpassword} onChange={handleChangeForm} />
         </div> */}
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Anglais
           </div>
           <select value={data.english} type="text" className="inscription__form__champ--input" name="english" onChange={handleChangeForm}>
@@ -222,7 +239,7 @@ function ModifyDev() {
           </select>
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Salaire annuel
           </div>
           <select name="salary" type="number" defaultValue={data.salary} className="inscription__form__champ--input" onChange={handleChangeForm}>
@@ -233,7 +250,7 @@ function ModifyDev() {
           </select>
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Stack
           </div>
           {/* button to open stack modal */}
@@ -253,32 +270,32 @@ function ModifyDev() {
                 </select> */}
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Expérience
           </div>
           <div className="inscription__form__champ--radio" onChange={handleChangeForm}>
-            <label className="inscription__form__champ--radio--item" htmlFor="experience">
+            <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="experience">
               <input type="radio" value="1" name="experience" checked={data.experience === 1} />
               - 1 an
             </label>
-            <label className="inscription__form__champ--radio--item" htmlFor="exp2">
+            <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="exp2">
               <input type="radio" value="2" name="experience" checked={data.experience === 2} />
               1 à 3 ans
             </label>
-            <label className="inscription__form__champ--radio--item" htmlFor="exp3">
+            <label className={isDark ? 'inscription__form__champ--radio--item dark' : 'inscription__form__champ--radio--item'} htmlFor="exp3">
               <input type="radio" name="experience" value="3" checked={data.experience === 3} />
               + 3 ans
             </label>
           </div>
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Age
           </div>
           <input className="inscription__form__champ--input" type="number" name="age" value={data.age} onChange={handleChangeForm} />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Disponibilité
           </div>
           <select defaultValue={data.availability} type="boolean" className="inscription__form__champ--input" name="availability" onChange={handleChangeForm}>
@@ -288,17 +305,20 @@ function ModifyDev() {
           </select>
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
-            <img
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
+            {/* <img
               className="inscription__form__champ--img"
               src={github}
               alt="logo github"
-            />
+            /> */}
+
+            <FaGithub className={isDark ? 'inscription__form__champ--label--img' : 'inscription__form__champ--img'} />
+
           </div>
           <input name="github" value={data.github} className="inscription__form__champ--input" type="text" onChange={handleChangeForm} />
         </div>
         <div className="inscription__form__champ">
-          <div className="inscription__form__champ--label">
+          <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             PortFolio
           </div>
           <input name="portfolio" className="inscription__form__champ--input" type="text" value={data.portfolio} onChange={handleChangeForm} />

@@ -112,3 +112,4 @@ This is a middleware to send a mail to a developper.
 
 1. SEND_MAIL  
 This is a get request via axios with JWT.
+

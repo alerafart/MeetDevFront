@@ -23,6 +23,7 @@ import {
   TOGGLE_WINDOW_LOG_ON,
   CLOSE_COOKIES,
   LOADING,
+  TOGGLE_DARK_MODE,
 
 } from '../actions/settings';
 
@@ -52,11 +53,21 @@ export const initialState = {
     burgerMenuOpen: false,
     burgerLogin: false,
     loading: false,
+    darkMode: false,
   },
 };
 
 const settings = (state = initialState, action = {}) => {
   switch (action.type) {
+    case TOGGLE_DARK_MODE: {
+      return {
+        ...state,
+        navigation: {
+          ...state.navigation,
+          darkMode: !state.navigation.darkMode,
+        },
+      };
+    }
     case LOADING:
       return {
         ...state,
@@ -155,6 +166,7 @@ const settings = (state = initialState, action = {}) => {
       return {
         ...state,
         log: {
+          ...state.log,
           logged: false,
           isDev: false,
           isRecruiter: false,
@@ -166,6 +178,7 @@ const settings = (state = initialState, action = {}) => {
           recruit_id: '',
         },
         navigation: {
+          ...state.navigation,
           windowSendMessage: false, // open Modal Send Message
           windowProfil: false,
           fromSearchRoute: false,
@@ -176,6 +189,7 @@ const settings = (state = initialState, action = {}) => {
           displaySearchCity: false,
           resultSearchCity: [],
           burgerMenuOpen: false,
+          loading: false,
         },
       };
     case IS_DEV:

@@ -4,6 +4,7 @@ transparent 6px;
 $bg:vars.$mainBackground;
 
 .cookies {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -100,6 +101,35 @@ $bg:vars.$mainBackground;
 
   }
 }
+
+.dark {
+  transition: 0.2s;
+
+  &.cookies {
+    background-color: vars.$mainBackgroundDark;
+  }
+
+  &.cookies__title {
+    color: vars.$secondaryColorDark;
+  }
+
+  &.cookies__content {
+    color: vars.$mainFontSecondaryDark;
+  }
+
+  &.cookies__button--agree {
+    // background-color: vars.$mainColorDark;
+    // color: vars.$mainFontSecondaryDark;
+  }
+
+  &.cookies__button--disagree {
+    background-color: vars.$cancelOptionDark;
+    // color: vars.$mainFontSecondaryDark;
+  }
+
+
+}
+
 
 #all {
   top: 13rem;

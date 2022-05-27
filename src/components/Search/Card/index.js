@@ -1,5 +1,6 @@
-// == Import npm
-import { useDispatch } from 'react-redux';
+import './title.scss';
+import { useDispatch, useSelector } from 'react-redux';
+
 import PropTypes from 'prop-types';
 // == Import action creator
 import { setToggleModalProfil } from '../../../actions/settings';
@@ -19,6 +20,7 @@ import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
 function Title({
   user,
 }) {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
 
   // select how avatar to display
@@ -49,7 +51,7 @@ function Title({
   }
   return (
     <div
-      className="result__champ"
+      className={isDark ? 'result__champ dark' : 'result__champ'}
       onClick={() => {
         dispatch(fetchProfileModale(user));
         dispatch(setToggleModalProfil());
@@ -60,7 +62,7 @@ function Title({
         src={avatar}
         alt="avatar"
       />
-      <div className="result__champ--item">
+      <div className={isDark ? 'result__champ--item dark' : 'result__champ--item'}>
         {user.data.firstname} {user.data.lastname}
       </div>
     </div>

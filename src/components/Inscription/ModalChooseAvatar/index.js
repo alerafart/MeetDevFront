@@ -1,9 +1,12 @@
-// == Import npm
-import { useDispatch } from 'react-redux';
+
+import './modalChooseAvatar.scss';
+import { useDispatch, useSelector } from 'react-redux';
+
 // == Import action creator
 import { chooseAvatarModal } from '../../../actions/settings';
 import { selectAvatar } from '../../../actions/formRegisterDev';
 // == Import avatars
+
 import manAvatar1 from '../../../assets/avatars/avatar_man1.png';
 import manAvatar2 from '../../../assets/avatars/avatar_man2.png';
 import manAvatar3 from '../../../assets/avatars/avatar_man3.png';
@@ -16,13 +19,14 @@ import womanAvatar4 from '../../../assets/avatars/avatar_woman4.png';
 import './modalChooseAvatar.scss';
 // == Component
 function ModalChooseAvatar() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
 
   return (
     <div
-      className="chooseAvatarBackground"
+      className={isDark ? 'chooseAvatarBackground dark' : 'chooseAvatarBackground'}
     >
-      <div className="chooseAvatarContainer">
+      <div className={isDark ? 'chooseAvatarContainer dark' : 'chooseAvatarContainer'}>
         <h2 className="chooseAvatarContainer--title">
           Choisissez votre avatar
         </h2>
@@ -101,8 +105,7 @@ function ModalChooseAvatar() {
           />
         </div>
         <div className="chooseAvatarContainer__cancel">
-          {/* button to close avatar modal and cancel avatar in the state */}
-          <button className="chooseAvatarContainer__cancel--button" type="button" onClick={() => dispatch(chooseAvatarModal())}>
+          <button className={isDark ? 'chooseAvatarContainer__cancel--button dark' : 'chooseAvatarContainer__cancel--button'} type="button" onClick={() => dispatch(chooseAvatarModal())}>
             Annuler
           </button>
         </div>

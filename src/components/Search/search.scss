@@ -1,12 +1,22 @@
 @use '../../styles/vars';
 
 .wrapper {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   min-height: 80vh;
   margin: 0 auto;
 }
 
+.dark {
+  transition: 0.2s;
+
+  &.wrapper {
+    background-color: vars.$mainBackgroundDark;
+  }
+}
+
 .banniere {
+  transition: 0.2s;
   color: vars.$mainBackground;
   // color: vars.$mainFontAnthra;
   font-size: 1.5rem;
@@ -20,6 +30,7 @@
 }
 
 .search {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -77,7 +88,8 @@
       height: 45px;
       width: 500px;
       align-items: center;
-      margin: 0 auto 16px;
+      margin: 0 auto 3rem;
+      font-weight: bold;
 
       @media (max-width: 520px) {
         width: 350px;
@@ -130,7 +142,44 @@
 
 }
 
+.dark {
+  transition: 0.2s;
+
+  &.search {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__filter {
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &__champ {
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainBackground;
+        }
+
+        &--radio {
+          &--item {
+            color: vars.$mainFontSecondaryDark;
+          }
+        }
+      }
+    }
+  }
+}
+
 .result {
+  transition: 0.2s;
   margin-top: 2rem;
   display: flex;
   justify-content: flex-start;
@@ -181,4 +230,23 @@
     }
   }
 
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.result {
+    &__champ {
+      border: 2px solid vars.$mainFontAnthra;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      background-color: vars.$mainBackgroundformDark;
+
+      &--img {}
+
+      &--item {
+        color: vars.$mainFontSecondaryDark;
+      }
+    }
+
+  }
 }

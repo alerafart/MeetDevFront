@@ -12,6 +12,7 @@ import './modalLogin.scss';
 function ModalLogin() {
   // state to have data to log user
   const formLogin = useSelector((state) => state.formLogin.login);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
 
   const isVerified = useSelector((state) => state.verifyEmail.emailVerified);
@@ -46,11 +47,11 @@ function ModalLogin() {
 
   return (
     <div
-      className="modalLoginBackground"
+      className={isDark ? 'modalLoginBackground dark' : 'modalLoginBackground'}
     >
-      <div className="modalLoginContainer">
-        <header className="modalLoginContainer__header">
-          <h2 className="modalLoginContainer__header--title">
+      <div className={isDark ? 'modalLoginContainer dark' : 'modalLoginContainer'}>
+        <header className={isDark ? 'modalLoginContainer__header dark' : 'modalLoginContainer__header'}>
+          <h2 className={isDark ? 'modalLoginContainer__header--title dark' : 'modalLoginContainer__header--title'}>
             Bienvenue
           </h2>
           { (hasSlug) && (
@@ -61,7 +62,7 @@ function ModalLogin() {
           <Link to="/">
             {/* button to close login modal */}
             <button
-              className="modalLoginContainer__header--button"
+              className={isDark ? 'modalLoginContainer__header--button dark' : 'modalLoginContainer__header--button'}
               type="button"
               onClick={() => {
                 dispatch(toggleWindowLog());
@@ -77,10 +78,10 @@ function ModalLogin() {
         <form className="modalLoginContainer__form" onChange={handleChangeForm} onSubmit={handleSubmit}>
           <input className="modalLoginContainer__form--login" type="email" placeholder="Email" value={formLogin.email} name="email" />
           <input className="modalLoginContainer__form--password" type="password" placeholder="Mot de passe" name="password" value={formLogin.password} />
-          <p className="modalLoginContainer__form--error">
+          {/* <p className="modalLoginContainer__form--error">
             L'email et/ou le mot de passe sont incorrects
-          </p>
-          <div className="modalLoginContainer__form__remember">
+          </p> */}
+          <div className={isDark ? 'modalLoginContainer__form__remember dark' : 'modalLoginContainer__form__remember'}>
             <input
               className="modalLoginContainer__form__remember--checkbox"
               type="checkbox"
@@ -109,7 +110,7 @@ function ModalLogin() {
           <p className="modalLoginContainer__footer--forget">
             Mot de passe oublié?
           </p>
-          <p className="modalLoginContainer__footer--register">
+          <p className={isDark ? 'modalLoginContainer__footer--register dark' : 'modalLoginContainer__footer--register'}>
             Vous n'êtes pas inscrit? <span> Inscription</span>
           </p>
         </footer>

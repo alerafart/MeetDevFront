@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .modalBackground {
+  transition: 0.2s;
   background-color: rgb(0, 0, 0, 0.7);
   height: 100vh;
   width: 100vw;
@@ -10,10 +11,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 1000;
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.modalBackground {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
 }
 
 .modalContainer {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   border-radius: 0.8rem;
   width: 45rem;
@@ -22,6 +32,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem 2.5rem;
+  z-index: 1001;
 
   @media (max-width: 665px) {
     padding: 1.5rem 0.5rem;
@@ -182,7 +193,7 @@
         margin-top: 0.8rem;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
         overflow-x: auto;
@@ -254,4 +265,71 @@
 
   }
 
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.modalContainer {
+    background-color: vars.$mainBackgroundDark;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
+
+    &__exit {
+      &--button {
+        background-color: vars.$cancelOptionDark;
+        color: vars.$mainBackground;
+      }
+    }
+
+    &__header {
+      border: 1px solid vars.$mainFontGrey;
+
+      &--avatar {}
+    }
+
+    &__main {
+      color: vars.$mainFontAnthra;
+
+      &--left {
+        color: vars.$mainFontSecondaryDark
+      }
+
+      &--right {
+        color: vars.$mainFontSecondaryDark
+      }
+
+      &__profil {
+        border: 1px solid vars.$mainFontGrey;
+
+        &--item {
+          color: vars.$mainFontSecondaryDark;
+
+          &--name {
+            color: vars.$mainColor;
+          }
+
+          &--experience {
+            color: vars.$mainColor;
+          }
+
+          &--adress {
+            color: vars.$mainColor;
+
+            &--icon {}
+          }
+        }
+
+        &--logos {
+          &--logo {}
+        }
+      }
+    }
+
+    &__footer {
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+    }
+  }
 }

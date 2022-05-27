@@ -10,6 +10,7 @@ import './favoris.scss';
 function Favoris() {
   // to display/notDisplay modal profil dev selected
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
 
   // Recup array list of favorites
   const favoritesArray = useSelector(
@@ -17,9 +18,9 @@ function Favoris() {
   );
 
   return (
-    <div className="wrapper">
+    <div className={isDark ? 'wrapper dark' : 'wrapper'}>
       <h2 className="banniere"> Mes profils favoris </h2>
-      <div className="favoris">
+      <div className={isDark ? 'favoris dark' : 'favoris'}>
         {/* {// if click on card, open the modal profile} */}
         {
           modalDev

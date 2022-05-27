@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .contact__form {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -76,5 +77,39 @@
     &:hover {
       font-weight: bold;
     }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.contact__form {
+    background-color: vars.$mainBackgroundDark;
+
+    &--title {
+      color: vars.$mainColor;
+    }
+
+    &--input {
+      background-color: vars.$mainBackground;
+      border: solid 1px vars.$mainColor;
+    }
+
+    &--control {
+      color: vars.$mainFontAnthra;
+    }
+
+    &--button {
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+    }
+
+    &--captcha {
+      color: vars.$mainColor;
+    }
+  }
+
+  &.inscription__form__buttons__button--cancel {
+    background-color: vars.$cancelOptionDark;
   }
 }

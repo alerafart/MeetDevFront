@@ -1,7 +1,7 @@
 @use '../../styles/vars';
 
 .footer {
-
+  transition: 0.2s;
 
   height: 10vh;
   min-height: 75px;
@@ -34,27 +34,63 @@
     width: 12rem;
     text-align: center;
 
-    &--home {
+    /*     &--home {
 
       &:hover {
         transition-duration: 0.3s;
         font-size: 1.3rem;
       }
 
-    }
+    } */
 
     &--contact {
-      &:hover {
-        transition-duration: 0.3s;
-        font-size: 1.3rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+
+      &:after {
+        display: block;
+        content: '';
+        border-bottom: solid 3px vars.$mainColor;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+
+      &fromRight:after {
+        transform-origin: 100% 50%;
+      }
+
+      &fromLeft:after {
+        transform-origin: 0% 50%;
       }
 
     }
 
     &--mention {
-      &:hover {
-        transition-duration: 0.3s;
-        font-size: 1.3rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+
+      &:after {
+        display: block;
+        content: '';
+        border-bottom: solid 3px vars.$mainColor;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+
+      &fromRight:after {
+        transform-origin: 100% 50%;
+      }
+
+      &fromLeft:after {
+        transform-origin: 0% 50%;
       }
 
     }
@@ -94,6 +130,22 @@
       }
     }
   }
+
+
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.footer {
+    // border-top: 2px solid vars.$mainColorDark;
+    background-color: vars.$mainBackgroundDark;
+    color: vars.$secondaryColorDark;
+
+  }
+
+
+
 
 
 }

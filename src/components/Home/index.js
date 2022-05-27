@@ -8,6 +8,7 @@ import { verifyUserEmail, hasSlug } from '../../actions/verifiedEmail';
 import rocket from '../../assets/images/rocket.png';
 
 function Home() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
   // function to select state settings to know if the user is logged or not
   const isLogged = useSelector((state) => state.settings.log.logged);
@@ -35,29 +36,29 @@ function Home() {
       {
       (!isLogged) && (
         <div
-          className="home"
+          className={isDark ? 'home dark' : 'home'}
 
         >
 
-          <div className="home__header">
+          <div className={isDark ? 'home__header dark' : 'home__header'}>
             <img
               className="home__header--img"
               src={rocket}
               alt="maps"
             />
-            <h1 className="home__header--title">Meet Dev</h1>
+            <h1 className={isDark ? 'home__header--title dark' : 'home__header--title'}>Meet Dev</h1>
 
           </div>
-          <p className="home__slogan">Match Your Future Developer</p>
+          <p className={isDark ? 'home__slogan dark' : 'home__slogan'}>Match Your Future Developer</p>
 
           <div className="home__citation">
-            <h2 className="home__citation--citation">
+            <h2 className={isDark ? 'home__citation--citation dark' : 'home__citation--citation'}>
               Shoot for the moon even if you miss you'll land among the stars
             </h2>
-            <p className="home__citation--author">
+            <p className={isDark ? 'home__citation--author dark' : 'home__citation--author'}>
               Oscar Wilde
             </p>
-            <div className="home__citation--iam">
+            <div className={isDark ? 'home__citation--iam dark' : 'home__citation--iam'}>
               Je suis
             </div>
 

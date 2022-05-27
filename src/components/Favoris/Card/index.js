@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 // == Import : npm
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import all avatars and logos
@@ -51,6 +51,7 @@ import './card.scss';
 // == Component
 function Card({ favorite }) {
   const dispatch = useDispatch();
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
   // to display profil Picture on card
   const profilePicture = favorite.data.UserData.profile_picture;
   // technologies(langages) format string
@@ -87,7 +88,7 @@ function Card({ favorite }) {
   }
 
   return (
-    <div className="card">
+    <div className={isDark ? 'card dark' : 'card'}>
       <div className="card__avatar">
 
         {/* display avatar from dev */}
@@ -96,7 +97,7 @@ function Card({ favorite }) {
       {/* Display, fistname, lastname and city from dev on card. */}
       <div className="card__container">
         <h4 className="card__container--name">{favorite.data.UserData.firstname} {favorite.data.UserData.lastname}</h4>
-        <p className="card__container--localisation"><img className="card__container--localisation--icon" src={mapPointer} alt="map pointer" />{favorite.data.UserData.city}</p>
+        <p className={isDark ? 'card__container--localisation dark' : 'card__container--localisation'}><img className="card__container--localisation--icon" src={mapPointer} alt="map pointer" />{favorite.data.UserData.city}</p>
         <div
           className="card__container--experience"
         >
@@ -180,7 +181,7 @@ function Card({ favorite }) {
             dispatch(deleteOneFavorite());
             dispatch(recruiterFavorites());
           }}
-          className="card__button--delete"
+          className={isDark ? 'card__button--delete dark' : 'card__button--delete'}
         >Supprimer
         </button>
       </div>

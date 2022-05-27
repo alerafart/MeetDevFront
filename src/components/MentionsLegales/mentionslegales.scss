@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .mentionslegales {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -23,6 +24,27 @@
     font-style: italic;
     color: vars.$mainColor;
     margin: 1em;
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.mentionslegales {
+    background-color: vars.$mainBackgroundDark;
+
+    &__p {
+      color: white;
+    }
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__subtitle {
+      color: vars.$mainColor;
+    }
+
   }
 }
 

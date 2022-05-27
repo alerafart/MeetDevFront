@@ -338,17 +338,17 @@ function ProfilDev() {
               <div
                 // type="button"
                 className="profilDev__header__about--favorite"
-                // onClick={() => {
-                //   dispatch(addOneFavorite());
-                // }}
+                onClick={() => {
+                  dispatch(addOneFavorite());
+                }}
               >
                 <img
                   src={addfavorites}
                   alt="add favorites"
                   className="profilDev__header__about--favorite"
-                  onClick={() => {
-                    dispatch(addOneFavorite());
-                  }}
+                  // onClick={() => {
+                  //   dispatch(addOneFavorite());
+                  // }}
                 /> Ajouter aux favoris
               </div>
             )

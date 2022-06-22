@@ -1,0 +1,214 @@
+@use '../../styles/vars';
+
+.modalDevContactBackground {
+  background-color: rgb(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark {
+  &.modalDevContactBackground {
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+}
+
+.modalDevContactContainer {
+  // position: relative;
+  // position: fixed;
+  background-color: vars.$mainBackground;
+  border-radius: 0.8rem;
+  width: 45rem;
+  height: 45rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem;
+  z-index: 3;
+
+  @media (max-width: 665px) {
+    padding: 1.5rem 0.5rem;
+    width: 100%;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    border-bottom: 1px solid vars.$mainFontGrey;
+    width: 100%;
+
+    @media (max-width: 500px) {
+      justify-content: space-around;
+    }
+
+
+
+    &--title {
+      color: vars.$mainColor;
+      font-size: 1.5rem;
+    }
+
+    &--button {
+      top: -0.8rem;
+      right: 2rem;
+      position: absolute;
+      border: none;
+      background-color: vars.$cancelOption;
+      padding: 4px 4px;
+      color: vars.$mainBackground;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      width: 2em;
+
+      @media (max-width: 500px) {
+        position: relative;
+        right: 0rem;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+  }
+
+  &__form {
+    padding: 2rem 2rem;
+    width: 100%;
+    // height: 30rem;
+    display: flex;
+    flex-direction: column;
+
+    &--label {
+      padding: 0;
+      text-align: left;
+      color: vars.$mainColor;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &--titre {
+      border: 1px solid vars.$mainFontGrey;
+      ;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+
+      &:focus {
+        border: 2px solid black;
+      }
+    }
+
+    &--message {
+      border: 1px solid vars.$mainFontGrey;
+      ;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      min-height: 20rem;
+      max-height: 20rem;
+      min-width: 100%;
+      max-width: 100%;
+      overflow-y: auto;
+      border-radius: 8px;
+
+    }
+
+    &--connexion {
+      background-color: vars.$mainColor;
+      border: none;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      color: vars.$mainBackground;
+      font-size: 1.2rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+
+
+
+    }
+
+
+  }
+
+}
+
+.dark {
+  &.modalDevContactContainer {
+    // position: relative;
+    background-color: vars.$mainBackgroundformDark;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &__header {
+      border-bottom: 1px solid vars.$mainFontGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--button {
+        background-color: vars.$cancelOption;
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+      }
+    }
+
+    &__form {
+
+      &--label {
+        color: vars.$mainColor;
+      }
+
+      &--titre {
+        background-color: vars.$mainBackgroundClearDark;
+        border: 1px solid vars.$mainFontGrey;
+
+        &:focus {
+          border: 2px solid black;
+        }
+      }
+
+      &--message {
+        background-color: vars.$mainBackgroundClearDark;
+        border: 1px solid vars.$mainFontGrey;
+
+      }
+
+      &--connexion {
+        background-color: vars.$mainColor;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        color: vars.$mainBackground;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,18 @@
-// styles
-import './homerecruiter.scss';
+// == Import npm
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-function HomeRecruiter({
-  setRecruiter, setConnected,
-}) {
+import { useDispatch, useSelector } from 'react-redux';
+import { logged, logout, toggleWindowLog } from '../../../actions/settings';
+// == Import Styles
+import './homerecruiter.scss';
+// == Component
+function HomeRecruiter() {
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
+  const dispatch = useDispatch();
   return (
-    <div className="homerecruiter">
+    <div className={isDark ? 'homerecruiter dark' : 'homerecruiter'}>
       <h3 className="homerecruiter__title">Recruteur</h3>
       <div className="homerecruiter__content">
-        <div className="homerecruiter__dev--content">
+        <div className={isDark ? 'homerecruiter__dev--content dark' : 'homerecruiter__dev--content'}>
           <p>Vous cherchez des développeurs web?</p>
           <p>
             Il n’est pas chose aisé de trouver un développeur qui soit proche de son entreprise,
@@ -31,44 +33,45 @@ function HomeRecruiter({
           </p>
           <p>Vous devenez grâce à Meet Dev un chasseur de tête hors-pair !
           </p>
-          <p className="homerecruiter__slogan">Meet Your Future Developer !</p>
+          <p className={isDark ? 'homerecruiter__slogan dark' : 'homerecruiter__slogan'}>Meet Your Future Developer !</p>
         </div>
       </div>
       <div className="homerecruiter__button">
-        <button
-          type="button"
-          className="homerecruiter__button--inscription"
-        >
-          <Link to="/inscription">Inscription Gratuite</Link>
-        </button>
+        <Link to="/inscription">
+          {/* button to open inscription page */}
+          <button
+            type="button"
+            className="homerecruiter__button--inscription"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            Inscription Gratuite
+          </button>
+        </Link>
+        {/* button to open modal to login */}
         <button
           type="button"
           className="homerecruiter__button--login"
-          onClick={() => setConnected(true)}
+          onClick={() => dispatch(toggleWindowLog(), logged())}
         >
           Connexion
         </button>
-        <button
-          type="button"
-          className="homedeveloper__button--back"
-          onClick={() => setRecruiter(false)}
-        >
-          <Link to="/">Retour</Link>
-        </button>
+        <Link to="/">
+          {/* button to come back at home page and put logout true in state */}
+          <button
+            type="button"
+            className={isDark ? 'homerecruiter__button--back dark' : 'homerecruiter__button--back'}
+            onClick={() => {
+              dispatch(logout());
+              window.scrollTo(0, 0);
+            }}
+          >Retour
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
-
-HomeRecruiter.propTypes = {
-  // connected: PropTypes.bool.isRequired,
-  setConnected: PropTypes.func.isRequired,
-  // developper: PropTypes.bool.isRequired,
-  // setDevelopper: PropTypes.func.isRequired,
-  // recruiter: PropTypes.bool.isRequired,
-  setRecruiter: PropTypes.func.isRequired,
-  // role: PropTypes.string.isRequired,
-  // setRole: PropTypes.func.isRequired,
-};
 
 export default HomeRecruiter;

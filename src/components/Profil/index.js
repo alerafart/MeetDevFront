@@ -1,101 +1,49 @@
-// styles
+// == Import npm
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+// == Import components
+import ProfilDev from '../ProfilDev';
+import ProfilRecruiter from '../ProfilRecruiter';
+// == Import styles
 import './profil.scss';
-import { useState } from 'react';
-import ProfilDevModify from './ProfilDevModify';
-import Agathe from '../../assets/images/agathe-feeling.jpg';
-import html from '../../assets/images/html.png';
-import php from '../../assets/images/php.png';
-import css from '../../assets/images/css.png';
-import js from '../../assets/images/js.png';
-import github from '../../assets/images/github.png';
-import portfolio from '../../assets/images/portfolio.jpg';
 
+// == Component
 function Profil() {
-  const [modifyInformation, setModifyInformation] = useState(false);
+  // state to know if user is dev or recruiter, and is logged or not
+  const isDev = useSelector((state) => state.settings.log.isDev);
+  const isRecruiter = useSelector((state) => state.settings.log.isRecruiter);
+  const logged = useSelector((state) => state.settings.log.logged);
+  // state to know if user come to search route or favorites route
+  const fromSearch = useSelector((state) => state.settings.navigation.fromSearchRoute);
+  const fromFavorites = useSelector((state) => state.settings.navigation.fromFavoritesRoute);
+
+  // infos to transmit if first case:
+  // const dataProfilDev = useSelector((state) => state.profilDev.register);
+  // console.log('profilDEv fiche perso');
+
   return (
     <>
+      {/* [1] If i'm Dev and Logged display ProfilDev
+        in this case i pass the infos to complete the profil from state profilDev
+      */}
       {
-        modifyInformation && <ProfilDevModify setModifyInformation={setModifyInformation} />
+        (isDev && logged) && <ProfilDev />
       }
+      {/* [2] If i'm Recruiter and Logged and come from search or favorites Route display ProfilDev
+       //TODO in this case i pass the infos to complete the profil from state profilSelect?
+      */}
       {
-        !modifyInformation && (
-          <div className="profil">
-            <h2 className="profil__title">
-              Votre Profil
-            </h2>
-            <div className="profil__leftpart">
-              <img
-                className="profil__picture__img"
-                src={Agathe}
-                alt="profil"
-              />
+        ((isRecruiter && logged && (fromSearch || fromFavorites))) && <ProfilDev />
+      }
 
-              <h3 className="profil__informations--name">Agathe Feeling</h3>
-              <p className="profil__informations--localisation">Lyon</p>
+      {/*  If i'm Recruiter and Logged display ProfilRecruiter */}
+      {
+        (isRecruiter && logged && !fromSearch && !fromFavorites) && <ProfilRecruiter />
+      }
 
-              <p className="profil__informations--aboutme">About me</p>
-              <p className="profil__informations--description"> "I gotta feeling WOOHOO"</p>
-              <p className="profil__informations--email">agat.feeling@woohoo.com</p>
-              <p className="profil__informations--phone">0607080910</p>
-            </div>
-
-            <div className="profil__rightpart">
-
-              <div className="profil__informations--checkbox">
-                <label htmlFor="switch" className="switch">
-                  <input type="checkbox" checked />
-                  <span className="slider round" />
-                </label>
-                <p className="profil__informations--visibility">Profil visible</p>
-              </div>
-              <div className="profil__informations--selectedlanguages">
-                <p className="profil__informations--string"> Langages pratiqués </p>
-                <ul className="profil__informations--languages">
-                  <li className="profil__informations--language"><img alt="logo html" src={html} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo php" src={php} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo css" src={css} className="profil__informations--language--picture" /></li>
-                  <li className="profil__informations--language"><img alt="logo js" src={js} className="profil__informations--language--picture" /></li>
-
-                </ul>
-              </div>
-              <div className="profil__informations--experiences">
-                <p className="profil__informations--experience">Expérience</p>
-                <p className="profil__informations--experience">1 à 3 ans</p>
-              </div>
-              <div className="profil__informations--site">
-                <div className="profil__informations__github">
-                  <img
-                    className="profil__informations__github--img"
-                    src={github}
-                    alt="github logo"
-                  />
-                  <p className="profil__informations__github--link"><a htmlFor="link" target="blank" href="github.com/agathe-feeling/">github.com/agathe-feeling/</a></p>
-                </div>
-                <div className="profil__informations__othersite">
-                  <img
-                    className="profil__informations__othersite--img"
-                    src={portfolio}
-                    alt="portfolio logo"
-                  />
-                  <p className="profil__informations__othersite--link"><a htmlFor="link" target="blank" href="agathe-feeling.fr">agathe-feeling.fr</a></p>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="profil__modify">
-
-              <button
-                className="profil__modify__form"
-                type="button"
-                onClick={() => setModifyInformation(true)}
-              >
-                Modifier
-              </button>
-
-            </div>
-          </div>
-        )
+      {/* if i'm not logged and dev or recruiter return to home  */}
+      {
+        !((isDev || isRecruiter) && logged) && <Navigate to="/" />
       }
     </>
 

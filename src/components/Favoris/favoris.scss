@@ -1,10 +1,34 @@
 @use '../../styles/vars';
 
+.wrapper {
+    transition: 0.2s;
+    min-height: 80vh;
+}
+
+.dark {
+    transition: 0.2s;
+
+    &.wrapper {}
+}
+
+.banniere {
+    color: vars.$mainBackground;
+    // color: vars.$mainFontAnthra;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    border-bottom: 1px solid vars.$mainFontGrey;
+    background-color: vars.$mainColor;
+}
+
 .favoris {
+    transition: 0.2s;
     background-color: vars.$mainBackground;
     margin: 0 auto;
     padding: 1em 3em;
-    min-height: 80vh;
+    // min-height: 80vh;
 
     @media (max-width: 768px) {
         padding: 1em 1em;
@@ -25,7 +49,7 @@
 
     &__card {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
 
         @media (max-width: 767px) {
@@ -39,5 +63,19 @@
         }
 
 
+    }
+}
+
+.dark {
+    transition: 0.2s;
+
+    &.favoris {
+        background-color: vars.$mainBackgroundDark;
+
+        &__title {
+            color: vars.$mainColor;
+        }
+
+        &__card {}
     }
 }

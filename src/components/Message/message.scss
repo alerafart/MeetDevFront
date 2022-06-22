@@ -1,0 +1,43 @@
+@use '../../styles/vars';
+
+.messageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.message {
+  position: fixed;
+  text-align: center;
+  top: -8rem;
+  border: none;
+  background-color: rgb(163, 235, 163);
+  color: vars.$mainColor;
+  padding: 12px 3rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: all 0.4s;
+  z-index: 3000;
+
+  &.show {
+    top: 7rem;
+
+  }
+}
+
+.messageEchec {
+  position: absolute;
+  text-align: center;
+  top: -8rem;
+  border: none;
+  background-color: rgb(233, 150, 150);
+  color: vars.$cancelOptionDark;
+  padding: 12px 3rem;
+  border-radius: 8px;
+  transition: all 0.4s;
+  margin: 0 auto;
+  z-index: 3000;
+
+  &.show {
+    top: 7rem;
+  }
+}

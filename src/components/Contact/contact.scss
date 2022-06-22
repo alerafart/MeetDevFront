@@ -1,6 +1,7 @@
 @use '../../styles/vars';
 
 .contact__form {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -48,20 +49,67 @@
   }
 
   &--button {
-    margin-top: 0.5rem;
     border: none;
     background-color: vars.$mainColor;
     color: vars.$mainBackground;
-    padding: 0.8rem 3rem;
+    padding: 12px 3rem;
     border-radius: 8px;
     font-size: 1.2rem;
-    width: 100%;
+    transition: transform 0.3s;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
 
-    &:hover,
-    &:focus {
-      background-color: vars.$mainBackground;
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+    }
+  }
+
+  &--captcha {
+    text-align: center;
+    color: vars.$mainColor;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.contact__form {
+    background-color: vars.$mainBackgroundDark;
+
+    &--title {
       color: vars.$mainColor;
+    }
+
+    &--input {
+      background-color: vars.$mainBackground;
       border: solid 1px vars.$mainColor;
     }
+
+    &--control {
+      color: vars.$mainFontAnthra;
+    }
+
+    &--button {
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+    }
+
+    &--captcha {
+      color: vars.$mainColor;
+    }
+  }
+
+  &.inscription__form__buttons__button--cancel {
+    background-color: vars.$cancelOptionDark;
   }
 }

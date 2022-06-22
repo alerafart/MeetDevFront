@@ -1,0 +1,639 @@
+@use '../../styles/vars';
+
+.inscription {
+  background-color: vars.$mainBackground;
+  margin: 0 auto;
+  padding: 1em 3em;
+  min-height: 80vh;
+  // overflow: hidden;
+
+
+  @media (max-width: 1000px) {
+    padding: 1em 2em;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1em 1em;
+  }
+
+  @media (max-width: 500px) {
+    padding: 1em 0em;
+  }
+
+  &__title {
+    width: 100%;
+    height: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+
+  &__header {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    text-align: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 7.5rem;
+    border: 1px solid vars.$mainColor;
+
+    &--avatar {
+      width: 90%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__avatarContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 15rem;
+
+      & img {
+        width: 7rem;
+        margin-bottom: 1rem;
+      }
+
+      & button {
+        border: none;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        padding: 8px 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s;
+        margin-bottom: 1rem;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+    }
+
+    // TODO to delete
+    &--picture {
+      // width: 50%;
+      // display: flex;
+      // align-items: center;
+
+
+      // &--img {
+      //   width: 80px;
+      //   padding-left: 10px;
+      // }
+
+      // &--left {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 26%;
+      //   margin-bottom: 16px;
+
+      //   @media (max-width: 767px) {
+      //     width: 40%;
+      //   }
+
+      // }
+
+      // &--right {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 30%;
+      //   margin-bottom: 16px;
+
+      //   @media (max-width: 767px) {
+      //     width: 30%;
+      //   }
+
+      // }
+    }
+
+    &__champ {
+      position: relative;
+      width: 50%;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+
+
+
+      &__searchCity {
+        position: absolute;
+        z-index: 3;
+        height: 90px;
+        width: 300px;
+        bottom: -5rem;
+        background-color: white;
+        border: 1px solid vars.$mainFontGrey;
+        border-radius: 4px;
+        // width: 80rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        &--item {
+
+          &:hover {
+            color: vars.$mainColor;
+          }
+        }
+      }
+
+
+      &--radio {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &--item {
+          color: vars.$mainFontSecondaryDark;
+        }
+      }
+
+      &--label {
+        &--img {}
+
+        width: 6.25rem;
+
+      }
+
+      &__searchCity {
+
+        &--input {
+          width: 60%;
+          height: 100%;
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+          border-radius: 8px;
+        }
+      }
+
+      &--input {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainColor;
+        padding: 0 1rem vars.$mainFontGrey;
+        background-color: vars.$mainBackground;
+        border-radius: 8px;
+      }
+
+      &--stack {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainColor;
+        padding: 0 1rem;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        border-radius: 8px;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+      }
+
+      &--img {
+        width: 3.5rem;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: 375px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__button {
+
+
+        &--valid {
+          border: none;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+          padding: 12px 3rem;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+          margin-right: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 1rem;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+          }
+        }
+
+        &--cancel {
+          border: none;
+          background-color: vars.$cancelOption;
+          color: vars.$mainBackground;
+          padding: 12px 3rem;
+          border-radius: 8px;
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+          margin-right: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 1rem;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+          }
+        }
+
+
+
+      }
+    }
+
+
+  }
+
+}
+
+.dark {
+  &.inscription {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+    }
+
+    &__form {
+
+      &__avatarContainer {
+
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+      }
+
+      // TODO to delete
+      &--picture {
+        // width: 50%;
+        // display: flex;
+        // align-items: center;
+
+
+        // &--img {
+        //   width: 80px;
+        //   padding-left: 10px;
+        // }
+
+        // &--left {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   width: 26%;
+        //   margin-bottom: 16px;
+
+        //   @media (max-width: 767px) {
+        //     width: 40%;
+        //   }
+
+        // }
+
+        // &--right {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   width: 30%;
+        //   margin-bottom: 16px;
+
+        //   @media (max-width: 767px) {
+        //     width: 30%;
+        //   }
+
+        // }
+      }
+
+      &__champ {
+
+        &__searchCity {
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+
+        &--radio {
+
+          &--item {}
+        }
+
+        &--label {
+          &--img {
+            // background-color: red;
+          }
+        }
+
+        &__searchCity {
+
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+        }
+
+        &--stack {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+
+        &__button {
+
+
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOption;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// .profilDevModify {
+//   background-color: vars.$mainBackground;
+//   margin: 0 auto;
+//   padding: 1em 3em;
+//   min-height: 80vh;
+
+//   @media (max-width: 768px) {
+//     padding: 1em 1em;
+//   }
+
+//   @media (max-width: 570px) {
+//     padding: 1em 0em;
+//   }
+
+//   &__title {
+//     margin: 1rem auto;
+//     text-align: center;
+//     font-size: 1.5rem;
+//     font-weight: bold;
+//     color: vars.$mainColor;
+//   }
+
+//   &__header {
+//     height: 10rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 1rem auto;
+//     text-align: center;
+//     width: 7.5rem;
+//     height: 7.5rem;
+//     border-radius: 7.5rem;
+//     border: 1px solid vars.$mainFontGrey;
+
+//     &--avatar {
+//       width: 90%;
+//     }
+//   }
+
+//   &__form {
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+
+//     // to choose the sex of the user with radio button
+//     &--picture {
+//       width: 50%;
+//       display: flex;
+//       align-items: center;
+
+
+//       &--img {
+//         width: 80px;
+//         padding-left: 10px;
+//       }
+
+//       &--left {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: 26%;
+//         margin-bottom: 16px;
+
+//         @media (max-width: 570px) {
+//           width: 30%;
+//         }
+
+//       }
+
+//       &--right {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         width: 26%;
+//         margin-bottom: 16px;
+
+//         @media (max-width: 570px) {
+//           width: 30%;
+//         }
+
+//       }
+//     }
+
+//     &__champ {
+//       width: 50%;
+//       height: 3rem;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       margin-bottom: 1rem;
+
+//       @media (max-width: 768px) {
+//         width: 100%;
+//       }
+
+//       &--radio {
+//         width: 60%;
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+
+//         &--item {}
+//       }
+
+//       &--label {
+//         width: 6.25rem;
+
+//       }
+
+//       &--input {
+//         width: 60%;
+//         height: 100%;
+//         border: 2px solid vars.$mainFontGrey;
+//         padding: 0 1rem;
+//         background-color: vars.$mainBackground;
+
+//         &:focus {
+//           box-shadow: 0 0 0 3px vars.$mainColor;
+//           ;
+//         }
+
+//       }
+
+//       &--img {
+//         width: 3.5rem;
+//       }
+//     }
+
+//     &__buttons {
+//       @media (max-width: 385px) {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//       }
+
+
+//       &__button {
+
+
+//         &--valid {
+//           border: none;
+//           background-color: vars.$mainColor;
+//           color: vars.$mainBackground;
+//           padding: 12px 3rem;
+//           border-radius: 8px;
+//           font-size: 1.2rem;
+//           transition: transform 0.3s;
+//           margin-right: 2rem;
+//           margin-left: 2rem;
+//           margin-bottom: 1rem;
+
+//           @media (max-width: 500px) {
+//             margin-right: 1rem;
+//             margin-left: 1rem;
+//           }
+
+//           &:hover {
+//             transform: scale(1.1);
+//             transition: transform 0.3s;
+//             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+//           }
+//         }
+
+//         &--cancel {
+//           border: none;
+//           background-color: vars.$cancelOption;
+//           color: vars.$mainBackground;
+//           padding: 12px 3rem;
+//           border-radius: 8px;
+//           font-size: 1.2rem;
+//           transition: transform 0.3s;
+//           margin-right: 2rem;
+//           margin-left: 2rem;
+//           margin-bottom: 1rem;
+
+//           @media (max-width: 500px) {
+//             margin-right: 1rem;
+//             margin-left: 1rem;
+//           }
+
+//           &:hover {
+//             transform: scale(1.1);
+//             transition: transform 0.3s;
+//             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+//           }
+//         }
+
+
+
+//       }
+//     }
+
+
+//   }
+
+// }

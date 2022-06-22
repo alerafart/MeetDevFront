@@ -1,9 +1,10 @@
 @use '../../styles/vars';
 
 .about {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
-  padding: 1em 3em;
+  padding: 1rem 0rem;
   min-height: 80vh;
   max-height: 80vh;
   overflow-y: scroll;
@@ -18,7 +19,8 @@
   }
 
   &__philosophy {
-    padding: 0 2em;
+    margin: 0 1rem;
+    border-top: 2px solid vars.$mainFontGrey;
 
 
     &--title {
@@ -27,18 +29,19 @@
       font-weight: bold;
       font-style: italic;
       color: vars.$mainColor;
-      margin: 1em 0;
+      margin: 2rem 0 2rem;
     }
 
     &--content {
       text-align: center;
-      padding: 0 3em;
+      // padding: 0 3em;
       font-style: italic;
     }
   }
 
   &__dev {
-    padding: 0 2em;
+    margin: 1rem 1rem 0;
+    border-top: 2px solid vars.$mainFontGrey;
 
 
     &--title {
@@ -47,18 +50,19 @@
       font-weight: bold;
       font-style: italic;
       color: vars.$mainColor;
-      margin: 2em 0 1em;
+      margin: 2rem 0em 2rem;
     }
 
     &--content {
       text-align: center;
-      padding: 0 3em;
+      // padding: 0 3em;
       font-style: italic;
     }
   }
 
   &__recruiter {
-    padding: 0 2em;
+    margin: 1.5rem 1rem;
+    border-top: 2px solid vars.$mainFontGrey;
 
     &--title {
       text-align: center;
@@ -66,12 +70,12 @@
       font-weight: bold;
       font-style: italic;
       color: vars.$mainColor;
-      margin: 2em 0 1em;
+      margin: 2rem 0 2rem;
     }
 
     &--content {
       text-align: center;
-      padding: 0 3em;
+      padding: 0 0rem;
       font-style: italic;
     }
   }
@@ -81,11 +85,14 @@
     font-size: 1.1rem;
     font-weight: bold;
     color: vars.$mainFontAnthra;
+    padding: 0 0 1rem;
+    margin: 0;
   }
 
   &__us {
     text-align: center;
-    padding: 0 2em;
+    margin: 1.5rem 1rem;
+    border-top: 2px solid vars.$mainFontGrey;
 
     &--title {
       text-align: center;
@@ -93,7 +100,7 @@
       font-weight: bold;
       font-style: italic;
       color: vars.$mainColor;
-      margin: 2em 0 1em;
+      margin: 2rem 0 2rem;
     }
 
     &--content {
@@ -101,12 +108,12 @@
       font-style: italic;
     }
 
-    &--cards {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      padding: 1rem;
-    }
+    // &--cards {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: space-around;
+    //   padding: 1rem;
+    // }
 
     &--container {
       background-color: vars.$mainBackground;
@@ -120,14 +127,144 @@
         margin-bottom: 0.5rem;
       }
 
-      &--role {
-        padding: 0.5rem;
-      }
+      // &--role {
+      //   padding: 0.5rem;
+      // }
 
       &--photo {
         padding: 0.5rem;
 
       }
+    }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.about {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+      // border-top: 2px solid vars.$mainDarkGrey;
+    }
+
+    &__philosophy {
+      border-top: 2px solid vars.$mainDarkGrey;
+
+      &--title {
+        color: vars.$mainColor;
+
+      }
+
+      &--content {}
+    }
+
+    &__dev {
+      border-top: 2px solid vars.$mainDarkGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--content {}
+    }
+
+    &__recruiter {
+      border-top: 2px solid vars.$mainDarkGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--content {}
+    }
+
+    &__slogan {
+      color: vars.$secondaryColorDark;
+    }
+
+    &__us {
+      border-top: 2px solid vars.$mainDarkGrey;
+
+      &--title {
+        color: vars.$mainColor;
+      }
+
+      &--content {}
+
+      &--cards {
+        &--container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-color: vars.$mainBackground;
+
+          &--name {
+            color: vars.$mainFontAnthra;
+          }
+
+          &--role {}
+
+          &--photo {
+            padding: 0.5rem;
+          }
+        }
+      }
+
+
+    }
+  }
+}
+
+.darkP {
+  color: vars.$mainFontSecondaryDark;
+  padding: 0;
+}
+
+.lightP {
+  padding: 0;
+}
+
+.about__us--cards {
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media (max-width: 870px) {
+    flex-direction: column;
+  }
+
+  &--container {
+    display: flex;
+    width: 18%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: vars.$mainBackground;
+    margin-bottom: 1rem;
+
+    @media (max-width: 870px) {
+      width: 20rem;
+    }
+
+    &--name {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: vars.$mainFontAnthra;
+    }
+
+    &--role {
+      padding: 0 0;
+      margin-bottom: 0.5rem;
+    }
+
+    &--photo {
+      padding: 0.5rem;
     }
   }
 }

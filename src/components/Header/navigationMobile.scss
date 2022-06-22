@@ -1,0 +1,89 @@
+@use '../../styles/vars';
+
+.navigationMobile {
+  position: relative;
+  transition: 0.2s;
+  height: 10vh;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: vars.$mainBackground;
+  padding: 1rem 3rem;
+  border-bottom: 2px solid vars.$mainColor;
+
+  @media (max-width: 500px) {
+    padding: 1rem 1rem;
+  }
+
+  &__burger {
+    color: vars.$mainColor;
+    font-size: 3rem;
+    cursor: pointer;
+
+  }
+
+  &__header {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &__dark {
+      &__darkMod {
+        color: vars.$mainColorDark;
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+
+
+    &--img {
+      width: 35px;
+      transform: rotate(45deg);
+      display: block;
+      padding-right: 0.5rem;
+
+      @media (max-width: 380px) {
+        display: none;
+      }
+    }
+
+    &--title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: vars.$mainColor;
+      text-align: center;
+
+      @media (max-width: 500px) {
+        // font-size: 1.5rem;
+      }
+
+    }
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.navigationMobile {
+    background-color: vars.$mainBackgroundDark;
+    border-bottom: 2px solid vars.$mainColor;
+
+    &__burger {
+      color: vars.$secondaryColorDark;
+    }
+  }
+
+}

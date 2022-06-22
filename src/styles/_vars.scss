@@ -3,8 +3,21 @@ $smallMenuWidth: 150px;
 $small: 700px;
 $gutter: 1.5rem;
 // $halfGutter: math.div($gutter, 2);
-$mainColor: #1aae9f;
+$mainColor: rgb(26, 174, 159);
+$mainDarkGrey: rgb(66, 65, 65);
 $mainFontAnthra: #011736;
 $mainFontGrey: #d3d3d3;
 $mainBackground: white;
 $cancelOption: crimson;
+
+//DARK MODE
+$mainColorDark: #01a7a4;
+$secondaryColorDark: #2cbacf;
+$mainFontAnthraDark: #fff;
+$mainFontSecondaryDark: #C9D6E1;
+// $mainFontGrey: #d3d3d3;
+$mainBackgroundDark: #192B3C;
+$mainBackgroundformDark: #21374A;
+$mainBackgroundClearDark: #c5d2dd;
+$cancelOptionDark: #B91A43;
+$cancelOptionDark: rgb(209, 56, 87);

@@ -1,48 +1,67 @@
-// styles
-import './favoris.scss';
-import { useState } from 'react';
-import FavorisDetail from './FavorisDetail';
+// == Import : npm
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+// Import component
+import ModalProfil from '../ModalProfil';
 import Card from './Card';
-<<<<<<< HEAD
+// == Import styles
+import './favoris.scss';
 
+// == Component
 function Favoris() {
-  const [favorisDetail, setFavorisDetail] = useState(false);
-=======
-import { setFromFavoritesRoute } from '../../actions/settings';
-import { recruiterFavorites } from '../../actions/middleware';
-
-function Favoris() {
+  // to display/notDisplay modal profil dev selected
   const modalDev = useSelector((state) => state.settings.navigation.windowProfil);
-  const dispatch = useDispatch();
+  const isDark = useSelector((state) => state.settings.navigation.darkMode);
+  const logged = useSelector((state) => state.settings.log.logged);
 
-  useEffect(() => {
-    dispatch(setFromFavoritesRoute());
-    dispatch(recruiterFavorites());
-  });
+  // Recup array list of favorites
+  const favoritesArray = useSelector(
+    (state) => state.favorites.favorites.listFavorites,
+  );
 
->>>>>>> redux-store
   return (
     <>
+      { /* if i'm not logged return to home  */ }
       {
-        favorisDetail && <FavorisDetail setFavorisDetail={setFavorisDetail} />
-      }
-      {
-        !favorisDetail && (
-          <div className="favoris">
-            <h1 className="favoris__title"> Mes profils favoris </h1>
-            <div className="favoris__card">
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
-              <Card setFavorisDetail={setFavorisDetail} />
+          !logged && (<Navigate to="/" />)
+        }
+      <div className={isDark ? 'wrapper dark' : 'wrapper'}>
+        <h2 className="banniere"> Mes profils favoris </h2>
+        <div className={isDark ? 'favoris dark' : 'favoris'}>
+          {/* {// if click on card, open the modal profile} */}
+          {
+            modalDev
+            && (
+            <ModalProfil />
+            )
+          }
 
-            </div>
+          <div className="favoris__card">
+            { // display all favorites cards
+              favoritesArray?.map(
+                (favorite) => (
+
+                  <Card favorite={favorite} key={favorite.data.id} />
+
+                ),
+              )
+            }
           </div>
-        )
-      }
+        </div>
+
+      </div>
+
     </>
+
   );
 }
+
+// Card.propTypes = {
+//   favorite: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//     }).isRequired,
+//   ).isRequired,
+// };
 
 export default Favoris;

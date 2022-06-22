@@ -1,10 +1,16 @@
 @use '../../../styles/vars';
 
 .homerecruiter {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
+  overflow: hidden;
+  background-image: url('../../../assets/images/backgroundMain.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 150%;
 
   &__title {
     margin: 1rem auto;
@@ -44,6 +50,10 @@
       margin-bottom: 1.5rem;
       min-width: 17rem;
       max-width: 17rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       &:hover {
         transform: scale(1.1);
@@ -96,6 +106,41 @@
   }
 }
 
+.dark {
+  transition: 0.2s;
+
+  &.homerecruiter {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__content {}
+
+    &__slogan {
+      color: vars.$mainFontAnthra;
+    }
+
+    &__button {
+      &--login {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--inscription {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--back {
+        background-color: vars.$cancelOptionDark;
+        color: vars.$mainBackground;
+      }
+    }
+  }
+}
+
 p {
   margin-bottom: 1.7rem;
 }
@@ -109,4 +154,14 @@ p {
 .homerecruiter__dev--content p {
   padding: 0;
   max-width: 50rem;
+}
+
+.dark {
+  &.homerecruiter__dev--content {
+    color: vars.$mainFontSecondaryDark;
+  }
+
+  &.homerecruiter__slogan {
+    color: vars.$mainColor;
+  }
 }

@@ -1,6 +1,7 @@
 @use '../../../styles/vars';
 
 .homedeveloper {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
@@ -44,6 +45,10 @@
       margin-bottom: 1.5rem;
       min-width: 17rem;
       max-width: 17rem;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       &:hover {
         transform: scale(1.1);
@@ -96,6 +101,52 @@
   }
 }
 
+.dark {
+  transition: 0.2s;
+
+  &.homedeveloper {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__dev--content {
+      & p {
+        color: vars.$mainFontSecondaryDark;
+      }
+
+      & .homedeveloper__slogan {
+        color: vars.$mainColorDark;
+      }
+
+      // padding: 0em 3em;
+    }
+
+
+    &__button {
+      &--login {
+
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--inscription {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+
+      &--back {
+        background-color: vars.$cancelOptionDark;
+        color: vars.$mainBackground;
+
+      }
+    }
+  }
+}
+
+
+
 p {
   margin-bottom: 1.7rem;
 }
@@ -105,6 +156,15 @@ p {
   flex-direction: column;
   align-items: center;
 }
+
+.homedeveloper__dev--content .dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: vars.$mainFontSecondaryDark;
+}
+
+
 
 .homedeveloper__dev--content p {
   padding: 0;

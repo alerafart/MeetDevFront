@@ -5,6 +5,8 @@
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
+  // overflow: hidden;
+
 
   @media (max-width: 1000px) {
     padding: 1em 2em;
@@ -17,6 +19,7 @@
   @media (max-width: 500px) {
     padding: 1em 0em;
   }
+
 
   &__title {
     width: 100%;
@@ -38,7 +41,7 @@
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 7.5rem;
-    border: 1px solid vars.$mainFontGrey;
+    border: 1px solid vars.$mainColor;
 
     &--avatar {
       width: 90%;
@@ -50,46 +53,40 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    // to choose the sex of the user with radio button
-    &--picture {
-      width: 50%;
+    &__avatarContainer {
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 15rem;
 
-
-      &--img {
-        width: 80px;
-        padding-left: 10px;
+      & img {
+        width: 7rem;
+        margin-bottom: 1rem;
       }
 
-      &--left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 26%;
-        margin-bottom: 16px;
+      & button {
+        border: none;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        padding: 8px 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s;
+        margin-bottom: 1rem;
 
-        @media (max-width: 767px) {
-          width: 40%;
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
       }
 
-      &--right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30%;
-        margin-bottom: 16px;
-
-        @media (max-width: 767px) {
-          width: 30%;
-        }
-
-      }
     }
 
+
     &__champ {
+      position: relative;
       width: 50%;
       height: 3rem;
       display: flex;
@@ -101,6 +98,40 @@
         width: 100%;
       }
 
+      &__searchCity {
+        position: absolute;
+        z-index: 3;
+        height: 90px;
+        width: 300px;
+        bottom: -5rem;
+        background-color: white;
+        border: 1px solid vars.$mainFontGrey;
+        border-radius: 4px;
+        // width: 80rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        &--item {
+
+          &:hover {
+            color: vars.$mainColor;
+          }
+        }
+      }
+
+      &__searchCity {
+
+        &--input {
+          width: 60%;
+          height: 100%;
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+          border-radius: 8px;
+        }
+      }
 
       &--radio {
         width: 60%;
@@ -112,21 +143,57 @@
       }
 
       &--label {
-        width: 6.25rem;
+        & svg {
+          width: 2.5rem;
+          height: 2.5rem;
+          // color: white;
+        }
 
+        &--img {
+          // width: 6.25rem;
+
+        }
       }
 
       &--input {
         width: 60%;
         height: 100%;
-        border: 2px solid vars.$mainFontGrey;
+        border: 2px solid vars.$mainColor;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
+        border-radius: 8px;
+      }
+
+      &--error {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainColor;
+        padding: 0 1rem vars.$mainFontGrey;
+        background-color: vars.$mainBackground;
+        border-radius: 8px;
+        border: solid 2px rgb(207, 0, 15);
+        background-color: rgba(207, 0, 15, 0.1);
+      }
+
+      &--stack {
+        width: 60%;
+        height: 100%;
+        border: 2px solid vars.$mainColor;
+        padding: 0 1rem;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        border-radius: 8px;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
       }
 
       &--img {
-        width: 3.5rem;
+        width: 12rem;
       }
     }
 
@@ -190,4 +257,120 @@
 
   }
 
+}
+
+.dark {
+  &.inscription {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+    }
+
+    &__form {
+      &__avatarContainer {
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+      &__champ {
+        &__searchCity {
+          background-color: white;
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+        &__searchCity {
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--radio {
+          &--item {
+            color: vars.$mainFontSecondaryDark;
+          }
+        }
+
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+
+          & svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: white;
+          }
+
+          &--img {
+            // width: 6.25rem;
+            color: white;
+
+          }
+        }
+
+
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+        }
+
+        &--stack {
+          border: 2px solid vars.$mainColor;
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+
+          &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+        &__button {
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOption;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
 }

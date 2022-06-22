@@ -1,0 +1,272 @@
+@use '../../../styles/vars';
+
+.detailProfil {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  color: vars.$mainFontAnthra;
+
+  @media (max-width: 768px) {
+    padding: 1em 1em;
+    width: auto;
+  }
+
+  @media (max-width: 550px) {
+    padding: 1em 0em;
+  }
+
+  &__title {
+    width: 100%;
+    height: 2rem;
+    // margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: vars.$mainColor;
+  }
+}
+
+.LeftProfilContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  &__avatar {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &--img {
+      width: 280px;
+    }
+  }
+
+  &__champ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &--title {
+      margin-top: 0.8rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &__ville {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+
+      &--icon {
+        width: 1.5rem;
+      }
+
+      &--name {
+        font-size: 1.5rem;
+      }
+
+    }
+
+    &--about {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    &--citation {
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    &--email {
+      margin-top: 1.4rem;
+      font-size: 1.2rem;
+      padding: 0rem 0rem;
+    }
+
+    &--phone {
+      font-size: 1.5rem;
+      margin-top: 1.4rem;
+      padding: 0rem 0rem;
+    }
+
+  }
+
+}
+
+.RightProfilContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  &__champ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    &__disponibility {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+
+      &--logo {
+        width: 25px;
+        margin: 0 1rem;
+      }
+
+    }
+
+    &--langages {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    &__logos {
+      margin-top: 1rem;
+      width: 100%;
+      display: flex;
+      padding: 0 5rem;
+      justify-content: space-evenly;
+      align-items: center;
+
+
+      &--logo {
+        width: 45px;
+      }
+    }
+
+    &--experience {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    &--experienceResponse {
+      font-size: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    &__langue {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--logo {
+        width: 65px;
+      }
+
+      &--txt {
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    &__github {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--logo {
+        width: 65px;
+      }
+
+      &--link {
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    &--portfolio {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    &--portfolioLink {
+
+      margin-top: 0.3rem;
+      font-size: 1.2rem;
+    }
+
+
+
+  }
+}
+
+.footerProfilContainer {
+  margin-top: 8rem;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    margin-top: 3rem;
+  }
+
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    @media (max-width: 1024px) {
+      padding: 0 1em;
+    }
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 550px) {
+      padding: 0 0em;
+    }
+
+    &--button {
+
+      border: none;
+      background-color: vars.$mainColor;
+      color: vars.$mainBackground;
+      padding: 12px 3rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+
+      min-width: 16rem;
+      max-width: 16rem;
+
+      @media (max-width: 1000px) {
+        margin-bottom: 2rem;
+      }
+
+      &:last-child {
+
+        background-color: vars.$cancelOption;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+  }
+}

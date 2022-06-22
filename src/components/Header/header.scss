@@ -1,6 +1,14 @@
 @use '../../styles/vars';
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
 .header {
+  transition: 0.2s;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +18,10 @@
   padding: 0 3rem;
   color: vars.$mainColor;
   background-color: vars.$mainBackground;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   @media (max-width: 650px) {
     padding: 0 1rem;
@@ -21,7 +33,32 @@
   }
 
   &__enSavoirPlus {
-    font-size: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 16rem;
+
+    &--link:after {
+      display: block;
+      content: '';
+      border-bottom: solid 3px vars.$mainColor;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &--link:hover:after {
+      transform: scaleX(1);
+    }
+
+    &fromRight:after {
+      transform-origin: 100% 50%;
+    }
+
+    &fromLeft:after {
+      transform-origin: 0% 50%;
+    }
   }
 
   &__logo {
@@ -36,8 +73,8 @@
     }
 
     &--img {
-      width: 35px;
       transform: rotate(45deg);
+      width: 28px;
       display: block;
       padding-right: 0.5rem;
 
@@ -52,15 +89,54 @@
   &__menu {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: vars.$mainFontAnthra;
     // display: none;
 
+    &__clearModeIcon {
+      margin-left: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     &--item {
-      padding: 0 0.3rem;
-      font-size: 1.2rem;
+      margin: 0 0.6rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-bottom: transparent 3px solid;
+
+      &:after {
+        display: block;
+        content: '';
+        border-bottom: solid 3px vars.$mainColor;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+      }
+
+      &fromRight:after {
+        transform-origin: 100% 50%;
+      }
+
+      &fromLeft:after {
+        transform-origin: 0% 50%;
+      }
+    }
+
+    &--item .active {
+      border-bottom: vars.$mainColor 3px solid;
     }
   }
+
+
+
 
   &__button {
     border: none;
@@ -73,7 +149,7 @@
     min-width: 12rem;
 
     @media (max-width: 550px) {
-      margin-top: 1rem;
+      margin-bottom: 0.1rem;
     }
 
     &:hover {
@@ -81,6 +157,49 @@
       transition: transform 0.3s;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
+    }
+  }
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.header {
+    border-bottom: 2px solid vars.$mainColorDark;
+    color: vars.$secondaryColorDark;
+    background-color: vars.$mainBackgroundDark;
+
+    &__enSavoirPlus {}
+
+    &__logo {
+      &--img {}
+    }
+
+    &__menu {
+      color: vars.$mainFontAnthraDark;
+
+      &__clearModeIcon {
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      & svg {
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      &--item {}
+
+      &--item .active {
+        border-bottom: vars.$mainColorDark 3px solid;
+      }
+    }
+
+    &__button {
+      background-color: vars.$mainColorDark;
+      color: vars.$mainBackgroundDark;
     }
   }
 }

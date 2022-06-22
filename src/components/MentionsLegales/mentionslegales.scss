@@ -1,9 +1,10 @@
 @use '../../styles/vars';
 
 .mentionslegales {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
-  padding: 1em 3em;
+  padding: 1rem 1rem;
   min-height: 80vh;
   max-height: 80vh;
   overflow-y: scroll;
@@ -26,8 +27,29 @@
   }
 }
 
+.dark {
+  transition: 0.2s;
+
+  &.mentionslegales {
+    background-color: vars.$mainBackgroundDark;
+
+    &__p {
+      color: white;
+    }
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__subtitle {
+      color: vars.$mainColor;
+    }
+
+  }
+}
+
 p {
-  padding: 0 6em;
+  // padding: 0 6em;
   text-align: center;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.4rem;
 }

@@ -1,10 +1,16 @@
 @use '../../../styles/vars';
 
-.inscriptionRecruter {
+.inscriptionRecruiter {
+  transition: 0.2s;
   background-color: vars.$mainBackground;
   margin: 0 auto;
   padding: 1em 3em;
   min-height: 80vh;
+  // overflow: hidden;
+  // background-image: url('../../../assets/images/backgroundMain.png');
+  // background-repeat: no-repeat;
+  // background-position: bottom;
+  // background-size: 150%;
 
   @media (max-width: 768px) {
     padding: 1em 1em;
@@ -36,24 +42,21 @@
     width: 12rem;
     height: 12rem;
     border-radius: 12rem;
-    border: 1px solid vars.$mainFontGrey;
-    background-color: vars.$mainFontGrey;
+    border: 1px solid vars.$mainColor;
 
     &--avatar {
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      cursor: pointer;
+      width: 90%;
     }
 
     &--button {
+      margin-top: 0.7em;
       z-index: 0;
       position: absolute;
       background-color: vars.$mainColor;
       width: fit-content;
       border: none;
-      font-size: 1.4rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
       color: vars.$mainBackground;
     }
   }
@@ -61,9 +64,38 @@
   &__form {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
 
+    &__avatarContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 15rem;
+
+      & img {
+        width: 7rem;
+        margin-bottom: 1rem;
+      }
+
+      & button {
+        border: none;
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+        padding: 8px 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s;
+        margin-bottom: 1rem;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: transform 0.3s;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+    }
 
     &__champ {
       width: 50rem;
@@ -93,11 +125,48 @@
         width: 320px;
       }
 
+
+      &__searchCity {
+        position: absolute;
+        z-index: 3;
+        height: 90px;
+        width: 300px;
+        bottom: 3.1rem;
+        background-color: white;
+        border: 1px solid vars.$mainFontGrey;
+        border-radius: 4px;
+        // width: 80rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        &--item {
+
+          &:hover {
+            color: vars.$mainColor;
+          }
+        }
+      }
+
+      &__searchCity {
+
+        &--input {
+          width: 60%;
+          height: 100%;
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainBackground;
+          border-radius: 8px;
+        }
+      }
+
       &--radio {
         width: 40%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: vars.$mainColor;
 
 
         &--item {
@@ -115,9 +184,10 @@
       &--input {
         width: 60%;
         height: 100%;
-        border: 2px solid vars.$mainFontGrey;
+        border: 2px solid vars.$mainColor;
         padding: 0 1rem vars.$mainFontGrey;
         background-color: vars.$mainBackground;
+        border-radius: 8px;
 
         @media (max-width: 768px) {
           width: 40%;
@@ -183,4 +253,101 @@
 
   }
 
+}
+
+.dark {
+  transition: 0.2s;
+
+  &.inscriptionRecruiter {
+    background-color: vars.$mainBackgroundDark;
+
+    &__title {
+      color: vars.$mainColor;
+    }
+
+    &__header {
+      border: 1px solid vars.$mainColor;
+
+      &--avatar {}
+
+      &--button {
+        background-color: vars.$mainColor;
+        color: vars.$mainBackground;
+      }
+    }
+
+    &__form {
+      &__avatarContainer {
+        & img {}
+
+        & button {
+          background-color: vars.$mainColor;
+          color: vars.$mainBackground;
+        }
+      }
+
+      &__champ {
+        &__searchCity {
+          background-color: white;
+          border: 1px solid vars.$mainFontGrey;
+
+          &--item {
+            &:hover {
+              color: vars.$mainColor;
+            }
+          }
+        }
+
+        &__searchCity {
+          &--input {
+            border: 2px solid vars.$mainColor;
+            padding: 0 1rem vars.$mainFontGrey;
+            background-color: vars.$mainBackground;
+          }
+        }
+
+        &--radio {
+          color: vars.$mainColor;
+
+          &--item {
+            & input {}
+          }
+        }
+
+        &--label {
+          color: vars.$mainFontSecondaryDark;
+        }
+
+        &--input {
+          border: 2px solid vars.$mainColor;
+          padding: 0 1rem vars.$mainFontGrey;
+          background-color: vars.$mainFontSecondaryDark;
+        }
+
+        &--img {}
+      }
+
+      &__buttons {
+        &__button {
+          &--valid {
+            background-color: vars.$mainColor;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          &--cancel {
+            background-color: vars.$cancelOptionDark;
+            color: vars.$mainBackground;
+
+            &:hover {
+              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -44,7 +44,13 @@ const verifiedEmail = (store) => (next) => (action) => {
     }
 
     case RESEND_VERIFICATION: {
-      axios.post('http://localhost:8080/email/request-verification')
+      // axios.post('http://localhost:8080/email/request-verification')
+      const url = `${baseUrl}/api/email/verify`;
+      const tok = action.token;
+      const params = {
+        token: tok,
+      };
+      axios.post(url, params)
         .then(() => {
           // console.log(response.data);
         }).catch((error) => {

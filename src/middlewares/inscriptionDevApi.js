@@ -80,7 +80,7 @@ const inscriptionDevApi = (store) => (next) => (action) => {
       )
         .then(() => {
           // console.log(response.data);
-          // console.log('formulaire envoyé');
+          console.log('formulaire envoyé');
         }).catch((error) => {
           console.log(error.response.data);
         });

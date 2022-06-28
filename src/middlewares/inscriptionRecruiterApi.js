@@ -56,7 +56,7 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
           firstname: firstname,
           city: city,
           // zip_code: zipCode,
-          zip_code: 14500,
+          // zip_code: 14500,
           // department: department,
           department: 15,
           email_address: email,
@@ -75,7 +75,7 @@ const inscriptionRecruiterApi = (store) => (next) => (action) => {
       )
         .then(() => {
           // console.log(response.data);
-          // console.log('formulaire envoyé');
+          console.log('formulaire envoyé');
         }).catch((error) => {
           console.log(error.response.data);
         });

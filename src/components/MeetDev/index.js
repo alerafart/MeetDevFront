@@ -176,13 +176,13 @@ function MeetDev() {
             )}
                 />
                 <Route
-                  path="www.meetdev.henriteint.fr/*"
+                  path="www.meetdev.alerafart.com/*"
                   element={(
                     <Error />
             )}
                 />
                 <Route
-                  path="meetdev.henriteint.fr/*"
+                  path="meetdev.alerafart.com/*"
                   element={(
                     <Error />
             )}

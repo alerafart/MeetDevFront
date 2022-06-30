@@ -4,10 +4,11 @@ import axios from 'axios';
 import { VALIDATE_MODIFY_DEV } from '../actions/middleware';
 // == Import action creator
 import { majProfilDevFromApi } from '../actions/profilDev';
+
 /*
-    permet de récupérer dans la variable d'environnement (.env)
-    l'url du serveur selon que l'on soit en production ou en dévelopment.
-  */
+  permet de récupérer dans la variable d'environnement (.env)
+  l'url du serveur selon que l'on soit en production ou en dévelopment.
+*/
 let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   // console.log(process.env.REACT_APP_PUBLIC_DEV_URL);
@@ -77,7 +78,6 @@ const ModifyDevApi = (store) => (next) => (action) => {
       };
 
       const url = `${baseUrl}/api/secure/users/${userId}`;
-      // console.log('ligne 68');
       axios.put(url, params, config).then(() => {
         // console.log(response.data);
         // console.log('modification envoyé');
@@ -85,7 +85,7 @@ const ModifyDevApi = (store) => (next) => (action) => {
         // console.log(developperModifie);
         store.dispatch(majProfilDevFromApi(developperModifie));
         // navigate('/profil');
-        // TODO BACK VA COIRRIGER POUR ME RENVOYER LES INFOS AVEC LA REPONSE
+        // TODO BACK VA CORRIGER POUR ME RENVOYER LES INFOS AVEC LA REPONSE
       }).catch((error) => {
         console.log(error);
         console.log('modification echec');

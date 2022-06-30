@@ -57,63 +57,7 @@ function Search() {
               </div>
               <input className="search__filter__champ--input" type="text" name="city" value={search.city} />
             </div>
-            {/*  <div className="search__filter__champ">
-              <div className="search__filter__champ--label">
-                Technologie
-              </div>
-              <select className="search__filter__champ--input"
-              value={search.technology} name="technology">
-                <option value="">{null}</option>
-                <option value="Symfony" selected>Symfony</option>
-                <option value="React">React</option>
-                <option value="PHP">PHP</option>
-              </select>
-            </div> */}
-            {/* <div className="search__filter__champ">
-            <div className={isDark ? 'search__filter__champ--label dark' :
-            'search__filter__champ--label'}>
-                Expérience
-              </div>
-              <div className="search__filter__champ--radio" onChange={handleChangeForm}>
-                <label className={isDark ? 'search__filter__champ--radio--item dark' :
-                'search__filter__champ--radio--item'} htmlFor="exp1">
-                  <input type="radio" value="1" name="experience" defaultchecked={search.
-                  experience === '- 1 an'} />
-                  - 1 an
-                </label>
-                <label className={isDark ? 'search__filter__champ--radio--item dark' :
-                'search__filter__champ--radio--item'} htmlFor="exp2">
-                <input type="radio" value="2" name="experience"
-                checked={search.experience === '1 à 3 ans'} />
-                  1 à 3 ans
-                </label>
-                <label className={isDark ?
-              'search__filter__champ--radio--item dark' :
-              'search__filter__champ--radio--item'} htmlFor="exp3">
-              <input type="radio" name="experience" value="3"
-              checked={search.experience === '+ 3ans'} />
-                  + 3 ans
-                </label>
-              </div>
-            </div> */}
-            {/*  <div className="search__filter__champ">
-              <div className="search__filter__champ--label">
-                Disponibilité
-              </div>
-              <div className="search__filter__champ--radio" onChange={handleChangeForm}>
-                <label className="search__filter__champ--radio--item" htmlFor="immediatly">
-                  <input type="radio" value="immediate" name="availability"
 
-                  checked={search.availability === 'immediate'} />
-                  Immédiate
-                </label>
-                <label className="search__filter__champ--radio--item" htmlFor="soon">
-                  <input type="radio" value="3 mois" name="availability"
-                  checked={search.availability === '3 mois'} />
-                  3 mois
-                </label>
-              </div>
-            </div> */}
             { /* button to search developer with filter */}
             <button
               type="submit"
@@ -138,13 +82,7 @@ function Search() {
                 user={user}
               />
             ))}
-            {/* {favoritesArray?.map(
-              (favorite) => (
 
-                <Card favorite={favorite} key={favorite.data.id} />
-
-              ),
-            )} */}
           </div>
 
         </div>

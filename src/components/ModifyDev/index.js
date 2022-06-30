@@ -200,31 +200,7 @@ function ModifyDev() {
           </div>
           <input className="inscription__form__champ--input" type="mail" name="email" value={data.email} />
         </div>
-        {/* <div className="inscription__form__champ">
-          <div className={isDark ?
-          'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
-            Vérif Mail
-          </div>
-          <input className="inscription__form__champ--input"
-          type="mail" name="emailTest" value={data.emailTest} onChange={handleChangeForm} />
-        </div> */}
-        {/* <div className="inscription__form__champ">
-          <div className={isDark ?
-          'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
-            Mdp
-          </div>
-          <input className="inscription__form__champ--input"
-          type="password" name="password" value={data.password} o />
-        </div> */}
-        {/* <div className="inscription__form__champ">
-          <div className={isDark ?
-           'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
-            Vérif Mdp
-          </div>
-          <input className="inscription__form__champ--input"
-          type="password" name="verifypassword"
-          value={data.verifpassword} onChange={handleChangeForm} />
-        </div> */}
+
         <div className="inscription__form__champ">
           <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
             Anglais
@@ -263,12 +239,6 @@ function ModifyDev() {
             Choisir ma Stack
           </button>
 
-          {/* <select value={data.technology} className="inscription__form__champ--input"
-          name="technology" onChange={handleChangeForm}>
-                  <option value="">{null}</option>
-                  <option>React</option>
-                  <option>Symfony</option>
-                </select> */}
         </div>
         <div className="inscription__form__champ">
           <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
@@ -307,11 +277,6 @@ function ModifyDev() {
         </div>
         <div className="inscription__form__champ">
           <div className={isDark ? 'inscription__form__champ--label dark' : 'inscription__form__champ--label'}>
-            {/* <img
-              className="inscription__form__champ--img"
-              src={github}
-              alt="logo github"
-            /> */}
 
             <FaGithub className={isDark ? 'inscription__form__champ--label--img' : 'inscription__form__champ--img'} />
 
@@ -324,13 +289,6 @@ function ModifyDev() {
           </div>
           <input name="portfolio" className="inscription__form__champ--input" type="text" value={data.portfolio} onChange={handleChangeForm} />
         </div>
-        <div className="inscription__form__champ">
-          {/* <div className="inscription__form__champ--label">
-                  PortFolio
-                </div>
-                <input name="portfolio" className="inscription__form__champ--input"
-                type="text" value={register.portfolio} onChange={handleChangeForm} /> */}
-        </div>
         <div className="inscription__form__buttons">
           <Link to="/profil">
             {/* button to save data and display user profile */}
@@ -338,8 +296,6 @@ function ModifyDev() {
               type="submit"
               className="inscription__form__buttons__button--valid"
               onClick={() => {
-                // dispatch(inscriptionDev());
-                // dispatch(toggleWindowLog());
                 dispatch(validateModifyDev());
                 window.scrollTo(0, 0);
               }}

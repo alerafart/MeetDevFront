@@ -23,7 +23,7 @@ function Title({
   const isDark = useSelector((state) => state.settings.navigation.darkMode);
   const dispatch = useDispatch();
 
-  // select how avatar to display
+  // select avatar to display
   let avatar;
   if (user.data.profile_picture === 'manAvatar1') {
     avatar = manAvatar1;
